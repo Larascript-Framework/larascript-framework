@@ -17,7 +17,7 @@ export interface ITestsBlogPostsData extends IModelAttributes {
 
 export const resetTable = async (connections: string[] = testHelper.getTestConnectionNames()) => {
     for (const connectionName of connections) {
-        const schema = app('schema').schema(connectionName);
+        const schema = app('db').schema(connectionName);
         if (await schema.tableExists(tableName)) {
             await schema.dropTable(tableName);
         }

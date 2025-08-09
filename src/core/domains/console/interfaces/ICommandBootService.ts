@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
-import { KernelOptions } from "@src/core/Kernel";
+
+import { KernelOptions } from "@ben-shepherd/larascript-core-bundle";
 
 /**
  * Interface for a service that can boot the console interface
