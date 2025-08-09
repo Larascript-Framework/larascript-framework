@@ -1,4 +1,4 @@
-import { IEnvService } from '@ben-shepherd/larascript-core-bundle';
+import { IEnvService, IPackageJsonService } from '@ben-shepherd/larascript-core-bundle';
 import { ILoggerService } from '@ben-shepherd/larascript-logger-bundle';
 import { IBasicACLService } from '@src/core/domains/accessControl/interfaces/IACLService';
 import { IJwtAuthService } from '@src/core/domains/auth/interfaces/jwt/IJwtAuthService';
@@ -25,7 +25,8 @@ export interface ILarascriptProviders {
      * Services
      * TODO: place all services  here
      */
-    envService: IEnvService,
+    envService: IEnvService;
+    packageJsonService: IPackageJsonService;
 
     /**
      * Event Dispatcher Service
