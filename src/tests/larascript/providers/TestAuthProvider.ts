@@ -20,8 +20,6 @@ export default class TestAuthProvider extends AuthProvider {
                 createUser: TestCreateUserValidator,
                 updateUser: TestUpdateUserValidator
             },
-
-
             routes: {
                 enabled: true,
                 endpoints: {
@@ -33,8 +31,8 @@ export default class TestAuthProvider extends AuthProvider {
                 }
             },
             settings: {
-                secret: process.env.JWT_SECRET as string ?? '',
-                expiresInMinutes: process.env.JWT_EXPIRES_IN_MINUTES ? parseInt(process.env.JWT_EXPIRES_IN_MINUTES) : 60,
+                secret: 'test-jwt-secret',
+                expiresInMinutes: 60,
             }
         })
     ])
