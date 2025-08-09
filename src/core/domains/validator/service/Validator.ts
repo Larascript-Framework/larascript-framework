@@ -1,10 +1,10 @@
+import { DotNotationDataExtrator } from "@ben-shepherd/larascript-utils-bundle";
 import { IHttpContext } from "@src/core/domains/http/interfaces/IHttpContext";
 import ValidatorResult from "@src/core/domains/validator/data/ValidatorResult";
 import ValidatorException from "@src/core/domains/validator/exceptions/ValidatorException";
 import { IRule, IRulesObject } from "@src/core/domains/validator/interfaces/IRule";
 import { IValidator, IValidatorAttributes, IValidatorFn, IValidatorMessages } from "@src/core/domains/validator/interfaces/IValidator";
 import { IValidatorResult } from "@src/core/domains/validator/interfaces/IValidatorResult";
-import DotNotationDataExtrator from "@src/core/util/data/DotNotation/DataExtractor/DotNotationDataExtrator";
 
 /**
  * Short hand for creating a new validator on the fly

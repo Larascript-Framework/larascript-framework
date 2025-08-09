@@ -287,8 +287,8 @@
     winston "^3.17.0"
 
 "@ben-shepherd/larascript-utils-bundle@github:ben-shepherd/larascript-utils-bundle":
-  version "1.0.2"
-  resolved "git+ssh://git@github.com/ben-shepherd/larascript-utils-bundle.git#3f87fe8305779387692f893491ee380e52f4d79a"
+  version "1.0.3"
+  resolved "git+ssh://git@github.com/ben-shepherd/larascript-utils-bundle.git#d9d463c08119757390204f9bcd18db26be92414e"
 
 "@colors/colors@^1.6.0", "@colors/colors@1.6.0":
   version "1.6.0"
