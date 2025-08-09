@@ -1,4 +1,4 @@
-import { Castable, TCastableType, TClassConstructor } from '@ben-shepherd/larascript-utils-bundle';
+import { Castable, Str, TCastableType, TClassConstructor } from '@ben-shepherd/larascript-utils-bundle';
 import Collection from '@src/core/domains/collections/Collection';
 import { cryptoService } from '@src/core/domains/crypto/service/CryptoService';
 import { IDatabaseSchema } from '@src/core/domains/database/interfaces/IDatabaseSchema';
@@ -16,10 +16,6 @@ import { IObserver, IObserverEvent } from '@src/core/domains/observer/interfaces
 import IFactory, { FactoryConstructor } from '@src/core/interfaces/IFactory';
 import ProxyModelHandler from '@src/core/models/utils/ProxyModelHandler';
 import { app } from '@src/core/services/App';
-import Str from '@src/core/util/str/Str';
-
-
-
 
 /**
  * Abstract base class for database models.

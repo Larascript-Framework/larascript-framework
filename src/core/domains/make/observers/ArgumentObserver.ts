@@ -1,7 +1,7 @@
+import { Str } from "@ben-shepherd/larascript-utils-bundle";
 import { IMakeFileArguments } from "@src/core/domains/make/interfaces/IMakeFileArguments";
 import { IMakeOptions } from "@src/core/domains/make/interfaces/IMakeOptions";
 import Observer from "@src/core/domains/observer/services/Observer";
-import Str from "@src/core/util/str/Str";
 
 /**
  * ArgumentObserver is responsible for modifying the make file arguments

@@ -1,7 +1,7 @@
+import { Str } from '@ben-shepherd/larascript-utils-bundle';
 import { IMigration } from '@src/core/domains/migrations/interfaces/IMigration';
 import FileNotFoundError from '@src/core/exceptions/FileNotFoundError';
 import checksumFile from '@src/core/util/checksum';
-import Str from '@src/core/util/str/Str';
 import fs from 'fs';
 import path from 'path';
 

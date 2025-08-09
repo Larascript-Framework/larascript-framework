@@ -1,6 +1,6 @@
+import { forceString } from "@ben-shepherd/larascript-utils-bundle";
 import { IHasHttpContext, IHttpContext } from "@src/core/domains/http/interfaces/IHttpContext";
 import { IRule, IRuleError } from "@src/core/domains/validator/interfaces/IRule";
-import forceString from "@src/core/util/str/forceString";
 
 /**
  * Abstract base class for validation rules.

@@ -1,3 +1,4 @@
+import { Str } from "@ben-shepherd/larascript-utils-bundle";
 import BaseCommand from "@src/core/domains/console/base/BaseCommand";
 import CommandExecutionException from "@src/core/domains/console/exceptions/CommandExecutionException";
 import { IMakeFileArguments } from "@src/core/domains/make/interfaces/IMakeFileArguments";
@@ -5,7 +6,6 @@ import { IMakeOptions } from "@src/core/domains/make/interfaces/IMakeOptions";
 import ArgumentObserver from "@src/core/domains/make/observers/ArgumentObserver";
 import MakeFileService from "@src/core/domains/make/services/MakeFileService";
 import { app } from "@src/core/services/App";
-import Str from "@src/core/util/str/Str";
 
 const DefaultOptions: Partial<IMakeOptions> = {
     startWithLowercase: false
