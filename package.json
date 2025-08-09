@@ -34,6 +34,7 @@
   "dependencies": {
     "@ben-shepherd/larascript-core-bundle": "github:ben-shepherd/larascript-core-bundle",
     "@ben-shepherd/larascript-logger-bundle": "github:ben-shepherd/larascript-logger-bundle",
+    "@ben-shepherd/larascript-utils-bundle": "github:ben-shepherd/larascript-utils-bundle",
     "aws-sdk": "^2.1692.0",
     "bcryptjs": "^2.4.3",
     "collect.js": "^4.36.1",

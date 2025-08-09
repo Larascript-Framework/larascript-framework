@@ -1,4 +1,4 @@
-import { TCastableType } from "@src/core/domains/cast/interfaces/IHasCastableConcern";
+import { TCastableType } from "@ben-shepherd/larascript-utils-bundle";
 import Model from "@src/core/domains/models/base/Model";
 import { IModelAttributes } from "@src/core/domains/models/interfaces/IModel";
 import { app } from "@src/core/services/App";

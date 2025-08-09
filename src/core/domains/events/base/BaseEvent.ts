@@ -1,6 +1,5 @@
 import { AppSingleton } from "@ben-shepherd/larascript-core-bundle";
-import BaseCastable from "@src/core/domains/cast/base/BaseCastable";
-import { TCastableType, TCasts } from "@src/core/domains/cast/interfaces/IHasCastableConcern";
+import { BaseCastable, TCastableType, TCasts } from "@ben-shepherd/larascript-utils-bundle";
 import EventInvalidPayloadException from "@src/core/domains/events/exceptions/EventInvalidPayloadException";
 import { IBaseEvent } from "@src/core/domains/events/interfaces/IBaseEvent";
 import IEventDriver from "@src/core/domains/events/interfaces/IEventDriver";

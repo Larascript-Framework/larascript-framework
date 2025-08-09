@@ -275,14 +275,20 @@
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
 "@ben-shepherd/larascript-core-bundle@github:ben-shepherd/larascript-core-bundle":
-  version "1.0.20"
-  resolved "git+ssh://git@github.com/ben-shepherd/larascript-core-bundle.git#44b692034d10db762d09cb2d7b7cdc196f27f941"
+  version "1.0.21"
+  resolved "git+ssh://git@github.com/ben-shepherd/larascript-core-bundle.git#bf883ab5102551e9bdd56f63b32c2581793cb1cd"
+  dependencies:
+    "@ben-shepherd/larascript-utils-bundle" "github:ben-shepherd/larascript-utils-bundle"
 
 "@ben-shepherd/larascript-logger-bundle@github:ben-shepherd/larascript-logger-bundle":
   version "1.0.1"
   resolved "git+ssh://git@github.com/ben-shepherd/larascript-logger-bundle.git#dfa7c3b7e0104fa70a9b313f67e5502dff5668f6"
   dependencies:
     winston "^3.17.0"
+
+"@ben-shepherd/larascript-utils-bundle@github:ben-shepherd/larascript-utils-bundle":
+  version "1.0.2"
+  resolved "git+ssh://git@github.com/ben-shepherd/larascript-utils-bundle.git#3f87fe8305779387692f893491ee380e52f4d79a"
 
 "@colors/colors@^1.6.0", "@colors/colors@1.6.0":
   version "1.6.0"

@@ -1,5 +1,5 @@
-import { TCastableType } from '@src/core/domains/cast/interfaces/IHasCastableConcern';
-import Castable from '@src/core/domains/cast/service/Castable';
+import { Castable, TCastableType, TClassConstructor } from '@ben-shepherd/larascript-utils-bundle';
+import Collection from '@src/core/domains/collections/Collection';
 import { cryptoService } from '@src/core/domains/crypto/service/CryptoService';
 import { IDatabaseSchema } from '@src/core/domains/database/interfaces/IDatabaseSchema';
 import { db } from '@src/core/domains/database/services/Database';
@@ -13,12 +13,10 @@ import { GetAttributesOptions, IModel, IModelAttributes, IModelEvents, IModelLif
 import ModelScopes, { TModelScope } from '@src/core/domains/models/utils/ModelScope';
 import { ObserveConstructor } from '@src/core/domains/observer/interfaces/IHasObserver';
 import { IObserver, IObserverEvent } from '@src/core/domains/observer/interfaces/IObserver';
-import { TClassConstructor } from '@src/core/interfaces/ClassConstructor.t';
 import IFactory, { FactoryConstructor } from '@src/core/interfaces/IFactory';
 import ProxyModelHandler from '@src/core/models/utils/ProxyModelHandler';
 import { app } from '@src/core/services/App';
 import Str from '@src/core/util/str/Str';
-import Collection from '@src/core/domains/collections/Collection';
 
 
 
