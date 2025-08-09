@@ -1,8 +1,9 @@
+import { returnOrThrow } from "@ben-shepherd/larascript-utils-bundle";
 import InvalidDocument from "@src/core/domains/database/exceptions/UnidentifiableDocument";
 import { IDatabaseDocument } from "@src/core/domains/database/interfaces/IDocumentManager";
 import { IDocumentValidator } from "@src/core/domains/database/interfaces/IDocumentValidator";
-import returnOrThrow from "@src/core/util/returns/returnOrThrow";
 import { z } from "zod";
+
 
 class DocumentValidator implements IDocumentValidator {
 
