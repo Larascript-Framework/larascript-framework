@@ -1,4 +1,4 @@
-import { EnvironmentTesting, EnvironmentType } from '@src/core/consts/Environment';
+import { EnvironmentTesting, EnvironmentType } from "@ben-shepherd/larascript-core-bundle";
 
 require('dotenv').config();
 

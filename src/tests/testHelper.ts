@@ -1,5 +1,4 @@
-import { Kernel, KernelConfig } from "@ben-shepherd/larascript-core-bundle";
-import { EnvironmentTesting } from "@src/core/consts/Environment";
+import { EnvironmentTesting, Kernel, KernelConfig } from "@ben-shepherd/larascript-core-bundle";
 import AccessControlProvider from "@src/core/domains/accessControl/providers/AccessControlProvider";
 import EloquentQueryProvider from "@src/core/domains/eloquent/providers/EloquentQueryProvider";
 import LoggerProvider from "@src/core/domains/logger/providers/LoggerProvider";

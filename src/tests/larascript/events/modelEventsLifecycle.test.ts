@@ -1,8 +1,7 @@
 /* eslint-disable no-undef */
-import { Kernel, KernelConfig } from '@ben-shepherd/larascript-core-bundle';
+import { EnvironmentTesting, Kernel, KernelConfig } from '@ben-shepherd/larascript-core-bundle';
 import { describe } from '@jest/globals';
 import { EVENT_DRIVERS } from '@src/config/events.config';
-import { EnvironmentTesting } from '@src/core/consts/Environment';
 import EloquentQueryProvider from '@src/core/domains/eloquent/providers/EloquentQueryProvider';
 import BaseEvent from '@src/core/domains/events/base/BaseEvent';
 import SyncDriver from '@src/core/domains/events/drivers/SyncDriver';
