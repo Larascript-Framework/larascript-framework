@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
+import { deepClone } from "@ben-shepherd/larascript-utils-bundle";
 import { TColumnOption, TGroupBy, TJoin, TLogicalOperator, TOffsetLimit, TOperator, TOrderBy, TWhereClause, TWhereClauseValue, TWith } from "@src/core/domains/eloquent/interfaces/IEloquent";
 import IEloquentExpression from "@src/core/domains/eloquent/interfaces/IEloquentExpression";
-import { deepClone } from "@src/core/util/deepClone";
 
 export type BuildType = 'select' | 'insert' | 'update' | 'delete';
 export type NullableObjectOrArray = object | object[] | null;
