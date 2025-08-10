@@ -1,7 +1,9 @@
-import { AbstractRule, IRule } from "@ben-shepherd/larascript-validator-bundle";
+import { IRule } from "@ben-shepherd/larascript-validator-bundle";
+
+import ExtendedAbstractRule from "../abstract/ExtendedAbstractRule";
 
 
-class HasFileRule extends AbstractRule implements IRule {
+class HasFileRule extends ExtendedAbstractRule implements IRule {
 
     protected name: string = 'hasFile'
 

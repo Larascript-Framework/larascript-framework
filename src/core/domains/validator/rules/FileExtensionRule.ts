@@ -1,13 +1,15 @@
 
-import { AbstractRule, IRule, IRuleError } from "@ben-shepherd/larascript-validator-bundle";
+import { IRule, IRuleError } from "@ben-shepherd/larascript-validator-bundle";
 import { TUploadedFile } from "@src/core/domains/http/interfaces/UploadedFile";
 import path from "path";
+
+import ExtendedAbstractRule from "../abstract/ExtendedAbstractRule";
 
 type Options = {
     ext: string | string[]
 }
 
-class FileExtensionRule extends AbstractRule<Options> implements IRule {
+class FileExtensionRule extends ExtendedAbstractRule<Options> implements IRule {
 
     protected name: string = 'fileExtension'
 

@@ -1,13 +1,15 @@
 
-import { AbstractRule, IRule, IRuleError } from "@ben-shepherd/larascript-validator-bundle";
+import { IRule, IRuleError } from "@ben-shepherd/larascript-validator-bundle";
 import { TUploadedFile } from "@src/core/domains/http/interfaces/UploadedFile";
+
+import ExtendedAbstractRule from "../abstract/ExtendedAbstractRule";
 
 type Options = {
     minKB: number;
     minMB: number;
 }
 
-class MinFileSizeRule extends AbstractRule<Options> implements IRule {
+class MinFileSizeRule extends ExtendedAbstractRule<Options> implements IRule {
 
     protected name: string = 'minFileSize'
 

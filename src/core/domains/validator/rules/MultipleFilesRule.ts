@@ -1,7 +1,9 @@
-import { AbstractRule, IRule } from "@ben-shepherd/larascript-validator-bundle";
+import { IRule } from "@ben-shepherd/larascript-validator-bundle";
+
+import ExtendedAbstractRule from "../abstract/ExtendedAbstractRule";
 
 
-class MultipleFilesRule extends AbstractRule implements IRule {
+class MultipleFilesRule extends ExtendedAbstractRule implements IRule {
 
     protected name: string = 'multipleFiles'
 

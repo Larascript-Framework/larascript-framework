@@ -24,8 +24,11 @@ class ValidatorMiddleware extends Middleware {
         }
 
         for (const validatorConstructor of validatorConstructors) {
+            
             const validator = new validatorConstructor();
-            validator.setHttpContext(context)
+            validator.setRuleContext({ 
+                httpContext: context
+            })
 
             const data = context.getValidatorBody()
             const result = await validator.validate(data);

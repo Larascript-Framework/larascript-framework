@@ -1,7 +1,9 @@
-import { AbstractRule, IRule } from "@ben-shepherd/larascript-validator-bundle";
+import { IRule } from "@ben-shepherd/larascript-validator-bundle";
 import { IEloquent, TOperator, TWhereClause, TWhereClauseValue } from "@src/core/domains/eloquent/interfaces/IEloquent";
 import { queryBuilder } from "@src/core/domains/eloquent/services/EloquentQueryBuilderService";
 import { ModelConstructor } from "@src/core/domains/models/interfaces/IModel";
+
+import ExtendedAbstractRule from "./ExtendedAbstractRule";
 
 /**
  * Options for configuring an AbstractDatabaseRule
@@ -16,7 +18,7 @@ type TAbstractDatabaseRuleOptions = {
  * 
  * @template Options - The configuration options type extending TAbstractDatabaseRuleOptions
  */
-abstract class AbstractDatabaseRule<Options extends TAbstractDatabaseRuleOptions> extends AbstractRule<Options> implements IRule {
+abstract class AbstractDatabaseRule<Options extends TAbstractDatabaseRuleOptions> extends ExtendedAbstractRule<Options> implements IRule {
 
     /**
      * The query builder instance used to construct database queries

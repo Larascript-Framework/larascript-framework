@@ -1,13 +1,15 @@
 
-import { AbstractRule, IRule, IRuleError } from "@ben-shepherd/larascript-validator-bundle";
+import { IRule, IRuleError } from "@ben-shepherd/larascript-validator-bundle";
 import { TUploadedFile } from "@src/core/domains/http/interfaces/UploadedFile";
+
+import ExtendedAbstractRule from "../abstract/ExtendedAbstractRule";
 
 type Options = {
     startsWith?: string;
     mimeType?: string | string[]
 }
 
-class FileMimeType extends AbstractRule<Options> implements IRule {
+class FileMimeType extends ExtendedAbstractRule<Options> implements IRule {
 
     protected name: string = 'fileMimeType'
 
