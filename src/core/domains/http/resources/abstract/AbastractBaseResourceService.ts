@@ -1,4 +1,5 @@
 
+import { CustomValidatorConstructor, IValidatorErrors } from "@ben-shepherd/larascript-validator-bundle";
 import { IUserModel } from "@src/core/domains/auth/interfaces/models/IUserModel";
 import { auth } from "@src/core/domains/auth/services/AuthService";
 import { authJwt } from "@src/core/domains/auth/services/JwtAuthService";
@@ -13,7 +14,6 @@ import ResourceOwnerRule from "@src/core/domains/http/security/rules/ResourceOwn
 import SecurityReader from "@src/core/domains/http/security/services/SecurityReader";
 import Paginate from "@src/core/domains/http/utils/Paginate";
 import { IModel, ModelConstructor } from "@src/core/domains/models/interfaces/IModel";
-import { CustomValidatorConstructor, IValidatorErrors } from "@src/core/domains/validator/interfaces/IValidator";
 
 type TResponseOptions = {
     showPagination: boolean;
@@ -227,7 +227,9 @@ abstract class AbastractBaseResourceService {
         }
 
         const validator = new validatorConstructor()
-        validator.setHttpContext(context)
+        validator.setRuleContext({
+            httpContext: context
+        })
         
         const data = context.getValidatorBody()
         const result = await validator.validate(data)

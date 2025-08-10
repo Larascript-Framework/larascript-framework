@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
+import { CustomValidatorConstructor } from "@ben-shepherd/larascript-validator-bundle";
 import { ControllerConstructor } from "@src/core/domains/http/interfaces/IController";
 import { TExpressMiddlewareFnOrClass } from "@src/core/domains/http/interfaces/IMiddleware";
 import { ISecurityRule } from "@src/core/domains/http/interfaces/ISecurity";
 import SecurityRules from "@src/core/domains/http/security/services/SecurityRules";
 import { TSortDirection } from "@src/core/domains/http/utils/SortOptions";
 import { IModel, ModelConstructor } from "@src/core/domains/models/interfaces/IModel";
-import { CustomValidatorConstructor } from "@src/core/domains/validator/interfaces/IValidator";
 
 export type RouteConstructor = {
     new (...args: any[]): IRouter;

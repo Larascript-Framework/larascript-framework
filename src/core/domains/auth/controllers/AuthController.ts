@@ -1,3 +1,4 @@
+import { ValidatorException } from "@ben-shepherd/larascript-validator-bundle";
 import ForbiddenResourceError from "@src/core/domains/auth/exceptions/ForbiddenResourceError";
 import UnauthorizedError from "@src/core/domains/auth/exceptions/UnauthorizedError";
 import LoginUseCase from "@src/core/domains/auth/usecase/LoginUseCase";
@@ -10,7 +11,6 @@ import Controller from "@src/core/domains/http/base/Controller";
 import HttpContext from "@src/core/domains/http/context/HttpContext";
 import responseError from "@src/core/domains/http/handlers/responseError";
 import ApiResponse from "@src/core/domains/http/response/ApiResponse";
-import ValidatorException from "@src/core/domains/validator/exceptions/ValidatorException";
 
 /**
  * Controller handling authentication-related HTTP endpoints.

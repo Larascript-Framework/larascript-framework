@@ -1,10 +1,9 @@
 
-import { IValidatorResult } from "@ben-shepherd/larascript-validator-bundle";
+import { IValidatorResult, ValidatorResult } from "@ben-shepherd/larascript-validator-bundle";
 import UnauthorizedError from "@src/core/domains/auth/exceptions/UnauthorizedError";
 import { auth } from "@src/core/domains/auth/services/AuthService";
 import HttpContext from "@src/core/domains/http/context/HttpContext";
 import ApiResponse from "@src/core/domains/http/response/ApiResponse";
-import ValidatorResult from "@src/core/domains/validator/data/ValidatorResult";
 
 /**
  * UpdateUseCase handles user profile updates

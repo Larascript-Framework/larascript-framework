@@ -1,11 +1,5 @@
+import { BaseCustomValidator, EmailRule, IRulesObject, MinRule, NullableRule, RequiredRule, StringRule } from "@ben-shepherd/larascript-validator-bundle";
 import User from "@src/app/models/auth/User";
-import BaseCustomValidator from "@src/core/domains/validator/base/BaseCustomValidator";
-import { IRulesObject } from "@src/core/domains/validator/interfaces/IRule";
-import EmailRule from "@src/core/domains/validator/rules/EmailRule";
-import MinRule from "@src/core/domains/validator/rules/MinRule";
-import NullableRule from "@src/core/domains/validator/rules/NullableRule";
-import RequiredRule from "@src/core/domains/validator/rules/RequiredRule";
-import StringRule from "@src/core/domains/validator/rules/StringRule";
 import UniqueRule from "@src/core/domains/validator/rules/UniqueRule";
 
 class CreateUserValidator extends BaseCustomValidator {
