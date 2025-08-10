@@ -1,8 +1,8 @@
+import { Observer } from "@ben-shepherd/larascript-observer-bundle";
 import UserCreatedListener from "@src/app/events/listeners/UserCreatedListener";
 import { UserAttributes } from "@src/app/models/auth/User";
 import { cryptoService } from "@src/core/domains/crypto/service/CryptoService";
 import { IBaseEvent } from "@src/core/domains/events/interfaces/IBaseEvent";
-import Observer from "@src/core/domains/observer/services/Observer";
 import { TClassConstructor } from "@src/core/interfaces/ClassConstructor.t";
 import { app } from "@src/core/services/App";
 

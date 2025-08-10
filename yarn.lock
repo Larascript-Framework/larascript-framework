@@ -286,6 +286,10 @@
   dependencies:
     winston "^3.17.0"
 
+"@ben-shepherd/larascript-observer-bundle@github:ben-shepherd/larascript-observer-bundle":
+  version "1.0.0"
+  resolved "git+ssh://git@github.com/ben-shepherd/larascript-observer-bundle.git#555e9b143bc47dffe68788b6a98d47ac75ca267e"
+
 "@ben-shepherd/larascript-utils-bundle@github:ben-shepherd/larascript-utils-bundle":
   version "1.0.5"
   resolved "git+ssh://git@github.com/ben-shepherd/larascript-utils-bundle.git#d986191043e6b93adb3733d41658abeca11ab0ac"

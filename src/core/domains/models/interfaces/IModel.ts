@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
+import { IHasObserver } from "@ben-shepherd/larascript-observer-bundle";
 import { IdGeneratorFn } from "@src/core/domains/eloquent/interfaces/IEloquent";
 import { EventConstructor } from "@src/core/domains/events/interfaces/IEventConstructors";
 import { TModelScope } from "@src/core/domains/models/utils/ModelScope";
-import IHasObserver from "@src/core/domains/observer/interfaces/IHasObserver";
 import IFactory from "@src/core/interfaces/IFactory";
 
 export type GetAttributesOptions = {excludeGuarded: boolean}
