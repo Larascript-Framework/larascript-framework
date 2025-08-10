@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
+import { generateUuidV4 } from '@ben-shepherd/larascript-utils-bundle';
 import { describe } from '@jest/globals';
 import { queryBuilder } from '@src/core/domains/eloquent/services/EloquentQueryBuilderService';
 import ModelNotFound from '@src/core/exceptions/ModelNotFound';
-import { generateUuidV4 } from '@src/core/util/uuid/generateUuidV4';
 import { ITestEmployeeModelData } from '@src/tests/larascript/eloquent/models/TestEmployeeModel';
 import TestPeopleModel, { resetPeopleTable } from '@src/tests/larascript/eloquent/models/TestPeopleModel';
 import testHelper, { forEveryConnection } from '@src/tests/testHelper';

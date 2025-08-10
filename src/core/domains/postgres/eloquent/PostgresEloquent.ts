@@ -1,4 +1,4 @@
-import { captureError } from "@ben-shepherd/larascript-utils-bundle";
+import { captureError, generateUuidV4 } from "@ben-shepherd/larascript-utils-bundle";
 import Collection from "@src/core/domains/collections/Collection";
 import collect from "@src/core/domains/collections/helper/collect";
 import { db } from "@src/core/domains/database/services/Database";
@@ -15,7 +15,6 @@ import ModelNotFound from "@src/core/exceptions/ModelNotFound";
 import { TClassConstructor } from "@src/core/interfaces/ClassConstructor.t";
 import { app } from "@src/core/services/App";
 import PrefixedPropertyGrouper from "@src/core/util/PrefixedPropertyGrouper";
-import { generateUuidV4 } from "@src/core/util/uuid/generateUuidV4";
 import { bindAll } from 'lodash';
 import pg, { QueryResult } from 'pg';
 

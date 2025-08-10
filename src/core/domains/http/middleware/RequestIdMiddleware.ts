@@ -1,6 +1,6 @@
+import { generateUuidV4 } from "@ben-shepherd/larascript-utils-bundle";
 import Middleware from "@src/core/domains/http/base/Middleware";
 import HttpContext from "@src/core/domains/http/context/HttpContext";
-import { generateUuidV4 } from "@src/core/util/uuid/generateUuidV4";
 
 type Options = {
     // eslint-disable-next-line no-unused-vars

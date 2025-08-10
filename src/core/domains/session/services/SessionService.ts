@@ -1,7 +1,7 @@
-import { app } from '@src/core/services/App';
-import { generateUuidV4 } from '@src/core/util/uuid/generateUuidV4';
-import { AsyncLocalStorage } from 'async_hooks';
+import { generateUuidV4 } from '@ben-shepherd/larascript-utils-bundle';
 import { ISessionService, TSessionData, TSessionObject } from '@src/core/domains/session/interfaces/ISessionService';
+import { app } from '@src/core/services/App';
+import { AsyncLocalStorage } from 'async_hooks';
 
 // Short hand for app('session')
 export const session = () => app('session');
