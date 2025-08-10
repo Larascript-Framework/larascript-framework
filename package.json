@@ -36,6 +36,7 @@
     "@ben-shepherd/larascript-logger-bundle": "github:ben-shepherd/larascript-logger-bundle",
     "@ben-shepherd/larascript-observer-bundle": "github:ben-shepherd/larascript-observer-bundle",
     "@ben-shepherd/larascript-utils-bundle": "github:ben-shepherd/larascript-utils-bundle",
+    "@ben-shepherd/larascript-validator-bundle": "github:ben-shepherd/larascript-validator-bundle",
     "aws-sdk": "^2.1692.0",
     "bcryptjs": "^2.4.3",
     "collect.js": "^4.36.1",

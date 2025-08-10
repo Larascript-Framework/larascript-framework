@@ -298,6 +298,12 @@
     lodash "^4.17.21"
     uuid "^11.1.0"
 
+"@ben-shepherd/larascript-validator-bundle@github:ben-shepherd/larascript-validator-bundle":
+  version "1.0.1"
+  resolved "git+ssh://git@github.com/ben-shepherd/larascript-validator-bundle.git#7c17e559c38c8e3389e0e505efc3ac354be879d4"
+  dependencies:
+    "@ben-shepherd/larascript-utils-bundle" "github:ben-shepherd/larascript-utils-bundle"
+
 "@colors/colors@^1.6.0", "@colors/colors@1.6.0":
   version "1.6.0"
   resolved "https://registry.npmjs.org/@colors/colors/-/colors-1.6.0.tgz"
