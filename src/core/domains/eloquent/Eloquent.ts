@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
+import { Collection } from "@ben-shepherd/larascript-collection-bundle";
 import { deepClone } from "@ben-shepherd/larascript-utils-bundle";
-import Collection from "@src/core/domains/collections/Collection";
 import { IConnectionTypeHelpers } from "@src/core/domains/database/interfaces/IConnectionTypeHelpers";
 import { IDatabaseAdapter } from "@src/core/domains/database/interfaces/IDatabaseAdapter";
 import { db } from "@src/core/domains/database/services/Database";

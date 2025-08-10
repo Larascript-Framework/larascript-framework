@@ -1,10 +1,9 @@
+import { Collection, ICollection, collect } from "@ben-shepherd/larascript-collection-bundle";
 import { IEloquent } from "@src/core/domains/eloquent/interfaces/IEloquent";
 import { queryBuilder } from "@src/core/domains/eloquent/services/EloquentQueryBuilderService";
 import { IModel, ModelConstructor } from "@src/core/domains/models/interfaces/IModel";
 import ModelNotFound from "@src/core/exceptions/ModelNotFound";
 import { IRepository } from "@src/core/interfaces/IRepository";
-import Collection, { collect } from "@src/core/domains/collections/Collection";
-import { ICollection } from "@src/core/domains/collections/interfaces/ICollection";
 
 /**
  * Base class for repositories

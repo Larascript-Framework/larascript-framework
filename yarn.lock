@@ -274,6 +274,12 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@ben-shepherd/larascript-collection-bundle@github:ben-shepherd/larascript-collection-bundle":
+  version "1.0.0"
+  resolved "git+ssh://git@github.com/ben-shepherd/larascript-collection-bundle.git#219d804470869c111e35d640b233063d51270e5d"
+  dependencies:
+    collect.js "^4.36.1"
+
 "@ben-shepherd/larascript-core-bundle@github:ben-shepherd/larascript-core-bundle":
   version "1.0.21"
   resolved "git+ssh://git@github.com/ben-shepherd/larascript-core-bundle.git#bf883ab5102551e9bdd56f63b32c2581793cb1cd"
