@@ -1,3 +1,4 @@
+import { isUuid } from "@ben-shepherd/larascript-utils-bundle";
 import BaseExpression, { buildTypes } from "@src/core/domains/eloquent/base/BaseExpression";
 import ExpressionException from "@src/core/domains/eloquent/exceptions/ExpressionException";
 import { TColumnOption, TJoin, TLogicalOperator, TOperator, TWhereClauseValue } from "@src/core/domains/eloquent/interfaces/IEloquent";
@@ -12,7 +13,6 @@ import OrderBy from "@src/core/domains/postgres/builder/ExpressionBuilder/Clause
 import SelectColumns from "@src/core/domains/postgres/builder/ExpressionBuilder/Clauses/SelectColumns";
 import Update from "@src/core/domains/postgres/builder/ExpressionBuilder/Clauses/Update";
 import Where from "@src/core/domains/postgres/builder/ExpressionBuilder/Clauses/Where";
-import { isUuid } from "@src/core/utility/uuid";
 import { z } from "zod";
 
 export type SqlRaw = { sql: string, bindings?: unknown }
