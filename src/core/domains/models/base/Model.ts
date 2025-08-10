@@ -1,3 +1,4 @@
+import { IObserver, IObserverEvent, ObserveConstructor } from '@ben-shepherd/larascript-observer-bundle';
 import { Castable, Str, TCastableType, TClassConstructor } from '@ben-shepherd/larascript-utils-bundle';
 import Collection from '@src/core/domains/collections/Collection';
 import { cryptoService } from '@src/core/domains/crypto/service/CryptoService';
@@ -11,8 +12,6 @@ import { queryBuilder } from '@src/core/domains/eloquent/services/EloquentQueryB
 import { EventConstructor } from '@src/core/domains/events/interfaces/IEventConstructors';
 import { GetAttributesOptions, IModel, IModelAttributes, IModelEvents, IModelLifeCycleEvent, ModelConstructor, ModelWithAttributes } from "@src/core/domains/models/interfaces/IModel";
 import ModelScopes, { TModelScope } from '@src/core/domains/models/utils/ModelScope';
-import { ObserveConstructor } from '@src/core/domains/observer/interfaces/IHasObserver';
-import { IObserver, IObserverEvent } from '@src/core/domains/observer/interfaces/IObserver';
 import IFactory, { FactoryConstructor } from '@src/core/interfaces/IFactory';
 import ProxyModelHandler from '@src/core/models/utils/ProxyModelHandler';
 import { app } from '@src/core/services/App';
