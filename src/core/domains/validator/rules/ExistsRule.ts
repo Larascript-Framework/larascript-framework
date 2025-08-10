@@ -4,7 +4,6 @@ import { IEloquent } from "@src/core/domains/eloquent/interfaces/IEloquent";
 import { IHttpContext } from "@src/core/domains/http/interfaces/IHttpContext";
 import { ModelConstructor } from "@src/core/domains/models/interfaces/IModel";
 import AbstractDatabaseRule from "@src/core/domains/validator/abstract/AbstractDatabaseRule";
-import { IRule } from "@src/core/domains/validator/interfaces/IRule";
 
 type ExistsRuleOptions = {
     modelConstructor: ModelConstructor;

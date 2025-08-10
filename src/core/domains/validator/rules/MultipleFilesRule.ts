@@ -1,6 +1,4 @@
-
-import AbstractRule from "@src/core/domains/validator/abstract/AbstractRule";
-import { IRule } from "@src/core/domains/validator/interfaces/IRule";
+import { AbstractRule, IRule } from "@ben-shepherd/larascript-validator-bundle";
 
 
 class MultipleFilesRule extends AbstractRule implements IRule {

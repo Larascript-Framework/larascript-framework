@@ -1,5 +1,6 @@
 import { IEnvService, IPackageJsonService } from '@ben-shepherd/larascript-core-bundle';
 import { ILoggerService } from '@ben-shepherd/larascript-logger-bundle';
+import { IValidatorFn } from '@ben-shepherd/larascript-validator-bundle';
 import { IAppService } from "@src/app/interfaces/IAppService";
 import AppServiceProvider from "@src/app/providers/AppServiceProvider";
 import RoutesProvider from "@src/app/providers/RoutesProvider";
@@ -32,7 +33,6 @@ import SessionProvider from "@src/core/domains/session/providers/SessionProvider
 import SetupProvider from "@src/core/domains/setup/providers/SetupProvider";
 import { IStorageService } from '@src/core/domains/storage/interfaces/IStorageService';
 import StorageProvider from "@src/core/domains/storage/providers/StorageProvider";
-import { IValidatorFn } from '@src/core/domains/validator/interfaces/IValidator';
 import ValidatorProvider from "@src/core/domains/validator/providers/ValidatorProvider";
 import { IViewRenderService, IViewService } from '@src/core/domains/view/interfaces/services';
 import ViewProvider from "@src/core/domains/view/providers/ViewProvider";

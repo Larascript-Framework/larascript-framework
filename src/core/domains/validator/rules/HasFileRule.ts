@@ -1,6 +1,5 @@
+import { AbstractRule, IRule } from "@ben-shepherd/larascript-validator-bundle";
 
-import AbstractRule from "@src/core/domains/validator/abstract/AbstractRule";
-import { IRule } from "@src/core/domains/validator/interfaces/IRule";
 
 class HasFileRule extends AbstractRule implements IRule {
 

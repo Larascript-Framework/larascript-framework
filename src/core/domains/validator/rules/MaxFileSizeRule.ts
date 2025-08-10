@@ -1,7 +1,7 @@
 
+import { AbstractRule, IRule } from "@ben-shepherd/larascript-validator-bundle";
 import { TUploadedFile } from "@src/core/domains/http/interfaces/UploadedFile";
-import AbstractRule from "@src/core/domains/validator/abstract/AbstractRule";
-import { IRule, IRuleError } from "@src/core/domains/validator/interfaces/IRule";
+
 
 type Options = {
     maxKB: number;

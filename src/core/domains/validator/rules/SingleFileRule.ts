@@ -1,6 +1,4 @@
-
-import AbstractRule from "@src/core/domains/validator/abstract/AbstractRule";
-import { IRule, IRuleError } from "@src/core/domains/validator/interfaces/IRule";
+import { AbstractRule, IRule } from "@ben-shepherd/larascript-validator-bundle";
 
 
 class SingleFileRule extends AbstractRule implements IRule {

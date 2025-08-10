@@ -1,8 +1,7 @@
+import { AbstractRule, IRule } from "@ben-shepherd/larascript-validator-bundle";
 import { IEloquent, TOperator, TWhereClause, TWhereClauseValue } from "@src/core/domains/eloquent/interfaces/IEloquent";
 import { queryBuilder } from "@src/core/domains/eloquent/services/EloquentQueryBuilderService";
 import { ModelConstructor } from "@src/core/domains/models/interfaces/IModel";
-import AbstractRule from "@src/core/domains/validator/abstract/AbstractRule";
-import { IRule } from "@src/core/domains/validator/interfaces/IRule";
 
 /**
  * Options for configuring an AbstractDatabaseRule
