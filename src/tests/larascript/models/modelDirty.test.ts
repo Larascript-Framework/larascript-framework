@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { describe, expect, test } from '@jest/globals';
 import { queryBuilder } from '@src/core/domains/eloquent/services/EloquentQueryBuilderService';
-import { logger } from '@src/core/services/LoggerService';
+import { logger } from '@src/core/services/logger';
 import TestDirtyModel, { resetDirtyTable } from '@src/tests/larascript/models/models/TestDirtyModel';
 import testHelper, { forEveryConnection } from '@src/tests/testHelper';
 

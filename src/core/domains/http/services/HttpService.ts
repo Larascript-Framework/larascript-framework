@@ -10,7 +10,7 @@ import StartSessionMiddleware from '@src/core/domains/http/middleware/StartSessi
 import Route from '@src/core/domains/http/router/Route';
 import RouterBindService from '@src/core/domains/http/router/RouterBindService';
 import { app } from '@src/core/services/App';
-import { logger } from '@src/core/services/LoggerService';
+import { logger } from '@src/core/services/logger';
 import expressClient from 'express';
 
 

@@ -1,7 +1,7 @@
 import BaseSchema from "@src/core/domains/database/base/BaseSchema";
 import PostgresAdapter from "@src/core/domains/postgres/adapters/PostgresAdapter";
 import { IAlterTableOptions } from "@src/core/domains/postgres/interfaces/IPostgresAlterTableOptions";
-import { logger } from "@src/core/services/LoggerService";
+import { logger } from "@src/core/services/logger";
 import pg from 'pg';
 import { DataTypes, QueryInterfaceCreateTableOptions, QueryInterfaceDropTableOptions } from "sequelize";
 import { ModelAttributes } from 'sequelize/types/model';

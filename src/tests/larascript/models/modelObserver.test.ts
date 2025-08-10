@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import { describe, expect, test } from '@jest/globals';
-import { logger } from '@src/core/services/LoggerService';
+import { logger } from '@src/core/services/logger';
 import TestObserverModel, { resetTestObserverTable } from '@src/tests/larascript/models/models/TestObserverModel';
 import testHelper from '@src/tests/testHelper';
 
