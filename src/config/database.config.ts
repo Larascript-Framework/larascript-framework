@@ -1,8 +1,8 @@
+import { parseBooleanFromString } from "@ben-shepherd/larascript-utils-bundle";
 import { IDatabaseConfig } from "@src/core/domains/database/interfaces/IDatabaseConfig";
 import DatabaseConfig from "@src/core/domains/database/services/DatabaseConfig";
 import MongoDbAdapter from "@src/core/domains/mongodb/adapters/MongoDbAdapter";
 import PostgresAdapter from "@src/core/domains/postgres/adapters/PostgresAdapter";
-import parseBooleanFromString from "@src/core/util/parseBooleanFromString";
 
 const DATABASE_DEFAULT_CONNECTION = (process.env.DATABASE_DEFAULT_CONNECTION as string) ?? 'default';
 

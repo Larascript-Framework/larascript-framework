@@ -1,10 +1,10 @@
+import { parseBooleanFromString } from "@ben-shepherd/larascript-utils-bundle";
 import LocalMailDriver from "@src/core/domains/mail/adapters/LocalMailDriver";
 import NodeMailDriver from "@src/core/domains/mail/adapters/NodeMailerDriver";
 import ResendMailDriver from "@src/core/domains/mail/adapters/ResendMailDriver";
 import { BaseMailAdapters } from "@src/core/domains/mail/interfaces/adapter";
 import { IMailConfig } from "@src/core/domains/mail/interfaces/config";
 import MailConfig from "@src/core/domains/mail/services/MailConfig";
-import parseBooleanFromString from "@src/core/util/parseBooleanFromString";
 
 /**
  * Provide type hinting when accessing passing names to the getDriver method in app('mail').getDriver(name)

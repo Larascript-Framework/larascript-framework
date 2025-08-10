@@ -1,3 +1,4 @@
+import { parseBooleanFromString } from '@ben-shepherd/larascript-utils-bundle';
 import User from '@src/app/models/auth/User';
 import CreateUserValidator from '@src/app/validators/user/CreateUserValidator';
 import UpdateUserValidator from '@src/app/validators/user/UpdateUserValidator';
@@ -5,7 +6,6 @@ import { BaseAuthAdapterTypes } from '@src/core/domains/auth/interfaces/adapter/
 import ApiToken from '@src/core/domains/auth/models/ApiToken';
 import AuthConfig from '@src/core/domains/auth/services/AuthConfig';
 import JwtAuthService from '@src/core/domains/auth/services/JwtAuthService';
-import parseBooleanFromString from '@src/core/util/parseBooleanFromString';
 
 /**
  * Auth Configuration Module

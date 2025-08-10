@@ -1,4 +1,4 @@
-import { captureError } from "@ben-shepherd/larascript-utils-bundle";
+import { MoveObjectToProperty, captureError } from "@ben-shepherd/larascript-utils-bundle";
 import Collection from "@src/core/domains/collections/Collection";
 import collect from "@src/core/domains/collections/helper/collect";
 import { db } from "@src/core/domains/database/services/Database";
@@ -12,7 +12,6 @@ import MongoDbAdapter from "@src/core/domains/mongodb/adapters/MongoDbAdapter";
 import AggregateExpression from "@src/core/domains/mongodb/builder/AggregateExpression";
 import ModelNotFound from "@src/core/exceptions/ModelNotFound";
 import { app } from "@src/core/services/App";
-import MoveObjectToProperty from "@src/core/util/MoveObjectToProperty";
 import { Document, Collection as MongoCollection, ObjectId } from "mongodb";
 
 /**
