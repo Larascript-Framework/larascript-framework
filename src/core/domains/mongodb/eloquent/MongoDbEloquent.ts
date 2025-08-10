@@ -6,12 +6,12 @@ import Eloquent from "@src/core/domains/eloquent/Eloquent";
 import EloquentException from "@src/core/domains/eloquent/exceptions/EloquentExpression";
 import { IEloquent } from "@src/core/domains/eloquent/interfaces/IEloquent";
 import IEloquentExpression from "@src/core/domains/eloquent/interfaces/IEloquentExpression";
-import { logger } from "@src/core/domains/logger/services/LoggerService";
 import { IModel, ModelConstructor } from "@src/core/domains/models/interfaces/IModel";
 import MongoDbAdapter from "@src/core/domains/mongodb/adapters/MongoDbAdapter";
 import AggregateExpression from "@src/core/domains/mongodb/builder/AggregateExpression";
 import ModelNotFound from "@src/core/exceptions/ModelNotFound";
 import { app } from "@src/core/services/App";
+import { logger } from "@src/core/services/LoggerService";
 import { Document, Collection as MongoCollection, ObjectId } from "mongodb";
 
 /**

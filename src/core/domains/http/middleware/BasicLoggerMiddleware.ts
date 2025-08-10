@@ -1,7 +1,7 @@
 import Middleware from '@src/core/domains/http/base/Middleware';
 import HttpContext from '@src/core/domains/http/context/HttpContext';
-import { logger } from '@src/core/domains/logger/services/LoggerService';
 import { app } from '@src/core/services/App';
+import { logger } from '@src/core/services/LoggerService';
 
 /**
  * Middleware that logs detailed information about incoming HTTP requests

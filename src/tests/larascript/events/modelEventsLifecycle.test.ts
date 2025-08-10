@@ -10,10 +10,10 @@ import { IEventConfig } from '@src/core/domains/events/interfaces/config/IEventC
 import EventProvider from '@src/core/domains/events/providers/EventProvider';
 import EventRegistry from '@src/core/domains/events/registry/EventRegistry';
 import EventService from '@src/core/domains/events/services/EventService';
-import LoggerProvider from '@src/core/domains/logger/providers/LoggerProvider';
 import Model from '@src/core/domains/models/base/Model';
 import { IModelAttributes } from '@src/core/domains/models/interfaces/IModel';
 import ValidatorProvider from '@src/core/domains/validator/providers/ValidatorProvider';
+import LoggerProvider from '@src/core/providers/LoggerProvider';
 import { app } from '@src/core/services/App';
 import TestAuthProvider from '@src/tests/larascript/providers/TestAuthProvider';
 import TestConsoleProvider from '@src/tests/larascript/providers/TestConsoleProvider';

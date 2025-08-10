@@ -1,5 +1,4 @@
 import Repository from "@src/core/base/Repository";
-import { logger } from "@src/core/domains/logger/services/LoggerService";
 import MigrationTypeEnum from "@src/core/domains/migrations/enums/MigrationTypeEnum";
 import MigrationFactory from "@src/core/domains/migrations/factory/MigrationFactory";
 import { IMigration, MigrationType } from "@src/core/domains/migrations/interfaces/IMigration";
@@ -11,6 +10,7 @@ import { ModelConstructor } from "@src/core/domains/models/interfaces/IModel";
 import FileNotFoundError from "@src/core/exceptions/FileNotFoundError";
 import { IRepository } from "@src/core/interfaces/IRepository";
 import { app } from "@src/core/services/App";
+import { logger } from "@src/core/services/LoggerService";
 
 
 interface MigrationDetail {

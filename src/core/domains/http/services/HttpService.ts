@@ -9,8 +9,8 @@ import RequestIdMiddleware from '@src/core/domains/http/middleware/RequestIdMidd
 import StartSessionMiddleware from '@src/core/domains/http/middleware/StartSessionMiddleware';
 import Route from '@src/core/domains/http/router/Route';
 import RouterBindService from '@src/core/domains/http/router/RouterBindService';
-import { logger } from '@src/core/domains/logger/services/LoggerService';
 import { app } from '@src/core/services/App';
+import { logger } from '@src/core/services/LoggerService';
 import expressClient from 'express';
 
 

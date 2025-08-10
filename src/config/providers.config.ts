@@ -23,7 +23,6 @@ import IHttpService from '@src/core/domains/http/interfaces/IHttpService';
 import { IRequestContext } from '@src/core/domains/http/interfaces/IRequestContext';
 import HttpErrorHandlerProvider from "@src/core/domains/http/providers/HttpErrorHandlerProvider";
 import HttpProvider from "@src/core/domains/http/providers/HttpProvider";
-import LoggerProvider from "@src/core/domains/logger/providers/LoggerProvider";
 import { IMailService } from '@src/core/domains/mail/interfaces/services';
 import MailProvider from "@src/core/domains/mail/providers/MailProvider";
 import MakeProvider from "@src/core/domains/make/providers/MakeProvider";
@@ -39,6 +38,7 @@ import { IViewRenderService, IViewService } from '@src/core/domains/view/interfa
 import ViewProvider from "@src/core/domains/view/providers/ViewProvider";
 import { IProvider } from "@src/core/interfaces/IProvider";
 import EnvServiceProvider from "@src/core/providers/EnvServiceProvider";
+import LoggerProvider from "@src/core/providers/LoggerProvider";
 import PackageJsonProvider from "@src/core/providers/PackageJsonProvider";
 import readline from 'node:readline';
 
