@@ -288,7 +288,11 @@
 
 "@ben-shepherd/larascript-utils-bundle@github:ben-shepherd/larascript-utils-bundle":
   version "1.0.5"
-  resolved "git+ssh://git@github.com/ben-shepherd/larascript-utils-bundle.git#60880bb74f6b6367be77cf5da20eca48fa8e2d94"
+  resolved "git+ssh://git@github.com/ben-shepherd/larascript-utils-bundle.git#d986191043e6b93adb3733d41658abeca11ab0ac"
+  dependencies:
+    crypto "^1.0.1"
+    lodash "^4.17.21"
+    uuid "^11.1.0"
 
 "@colors/colors@^1.6.0", "@colors/colors@1.6.0":
   version "1.6.0"
@@ -1993,6 +1997,11 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.3, cross-spawn@^7.0.6:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
     which "^2.0.1"
+
+crypto@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/crypto/-/crypto-1.0.1.tgz"
+  integrity sha512-VxBKmeNcqQdiUQUW2Tzq0t377b54N2bMtXO/qiLa+6eRRmmC4qT3D4OnTGoT/U6O9aklQ/jTwbOtRMTTY8G0Ig==
 
 data-view-buffer@^1.0.2:
   version "1.0.2"
@@ -5903,6 +5912,11 @@ uuid@^10.0.0:
   version "10.0.0"
   resolved "https://registry.npmjs.org/uuid/-/uuid-10.0.0.tgz"
   integrity sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==
+
+uuid@^11.1.0:
+  version "11.1.0"
+  resolved "https://registry.npmjs.org/uuid/-/uuid-11.1.0.tgz"
+  integrity sha512-0/A9rDy9P7cJ+8w1c9WD9V//9Wj15Ce2MPz8Ri6032usz+NfePxx5AcN3bN+r6ZL6jEo066/yNYB3tn4pQEx+A==
 
 uuid@^8.3.2:
   version "8.3.2"

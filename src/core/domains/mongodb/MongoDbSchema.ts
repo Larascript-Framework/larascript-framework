@@ -1,8 +1,9 @@
+import { captureError } from "@ben-shepherd/larascript-utils-bundle";
 import BaseSchema from "@src/core/domains/database/base/BaseSchema";
 import CreateDatabaseException from "@src/core/domains/database/exceptions/CreateDatabaseException";
 import { logger } from "@src/core/domains/logger/services/LoggerService";
 import MongoDbAdapter from "@src/core/domains/mongodb/adapters/MongoDbAdapter";
-import captureError from "@src/core/util/captureError";
+import { app } from "@src/core/services/App";
 
 class MongoDBSchema extends BaseSchema<MongoDbAdapter> {
 
@@ -156,7 +157,7 @@ class MongoDBSchema extends BaseSchema<MongoDbAdapter> {
             for(const collection of collections) {
                 await db.dropCollection(collection.name);
             }
-        })
+        }, (...args) => app('logger').info(...args))
     }
 
 }

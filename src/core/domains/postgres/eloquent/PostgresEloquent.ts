@@ -1,3 +1,4 @@
+import { captureError } from "@ben-shepherd/larascript-utils-bundle";
 import Collection from "@src/core/domains/collections/Collection";
 import collect from "@src/core/domains/collections/helper/collect";
 import { db } from "@src/core/domains/database/services/Database";
@@ -12,7 +13,7 @@ import SqlExpression, { SqlRaw } from "@src/core/domains/postgres/builder/Expres
 import PostgresJsonNormalizer from "@src/core/domains/postgres/normalizers/PostgresJsonNormalizer";
 import ModelNotFound from "@src/core/exceptions/ModelNotFound";
 import { TClassConstructor } from "@src/core/interfaces/ClassConstructor.t";
-import captureError from "@src/core/util/captureError";
+import { app } from "@src/core/services/App";
 import PrefixedPropertyGrouper from "@src/core/util/PrefixedPropertyGrouper";
 import { generateUuidV4 } from "@src/core/util/uuid/generateUuidV4";
 import { bindAll } from 'lodash';
@@ -349,7 +350,7 @@ class PostgresEloquent<Model extends IModel> extends Eloquent<Model, SqlExpressi
             )
 
             return res.rows[0] ?? null
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -409,7 +410,7 @@ class PostgresEloquent<Model extends IModel> extends Eloquent<Model, SqlExpressi
             this.expression.setOffsetAndLimit(previousLimit)
 
             return models[0] ?? null
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -448,7 +449,7 @@ class PostgresEloquent<Model extends IModel> extends Eloquent<Model, SqlExpressi
             }
 
             return models.rows[models.rows.length - 1] ?? null
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -466,7 +467,7 @@ class PostgresEloquent<Model extends IModel> extends Eloquent<Model, SqlExpressi
             this.resetBindingValues()
 
             return collect<Model>(res.rows)
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -489,7 +490,7 @@ class PostgresEloquent<Model extends IModel> extends Eloquent<Model, SqlExpressi
             )
 
             return collect<Model>(res.rows)
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -532,7 +533,7 @@ class PostgresEloquent<Model extends IModel> extends Eloquent<Model, SqlExpressi
             return collect<Model>(
                 this.formatResultsAsModels(results as object[])
             )
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -561,7 +562,7 @@ class PostgresEloquent<Model extends IModel> extends Eloquent<Model, SqlExpressi
             this.resetBindingValues()
 
             return await this.get()
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -595,7 +596,7 @@ class PostgresEloquent<Model extends IModel> extends Eloquent<Model, SqlExpressi
             this.setExpression(previousExpression)
 
             return this as unknown as IEloquent<Model, SqlExpression>
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -730,7 +731,7 @@ class PostgresEloquent<Model extends IModel> extends Eloquent<Model, SqlExpressi
             this.setExpression(previousExpression)
 
             return parseFloat(result)
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**

@@ -1,3 +1,4 @@
+import { captureError } from "@ben-shepherd/larascript-utils-bundle";
 import Collection from "@src/core/domains/collections/Collection";
 import collect from "@src/core/domains/collections/helper/collect";
 import { db } from "@src/core/domains/database/services/Database";
@@ -10,7 +11,7 @@ import { IModel, ModelConstructor } from "@src/core/domains/models/interfaces/IM
 import MongoDbAdapter from "@src/core/domains/mongodb/adapters/MongoDbAdapter";
 import AggregateExpression from "@src/core/domains/mongodb/builder/AggregateExpression";
 import ModelNotFound from "@src/core/exceptions/ModelNotFound";
-import captureError from "@src/core/util/captureError";
+import { app } from "@src/core/services/App";
 import MoveObjectToProperty from "@src/core/util/MoveObjectToProperty";
 import { Document, Collection as MongoCollection, ObjectId } from "mongodb";
 
@@ -350,7 +351,7 @@ class MongoDbEloquent<Model extends IModel> extends Eloquent<Model, AggregateExp
 
             // Get the results
             return await collection.aggregate(aggregationPipeline).toArray() as T;
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -382,7 +383,7 @@ class MongoDbEloquent<Model extends IModel> extends Eloquent<Model, AggregateExp
             this.setExpression(previousExpression)
 
             return this.formatResultsAsModels(documents) as T
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -401,7 +402,7 @@ class MongoDbEloquent<Model extends IModel> extends Eloquent<Model, AggregateExp
             const results = await collection.find(filter).toArray()
 
             return results as T
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -433,7 +434,7 @@ class MongoDbEloquent<Model extends IModel> extends Eloquent<Model, AggregateExp
             }
 
             return this.formatResultsAsModels([document])[0]
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -478,7 +479,7 @@ class MongoDbEloquent<Model extends IModel> extends Eloquent<Model, AggregateExp
             }
 
             return documents[0]
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -520,7 +521,7 @@ class MongoDbEloquent<Model extends IModel> extends Eloquent<Model, AggregateExp
             }
 
             return documents.last()
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -563,7 +564,7 @@ class MongoDbEloquent<Model extends IModel> extends Eloquent<Model, AggregateExp
             this.setExpression(previousExpression)
 
             return collect<Model>(results)
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -632,7 +633,7 @@ class MongoDbEloquent<Model extends IModel> extends Eloquent<Model, AggregateExp
             return collect<Model>(
                 this.formatResultsAsModels(documents)
             )
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -664,7 +665,7 @@ class MongoDbEloquent<Model extends IModel> extends Eloquent<Model, AggregateExp
             return collect<Model>(
                 this.formatResultsAsModels(results)
             )
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -727,7 +728,7 @@ class MongoDbEloquent<Model extends IModel> extends Eloquent<Model, AggregateExp
             return collect<Model>(
                 this.formatResultsAsModels(postUpdateResults)
             )
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -771,7 +772,7 @@ class MongoDbEloquent<Model extends IModel> extends Eloquent<Model, AggregateExp
             return collect<Model>(
                 this.formatResultsAsModels(postUpdateResults)
             )
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -803,7 +804,7 @@ class MongoDbEloquent<Model extends IModel> extends Eloquent<Model, AggregateExp
             // Restore the previous expression
             this.setExpression(previousExpression)
 
-        })
+        }, (...args) => app('logger').error(...args))
 
         return this as unknown as IEloquent<Model, AggregateExpression>
     }
@@ -849,7 +850,7 @@ class MongoDbEloquent<Model extends IModel> extends Eloquent<Model, AggregateExp
             this.setExpression(previousExpression)
 
             return count
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -894,7 +895,7 @@ class MongoDbEloquent<Model extends IModel> extends Eloquent<Model, AggregateExp
             this.setExpression(previousExpression)
 
             return min
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -939,7 +940,7 @@ class MongoDbEloquent<Model extends IModel> extends Eloquent<Model, AggregateExp
             this.setExpression(previousExpression)
 
             return max
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -984,7 +985,7 @@ class MongoDbEloquent<Model extends IModel> extends Eloquent<Model, AggregateExp
             this.setExpression(previousExpression)
 
             return sum
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
@@ -1029,7 +1030,7 @@ class MongoDbEloquent<Model extends IModel> extends Eloquent<Model, AggregateExp
             this.setExpression(previousExpression)
 
             return avg
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
 
@@ -1058,7 +1059,7 @@ class MongoDbEloquent<Model extends IModel> extends Eloquent<Model, AggregateExp
             }
 
             return aggregateResult
-        })
+        }, (...args) => app('logger').error(...args))
     }
 
     /**
