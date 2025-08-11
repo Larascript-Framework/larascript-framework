@@ -1,10 +1,10 @@
-import { IViewServiceConfig } from "@src/core/domains/view/interfaces/config";
-import ViewProvider from "@src/core/domains/view/providers/ViewProvider";
-
+import { IViewServiceConfig } from "@ben-shepherd/larascript-views-bundle";
+import ViewProvider from "@src/core/providers/ViewProvider";
+import path from "path";
 class TestViewProvider extends ViewProvider {
 
     config: IViewServiceConfig = {
-        resourcesDir: 'tests/larascript/view/resources'
+        resourcesDir: path.join(process.cwd(), 'src/tests/larascript/view/resources')
     }
 
 }

@@ -1,17 +1,15 @@
 import { BaseProvider } from "@ben-shepherd/larascript-core-bundle";
-import { IViewServiceConfig } from "@src/core/domains/view/interfaces/config";
-import ViewService from "@src/core/domains/view/services/ViewService";
+import { IViewServiceConfig, ViewService } from "@ben-shepherd/larascript-views-bundle";
+import path from "path";
 
 class ViewProvider extends BaseProvider {
 
     protected config: IViewServiceConfig = {
-        resourcesDir: 'app/resources'
+        resourcesDir: path.join(process.cwd(), 'src/app/resources')
     }
 
     async boot(): Promise<void> {
-        
         const viewService = new ViewService(this.config);
-
         this.bind('view', viewService)
         this.bind('view:ejs', viewService.ejs())
     }
