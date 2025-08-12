@@ -1,10 +1,10 @@
+import { BasicACLScope } from '@ben-shepherd/larascript-acl-bundle';
 import { TCastableType } from '@ben-shepherd/larascript-utils-bundle';
 import User from '@src/app/models/auth/User';
 import { ApiTokenModelOptions, IApiTokenModel } from '@src/core/domains/auth/interfaces/models/IApiTokenModel';
 import { IUserModel } from '@src/core/domains/auth/interfaces/models/IUserModel';
 import ApiTokenObserver from '@src/core/domains/auth/observers/ApiTokenObserver';
 import { auth } from '@src/core/domains/auth/services/AuthService';
-import ScopeMatcher from '@src/core/domains/auth/utils/ScopeMatcher';
 import BelongsTo from '@src/core/domains/eloquent/relational/BelongsTo';
 import Model from '@src/core/domains/models/base/Model';
 import { IModelAttributes, ModelConstructor } from '@src/core/domains/models/interfaces/IModel';
@@ -201,17 +201,17 @@ class ApiToken extends Model<ApiTokenAttributes> implements IApiTokenModel {
      * @returns True if all scopes are present, false otherwise
      */
     hasScope(scopes: string | string[], exactMatch: boolean = true): boolean {
-        const currentScopes = this.getAttributeSync('scopes') ?? [];
         scopes = Array.isArray(scopes) ? scopes : [scopes]
+        const currentScopes = this.getAttributeSync('scopes') ?? [];
 
         if (exactMatch && currentScopes.length !== scopes.length) {
             return false
         }
         if (exactMatch) {
-            return ScopeMatcher.exactMatch(currentScopes, scopes);
+            return BasicACLScope.exactMatch(currentScopes, scopes);
         }
 
-        return ScopeMatcher.partialMatch(currentScopes, scopes);
+        return BasicACLScope.partialMatch(currentScopes, scopes);
     }
 
     /**

@@ -275,8 +275,8 @@
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
 "@ben-shepherd/larascript-acl-bundle@github:ben-shepherd/larascript-acl-bundle":
-  version "1.0.2"
-  resolved "git+ssh://git@github.com/ben-shepherd/larascript-acl-bundle.git#101280772814ffcb4b6d3cf15aa031f07c267de3"
+  version "1.0.4"
+  resolved "git+ssh://git@github.com/ben-shepherd/larascript-acl-bundle.git#99b5bbe1cfae672a81a7b808a1a88ae11c36de99"
 
 "@ben-shepherd/larascript-collection-bundle@github:ben-shepherd/larascript-collection-bundle":
   version "1.0.0"
