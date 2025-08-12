@@ -33,7 +33,7 @@ export default class ApiTokenObserver extends Observer<IApiTokenObserverData> {
             return data
         }
 
-        const userGroups = user.getGroups()
+        const userGroups = user.getAclGroups() ?? []
 
         for(const userGroup of userGroups) {
             const scopes = auth().acl().getGroupScopes(userGroup)

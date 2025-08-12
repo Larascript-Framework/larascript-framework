@@ -1,3 +1,4 @@
+import { IAclConfig, IBasicACLService } from '@ben-shepherd/larascript-acl-bundle';
 import { IEnvService, IPackageJsonService } from '@ben-shepherd/larascript-core-bundle';
 import { ILoggerService } from '@ben-shepherd/larascript-logger-bundle';
 import { IValidatorFn } from '@ben-shepherd/larascript-validator-bundle';
@@ -6,8 +7,6 @@ import { IAppService } from "@src/app/interfaces/IAppService";
 import AppServiceProvider from "@src/app/providers/AppServiceProvider";
 import RoutesProvider from "@src/app/providers/RoutesProvider";
 import { IAppConfig } from "@src/config/app.config";
-import { IBasicACLService } from '@src/core/domains/accessControl/interfaces/IACLService';
-import AccessControlProvider from "@src/core/domains/accessControl/providers/AccessControlProvider";
 import { IJwtAuthService } from '@src/core/domains/auth/interfaces/jwt/IJwtAuthService';
 import { IAuthService } from '@src/core/domains/auth/interfaces/service/IAuthService';
 import AuthProvider from "@src/core/domains/auth/providers/AuthProvider";
@@ -36,6 +35,7 @@ import { IStorageService } from '@src/core/domains/storage/interfaces/IStorageSe
 import StorageProvider from "@src/core/domains/storage/providers/StorageProvider";
 import ValidatorProvider from "@src/core/domains/validator/providers/ValidatorProvider";
 import { IProvider } from "@src/core/interfaces/IProvider";
+import ACLProvider from "@src/core/providers/ACLProvider";
 import EnvServiceProvider from "@src/core/providers/EnvServiceProvider";
 import LoggerProvider from "@src/core/providers/LoggerProvider";
 import PackageJsonProvider from "@src/core/providers/PackageJsonProvider";
@@ -56,6 +56,7 @@ export interface Providers {
     "auth": IAuthService;
     "auth.jwt": IJwtAuthService;
     "acl.basic": IBasicACLService;
+    "acl.basic.config": IAclConfig;
     "db": IDatabaseService;
     "query": IEloquentQueryBuilderService;
     "http": IHttpService;
@@ -90,7 +91,7 @@ const providers: IProvider[] = [
     new DatabaseProvider(),
     new EloquentQueryProvider(),
     new AuthProvider(),
-    new AccessControlProvider(),
+    new ACLProvider(),
     new MigrationProvider(),
     new MakeProvider(),
     new ValidatorProvider(),

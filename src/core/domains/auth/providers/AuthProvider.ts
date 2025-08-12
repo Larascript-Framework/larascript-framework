@@ -1,6 +1,6 @@
 
 
-import { BaseProvider } from "@ben-shepherd/larascript-core-bundle";
+import { BaseProvider, withDependencies } from "@ben-shepherd/larascript-core-bundle";
 import { aclConfig } from "@src/config/acl.config";
 import { authConfig } from "@src/config/auth.config";
 import GenerateJwtSecret from "@src/core/domains/auth/commands/GenerateJwtSecret";
@@ -14,7 +14,8 @@ class AuthProvider extends BaseProvider {
     protected aclConfig = aclConfig
 
     async register() {
-        const authService = new Auth(this.config, this.aclConfig);
+
+        const authService = withDependencies(new Auth(this.config))
         await authService.boot();
         
         // Bind services

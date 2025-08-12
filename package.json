@@ -32,6 +32,7 @@
     "unlink:core": "npm unlink @ben-shepherd/larascript-core-bundle"
   },
   "dependencies": {
+    "@ben-shepherd/larascript-acl-bundle": "github:ben-shepherd/larascript-acl-bundle",
     "@ben-shepherd/larascript-collection-bundle": "github:ben-shepherd/larascript-collection-bundle",
     "@ben-shepherd/larascript-core-bundle": "github:ben-shepherd/larascript-core-bundle",
     "@ben-shepherd/larascript-logger-bundle": "github:ben-shepherd/larascript-logger-bundle",

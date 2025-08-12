@@ -1,7 +1,7 @@
 import { EnvironmentTesting, Kernel, KernelConfig } from "@ben-shepherd/larascript-core-bundle";
-import AccessControlProvider from "@src/core/domains/accessControl/providers/AccessControlProvider";
 import EloquentQueryProvider from "@src/core/domains/eloquent/providers/EloquentQueryProvider";
 import ValidatorProvider from "@src/core/domains/validator/providers/ValidatorProvider";
+import ACLProvider from "@src/core/providers/ACLProvider";
 import LoggerProvider from "@src/core/providers/LoggerProvider";
 import { app } from "@src/core/services/App";
 import TestApiTokenModel from "@src/tests/larascript/models/models/TestApiTokenModel";
@@ -39,7 +39,7 @@ const testBootApp = async () => {
             new TestMigrationProvider(),
             new ValidatorProvider(),
             new TestCryptoProvider(),
-            new AccessControlProvider(),
+            new ACLProvider(),
             new TestViewProvider(),
         ]
     }

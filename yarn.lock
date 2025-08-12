@@ -274,6 +274,10 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@ben-shepherd/larascript-acl-bundle@github:ben-shepherd/larascript-acl-bundle":
+  version "1.0.2"
+  resolved "git+ssh://git@github.com/ben-shepherd/larascript-acl-bundle.git#101280772814ffcb4b6d3cf15aa031f07c267de3"
+
 "@ben-shepherd/larascript-collection-bundle@github:ben-shepherd/larascript-collection-bundle":
   version "1.0.0"
   resolved "git+ssh://git@github.com/ben-shepherd/larascript-collection-bundle.git#219d804470869c111e35d640b233063d51270e5d"
@@ -281,14 +285,14 @@
     collect.js "^4.36.1"
 
 "@ben-shepherd/larascript-core-bundle@github:ben-shepherd/larascript-core-bundle":
-  version "1.0.21"
-  resolved "git+ssh://git@github.com/ben-shepherd/larascript-core-bundle.git#bf883ab5102551e9bdd56f63b32c2581793cb1cd"
+  version "1.0.23"
+  resolved "git+ssh://git@github.com/ben-shepherd/larascript-core-bundle.git#f065c3f903b176cb951df736fd8910801eb62491"
   dependencies:
     "@ben-shepherd/larascript-utils-bundle" "github:ben-shepherd/larascript-utils-bundle"
 
 "@ben-shepherd/larascript-logger-bundle@github:ben-shepherd/larascript-logger-bundle":
   version "1.0.1"
-  resolved "git+ssh://git@github.com/ben-shepherd/larascript-logger-bundle.git#dfa7c3b7e0104fa70a9b313f67e5502dff5668f6"
+  resolved "git+ssh://git@github.com/ben-shepherd/larascript-logger-bundle.git#6aa8ecae3dee6f10cd8325ceb2c684631ed57c24"
   dependencies:
     winston "^3.17.0"
 
