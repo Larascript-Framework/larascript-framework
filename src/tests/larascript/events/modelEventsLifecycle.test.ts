@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
-import { EnvironmentTesting, Kernel, KernelConfig } from '@ben-shepherd/larascript-core-bundle';
 import { describe } from '@jest/globals';
 import { EVENT_DRIVERS } from '@src/config/events.config';
-import EloquentQueryProvider from '@src/core/domains/eloquent/providers/EloquentQueryProvider';
 import BaseEvent from '@src/core/domains/events/base/BaseEvent';
 import SyncDriver from '@src/core/domains/events/drivers/SyncDriver';
 import EventNotDispatchedException from '@src/core/domains/events/exceptions/EventNotDispatchedException';
@@ -12,14 +10,8 @@ import EventRegistry from '@src/core/domains/events/registry/EventRegistry';
 import EventService from '@src/core/domains/events/services/EventService';
 import Model from '@src/core/domains/models/base/Model';
 import { IModelAttributes } from '@src/core/domains/models/interfaces/IModel';
-import ValidatorProvider from '@src/core/domains/validator/providers/ValidatorProvider';
-import LoggerProvider from '@src/core/providers/LoggerProvider';
 import { app } from '@src/core/services/App';
-import TestAuthProvider from '@src/tests/larascript/providers/TestAuthProvider';
-import TestConsoleProvider from '@src/tests/larascript/providers/TestConsoleProvider';
-import TestCryptoProvider from '@src/tests/larascript/providers/TestCryptoProvider';
-import TestDatabaseProvider from '@src/tests/larascript/providers/TestDatabaseProvider';
-import TestMigrationProvider from '@src/tests/larascript/providers/TestMigrationProvider';
+import testHelper from '@src/tests/testHelper';
 import { DataTypes } from 'sequelize';
 
 // Create test model attributes interface
@@ -147,22 +139,7 @@ EventRegistry.registerMany([
 
 describe('model lifecycle events', () => {
     beforeAll(async () => {
-
-        const config: KernelConfig = {
-            environment: EnvironmentTesting,
-            providers: [
-                new LoggerProvider(),
-                new TestConsoleProvider(),
-                new TestDatabaseProvider(),
-                new EloquentQueryProvider(),
-                new TestEventLifeCycleProvider(),
-                new TestAuthProvider(),
-                new TestMigrationProvider(),
-                new ValidatorProvider(),
-                new TestCryptoProvider()
-            ]
-        }
-        await Kernel.boot(config, {});
+        await testHelper.testBootApp();
     });
 
     beforeEach(async () => {

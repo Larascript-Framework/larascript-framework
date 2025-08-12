@@ -35,11 +35,11 @@ const testBootApp = async () => {
             new TestDatabaseProvider(),
             new EloquentQueryProvider(),
             new TestEventProvider(),
+            new ACLProvider(),
             new TestAuthProvider(),
             new TestMigrationProvider(),
             new ValidatorProvider(),
             new TestCryptoProvider(),
-            new ACLProvider(),
             new TestViewProvider(),
         ]
     }
