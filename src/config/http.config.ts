@@ -1,4 +1,4 @@
-import { parseBooleanFromString } from '@ben-shepherd/larascript-utils-bundle';
+import { parseBooleanFromString } from '@ben-shepherd/larascript-utils';
 import IHttpConfig from '@src/core/domains/http/interfaces/IHttpConfig';
 import BasicLoggerMiddleware from '@src/core/domains/http/middleware/BasicLoggerMiddleware';
 import SecurityMiddleware from '@src/core/domains/http/middleware/SecurityMiddleware';

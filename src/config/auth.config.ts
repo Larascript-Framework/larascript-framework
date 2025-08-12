@@ -1,4 +1,4 @@
-import { parseBooleanFromString } from '@ben-shepherd/larascript-utils-bundle';
+import { parseBooleanFromString } from '@ben-shepherd/larascript-utils';
 import User from '@src/app/models/auth/User';
 import CreateUserValidator from '@src/app/validators/user/CreateUserValidator';
 import UpdateUserValidator from '@src/app/validators/user/UpdateUserValidator';

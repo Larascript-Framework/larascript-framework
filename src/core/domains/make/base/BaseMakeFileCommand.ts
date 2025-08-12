@@ -1,4 +1,4 @@
-import { Str } from "@ben-shepherd/larascript-utils-bundle";
+import { Str } from "@ben-shepherd/larascript-utils";
 import BaseCommand from "@src/core/domains/console/base/BaseCommand";
 import CommandExecutionException from "@src/core/domains/console/exceptions/CommandExecutionException";
 import { IMakeFileArguments } from "@src/core/domains/make/interfaces/IMakeFileArguments";

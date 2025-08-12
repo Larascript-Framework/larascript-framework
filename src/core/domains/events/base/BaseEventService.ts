@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { compose } from "@ben-shepherd/larascript-utils-bundle";
+import { compose } from "@ben-shepherd/larascript-utils";
 import HasSimpleRegisterConcern from "@src/core/concerns/HasSimpleRegisterConcern";
 import EventMockableConcern from "@src/core/domains/events/concerns/EventMockableConcern";
 import EventWorkerConcern from "@src/core/domains/events/concerns/EventWorkerConcern";

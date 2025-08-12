@@ -1,4 +1,4 @@
-import { generateUuidV4 } from "@ben-shepherd/larascript-utils-bundle";
+import { generateUuidV4 } from "@ben-shepherd/larascript-utils";
 import Middleware from "@src/core/domains/http/base/Middleware";
 import HttpContext from "@src/core/domains/http/context/HttpContext";
 

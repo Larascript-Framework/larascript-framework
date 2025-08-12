@@ -1,5 +1,5 @@
 import { Observer } from "@ben-shepherd/larascript-observer";
-import { Str } from "@ben-shepherd/larascript-utils-bundle";
+import { Str } from "@ben-shepherd/larascript-utils";
 import { IMakeFileArguments } from "@src/core/domains/make/interfaces/IMakeFileArguments";
 import { IMakeOptions } from "@src/core/domains/make/interfaces/IMakeOptions";
 

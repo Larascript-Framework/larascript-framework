@@ -1,4 +1,4 @@
-import { isUuid } from "@ben-shepherd/larascript-utils-bundle";
+import { isUuid } from "@ben-shepherd/larascript-utils";
 import BaseExpression, { buildTypes } from "@src/core/domains/eloquent/base/BaseExpression";
 import ExpressionException from "@src/core/domains/eloquent/exceptions/ExpressionException";
 import { TColumnOption, TJoin, TLogicalOperator, TOperator, TWhereClauseValue } from "@src/core/domains/eloquent/interfaces/IEloquent";

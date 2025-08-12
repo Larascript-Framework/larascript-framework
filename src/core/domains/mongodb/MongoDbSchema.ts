@@ -1,4 +1,4 @@
-import { captureError } from "@ben-shepherd/larascript-utils-bundle";
+import { captureError } from "@ben-shepherd/larascript-utils";
 import BaseSchema from "@src/core/domains/database/base/BaseSchema";
 import CreateDatabaseException from "@src/core/domains/database/exceptions/CreateDatabaseException";
 import MongoDbAdapter from "@src/core/domains/mongodb/adapters/MongoDbAdapter";

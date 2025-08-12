@@ -1,5 +1,5 @@
 
-import { minExecTime } from "@ben-shepherd/larascript-utils-bundle";
+import { minExecTime } from "@ben-shepherd/larascript-utils";
 import UnauthorizedError from "@src/core/domains/auth/exceptions/UnauthorizedError";
 import { IUserModel } from "@src/core/domains/auth/interfaces/models/IUserModel";
 import { authJwt } from "@src/core/domains/auth/services/JwtAuthService";

@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { generateUuidV4 } from '@ben-shepherd/larascript-utils-bundle';
+import { generateUuidV4 } from '@ben-shepherd/larascript-utils';
 import { describe } from '@jest/globals';
 import { queryBuilder } from '@src/core/domains/eloquent/services/EloquentQueryBuilderService';
 import ModelNotFound from '@src/core/exceptions/ModelNotFound';

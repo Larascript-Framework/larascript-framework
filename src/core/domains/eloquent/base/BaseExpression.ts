@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { deepClone } from "@ben-shepherd/larascript-utils-bundle";
+import { deepClone } from "@ben-shepherd/larascript-utils";
 import { TColumnOption, TGroupBy, TJoin, TLogicalOperator, TOffsetLimit, TOperator, TOrderBy, TWhereClause, TWhereClauseValue, TWith } from "@src/core/domains/eloquent/interfaces/IEloquent";
 import IEloquentExpression from "@src/core/domains/eloquent/interfaces/IEloquentExpression";
 

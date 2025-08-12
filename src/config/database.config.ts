@@ -1,4 +1,4 @@
-import { parseBooleanFromString } from "@ben-shepherd/larascript-utils-bundle";
+import { parseBooleanFromString } from "@ben-shepherd/larascript-utils";
 import { IDatabaseConfig } from "@src/core/domains/database/interfaces/IDatabaseConfig";
 import DatabaseConfig from "@src/core/domains/database/services/DatabaseConfig";
 import MongoDbAdapter from "@src/core/domains/mongodb/adapters/MongoDbAdapter";

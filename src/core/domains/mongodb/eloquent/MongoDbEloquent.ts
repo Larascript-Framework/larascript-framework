@@ -1,5 +1,5 @@
 import { Collection, collect } from "@ben-shepherd/larascript-collection";
-import { MoveObjectToProperty, captureError } from "@ben-shepherd/larascript-utils-bundle";
+import { MoveObjectToProperty, captureError } from "@ben-shepherd/larascript-utils";
 import { db } from "@src/core/domains/database/services/Database";
 import Eloquent from "@src/core/domains/eloquent/Eloquent";
 import EloquentException from "@src/core/domains/eloquent/exceptions/EloquentExpression";

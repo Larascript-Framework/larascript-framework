@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
  
-import { IHasCastableConcern } from "@ben-shepherd/larascript-utils-bundle";
+import { IHasCastableConcern } from "@ben-shepherd/larascript-utils";
 import IEventDriver from "@src/core/domains/events/interfaces/IEventDriver";
 import { IEventService } from "@src/core/domains/events/interfaces/IEventService";
 import { TClassConstructor } from "@src/core/interfaces/ClassConstructor.t";

@@ -1,4 +1,4 @@
-import { parseBooleanFromString } from "@ben-shepherd/larascript-utils-bundle";
+import { parseBooleanFromString } from "@ben-shepherd/larascript-utils";
 import LocalMailDriver from "@src/core/domains/mail/adapters/LocalMailDriver";
 import NodeMailDriver from "@src/core/domains/mail/adapters/NodeMailerDriver";
 import ResendMailDriver from "@src/core/domains/mail/adapters/ResendMailDriver";

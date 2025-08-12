@@ -1,5 +1,5 @@
 import { BasicACLScope } from '@ben-shepherd/larascript-acl';
-import { TCastableType } from '@ben-shepherd/larascript-utils-bundle';
+import { TCastableType } from '@ben-shepherd/larascript-utils';
 import User from '@src/app/models/auth/User';
 import { ApiTokenModelOptions, IApiTokenModel } from '@src/core/domains/auth/interfaces/models/IApiTokenModel';
 import { IUserModel } from '@src/core/domains/auth/interfaces/models/IUserModel';

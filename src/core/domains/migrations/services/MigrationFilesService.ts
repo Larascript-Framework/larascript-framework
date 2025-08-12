@@ -1,4 +1,4 @@
-import { Str, checksumFile } from '@ben-shepherd/larascript-utils-bundle';
+import { Str, checksumFile } from '@ben-shepherd/larascript-utils';
 import { IMigration } from '@src/core/domains/migrations/interfaces/IMigration';
 import FileNotFoundError from '@src/core/exceptions/FileNotFoundError';
 import fs from 'fs';

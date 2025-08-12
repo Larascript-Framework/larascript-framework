@@ -1,4 +1,4 @@
-import { returnOrThrow } from "@ben-shepherd/larascript-utils-bundle";
+import { returnOrThrow } from "@ben-shepherd/larascript-utils";
 import InvalidDocument from "@src/core/domains/database/exceptions/UnidentifiableDocument";
 import { IDatabaseDocument } from "@src/core/domains/database/interfaces/IDocumentManager";
 import { IDocumentValidator } from "@src/core/domains/database/interfaces/IDocumentValidator";
