@@ -1,4 +1,4 @@
-import { AppSingleton } from '@ben-shepherd/larascript-core-bundle';
+import { AppSingleton } from '@ben-shepherd/larascript-core';
 import { Providers } from '@src/config/providers.config';
 
 /**

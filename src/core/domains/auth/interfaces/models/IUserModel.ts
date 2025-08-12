@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { IAccessControlEntity } from "@ben-shepherd/larascript-acl-bundle";
+import { IAccessControlEntity } from "@ben-shepherd/larascript-acl";
 import { IModel, ModelConstructor } from "@src/core/domains/models/interfaces/IModel";
 
 export interface UserConstructor<TUser extends IUserModel = IUserModel> extends ModelConstructor<TUser> {}

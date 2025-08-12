@@ -1,4 +1,4 @@
-import { BaseProvider } from "@ben-shepherd/larascript-core-bundle";
+import { BaseProvider } from "@ben-shepherd/larascript-core";
 import AppService from "@src/app/services/AppService";
 import { app } from "@src/core/services/App";
 

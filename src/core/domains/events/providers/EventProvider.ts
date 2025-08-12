@@ -1,4 +1,4 @@
-import { BaseProvider } from "@ben-shepherd/larascript-core-bundle";
+import { BaseProvider } from "@ben-shepherd/larascript-core";
 import { eventConfig } from "@src/config/events.config";
 import WorkerCommand from "@src/core/domains/events/commands/WorkerCommand";
 import { IEventConfig } from "@src/core/domains/events/interfaces/config/IEventConfig";

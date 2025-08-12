@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { IHasObserver } from "@ben-shepherd/larascript-observer-bundle";
+import { IHasObserver } from "@ben-shepherd/larascript-observer";
 import { IdGeneratorFn } from "@src/core/domains/eloquent/interfaces/IEloquent";
 import { EventConstructor } from "@src/core/domains/events/interfaces/IEventConstructors";
 import { TModelScope } from "@src/core/domains/models/utils/ModelScope";

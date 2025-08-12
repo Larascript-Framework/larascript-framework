@@ -1,8 +1,8 @@
-import { IAclConfig, IBasicACLService } from '@ben-shepherd/larascript-acl-bundle';
-import { IEnvService, IPackageJsonService } from '@ben-shepherd/larascript-core-bundle';
-import { ILoggerService } from '@ben-shepherd/larascript-logger-bundle';
-import { IValidatorFn } from '@ben-shepherd/larascript-validator-bundle';
-import { IViewRenderService, IViewService } from '@ben-shepherd/larascript-views-bundle';
+import { IAclConfig, IBasicACLService } from '@ben-shepherd/larascript-acl';
+import { IEnvService, IPackageJsonService } from '@ben-shepherd/larascript-core';
+import { ILoggerService } from '@ben-shepherd/larascript-logger';
+import { IValidatorFn } from '@ben-shepherd/larascript-validator';
+import { IViewRenderService, IViewService } from '@ben-shepherd/larascript-views';
 import { IAppService } from "@src/app/interfaces/IAppService";
 import AppServiceProvider from "@src/app/providers/AppServiceProvider";
 import RoutesProvider from "@src/app/providers/RoutesProvider";

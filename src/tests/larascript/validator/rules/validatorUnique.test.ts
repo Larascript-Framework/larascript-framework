@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { EmailRule, RequiredRule, Validator } from '@ben-shepherd/larascript-validator-bundle';
+import { EmailRule, RequiredRule, Validator } from '@ben-shepherd/larascript-validator';
 import { describe } from '@jest/globals';
 import { queryBuilder } from '@src/core/domains/eloquent/services/EloquentQueryBuilderService';
 import UniqueRule from '@src/core/domains/validator/rules/UniqueRule';

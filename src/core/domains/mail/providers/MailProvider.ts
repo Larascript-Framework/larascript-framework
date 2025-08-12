@@ -1,4 +1,4 @@
-import { BaseProvider } from "@ben-shepherd/larascript-core-bundle";
+import { BaseProvider } from "@ben-shepherd/larascript-core";
 import appConfig, { IAppConfig } from "@src/config/app.config";
 import { mailConfig } from "@src/config/mail.config";
 import { IMailConfig } from "@src/core/domains/mail/interfaces/config";

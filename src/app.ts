@@ -1,6 +1,6 @@
 import 'dotenv/config';
 
-import { Kernel, KernelOptions } from '@ben-shepherd/larascript-core-bundle';
+import { Kernel, KernelOptions } from '@ben-shepherd/larascript-core';
 import appConfig from '@src/config/app.config';
 import providers from '@src/config/providers.config';
 import CommandNotFoundException from '@src/core/domains/console/exceptions/CommandNotFoundException';

@@ -1,4 +1,4 @@
-import { BaseAdapter } from "@ben-shepherd/larascript-core-bundle";
+import { BaseAdapter } from "@ben-shepherd/larascript-core";
 import { IAppConfig } from "@src/config/app.config";
 import { MailAdapters } from "@src/config/mail.config";
 import { MailAdapter } from "@src/core/domains/mail/interfaces/adapter";

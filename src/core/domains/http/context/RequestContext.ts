@@ -1,4 +1,4 @@
-import { BaseSingleton } from "@ben-shepherd/larascript-core-bundle";
+import { BaseSingleton } from "@ben-shepherd/larascript-core";
 import { TBaseRequest } from "@src/core/domains/http/interfaces/BaseRequest";
 import { IPContextData, IRequestContext, IRequestContextData } from "@src/core/domains/http/interfaces/IRequestContext";
 import getIpAddress from "@src/core/domains/http/utils/getIpAddress";

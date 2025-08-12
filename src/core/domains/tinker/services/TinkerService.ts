@@ -1,4 +1,4 @@
-import { AppSingleton, BaseSingleton, EnvironmentProduction, Kernel } from "@ben-shepherd/larascript-core-bundle";
+import { AppSingleton, BaseSingleton, EnvironmentProduction, Kernel } from "@ben-shepherd/larascript-core";
 import appConfig from "@src/config/app.config";
 import providers from "@src/config/providers.config";
 import { app } from "@src/core/services/App";

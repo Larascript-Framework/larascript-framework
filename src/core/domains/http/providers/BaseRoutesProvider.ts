@@ -1,4 +1,4 @@
-import { BaseProvider } from "@ben-shepherd/larascript-core-bundle";
+import { BaseProvider } from "@ben-shepherd/larascript-core";
 
 class BaseRoutesProvider extends BaseProvider {
 

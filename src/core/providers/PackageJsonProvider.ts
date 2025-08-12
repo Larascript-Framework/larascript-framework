@@ -1,4 +1,4 @@
-import { BaseProvider, PackageJsonService } from "@ben-shepherd/larascript-core-bundle";
+import { BaseProvider, PackageJsonService } from "@ben-shepherd/larascript-core";
 import path from "path";
 
 class PackageJsonProvider extends BaseProvider {

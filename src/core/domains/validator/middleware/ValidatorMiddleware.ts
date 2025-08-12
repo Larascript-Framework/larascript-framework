@@ -1,4 +1,4 @@
-import { CustomValidatorConstructor } from "@ben-shepherd/larascript-validator-bundle";
+import { CustomValidatorConstructor } from "@ben-shepherd/larascript-validator";
 import Middleware from "@src/core/domains/http/base/Middleware";
 import { IHttpContext } from "@src/core/domains/http/interfaces/IHttpContext";
 

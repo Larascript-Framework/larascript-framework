@@ -1,5 +1,5 @@
 
-import { IRule } from "@ben-shepherd/larascript-validator-bundle";
+import { IRule } from "@ben-shepherd/larascript-validator";
 import { db } from "@src/core/domains/database/services/Database";
 import { IEloquent } from "@src/core/domains/eloquent/interfaces/IEloquent";
 import { IHttpContext } from "@src/core/domains/http/interfaces/IHttpContext";

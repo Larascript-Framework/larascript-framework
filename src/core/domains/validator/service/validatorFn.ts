@@ -1,4 +1,4 @@
-import { IRulesObject, IValidatorFn, IValidatorMessages, Validator } from "@ben-shepherd/larascript-validator-bundle";
+import { IRulesObject, IValidatorFn, IValidatorMessages, Validator } from "@ben-shepherd/larascript-validator";
 
 /**
  * Short hand for creating a new validator on the fly

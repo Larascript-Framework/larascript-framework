@@ -1,4 +1,4 @@
-import { BaseProvider } from '@ben-shepherd/larascript-core-bundle';
+import { BaseProvider } from '@ben-shepherd/larascript-core';
 import { config } from '@src/config/storage.config';
 import { StorageTypes } from "@src/core/domains/storage/enums/StorageTypes";
 import AmazonS3StorageService from "@src/core/domains/storage/services/AmazonS3StorageService";

@@ -1,4 +1,4 @@
-import { EnvironmentDevelopment, EnvironmentType } from "@ben-shepherd/larascript-core-bundle";
+import { EnvironmentDevelopment, EnvironmentType } from "@ben-shepherd/larascript-core";
 
 const APP_URL = (process.env.APP_URL ?? 'http://localhost:5000') as string
 

@@ -1,4 +1,4 @@
-import { Collection } from "@ben-shepherd/larascript-collection-bundle";
+import { Collection } from "@ben-shepherd/larascript-collection";
 import HasMany from "@src/core/domains/eloquent/relational/HasMany";
 import Model from "@src/core/domains/models/base/Model";
 import { IModelAttributes } from "@src/core/domains/models/interfaces/IModel";

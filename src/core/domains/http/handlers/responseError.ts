@@ -1,4 +1,4 @@
-import { appEnv } from '@ben-shepherd/larascript-core-bundle';
+import { appEnv } from '@ben-shepherd/larascript-core';
 import { app } from '@src/core/services/App';
 import { Request, Response } from 'express';
 

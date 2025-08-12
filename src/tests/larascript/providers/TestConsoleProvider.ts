@@ -1,4 +1,4 @@
-import { BaseProvider } from "@ben-shepherd/larascript-core-bundle";
+import { BaseProvider } from "@ben-shepherd/larascript-core";
 import ConsoleService from "@src/core/domains/console/service/ConsoleService";
 import readline from 'readline';
 

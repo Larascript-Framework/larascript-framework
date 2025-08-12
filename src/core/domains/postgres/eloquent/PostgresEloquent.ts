@@ -1,4 +1,4 @@
-import { Collection, collect } from "@ben-shepherd/larascript-collection-bundle";
+import { Collection, collect } from "@ben-shepherd/larascript-collection";
 import { PrefixedPropertyGrouper, captureError, generateUuidV4 } from "@ben-shepherd/larascript-utils-bundle";
 import { db } from "@src/core/domains/database/services/Database";
 import Eloquent from "@src/core/domains/eloquent/Eloquent";

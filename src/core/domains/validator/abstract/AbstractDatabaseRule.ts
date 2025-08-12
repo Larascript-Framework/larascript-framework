@@ -1,4 +1,4 @@
-import { IRule } from "@ben-shepherd/larascript-validator-bundle";
+import { IRule } from "@ben-shepherd/larascript-validator";
 import { IEloquent, TOperator, TWhereClause, TWhereClauseValue } from "@src/core/domains/eloquent/interfaces/IEloquent";
 import { queryBuilder } from "@src/core/domains/eloquent/services/EloquentQueryBuilderService";
 import { ModelConstructor } from "@src/core/domains/models/interfaces/IModel";

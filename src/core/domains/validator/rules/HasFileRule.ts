@@ -1,4 +1,4 @@
-import { IRule } from "@ben-shepherd/larascript-validator-bundle";
+import { IRule } from "@ben-shepherd/larascript-validator";
 
 import ExtendedAbstractRule from "../abstract/ExtendedAbstractRule";
 

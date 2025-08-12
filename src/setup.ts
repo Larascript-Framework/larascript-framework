@@ -1,6 +1,6 @@
 import 'tsconfig-paths/register';
 
-import { Kernel } from '@ben-shepherd/larascript-core-bundle';
+import { Kernel } from '@ben-shepherd/larascript-core';
 import appConfig from '@src/config/app.config';
 import ConsoleProvider from '@src/core/domains/console/providers/ConsoleProvider';
 import CryptoProvider from '@src/core/domains/crypto/providers/CryptoProvider';

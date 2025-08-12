@@ -1,4 +1,4 @@
-import { IValidatorResult, ValidatorResult } from "@ben-shepherd/larascript-validator-bundle";
+import { IValidatorResult, ValidatorResult } from "@ben-shepherd/larascript-validator";
 import { UserAttributes } from "@src/app/models/auth/User";
 import { IUserModel } from "@src/core/domains/auth/interfaces/models/IUserModel";
 import { auth } from "@src/core/domains/auth/services/AuthService";

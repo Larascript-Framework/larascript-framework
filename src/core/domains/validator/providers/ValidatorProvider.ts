@@ -1,4 +1,4 @@
-import { BaseProvider } from "@ben-shepherd/larascript-core-bundle";
+import { BaseProvider } from "@ben-shepherd/larascript-core";
 import { validatorFn } from "@src/core/domains/validator/service/validatorFn";
 
 class ValidatorProvider extends BaseProvider {

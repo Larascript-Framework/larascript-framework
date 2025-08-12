@@ -1,4 +1,4 @@
-import { Observer } from "@ben-shepherd/larascript-observer-bundle";
+import { Observer } from "@ben-shepherd/larascript-observer";
 import UserRepository from "@src/app/repositories/auth/UserRepository";
 import { ApiTokenAttributes } from "@src/core/domains/auth/models/ApiToken";
 import { auth } from "@src/core/domains/auth/services/AuthService";

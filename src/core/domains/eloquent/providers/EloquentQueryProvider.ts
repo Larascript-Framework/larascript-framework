@@ -1,4 +1,4 @@
-import { BaseProvider } from "@ben-shepherd/larascript-core-bundle";
+import { BaseProvider } from "@ben-shepherd/larascript-core";
 import EloquentQueryBuilderService from "@src/core/domains/eloquent/services/EloquentQueryBuilderService";
 
 class EloquentQueryProvider extends BaseProvider {

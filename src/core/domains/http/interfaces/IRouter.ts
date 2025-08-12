@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { CustomValidatorConstructor } from "@ben-shepherd/larascript-validator-bundle";
+import { CustomValidatorConstructor } from "@ben-shepherd/larascript-validator";
 import { ControllerConstructor } from "@src/core/domains/http/interfaces/IController";
 import { TExpressMiddlewareFnOrClass } from "@src/core/domains/http/interfaces/IMiddleware";
 import { ISecurityRule } from "@src/core/domains/http/interfaces/ISecurity";

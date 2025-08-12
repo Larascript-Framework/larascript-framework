@@ -1,4 +1,4 @@
-import { EnvironmentTesting } from "@ben-shepherd/larascript-core-bundle";
+import { EnvironmentTesting } from "@ben-shepherd/larascript-core";
 import { IAppConfig } from "@src/config/app.config";
 import CryptoProvider from "@src/core/domains/crypto/providers/CryptoProvider";
 

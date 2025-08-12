@@ -1,4 +1,4 @@
-import { BaseSingleton } from "@ben-shepherd/larascript-core-bundle";
+import { BaseSingleton } from "@ben-shepherd/larascript-core";
 import { IPContextData, IPDatesArrayTTL } from "@src/core/domains/http/interfaces/IRequestContext";
 import { IRequestContextCleanUpConfig } from "@src/core/domains/http/interfaces/IRequestContextCleanUpConfig";
 import { app } from "@src/core/services/App";

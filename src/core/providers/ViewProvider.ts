@@ -1,5 +1,5 @@
-import { BaseProvider } from "@ben-shepherd/larascript-core-bundle";
-import { IViewServiceConfig, ViewService } from "@ben-shepherd/larascript-views-bundle";
+import { BaseProvider } from "@ben-shepherd/larascript-core";
+import { IViewServiceConfig, ViewService } from "@ben-shepherd/larascript-views";
 import path from "path";
 
 class ViewProvider extends BaseProvider {

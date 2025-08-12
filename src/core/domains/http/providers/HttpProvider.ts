@@ -1,4 +1,4 @@
-import { BaseProvider } from '@ben-shepherd/larascript-core-bundle';
+import { BaseProvider } from '@ben-shepherd/larascript-core';
 import httpConfig from '@src/config/http.config';
 import RequestContext from '@src/core/domains/http/context/RequestContext';
 import RequestContextCleaner from '@src/core/domains/http/context/RequestContextCleaner';

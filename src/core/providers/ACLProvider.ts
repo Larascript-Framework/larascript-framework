@@ -1,5 +1,5 @@
-import { BasicACLService, IAclConfig } from "@ben-shepherd/larascript-acl-bundle";
-import { BaseProvider } from "@ben-shepherd/larascript-core-bundle";
+import { BasicACLService, IAclConfig } from "@ben-shepherd/larascript-acl";
+import { BaseProvider } from "@ben-shepherd/larascript-core";
 import { aclConfig } from "@src/config/acl.config";
 
 class ACLProvider extends BaseProvider {

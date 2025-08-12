@@ -1,4 +1,4 @@
-import { CustomValidatorConstructor } from "@ben-shepherd/larascript-validator-bundle";
+import { CustomValidatorConstructor } from "@ben-shepherd/larascript-validator";
 import { AuthAdapterConstructor } from "@src/core/domains/auth/interfaces/adapter/IAuthAdapter";
 import { IBaseAuthConfig } from "@src/core/domains/auth/interfaces/config/IAuth";
 import { ApiTokenConstructor } from "@src/core/domains/auth/interfaces/models/IApiTokenModel";

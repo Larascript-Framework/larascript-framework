@@ -1,5 +1,5 @@
 
-import { IRule, IRuleError } from "@ben-shepherd/larascript-validator-bundle";
+import { IRule, IRuleError } from "@ben-shepherd/larascript-validator";
 import { TUploadedFile } from "@src/core/domains/http/interfaces/UploadedFile";
 import path from "path";
 

@@ -1,4 +1,4 @@
-import { EnvironmentDevelopment } from "@ben-shepherd/larascript-core-bundle";
+import { EnvironmentDevelopment } from "@ben-shepherd/larascript-core";
 import Middleware from "@src/core/domains/http/base/Middleware";
 import HttpContext from "@src/core/domains/http/context/HttpContext";
 import { app, appEnv } from "@src/core/services/App";

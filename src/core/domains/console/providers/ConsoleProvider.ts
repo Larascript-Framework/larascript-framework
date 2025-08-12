@@ -1,4 +1,4 @@
-import { BaseProvider } from "@ben-shepherd/larascript-core-bundle";
+import { BaseProvider } from "@ben-shepherd/larascript-core";
 import commandsConfig from "@src/config/commands.config";
 import HelpCommand from "@src/core/domains/console/commands/HelpCommand";
 import RouteListCommand from "@src/core/domains/console/commands/RouteListCommand";

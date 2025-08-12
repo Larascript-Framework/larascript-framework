@@ -1,4 +1,4 @@
-import { Kernel } from '@ben-shepherd/larascript-core-bundle';
+import { Kernel } from '@ben-shepherd/larascript-core';
 import { describe, expect, test } from '@jest/globals';
 import AuthService from '@src/core/domains/auth/services/AuthService';
 import JwtAuthService from '@src/core/domains/auth/services/JwtAuthService';

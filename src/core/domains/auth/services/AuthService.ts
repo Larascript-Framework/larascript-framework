@@ -1,5 +1,5 @@
-import { IBasicACLService } from "@ben-shepherd/larascript-acl-bundle";
-import { BaseAdapter, DependencyLoader, RequiresDependency } from "@ben-shepherd/larascript-core-bundle";
+import { IBasicACLService } from "@ben-shepherd/larascript-acl";
+import { BaseAdapter, DependencyLoader, RequiresDependency } from "@ben-shepherd/larascript-core";
 import { AuthAdapters } from "@src/config/auth.config";
 import { Providers } from "@src/config/providers.config";
 import { IBaseAuthConfig } from "@src/core/domains/auth/interfaces/config/IAuth";

@@ -1,4 +1,4 @@
-import { BaseCustomValidator, IRulesObject, MinRule, NullableRule, StringRule } from "@ben-shepherd/larascript-validator-bundle"
+import { BaseCustomValidator, IRulesObject, MinRule, NullableRule, StringRule } from "@ben-shepherd/larascript-validator"
 
 class UpdateUserValidator extends BaseCustomValidator {
 

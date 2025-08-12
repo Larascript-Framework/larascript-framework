@@ -1,5 +1,5 @@
 
-import { IValidatorResult, ValidatorResult } from "@ben-shepherd/larascript-validator-bundle";
+import { IValidatorResult, ValidatorResult } from "@ben-shepherd/larascript-validator";
 import UnauthorizedError from "@src/core/domains/auth/exceptions/UnauthorizedError";
 import { auth } from "@src/core/domains/auth/services/AuthService";
 import HttpContext from "@src/core/domains/http/context/HttpContext";

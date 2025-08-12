@@ -1,4 +1,4 @@
-import { BaseProvider } from "@ben-shepherd/larascript-core-bundle";
+import { BaseProvider } from "@ben-shepherd/larascript-core";
 import { IDatabaseConfig } from "@src/core/domains/database/interfaces/IDatabaseConfig";
 import Database from "@src/core/domains/database/services/Database";
 import DatabaseConfig from "@src/core/domains/database/services/DatabaseConfig";

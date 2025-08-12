@@ -1,4 +1,4 @@
-import { IPackageJsonService } from '@ben-shepherd/larascript-core-bundle';
+import { IPackageJsonService } from '@ben-shepherd/larascript-core';
 import DatabaseAdapter from '@src/core/domains/database/services/DatabaseAdapter';
 import QuestionDTO from '@src/core/domains/setup/DTOs/QuestionDTO';
 import { IAction } from '@src/core/domains/setup/interfaces/IAction';

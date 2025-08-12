@@ -1,4 +1,4 @@
-import { EnvironmentTesting, Kernel, KernelConfig } from "@ben-shepherd/larascript-core-bundle";
+import { EnvironmentTesting, Kernel, KernelConfig } from "@ben-shepherd/larascript-core";
 import EloquentQueryProvider from "@src/core/domains/eloquent/providers/EloquentQueryProvider";
 import ValidatorProvider from "@src/core/domains/validator/providers/ValidatorProvider";
 import ACLProvider from "@src/core/providers/ACLProvider";

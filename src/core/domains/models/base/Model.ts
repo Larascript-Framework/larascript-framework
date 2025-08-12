@@ -1,5 +1,5 @@
-import { Collection } from '@ben-shepherd/larascript-collection-bundle';
-import { IObserver, IObserverEvent, ObserveConstructor } from '@ben-shepherd/larascript-observer-bundle';
+import { Collection } from '@ben-shepherd/larascript-collection';
+import { IObserver, IObserverEvent, ObserveConstructor } from '@ben-shepherd/larascript-observer';
 import { Castable, Str, TCastableType, TClassConstructor } from '@ben-shepherd/larascript-utils-bundle';
 import { cryptoService } from '@src/core/domains/crypto/service/CryptoService';
 import { IDatabaseSchema } from '@src/core/domains/database/interfaces/IDatabaseSchema';

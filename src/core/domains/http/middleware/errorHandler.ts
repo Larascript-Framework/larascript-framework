@@ -1,4 +1,4 @@
-import { EnvironmentProduction, appEnv } from '@ben-shepherd/larascript-core-bundle';
+import { EnvironmentProduction, appEnv } from '@ben-shepherd/larascript-core';
 import { NextFunction, Request, Response } from 'express';
 
 /**

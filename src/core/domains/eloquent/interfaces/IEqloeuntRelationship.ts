@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Collection } from "@ben-shepherd/larascript-collection-bundle";
+import { Collection } from "@ben-shepherd/larascript-collection";
 import { IEloquent, IRelationship } from "@src/core/domains/eloquent/interfaces/IEloquent";
 import { IModel, IModelAttributes } from "@src/core/domains/models/interfaces/IModel";
 

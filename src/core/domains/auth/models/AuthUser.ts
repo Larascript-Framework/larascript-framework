@@ -3,8 +3,7 @@ import UserObserver from "@src/core/domains/auth/observers/UserObserver";
 import Model from "@src/core/domains/models/base/Model";
 import { IModelAttributes } from "@src/core/domains/models/interfaces/IModel";
 
-import { acl } from "../../acl/services/BasicACLService";
-
+import { acl } from "../../acl/services/ACLService";
 
 /**
  * User structure

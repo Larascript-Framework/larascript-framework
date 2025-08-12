@@ -1,5 +1,5 @@
-import { BaseProvider } from "@ben-shepherd/larascript-core-bundle";
-import EnvService from "@ben-shepherd/larascript-core-bundle/dist/services/EnvService";
+import { BaseProvider } from "@ben-shepherd/larascript-core";
+import EnvService from "@ben-shepherd/larascript-core/dist/services/EnvService";
 import path from "path";
 
 class EnvServiceProvider extends BaseProvider {

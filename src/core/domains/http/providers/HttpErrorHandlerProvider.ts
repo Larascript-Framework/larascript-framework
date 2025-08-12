@@ -1,4 +1,4 @@
-import { AppSingleton, BaseProvider } from '@ben-shepherd/larascript-core-bundle';
+import { AppSingleton, BaseProvider } from '@ben-shepherd/larascript-core';
 import httpConfig from '@src/config/http.config';
 import IHttpConfig from '@src/core/domains/http/interfaces/IHttpConfig';
 import errorHandler from '@src/core/domains/http/middleware/errorHandler';

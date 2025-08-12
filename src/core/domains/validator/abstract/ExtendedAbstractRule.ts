@@ -1,4 +1,4 @@
-import { AbstractRule, ValidatorException } from "@ben-shepherd/larascript-validator-bundle";
+import { AbstractRule, ValidatorException } from "@ben-shepherd/larascript-validator";
 
 import HttpContext from "../../http/context/HttpContext";
 

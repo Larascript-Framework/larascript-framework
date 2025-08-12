@@ -1,4 +1,4 @@
-import { Collection } from "@ben-shepherd/larascript-collection-bundle";
+import { Collection } from "@ben-shepherd/larascript-collection";
 import EloquentRelationshipException from "@src/core/domains/eloquent/exceptions/EloquentRelationshipException";
 import { IEloquent, IRelationship, TWhereClauseValue } from "@src/core/domains/eloquent/interfaces/IEloquent";
 import { IRelationshipResolver } from "@src/core/domains/eloquent/interfaces/IEqloeuntRelationship";

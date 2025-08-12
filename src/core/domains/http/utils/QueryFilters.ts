@@ -1,4 +1,4 @@
-import { BaseSingleton } from "@ben-shepherd/larascript-core-bundle";
+import { BaseSingleton } from "@ben-shepherd/larascript-core";
 import { logger } from "@src/core/services/logger";
 import { Request } from "express";
 

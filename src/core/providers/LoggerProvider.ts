@@ -1,5 +1,5 @@
-import { BaseProvider } from "@ben-shepherd/larascript-core-bundle";
-import { LoggerService } from "@ben-shepherd/larascript-logger-bundle";
+import { BaseProvider } from "@ben-shepherd/larascript-core";
+import { LoggerService } from "@ben-shepherd/larascript-logger";
 import path from "path";
 
 class LoggerProvider extends BaseProvider {

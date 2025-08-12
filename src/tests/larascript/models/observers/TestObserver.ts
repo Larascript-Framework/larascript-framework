@@ -1,4 +1,4 @@
-import { Observer } from "@ben-shepherd/larascript-observer-bundle";
+import { Observer } from "@ben-shepherd/larascript-observer";
 import { TestObserverModelData } from "@src/tests/larascript/models/models/TestObserverModel";
 
 class TestObserver extends Observer<TestObserverModelData> {

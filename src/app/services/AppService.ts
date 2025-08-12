@@ -1,4 +1,4 @@
-import { BaseService } from "@ben-shepherd/larascript-core-bundle";
+import { BaseService } from "@ben-shepherd/larascript-core";
 import { IAppService } from "@src/app/interfaces/IAppService";
 
 class AppService extends BaseService implements IAppService {

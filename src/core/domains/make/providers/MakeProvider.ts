@@ -1,4 +1,4 @@
-import { BaseProvider } from "@ben-shepherd/larascript-core-bundle";
+import { BaseProvider } from "@ben-shepherd/larascript-core";
 import MakeCmdCommand from "@src/core/domains/make/commands/MakeCmdCommand";
 import MakeController from "@src/core/domains/make/commands/MakeControllerCommand";
 import MakeEventCommand from "@src/core/domains/make/commands/MakeEventCommand";

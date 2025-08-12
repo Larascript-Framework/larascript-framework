@@ -1,4 +1,4 @@
-import { ValidatorException } from "@ben-shepherd/larascript-validator-bundle";
+import { ValidatorException } from "@ben-shepherd/larascript-validator";
 import ForbiddenResourceError from "@src/core/domains/auth/exceptions/ForbiddenResourceError";
 import UnauthorizedError from "@src/core/domains/auth/exceptions/UnauthorizedError";
 import LoginUseCase from "@src/core/domains/auth/usecase/LoginUseCase";

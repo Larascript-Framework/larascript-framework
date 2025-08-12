@@ -1,6 +1,6 @@
 
 
-import { BaseProvider, withDependencies } from "@ben-shepherd/larascript-core-bundle";
+import { BaseProvider, withDependencies } from "@ben-shepherd/larascript-core";
 import { aclConfig } from "@src/config/acl.config";
 import { authConfig } from "@src/config/auth.config";
 import GenerateJwtSecret from "@src/core/domains/auth/commands/GenerateJwtSecret";

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { BaseConfig } from "@ben-shepherd/larascript-core-bundle";
+import { BaseConfig } from "@ben-shepherd/larascript-core";
 import { IDatabaseAdapter } from "@src/core/domains/database/interfaces/IDatabaseAdapter";
 import { IDatabaseGenericConnectionConfig } from "@src/core/domains/database/interfaces/IDatabaseConfig";
 import { IDatabaseSchema } from "@src/core/domains/database/interfaces/IDatabaseSchema";

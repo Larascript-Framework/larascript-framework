@@ -1,4 +1,4 @@
-import { BaseProvider } from "@ben-shepherd/larascript-core-bundle";
+import { BaseProvider } from "@ben-shepherd/larascript-core";
 import SessionService from "@src/core/domains/session/services/SessionService";
 
 class SessionProvider extends BaseProvider{

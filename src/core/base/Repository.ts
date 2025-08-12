@@ -1,4 +1,4 @@
-import { Collection, ICollection, collect } from "@ben-shepherd/larascript-collection-bundle";
+import { Collection, ICollection, collect } from "@ben-shepherd/larascript-collection";
 import { IEloquent } from "@src/core/domains/eloquent/interfaces/IEloquent";
 import { queryBuilder } from "@src/core/domains/eloquent/services/EloquentQueryBuilderService";
 import { IModel, ModelConstructor } from "@src/core/domains/models/interfaces/IModel";

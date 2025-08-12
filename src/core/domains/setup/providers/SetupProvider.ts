@@ -1,4 +1,4 @@
-import { BaseProvider } from "@ben-shepherd/larascript-core-bundle";
+import { BaseProvider } from "@ben-shepherd/larascript-core";
 import AppSetupCommand from "@src/core/domains/setup/commands/AppSetupCommand";
 import { app } from "@src/core/services/App";
 
