@@ -1,3 +1,4 @@
+import { IAsyncSessionService } from '@ben-shepherd/async-session';
 import { IAclConfig, IBasicACLService } from '@ben-shepherd/larascript-acl';
 import { IEnvService, IPackageJsonService } from '@ben-shepherd/larascript-core';
 import { ILoggerService } from '@ben-shepherd/larascript-logger';
@@ -28,14 +29,13 @@ import { IMailService } from '@src/core/domains/mail/interfaces/services';
 import MailProvider from "@src/core/domains/mail/providers/MailProvider";
 import MakeProvider from "@src/core/domains/make/providers/MakeProvider";
 import MigrationProvider from "@src/core/domains/migrations/providers/MigrationProvider";
-import { ISessionService } from '@src/core/domains/session/interfaces/ISessionService';
-import SessionProvider from "@src/core/domains/session/providers/SessionProvider";
 import SetupProvider from "@src/core/domains/setup/providers/SetupProvider";
 import { IStorageService } from '@src/core/domains/storage/interfaces/IStorageService';
 import StorageProvider from "@src/core/domains/storage/providers/StorageProvider";
 import ValidatorProvider from "@src/core/domains/validator/providers/ValidatorProvider";
 import { IProvider } from "@src/core/interfaces/IProvider";
 import ACLProvider from "@src/core/providers/ACLProvider";
+import AsyncSessionProvider from "@src/core/providers/AsyncSessionProvider";
 import EnvServiceProvider from "@src/core/providers/EnvServiceProvider";
 import LoggerProvider from "@src/core/providers/LoggerProvider";
 import PackageJsonProvider from "@src/core/providers/PackageJsonProvider";
@@ -66,7 +66,7 @@ export interface Providers {
     "validatorFn": IValidatorFn;
     "logger": ILoggerService;
     "crypto": ICryptoService;
-    "session": ISessionService;
+    "asyncSession": IAsyncSessionService;
     "storage": IStorageService;
     "mail": IMailService;
     "view": IViewService;
@@ -97,7 +97,7 @@ const providers: IProvider[] = [
     new ValidatorProvider(),
     new CryptoProvider(),
     new SetupProvider(),
-    new SessionProvider(),
+    new AsyncSessionProvider(),
     new StorageProvider(),
     new MailProvider(),
     new ViewProvider(),

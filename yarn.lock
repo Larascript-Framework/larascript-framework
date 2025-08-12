@@ -274,6 +274,12 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@ben-shepherd/async-session@github:ben-shepherd/async-session":
+  version "1.0.1"
+  resolved "git+ssh://git@github.com/ben-shepherd/async-session.git#1464f99ae33af64c5a9980acd83d20c93b3eda8a"
+  dependencies:
+    uuid "^11.1.0"
+
 "@ben-shepherd/cast-js@github:ben-shepherd/cast-js":
   version "1.0.0"
   resolved "git+ssh://git@github.com/ben-shepherd/cast-js.git#c24c6e095a90d8062d3cf13ecade8ef6b716304c"
