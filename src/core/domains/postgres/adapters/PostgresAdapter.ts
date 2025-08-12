@@ -11,7 +11,7 @@ import PostgresSchema from "@src/core/domains/postgres/PostgresSchema";
 import createMigrationSchemaPostgres from "@src/core/domains/postgres/schema/createMigrationSchemaPostgres";
 import { extractDefaultPostgresCredentials } from "@src/core/domains/postgres/utils/extractDefaultPostgresCredentials";
 import { TClassConstructor } from "@src/core/interfaces/ClassConstructor.t";
-import { logger } from "@src/core/services/logger";
+import { logger } from "@src/core/services/Logger";
 import pg from 'pg';
 import { QueryInterface, Sequelize } from "sequelize";
 

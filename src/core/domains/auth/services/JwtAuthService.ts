@@ -347,7 +347,7 @@ class JwtAuthService extends BaseAuthAdapter<IJwtConfig> implements IJwtAuthServ
         }
 
         return await this.userRepository.findById(
-            app('session').getSessionData().userId as string
+            app('asyncSession').getSessionData().userId as string
         )
     }
 

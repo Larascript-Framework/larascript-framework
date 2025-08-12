@@ -1,6 +1,6 @@
 import Middleware from '@src/core/domains/http/base/Middleware';
 import HttpContext from '@src/core/domains/http/context/HttpContext';
-import { session } from '@src/core/domains/session/services/SessionService';
+import { asyncSession } from '@src/core/services/AsyncSession';
 
 /**
  * Middleware that initializes a session context for each HTTP request.
@@ -39,9 +39,9 @@ class StartSessionMiddleware extends Middleware {
         }
 
         // Run the rest of the middleware chain within a session context
-        await session().runWithSession(async () => {
+        await asyncSession().runWithSession(async () => {
             // Set the session ID
-            const currentSession = session().getSession();
+            const currentSession = asyncSession().getSession();
             currentSession.id = sessionId;
             
             // Continue middleware chain

@@ -8,7 +8,7 @@ import IExpressConfig from '@src/core/domains/http/interfaces/IHttpConfig';
 import { MiddlewareConstructor, TExpressMiddlewareFn, TExpressMiddlewareFnOrClass } from '@src/core/domains/http/interfaces/IMiddleware';
 import { IRouter, TRouteItem } from "@src/core/domains/http/interfaces/IRouter";
 import MiddlewareUtil from '@src/core/domains/http/utils/middlewareUtil';
-import { logger } from '@src/core/services/logger';
+import { logger } from '@src/core/services/Logger';
 import { default as express, default as expressClient } from 'express';
 
 // eslint-disable-next-line no-unused-vars

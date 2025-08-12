@@ -10,7 +10,7 @@ import MongoDbAdapter from "@src/core/domains/mongodb/adapters/MongoDbAdapter";
 import AggregateExpression from "@src/core/domains/mongodb/builder/AggregateExpression";
 import ModelNotFound from "@src/core/exceptions/ModelNotFound";
 import { app } from "@src/core/services/App";
-import { logger } from "@src/core/services/logger";
+import { logger } from "@src/core/services/Logger";
 import { Document, Collection as MongoCollection, ObjectId } from "mongodb";
 
 /**

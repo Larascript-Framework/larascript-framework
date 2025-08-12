@@ -1,10 +1,10 @@
 import { IAclConfig } from "@src/core/domains/auth/interfaces/acl/IAclConfig";
 import { IAuthAdapter } from "@src/core/domains/auth/interfaces/adapter/IAuthAdapter";
 import { IBaseAuthConfig } from "@src/core/domains/auth/interfaces/config/IAuth";
+import { IUserModel } from "@src/core/domains/auth/interfaces/models/IUserModel";
 import { IRouter } from "@src/core/domains/http/interfaces/IRouter";
 import Router from "@src/core/domains/http/router/Router";
-import { app } from "@src/core/services/App";
-import { IUserModel } from "@src/core/domains/auth/interfaces/models/IUserModel";
+import { asyncSession } from "@src/core/services/AsyncSession";
 
 /**
  * Base authentication adapter class that implements the IAuthAdapter interface.
@@ -71,7 +71,7 @@ abstract class BaseAuthAdapter<Config extends IBaseAuthConfig> implements IAuthA
      * @param user 
      */
     authorizeUser(user: IUserModel) {
-        app('session').setSessionData({ userId: user.getId() })
+        asyncSession().setSessionData({ userId: user.getId() })
     }
 
     /**
@@ -79,7 +79,7 @@ abstract class BaseAuthAdapter<Config extends IBaseAuthConfig> implements IAuthA
      * @returns True if the user is authenticated, false otherwise
      */
     async check(): Promise<boolean> {
-        return !!app('session').getSessionData().userId
+        return !!asyncSession().getSessionData().userId
     }
 
 

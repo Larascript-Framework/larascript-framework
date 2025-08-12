@@ -3,7 +3,7 @@ import BaseSchema from "@src/core/domains/database/base/BaseSchema";
 import CreateDatabaseException from "@src/core/domains/database/exceptions/CreateDatabaseException";
 import MongoDbAdapter from "@src/core/domains/mongodb/adapters/MongoDbAdapter";
 import { app } from "@src/core/services/App";
-import { logger } from "@src/core/services/logger";
+import { logger } from "@src/core/services/Logger";
 
 class MongoDBSchema extends BaseSchema<MongoDbAdapter> {
 

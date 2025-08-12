@@ -5,7 +5,7 @@ import appConfig from '@src/config/app.config';
 import providers from '@src/config/providers.config';
 import CommandNotFoundException from '@src/core/domains/console/exceptions/CommandNotFoundException';
 import CommandBootService from '@src/core/domains/console/service/CommandBootService';
-import { logger } from '@src/core/services/logger';
+import { logger } from '@src/core/services/Logger';
 
 (async () => {
     try {

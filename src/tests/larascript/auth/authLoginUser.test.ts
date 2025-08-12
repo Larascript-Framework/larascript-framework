@@ -4,7 +4,7 @@ import { IApiTokenModel } from '@src/core/domains/auth/interfaces/models/IApiTok
 import { IUserModel } from '@src/core/domains/auth/interfaces/models/IUserModel';
 import { auth } from '@src/core/domains/auth/services/AuthService';
 import { cryptoService } from '@src/core/domains/crypto/service/CryptoService';
-import { logger } from '@src/core/services/logger';
+import { logger } from '@src/core/services/Logger';
 import TestApiTokenModel from '@src/tests/larascript/models/models/TestApiTokenModel';
 import TestUser from '@src/tests/larascript/models/models/TestUser';
 import TestCreateUserValidator from '@src/tests/larascript/validator/validators/TestCreateUserValidator';

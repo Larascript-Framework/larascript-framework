@@ -10,7 +10,7 @@ import { ModelConstructor } from "@src/core/domains/models/interfaces/IModel";
 import FileNotFoundError from "@src/core/exceptions/FileNotFoundError";
 import { IRepository } from "@src/core/interfaces/IRepository";
 import { app } from "@src/core/services/App";
-import { logger } from "@src/core/services/logger";
+import { logger } from "@src/core/services/Logger";
 
 
 interface MigrationDetail {
