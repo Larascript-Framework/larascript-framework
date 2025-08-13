@@ -19,11 +19,11 @@ import OneTimeAuthenticationService from "@src/core/domains/auth/services/OneTim
 import createJwt from "@src/core/domains/auth/utils/createJwt";
 import decodeJwt from "@src/core/domains/auth/utils/decodeJwt";
 import generateToken from "@src/core/domains/auth/utils/generateToken";
-import { cryptoService } from "@src/core/domains/crypto/service/CryptoService";
 import { IRouter } from "@src/core/domains/http/interfaces/IRouter";
 import Route from "@src/core/domains/http/router/Route";
 import Router from "@src/core/domains/http/router/Router";
 import { app } from "@src/core/services/App";
+import { cryptoService } from "@src/core/services/CryptoService";
 import { JsonWebTokenError } from "jsonwebtoken";
 import { DataTypes } from "sequelize";
 

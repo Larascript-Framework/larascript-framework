@@ -1,6 +1,6 @@
 import { EnvironmentTesting } from "@ben-shepherd/larascript-core";
 import { IAppConfig } from "@src/config/app.config";
-import CryptoProvider from "@src/core/domains/crypto/providers/CryptoProvider";
+import CryptoProvider from "@src/core/providers/CryptoProvider";
 
 
 class TestCryptoProvider extends CryptoProvider {

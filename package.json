@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@ben-shepherd/async-session": "github:ben-shepherd/async-session",
+    "@ben-shepherd/crypto-js": "github:ben-shepherd/crypto-js",
     "@ben-shepherd/larascript-acl": "github:ben-shepherd/larascript-acl",
     "@ben-shepherd/larascript-collection": "github:ben-shepherd/larascript-collection",
     "@ben-shepherd/larascript-core": "github:ben-shepherd/larascript-core",

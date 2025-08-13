@@ -3,7 +3,7 @@ import { describe } from '@jest/globals';
 import { IApiTokenModel } from '@src/core/domains/auth/interfaces/models/IApiTokenModel';
 import { IUserModel } from '@src/core/domains/auth/interfaces/models/IUserModel';
 import { auth } from '@src/core/domains/auth/services/AuthService';
-import { cryptoService } from '@src/core/domains/crypto/service/CryptoService';
+import { cryptoService } from '@src/core/services/CryptoService';
 import { logger } from '@src/core/services/Logger';
 import TestApiTokenModel from '@src/tests/larascript/models/models/TestApiTokenModel';
 import TestUser from '@src/tests/larascript/models/models/TestUser';

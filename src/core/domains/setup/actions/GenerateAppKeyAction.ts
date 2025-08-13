@@ -1,7 +1,7 @@
 import QuestionDTO from "@src/core/domains/setup/DTOs/QuestionDTO";
 import { IAction } from "@src/core/domains/setup/interfaces/IAction";
 import { ISetupCommand } from "@src/core/domains/setup/interfaces/ISetupCommand";
-import { cryptoService } from "@src/core/domains/crypto/service/CryptoService";
+import { cryptoService } from "@src/core/services/CryptoService";
 
 class GenerateAppKeyAction implements IAction {
 

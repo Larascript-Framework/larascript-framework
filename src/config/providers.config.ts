@@ -1,4 +1,5 @@
 import { IAsyncSessionService } from '@ben-shepherd/async-session';
+import { ICryptoService } from '@ben-shepherd/crypto-js';
 import { IAclConfig, IBasicACLService } from '@ben-shepherd/larascript-acl';
 import { IEnvService, IPackageJsonService } from '@ben-shepherd/larascript-core';
 import { ILoggerService } from '@ben-shepherd/larascript-logger';
@@ -13,8 +14,6 @@ import { IAuthService } from '@src/core/domains/auth/interfaces/service/IAuthSer
 import AuthProvider from "@src/core/domains/auth/providers/AuthProvider";
 import ICommandService from '@src/core/domains/console/interfaces/ICommandService';
 import ConsoleProvider from "@src/core/domains/console/providers/ConsoleProvider";
-import { ICryptoService } from '@src/core/domains/crypto/interfaces/ICryptoService';
-import CryptoProvider from "@src/core/domains/crypto/providers/CryptoProvider";
 import { IDatabaseService } from '@src/core/domains/database/interfaces/IDatabaseService';
 import DatabaseProvider from "@src/core/domains/database/providers/DatabaseProvider";
 import { IEloquentQueryBuilderService } from '@src/core/domains/eloquent/interfaces/IEloquentQueryBuilderService';
@@ -36,6 +35,8 @@ import ValidatorProvider from "@src/core/domains/validator/providers/ValidatorPr
 import { IProvider } from "@src/core/interfaces/IProvider";
 import ACLProvider from "@src/core/providers/ACLProvider";
 import AsyncSessionProvider from "@src/core/providers/AsyncSessionProvider";
+import CommandsProvider from '@src/core/providers/CommandsProvider';
+import CryptoProvider from "@src/core/providers/CryptoProvider";
 import EnvServiceProvider from "@src/core/providers/EnvServiceProvider";
 import LoggerProvider from "@src/core/providers/LoggerProvider";
 import PackageJsonProvider from "@src/core/providers/PackageJsonProvider";
@@ -97,6 +98,7 @@ const providers: IProvider[] = [
     new ValidatorProvider(),
     new CryptoProvider(),
     new SetupProvider(),
+    new CommandsProvider(),
     new AsyncSessionProvider(),
     new StorageProvider(),
     new MailProvider(),

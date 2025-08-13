@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import { describe } from '@jest/globals';
-import { cryptoService } from '@src/core/domains/crypto/service/CryptoService';
+import { cryptoService } from '@src/core/services/CryptoService';
 import testHelper from '@src/tests/testHelper';
 
 

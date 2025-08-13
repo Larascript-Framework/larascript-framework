@@ -286,6 +286,10 @@
   dependencies:
     collect.js "^4.36.1"
 
+"@ben-shepherd/crypto-js@github:ben-shepherd/crypto-js":
+  version "1.0.0"
+  resolved "git+ssh://git@github.com/ben-shepherd/crypto-js.git#46476973252d50a0c4d93915c6a36d84056616e3"
+
 "@ben-shepherd/dot-notation-extractor@github:ben-shepherd/dot-notation-extractor":
   version "1.0.0"
   resolved "git+ssh://git@github.com/ben-shepherd/dot-notation-extractor.git#06bc1645f90db6a59a1b679d71f1808b268a4f37"

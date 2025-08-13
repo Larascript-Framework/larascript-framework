@@ -1,6 +1,6 @@
 import BaseCommand from "@src/core/domains/console/base/BaseCommand";
-import { cryptoService } from "@src/core/domains/crypto/service/CryptoService";
 import { app } from "@src/core/services/App";
+import { cryptoService } from "@src/core/services/CryptoService";
 
 class GenerateAppKey extends BaseCommand {
 
