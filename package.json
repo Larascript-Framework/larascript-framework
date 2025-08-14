@@ -2,9 +2,10 @@
   "name": "larascript-framework",
   "version": "2.0.6",
   "description": "A powerful Node.js framework with built-in ORM, type safety, and developer-friendly APIs",
+  "packageManager": "pnpm@10.0.0",
   "main": "index.js",
   "scripts": {
-    "install:no-scripts": "yarn install --ignore-scripts",
+    "install:no-scripts": "yarn install --ignore-scripts,",
     "build": "tsc --noEmit && webpack --color --bail",
     "fix-imports": "node fix-imports.js",
     "fix-eslint": "npx eslint --fix src",
@@ -30,7 +31,8 @@
     "api:sh": "docker exec -it larascript-api /bin/bash",
     "link:core": "npm link @ben-shepherd/larascript-core-bundle",
     "unlink:core": "npm unlink @ben-shepherd/larascript-core-bundle",
-    "depcheck": "depcheck"
+    "depcheck": "depcheck",
+    "check-types": "tsc --noEmit --skipLibCheck "
   },
   "dependencies": {
     "@ben-shepherd/async-session": "github:ben-shepherd/async-session",
@@ -65,12 +67,13 @@
   "devDependencies": {
     "@eslint/compat": "^1.1.1",
     "@faker-js/faker": "^9.0.3",
+    "@jest/globals": "^30.0.5",
     "@jest/test-sequencer": "^29.7.0",
     "@types/bcryptjs": "^2.4.6",
     "@types/body-parser": "^1.19.5",
     "@types/ejs": "^3.1.5",
     "@types/express": "^4.17.21",
-    "@types/jest": "^29.5.12",
+    "@types/jest": "^29.5.14",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^22.13.2",
     "@types/pg": "^8.10.9",
@@ -88,6 +91,7 @@
     "ts-node": "^10.9.2",
     "tsconf-checker": "^1.0.6",
     "tsconfig-paths": "^4.2.0",
+    "turbo": "^2.5.5",
     "typescript": "^5.5.2",
     "webpack": "^5.92.1",
     "webpack-cli": "^5.1.4"
