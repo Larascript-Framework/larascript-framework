@@ -1,0 +1,17 @@
+import { BaseFactory } from "@larascript-framework/larascript-core";
+
+type FactoryDefinition = {
+    name: string;
+}
+
+class Factory extends BaseFactory<FactoryDefinition> {
+
+    getDefinition(): FactoryDefinition | null {
+        return {
+            name: this.faker.word.words(2)
+        }
+    }
+
+}
+
+export default Factory;

@@ -1,0 +1,15 @@
+import { BaseCustomValidator, RequiredRule } from "@larascript-framework/larascript-validator"
+
+class #name#Validator extends BaseCustomValidator {
+
+    protected rules: IRulesObject = {
+        id: [new RequiredRule()],
+    }
+
+    protected messages: Record<string, string> = {
+        'id.required': 'The id is required.',
+    }
+
+}
+
+export default #name#Validator

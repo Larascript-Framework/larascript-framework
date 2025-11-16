@@ -1,0 +1,39 @@
+import { IModelAttributes, Model } from "@larascript-framework/larascript-database";
+
+// Attribute type hinting
+export interface #name#ModelAttributes extends IModelAttributes {
+    id: string;
+    createdAt: Date;
+    updatedAt: Date;
+}
+
+class #name#Model extends Model<#name#ModelAttributes> {
+
+    // Add your models fields here, e.g: ['foo', 'bar', 'baz']
+    fields: string[] = [
+        'id',
+        'createdAt',
+        'updatedAt'
+    ]
+
+    // Add your guarded fields here, e.g: ['sensitiveField']
+    guarded: string[] = [];
+
+    // Add your JSON fields heere, e.g. ['arrayOfObjects']
+    json: string[] = [];
+
+    // Add your date fields here, e.g: ['postedAt']
+    dates: string[] = [
+        'createdAt',
+        'updatedAt'
+    ];
+
+    // Enable or disable automatic generation of createdAt, updatedAt fields
+    timestamps: boolean = true;
+
+    // Add your relationships here
+    relationships: string[] = [];
+
+}
+
+export default #name#Model

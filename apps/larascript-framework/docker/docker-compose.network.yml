@@ -1,0 +1,15 @@
+version: '3'
+
+name: larascript
+
+services:
+  network-setup:
+    image: alpine
+    command: "true"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    name: larascript
+    driver: bridge

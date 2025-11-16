@@ -1,0 +1,28 @@
+pre-commit:
+  parallel: true
+  commands:
+    exports:
+      run: npm run check-exports
+    test:
+      run: npm test
+    lint:
+      glob: '*.{js,ts,jsx,tsx}' # glob filter for list of files
+      run: npm run lint
+    format:
+      run: npm run format 
+    #types:
+      #glob: '*.{js,ts, jsx, tsx}'
+      #run: npm run typecheck
+pre-push:
+  parallel: true
+  commands:
+    branchName:
+      run: npx validate-branch-name
+    packages-audit:
+      tags: frontend security
+      run: npm audit
+commit-msg:
+  parallel: true
+  scripts:
+    "commitlint.sh":
+      runner: bash

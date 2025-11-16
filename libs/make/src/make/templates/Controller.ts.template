@@ -1,0 +1,11 @@
+import { Controller, HttpContext } from "@larascript-framework/http";
+
+class Controller extends Controller {
+
+    async invoke(context: HttpContext) {
+        this.jsonResponse({}, 200)
+    }
+
+}
+
+export default Controller;

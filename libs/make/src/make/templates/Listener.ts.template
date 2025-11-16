@@ -1,0 +1,22 @@
+import { BaseEventListener, EventRegistry } from "@larascript-framework/larascript-events";
+
+type ListenerEventPayload = {
+    // ...
+}
+ 
+class ListenerEvent extends BaseEventListener<ListenerEventPayload> {
+
+    /**
+     * Optional method to execute before the subscribers are dispatched.
+     */
+    async execute(): Promise<void> {
+
+        // eslint-disable-next-line no-unused-vars
+        const payload = this.getPayload();
+
+        // Handle logic
+    }
+    
+}
+
+export default EventRegistry.registerListener(ListenerEvent)

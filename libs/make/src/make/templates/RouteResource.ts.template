@@ -1,0 +1,24 @@
+import { Route } from "@larascript-framework/http";
+
+export default Route.group({
+    prefix: '/<CHANGEME>',
+    middlewares: [],
+}, router => {
+
+    router.resource({
+        prefix: '/',
+        resource: PlaceholderModel,
+        middlewares: [],
+        paginate: {
+            pageSize: 10,
+            allowPageSizeOverride: true,
+        },
+        sorting: {
+            fieldKey: 'sort',
+            directionKey: 'direction',
+            defaultField: 'createdAt',
+            defaultDirection: 'asc'
+        }
+    })
+
+})

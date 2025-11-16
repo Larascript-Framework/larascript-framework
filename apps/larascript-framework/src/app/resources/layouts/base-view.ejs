@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+
+<body>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Flash Messages -->
+            <% if (typeof messages !== 'undefined' && messages) { %>
+                <% messages.forEach(function(message) { %>
+                    <div class="alert alert-<%= message.type || 'info' %> alert-dismissible fade show" role="alert">
+                        <%= message.text %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                <% }); %>
+            <% } %>
+
+            <!-- Page Content -->
+            <%- body %>
+        </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+    <%- include('../partials/scripts') %>
+</body>
+</html>

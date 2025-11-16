@@ -1,0 +1,63 @@
+import { Observer } from "@larascript-framework/larascript-observer";
+
+interface I#name#ObserverData {
+
+}
+
+export default class #name#Observer extends Observer<I#name#ObserverData> {  
+    
+    /**
+     * Called when a data object is being created.
+     * @param data The model data being created.
+     * @returns The processed model data.
+     */
+    async created(data: I#name#ObserverData): Promise<I#name#ObserverData> {
+        return data
+    }
+
+    /**
+     * Called when a data object is being created.
+     * @param data The model data being created.
+     * @returns The processed model data.
+     */
+    async creating(data: I#name#ObserverData): Promise<I#name#ObserverData> {
+        return data
+    }
+
+    /**
+     * Called when a data object is being updated.
+     * @param data The model data being updated.
+     * @returns The processed model data.
+     */
+    async updating(data: I#name#ObserverData): Promise<I#name#ObserverData> {
+        return data
+    }
+
+    /**
+     * Called after a data object has been updated.
+     * @param data The model data that has been updated.
+     * @returns The processed model data.
+     */
+    async updated(data: I#name#ObserverData): Promise<I#name#ObserverData> {
+        return data
+    }
+
+    /**
+     * Called when a data object is being deleted.
+     * @param data The model data being deleted.
+     * @returns The processed model data.
+     */
+    async deleting(data: I#name#ObserverData): Promise<I#name#ObserverData> {
+        return data
+    }
+
+    /**
+     * Called after a data object has been deleted.
+     * @param data The model data that has been deleted.
+     * @returns The processed model data.
+     */
+    async deleted(data: I#name#ObserverData): Promise<I#name#ObserverData> {
+        return data
+    }
+    
+}

@@ -1,0 +1,15 @@
+{
+    "name": "@larascript-framework/eslint-config",
+    "type": "module",
+    "version": "1.0.0",
+    "exports": {
+        ".": "./eslint.config.js"
+    },
+    "devDependencies": {
+        "eslint": "^9.22.0",
+        "typescript-eslint": "^8.25.0"
+    },
+    "dependencies": {
+        "prettier": "^3.6.2"
+    }
+}

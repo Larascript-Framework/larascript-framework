@@ -1,0 +1,10 @@
+import { IModelAttributes, Model, ModelConstructor } from "@larascript-framework/larascript-database";
+import { Repository } from "@larascript-framework/larascript-database";
+
+export default class #name#Repository extends Repository<Model<IModelAttributes>> {
+
+    constructor() {
+        super(Model as unknown as ModelConstructor<Model<IModelAttributes>>)
+    }
+
+}

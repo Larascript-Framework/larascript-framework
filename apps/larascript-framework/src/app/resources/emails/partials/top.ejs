@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+
+<body>
+    <% if(typeof locales?.appLogoUrl === 'string') { %>
+    <div class="email-logo-container">
+        <img src="<%= locales.appLogoUrl %>" alt="<% locales.appName %> logo" />
+    </div>
+    <% } %>
+
+    <div class="email-container">
+
+        <% if(typeof title === 'string') { %>
+            <div class="email-header">
+                <h1><%= title %></h1>
+            </div>
+        <% } %>
+        <div class="email-content">

@@ -1,0 +1,16 @@
+{
+    "extends": "@larascript-framework/tsconfig",
+    "compilerOptions": {
+      "baseUrl": "./",
+      "rootDir": "./src",
+      "outDir": "./dist",
+      "paths": {
+        "@/*": ["./src/*"],
+        "@src/*": ["./src/*"],
+      },
+      "incremental": true
+    },
+    "include": ["src/**/*", "*.config.*"],
+    "exclude": ["node_modules", "dist", "src/tests/output"]
+  }
+  

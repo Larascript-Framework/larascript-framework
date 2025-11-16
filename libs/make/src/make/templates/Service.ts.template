@@ -1,0 +1,13 @@
+import { BaseService } from "@larascript-framework/larascript-core";
+
+export interface I#name#ServiceData {
+
+}
+
+export class #name#Service extends BaseService<I#name#ServiceData> {
+
+    constructor(config: I#name#ServiceData) {
+        super(config)
+    }
+    
+}

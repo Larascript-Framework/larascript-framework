@@ -1,0 +1,25 @@
+import { BaseCommand } from "@larascript-framework/larascript-console";
+
+class #name#Command extends BaseCommand {
+
+    signature: string = 'app:#name#Command';
+
+    description = '<enter description>';
+
+    keepProcessAlive = false;
+
+    /**
+     * Execute the command
+     *
+     * @returns {Promise<void>}
+     */
+    async execute() {
+
+        /**
+         * Your command logic
+         */
+    }
+
+}
+
+export default #name#Command

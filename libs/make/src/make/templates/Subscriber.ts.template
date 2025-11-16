@@ -1,0 +1,27 @@
+import { BaseEventSubscriber, EventRegistry, SyncDriver } from "@larascript-framework/larascript-events";
+
+type SubscriberEventPayload = {
+    // ...
+}
+
+class SubscriberEvent extends BaseEventSubscriber<SubscriberEventPayload> {
+
+    protected namespace: string = 'default';
+
+    constructor(payload) {
+        super(payload, SyncDriver.name);
+    }
+
+    getQueueName(): string {
+        return 'default';
+    }
+
+    async execute(): Promise<void> {
+        const payload = this.getPayload();
+        
+        // Handle logic
+    }
+
+}
+
+export default EventRegistry.registerSubscriber(SubscriberEvent)

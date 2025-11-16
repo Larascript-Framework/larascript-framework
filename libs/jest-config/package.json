@@ -1,0 +1,12 @@
+{
+    "name": "@larascript-framework/jest-config",
+    "version": "1.0.0",
+    "main": "./jest.config.js",
+    "type": "module",
+    "devDependencies": {
+        "jest": "^30.0.5",
+        "@jest/globals": "^30.0.5",
+        "@types/jest": "^30.0.0",
+        "ts-jest": "^29.4.1"
+    }
+}

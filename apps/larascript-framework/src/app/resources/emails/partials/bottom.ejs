@@ -1,0 +1,15 @@
+        </div>
+        <div class="email-footer">
+            <p>© <%= locales.date.getFullYear() %> <%= locales.appName %>. All rights reserved.</p>
+            <p style="margin-top: 20px;">
+                <% if(typeof locales.termsUrl === 'string') { %>
+                <a href="<% locales.termsUrl %>" target="_blank" style="color: #3182ce; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
+                <% } %>
+                <% if(typeof locales.privacyUrl === 'string') { %>
+                <a href="<%  locales.privacyUrl %>" target="_blank" style="color: #3182ce; text-decoration: none; margin: 0 10px;">Terms of Service</a>
+                <% } %>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
