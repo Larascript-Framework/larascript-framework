@@ -20,6 +20,7 @@
     "build:watch": "concurrently --kill-others \"tsc -w\" \"tsc-alias -w\"",
     "lint": "eslint --ignore-pattern .gitignore \"{src,tests}/**/*.+(ts|js|tsx)\"",
     "lint:fix": "eslint --fix --ignore-pattern .gitignore \"{src,tests}/**/*.+(ts|js|tsx)\"",
+    "tslint": "tslint --project tsconfig.json",
     "typecheck": "tsc --noEmit",
     "format": "prettier --ignore-path .prettierignore --write \"**/*.+(js|ts|json|tsx|mdx)\" --log-level silent",
     "check-exports": "node ./scripts/check-exports.js",
@@ -106,8 +107,8 @@
       "default": "./dist/logger/index.js"
     },
     "./larascript-core": {
-      "types": "./dist/larascript-core/index.d.ts",
-      "default": "./dist/larascript-core/index.js"
+      "types": "./dist/core/index.d.ts",
+      "default": "./dist/core/index.js"
     }
   },
   "dependencies": {
