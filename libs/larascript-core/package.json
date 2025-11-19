@@ -40,14 +40,14 @@
   },
   "dependencies": {
     "@larascript-framework/compose": "workspace:*",
-    "@larascript-framework/larascript-utils": "workspace:*"
+    "@larascript-framework/larascript-utils": "workspace:*",
+    "@larascript-framework/contracts": "workspace:*"
   },
   "devDependencies": {
     "@faker-js/faker": "^9.0.3",
     "@larascript-framework/eslint-config": "workspace:*",
     "@larascript-framework/jest-config": "workspace:*",
     "@larascript-framework/tsconfig": "workspace:*",
-    "@larascript-framework/contracts": "workspace:*",
     "tsc-alias": "^1.8.16",
     "tslint-no-circular-imports": "^0.7.0"
   },
