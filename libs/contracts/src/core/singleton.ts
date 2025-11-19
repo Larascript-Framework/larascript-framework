@@ -14,7 +14,7 @@ export type ServiceConstructor<T extends IService = IService> = new (
  * The base interface for all services.
  * It provides a single method, `getConfig`, which returns the configuration for the service.
  */
-export default interface IService {
+export interface IService {
   /**
    * Returns the configuration for the service.
    *
@@ -23,3 +23,5 @@ export default interface IService {
    */
   getConfig(...args: any[]): any;
 }
+
+export default IService;
