@@ -5,7 +5,7 @@ export const databaseConfig: IDatabaseConfig = {
     keepAliveConnections: "",
     connections: [
         DatabaseConfig.postgres("postgres", {
-            uri: "postgres://root:example@localhost:5432/test_db",
+            uri: "postgres://root:example@localhost:5433/test_db",
             options: {},
         }),
         // TODO: Add MongoDB connection
