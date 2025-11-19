@@ -775,34 +775,12 @@ importers:
 
   libs/larascript-http:
     dependencies:
-      aws-sdk:
-        specifier: ^2.1692.0
-        version: 2.1692.0
-      cors:
-        specifier: ^2.8.5
-        version: 2.8.5
-      express:
-        specifier: ^4.21.0
-        version: 4.21.2
-      express-busboy:
-        specifier: ^10.1.0
-        version: 10.1.0
-    devDependencies:
       '@larascript-framework/async-session':
         specifier: workspace:*
         version: link:../async-session
-      '@larascript-framework/check-exports':
-        specifier: workspace:*
-        version: link:../check-exports
       '@larascript-framework/contracts':
         specifier: workspace:*
         version: link:../contracts
-      '@larascript-framework/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint-config
-      '@larascript-framework/jest-config':
-        specifier: workspace:*
-        version: link:../jest-config
       '@larascript-framework/larascript-auth':
         specifier: workspace:*
         version: link:../larascript-auth
@@ -824,6 +802,31 @@ importers:
       '@larascript-framework/larascript-validator':
         specifier: workspace:*
         version: link:../larascript-validator
+      '@larascript-framework/test-helpers':
+        specifier: workspace:*
+        version: link:../test-helpers
+      aws-sdk:
+        specifier: ^2.1692.0
+        version: 2.1692.0
+      cors:
+        specifier: ^2.8.5
+        version: 2.8.5
+      express:
+        specifier: ^4.21.0
+        version: 4.21.2
+      express-busboy:
+        specifier: ^10.1.0
+        version: 10.1.0
+    devDependencies:
+      '@larascript-framework/check-exports':
+        specifier: workspace:*
+        version: link:../check-exports
+      '@larascript-framework/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@larascript-framework/jest-config':
+        specifier: workspace:*
+        version: link:../jest-config
       '@larascript-framework/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
