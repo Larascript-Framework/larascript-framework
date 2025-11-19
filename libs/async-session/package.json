@@ -42,6 +42,7 @@
     "uuid": "^11.1.0"
   },
   "devDependencies": {
+    "@larascript-framework/larascript-core": "workspace:*",
     "@larascript-framework/eslint-config": "workspace:*",
     "@larascript-framework/tsconfig": "workspace:*",
     "@larascript-framework/jest-config": "workspace:*",
