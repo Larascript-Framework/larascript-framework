@@ -383,6 +383,9 @@ importers:
       '@larascript-framework/jest-config':
         specifier: workspace:*
         version: link:../jest-config
+      '@larascript-framework/larascript-core':
+        specifier: workspace:*
+        version: link:../larascript-core
       '@larascript-framework/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
@@ -664,6 +667,9 @@ importers:
       '@larascript-framework/compose':
         specifier: workspace:*
         version: link:../compose
+      '@larascript-framework/contracts':
+        specifier: workspace:*
+        version: link:../contracts
       '@larascript-framework/larascript-utils':
         specifier: workspace:*
         version: link:../larascript-utils
@@ -671,9 +677,6 @@ importers:
       '@faker-js/faker':
         specifier: ^9.0.3
         version: 9.9.0
-      '@larascript-framework/contracts':
-        specifier: workspace:*
-        version: link:../contracts
       '@larascript-framework/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
