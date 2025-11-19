@@ -1,6 +1,6 @@
-import { EnvironmentType } from "@/core/environment.js";
 import { IAsyncSessionService } from "@larascript-framework/async-session";
 import { IAclConfig } from "@larascript-framework/larascript-acl";
+import { EnvironmentType } from "../core/environment.js";
 import { IAuthConfig, IAuthRoutesConfig } from "./config.t.js";
 
 export type IAuthEnvironmentConfig = {

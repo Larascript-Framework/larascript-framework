@@ -1,4 +1,4 @@
-import { KernelOptions } from "@/core/kernel.js";
+import { KernelOptions } from "../core/kernel.js";
 
  
 /**

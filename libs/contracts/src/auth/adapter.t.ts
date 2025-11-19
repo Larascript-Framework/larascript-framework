@@ -1,4 +1,4 @@
-import { BaseAdapterTypes } from "@/core/adapters.js";
+import { BaseAdapterTypes } from "../core/adapters.js";
 import { IJwtAuthService } from "./jwt.t.js";
 import { IUserModel } from "./models.t.js";
 

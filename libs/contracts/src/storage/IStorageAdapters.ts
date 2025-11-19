@@ -1,4 +1,4 @@
-import { BaseAdapterTypes } from "@/core/adapters.js";
+import { BaseAdapterTypes } from "../core/adapters.js";
 import { IGenericStorage } from "./IGenericStorage.js";
 
 export interface IStorageAdapters extends BaseAdapterTypes {

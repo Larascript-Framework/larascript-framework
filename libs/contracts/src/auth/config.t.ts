@@ -1,5 +1,5 @@
-import { IValidator } from "@/validator/IValidator.js";
 import { TClassConstructor } from "@larascript-framework/larascript-utils";
+import { IValidator } from "../validator/IValidator.js";
 import { IAuthAdapter } from "./adapter.t.js";
 import { IJwtConfig } from "./jwt.t.js";
 

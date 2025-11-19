@@ -1,4 +1,4 @@
-import { IFactory } from "@/core/base.js";
+import { IFactory } from "../core/base.js";
 import { IJSonWebToken } from "./jwt.t.js";
 import { IApiTokenModel, IUserModel } from "./models.t.js";
 

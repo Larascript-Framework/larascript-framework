@@ -1,5 +1,4 @@
- 
-import { ICommandConstructor } from "./ICommand.js";
+ import { ICommandConstructor } from "./ICommand.js";
 import { ICommandReader } from "./ICommandReader.js";
 import { ICommandRegister } from "./ICommandRegister.js";
 

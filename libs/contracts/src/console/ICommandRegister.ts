@@ -1,6 +1,4 @@
- 
-
-import { ICommandConstructor } from "./ICommand.js";
+ import { ICommandConstructor } from "./ICommand.js";
 
 export type Registered = Map<string, ICommandConstructor>;
 

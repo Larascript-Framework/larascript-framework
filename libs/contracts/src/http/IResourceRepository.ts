@@ -1,4 +1,4 @@
-import { IEloquent } from "@/database/index.js";
+import { IEloquent } from "../database/index.js";
 
 export type IResourceData = {
     [key: string]: unknown;

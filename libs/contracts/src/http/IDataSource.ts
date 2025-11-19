@@ -1,4 +1,4 @@
-import { ModelConstructor } from "@/database/model/index.js";
+import { ModelConstructor } from "../database/model/index.js";
 import { IResourceRepository } from "./IResourceRepository.js";
 
 export type TDataSourceModelConstructor = {

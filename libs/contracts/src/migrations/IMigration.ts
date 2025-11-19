@@ -1,5 +1,5 @@
-import { IDatabaseAdapter } from "@/database/database/adapter.js";
 import { TClassConstructor } from "@larascript-framework/larascript-utils";
+import { IDatabaseAdapter } from "../database/database/adapter.js";
 
 /**
  * The type of migration

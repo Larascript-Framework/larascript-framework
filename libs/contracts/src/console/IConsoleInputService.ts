@@ -1,5 +1,4 @@
- 
-import readline from "node:readline";
+ import readline from "node:readline";
 
 /**
  * Interface for console input service

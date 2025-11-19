@@ -1,4 +1,4 @@
-import { IModel, ModelConstructor } from "@/database/model/model.t.js";
+import { IModel, ModelConstructor } from "../database/model/model.t.js";
 import { IResourceData, IResourceRepository, IResourceRepositoryConfig } from "./IResourceRepository.js";
 
 export type DatabaseResourceRepositoryConfig<M extends IModel = IModel> = IResourceRepositoryConfig & {

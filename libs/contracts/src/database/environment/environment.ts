@@ -1,6 +1,6 @@
-import IConsoleService from "@/console/IConsoleService.js";
-import { ICryptoService } from "@/crypto-js/ICryptoService.js";
-import { ILoggerService } from "@/logger/Logger.t.js";
+import IConsoleService from "../../console/IConsoleService.js";
+import { ICryptoService } from "../../crypto-js/ICryptoService.js";
+import { ILoggerService } from "../../logger/Logger.t.js";
 import { IDatabaseConfig } from "../database/config.js";
 import { IDatabaseService } from "../database/service.js";
 import { IEloquentQueryBuilderService } from "../eloquent/services.t.js";
