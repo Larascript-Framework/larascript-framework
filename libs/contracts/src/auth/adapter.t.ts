@@ -1,4 +1,4 @@
-import { BaseAdapterTypes } from "@larascript-framework/larascript-core";
+import { BaseAdapterTypes } from "@/core/adapters.js";
 import { IJwtAuthService } from "./jwt.t.js";
 import { IUserModel } from "./models.t.js";
 

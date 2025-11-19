@@ -1,11 +1,5 @@
+import { BaseAdapterTypes } from "@larascript-framework/contracts/larascript-core";
 import { AdapterException } from "../exceptions/index.js";
-
-/**
- * @template T type of the adapter
- */
-export type BaseAdapterTypes<T = unknown> = {
-  [key: string]: T;
-};
 
 /**
  * BaseAdapter is a generic abstract class that provides a foundation for implementing adapter patterns.

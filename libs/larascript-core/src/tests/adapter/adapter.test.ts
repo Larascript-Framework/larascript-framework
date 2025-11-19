@@ -1,6 +1,6 @@
 import { AdapterException } from "@/exceptions/index.js";
 import { beforeEach, describe, expect, test } from "@jest/globals";
-import SimpleService, { MockAdapterA, MockAdapterB } from "./SimpleService.js";
+import SimpleService, { MockAdapterA, MockAdapterB, TestAdapterTypes } from "./SimpleService.js";
 
 describe("BaseAdapter Tests", () => {
   let testAdapter: SimpleService;
@@ -14,7 +14,7 @@ describe("BaseAdapter Tests", () => {
       const adapter = new MockAdapterA();
       testAdapter.addSimpleAdapter("test", adapter);
 
-      const retrieved = testAdapter.getAdapter("test");
+      const retrieved = testAdapter.getAdapter("test" as keyof TestAdapterTypes);
       expect(retrieved).toBe(adapter);
     });
 

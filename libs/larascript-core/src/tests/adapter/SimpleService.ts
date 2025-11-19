@@ -1,5 +1,5 @@
-import { BaseAdapter, BaseAdapterTypes } from "@/base/BaseAdapter.js";
-export type { BaseAdapterTypes } from "@/base/BaseAdapter.js";
+import { BaseAdapter } from "@/base/BaseAdapter.js";
+import { BaseAdapterTypes } from "@larascript-framework/contracts/larascript-core";
 
 // Simple interface for a basic adapter
 interface SimpleAdapter {
@@ -126,3 +126,4 @@ export default class SimpleService extends BaseAdapter<TestAdapterTypes> {
 
 // Export mock adapters for testing
 export { MockAdapterA, MockAdapterB, type SimpleAdapter, type TestAdapterTypes };
+
