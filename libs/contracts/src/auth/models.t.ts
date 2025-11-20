@@ -1,4 +1,4 @@
-import { IAccessControlEntity } from "@larascript-framework/larascript-acl";
+import { IAccessControlEntity } from "@/acl/acl.js";
 import { IModel, IModelAttributes } from "../database/index.js";
 export type ApiTokenModelOptions = Record<string, unknown> & {
   expiresAfterMinutes?: number;

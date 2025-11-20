@@ -90,6 +90,10 @@
       "types": "./dist/auth/index.d.ts",
       "default": "./dist/auth/index.js"
     },
+    "./acl": {
+      "types": "./dist/acl/index.d.ts",
+      "default": "./dist/acl/index.js"
+    },
     "./storage": {
       "types": "./dist/storage/index.d.ts",
       "default": "./dist/storage/index.js"
