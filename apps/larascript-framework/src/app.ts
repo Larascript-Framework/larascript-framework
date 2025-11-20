@@ -4,8 +4,9 @@ import appConfig from '@/config/app.config.js';
 import providers from '@/config/providers.config.js';
 import CommandBootService from '@/core/services/CommandBootService.js';
 import { logger } from '@/core/services/Logger.js';
+import { KernelOptions } from '@larascript-framework/contracts/larascript-core';
 import { CommandNotFoundException } from '@larascript-framework/larascript-console';
-import { Kernel, KernelOptions } from '@larascript-framework/larascript-core';
+import { Kernel } from '@larascript-framework/larascript-core';
 
 (async () => {
     try {
