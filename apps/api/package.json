@@ -26,10 +26,7 @@
     "db:postgres:up": "pnpm network:up && cd ./docker && docker-compose -f docker-compose.postgres.yml up --build -d postgres",
     "db:postgres:down": "cd ./docker && docker-compose -f docker-compose.postgres.yml down",
     "db:mongodb:up": "pnpm network:up && cd ./docker && docker-compose -f docker-compose.mongodb.yml up --build -d mongodb",
-    "db:mongodb:down": "cd ./docker && docker-compose -f docker-compose.mongodb.yml down",
-    "api:up": "pnpm network:up && cd ./docker && docker-compose -f docker-compose.api.yml up --build -d api",
-    "api:down": "cd ./docker && docker-compose -f docker-compose.api.yml down && docker-compose -f docker-compose.network.yml down",
-    "api:sh": "docker exec -it larascript-api /bin/bash"
+    "db:mongodb:down": "cd ./docker && docker-compose -f docker-compose.mongodb.yml down"
   },
   "dependencies": {
     "@larascript-framework/async-session": "workspace:*",

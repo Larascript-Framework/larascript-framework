@@ -33,18 +33,15 @@ This project is currently in beta stage and under active development. It is not 
 
 ## 🚀 Quick Start
 
-### Installation
+### Clone the repository
 
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd larascript-monorepo
-
-# Install dependencies
-pnpm install
+cd larascript-framework
 ```
 
-### Setting Up Git Remote (Optional)
+### Setting Up Git Remote
 
 Make sure your own repository is setup instead of the original - update the git remote:
 
@@ -96,8 +93,8 @@ pnpm run dev
 ### Development
 
 ```bash
-# Start development environment
-cd apps/larascript-framework
+# Start api in development mode
+cd apps/api
 pnpm run dev
 
 # Run tests across all packages 
@@ -110,14 +107,14 @@ turbo run test --filter="@larascript-framework/larascript-core" --concurrency=1
 # Build all packages
 turbo run build --filter="./libs/*"
 
-# Build framework application
-turbo run build --filter="./apps/larascript-framework"
+# Build api application
+turbo run build --filter="./apps/api"
 
 # Lint all packages
 turbo run lint
 
 # Linting using pnpm
-cd apps/larascript-framework
+cd apps/api
 pnpm run lint
 
 
