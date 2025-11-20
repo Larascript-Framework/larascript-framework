@@ -377,6 +377,9 @@ importers:
         specifier: ^11.1.0
         version: 11.1.0
     devDependencies:
+      '@larascript-framework/contracts':
+        specifier: workspace:*
+        version: link:../contracts
       '@larascript-framework/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config

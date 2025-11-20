@@ -1,11 +1,11 @@
-import { BaseSingleton } from "@larascript-framework/larascript-core";
-import { AsyncLocalStorage } from "async_hooks";
-import { v4 } from "uuid";
 import {
   IAsyncSessionService,
   TAsyncSessionData,
   TAsyncSessionObject,
-} from "./IAsyncSessionService.js";
+} from "@larascript-framework/contracts/async-session";
+import { BaseSingleton } from "@larascript-framework/larascript-core";
+import { AsyncLocalStorage } from "async_hooks";
+import { v4 } from "uuid";
 
 const generateUuidV4 = (): string => v4();
 
