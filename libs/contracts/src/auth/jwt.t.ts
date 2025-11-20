@@ -1,4 +1,4 @@
-import { IAsyncSessionService } from "@larascript-framework/async-session";
+import { IAsyncSessionService } from "@/async-session/async-session.js";
 import { IBaseDriverConfig } from "./config.t.js";
 import {
   IApiTokenFactory,
