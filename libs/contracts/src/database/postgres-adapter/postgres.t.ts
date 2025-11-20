@@ -1,4 +1,4 @@
-import { TClassConstructor } from "@larascript-framework/larascript-utils";
+import { TClassConstructor } from "@/core/constructor.js";
 import pg from "pg";
 import { QueryInterface, Sequelize } from "sequelize";
 import { IDatabaseAdapter } from "../database/adapter.js";

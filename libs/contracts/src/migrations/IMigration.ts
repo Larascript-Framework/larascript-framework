@@ -1,4 +1,4 @@
-import { TClassConstructor } from "@larascript-framework/larascript-utils";
+import { TClassConstructor } from "@/core/constructor.js";
 import { IDatabaseAdapter } from "../database/database/adapter.js";
 
 /**

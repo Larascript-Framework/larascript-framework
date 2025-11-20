@@ -1,4 +1,4 @@
-import { TClassConstructor } from "@larascript-framework/larascript-utils";
+import { TClassConstructor } from "@/core/constructor.js";
 import { IEloquent } from "../eloquent/eloquent.t.js";
 import { IRelationshipResolver } from "../eloquent/relationships.t.js";
 import { IModel } from "../model/model.t.js";

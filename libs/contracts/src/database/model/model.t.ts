@@ -1,5 +1,5 @@
+import { TClassConstructor } from "@/core/constructor.js";
 import { IHasObserver } from "@larascript-framework/larascript-observer";
-import { TClassConstructor } from "@larascript-framework/larascript-utils";
 import { IdGeneratorFn } from "../eloquent/eloquent.t.js";
 import { IModelFactory } from "./factory.t.js";
 
