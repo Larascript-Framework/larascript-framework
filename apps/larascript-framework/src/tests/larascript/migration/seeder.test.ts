@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import { app } from '@/core/services/App.js';
-import { db } from '@/core/services/Database.js';
+import { db } from '@/core/services/DatabaseService.js';
 import { queryBuilder } from '@/core/services/QueryBuilder.js';
 import TestMigrationModel from '@/tests/larascript/migration/models/TestMigrationModel.js';
 import testHelper from '@/tests/testHelper.js';
