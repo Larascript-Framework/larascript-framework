@@ -94,6 +94,10 @@
       "types": "./dist/acl/index.d.ts",
       "default": "./dist/acl/index.js"
     },
+    "./async-session": {
+      "types": "./dist/async-session/index.d.ts",
+      "default": "./dist/async-session/index.js"
+    },
     "./storage": {
       "types": "./dist/storage/index.d.ts",
       "default": "./dist/storage/index.js"
