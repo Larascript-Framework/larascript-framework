@@ -1,11 +1,11 @@
 import {
-  BasicACLException,
   IAccessControlEntity,
   IAclConfig,
   IAclGroup,
   IAclRole,
-  IBasicACLService,
-} from "./index.js";
+  IBasicACLService
+} from "@larascript-framework/contracts/acl";
+import BasicACLException from "./BasicACLException.js";
 
 /**
  * Access Control List (ACL) Service

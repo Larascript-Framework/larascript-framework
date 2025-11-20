@@ -437,9 +437,6 @@ importers:
         specifier: ^3.17.0
         version: 3.17.0
     devDependencies:
-      '@larascript-framework/async-session':
-        specifier: workspace:*
-        version: link:../async-session
       '@larascript-framework/check-exports':
         specifier: workspace:*
         version: link:../check-exports
@@ -449,12 +446,6 @@ importers:
       '@larascript-framework/jest-config':
         specifier: workspace:*
         version: link:../jest-config
-      '@larascript-framework/larascript-acl':
-        specifier: workspace:*
-        version: link:../larascript-acl
-      '@larascript-framework/larascript-utils':
-        specifier: workspace:*
-        version: link:../larascript-utils
       '@larascript-framework/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
@@ -526,6 +517,9 @@ importers:
 
   libs/larascript-acl:
     devDependencies:
+      '@larascript-framework/contracts':
+        specifier: workspace:*
+        version: link:../contracts
       '@larascript-framework/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config

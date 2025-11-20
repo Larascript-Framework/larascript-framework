@@ -1,6 +1,6 @@
+import { IAccessControlEntity, IAclConfig, IAclGroup } from "@larascript-framework/contracts/acl";
 import { TClassConstructor } from "../utils/compose.js";
 import { BasicACLService } from "./BasicACLService.js";
-import { IAccessControlEntity, IAclConfig, IAclGroup } from "./IACLService.js";
 
 /**
  * Composable ACL Mixin

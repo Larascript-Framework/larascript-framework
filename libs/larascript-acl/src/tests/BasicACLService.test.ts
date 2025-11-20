@@ -1,10 +1,8 @@
 import { beforeEach, describe, expect, test } from "@jest/globals";
+import { IAccessControlEntity, IAclConfig, IAclGroup } from "@larascript-framework/contracts/acl";
 import {
   BasicACLException,
   BasicACLService,
-  IAccessControlEntity,
-  IAclConfig,
-  IAclGroup,
 } from "../acl/index.js";
 
 // Mock implementation of IAccessControlEntity for testing

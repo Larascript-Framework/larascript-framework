@@ -1,4 +1,4 @@
-import { IAclConfig } from "@/acl/index.js";
+import { IAclConfig } from "@larascript-framework/contracts/acl";
 import { ComposableACL } from "../acl/ComposableACL.js";
 import { compose } from "../utils/compose.js";
 
