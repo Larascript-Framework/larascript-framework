@@ -1,14 +1,10 @@
 # Larascript Framework
 
-A comprehensive monorepo containing the Larascript Framework and its ecosystem of packages, providing a powerful Node.js framework with built-in ORM, type safety, and developer-friendly APIs.
-
-## In Development
-
-This is a work in progress and is not yet ready for production.
-
-## 🚀 Overview
-
 Larascript is a modern, type-safe Node.js framework designed for building scalable applications with a focus on developer experience. This monorepo contains the main framework application and a collection of modular packages that can be used independently or together.
+
+This project is currently in beta stage and under active development. It is not recommended for use in production environments at this time. We suggest using it only for small-scale applications and experimental projects while we work on stabilizing the features and APIs.
+
+> 📖 **Read the full documentation on [https://www.larascriptnode.com](https://www.larascriptnode.com)**
 
 
 ## 🛠️ Technology Stack
@@ -29,9 +25,11 @@ Larascript is a modern, type-safe Node.js framework designed for building scalab
 
 ## 📋 Prerequisites
 
-- Node.js (v16 or higher)
-- pnpm (v10.0.0 or higher)
-- Docker (for database services)
+- **Node.js**
+- **pnpm** (Fast, reliable, and secure dependency management)
+- **Turborepo** (Monorepo management tool for managing multiple packages)
+- **Docker** (Platform for developing, shipping, and running applications in containers)
+- **Docker Compose** (Tool for defining and running multi-container Docker applications)
 
 ## 🚀 Quick Start
 
@@ -70,8 +68,17 @@ git push -u origin main
 ### Framework Setup
 
 ```bash
+# Install dependencies
+pnpm install --ignore-scripts
+
+# Build all packages
+turbo run build --filter="./libs/*"
+
+# Navigate to the framework application
+cd apps/larascript-framework
+
 # Add write permissions to logs directory
-chmod -R 755 apps/larascript-framework/storage
+chmod -R 755 storage
 
 # Start PostgreSQL and MongoDB
 pnpm db:up
@@ -80,131 +87,103 @@ pnpm db:up
 pnpm setup
 
 # Run database migrations
-pnpm dev migrate:up
+pnpm run dev migrate:up
 
 # Start development environment
-pnpm dev
+pnpm run dev
 ```
 
 ### Development
 
 ```bash
 # Start development environment
-pnpm dev
+cd apps/larascript-framework
+pnpm run dev
 
-# Run tests across all packages
-pnpm test
+# Run tests across all packages 
+# (Concurrency is set to 1 to avoid race conditions)
+turbo run test --filter="./libs/*" --concurrency=1
+
+# Run tests for a specific package
+turbo run test --filter="@larascript-framework/larascript-core" --concurrency=1
 
 # Build all packages
-pnpm build
+turbo run build --filter="./libs/*"
+
+# Build framework application
+turbo run build --filter="./apps/larascript-framework"
 
 # Lint all packages
-pnpm lint
+turbo run lint
+
+# Linting using pnpm
+cd apps/larascript-framework
+pnpm run lint
+
+
 ```
 
 ### Database Setup
 
 ```bash
 # Start PostgreSQL and MongoDB
-pnpm db:up
+pnpm run db:up
 
 # Stop databases
-pnpm db:down
+pnpm run db:down
 
 # Restart databases
-pnpm db:restart
+pnpm run db:restart
 ```
 
-### API Development
+### API Production
 
 ```bash
 # Start API with Docker
-pnpm api:up
+pnpm run api:up
 
 # Stop API
-pnpm api:down
+pnpm run api:down
 
 # Access API container shell
-pnpm api:sh
-```
-
-## 📁 Project Structure
-
-```
-larascript-monorepo/
-├── app/
-│   └── larascript-framework/     # Main framework application
-├── libs/                        # Core framework libraries
-│   ├── larascript-core/         # Core framework components
-│   ├── larascript-acl/          # Access control system
-│   ├── larascript-collection/   # Collection utilities
-│   └── ...                      # Other libraries
-├── packages/                    # Your own packages
-│   └── ...                      # Add your custom packages here
-├── docs/                        # Documentation
-├── package.json                 # Root package configuration
-├── pnpm-workspace.yaml         # Workspace configuration
-└── turbo.json                  # Build orchestration
-```
-
-## 🧪 Testing
-
-Each package includes comprehensive test suites:
-
-```bash
-# Run tests for all packages
-pnpm test
-
-# Run tests for specific package
-cd packages/larascript-core
-pnpm test
-
-# Run tests with coverage
-pnpm test:coverage
+pnpm run api:sh
 ```
 
 ##  Development Scripts
 
-### Root Level Commands
-- `pnpm dev` - Start development environment
-- `pnpm build` - Build all packages
-- `pnpm build:watch` - Build all packages in watch mode
-- `pnpm test` - Run tests across all packages
-- `pnpm lint` - Lint all packages
-- `pnpm check` - Type checking across all packages
 
-### Framework Application Commands
-- `pnpm start` - Start the framework application
-- `pnpm dev` - Start development server with hot reload
-- `pnpm dev:tinker` - Run the tinker playground script for testing and experimenting with code (`src/tinker.ts`)
-- `pnpm setup` - Run setup scripts
-- `pnpm db:up` - Start database services
-- `pnpm api:up` - Start API with Docker
+| Script              | Description                                                                            |
+|---------------------|----------------------------------------------------------------------------------------|
+| build               | Compile TypeScript and update module paths.                                            |
+| build:watch         | Watch and compile TypeScript continuously.                                             |
+| fix-eslint          | Automatically fix ESLint issues in the src directory.                                  |
+| fix                 | Alias for fix-eslint.          
+| tslint              | Run TSLint on the project using the specified TypeScript configuration.                ||
+| start               | Start the application using the compiled JavaScript output.                            |
+| dev                 | Run the application in development mode using nodemon to watch for changes and restart on updates. |
+| tinker              | Execute tinker.ts with nodemon for explorative coding.                                 |
+| postinstall         | Execute build script after package installation.                                       |
+| test                | Run tests using Jest in single-threaded mode.                                          |
+| test:watch          | Continuously run tests on file change using Jest.                                      |
+| test:coverage       | Generate test coverage reports with Jest.                                              |
+| test:all            | Run all test variations, including Jest tests.                                         |
+| setup               | Execute setup script with TypeScript executor.                                         |
+| network:up          | Set up Docker network using docker-compose.                                            |
+| db:up               | Start PostgreSQL and MongoDB databases.                                                |
+| db:down             | Stop PostgreSQL and MongoDB databases.                                                 |
+| db:restart          | Restart databases.                                                                     |
+| db:postgres:up      | Start PostgreSQL service.                                                              |
+| db:postgres:down    | Stop PostgreSQL service.                                                               |
+| db:mongodb:up       | Start MongoDB service.                                                                 |
+| db:mongodb:down     | Stop MongoDB service.                                                                  |
+| api:up              | Start API service. (production mode)                                                                    |
+| api:down            | Stop API and associated network services. (production mode)                                              |
+| api:sh              | Start a bash shell in the API Docker container. (production mode)                                        |
 
-## 📚 Documentation
+These scripts are designed to manage tasks related to building, testing, and running your application, as well as managing Docker services for databases and APIs.
 
-- **Framework Documentation**: See `docs/` for main docs
-- **Package Documentation**: Each package contains its own README and documentation
-- **API Documentation**: Available when running the framework application
 
-## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feat/your-feature`
-3. Follow the existing code style and patterns
-4. Add comprehensive tests for new features
-5. Update documentation as needed
-6. Ensure all tests pass before submitting
-7. Follow conventional commit message format
-
-### Branch Naming Convention
-Branches must follow the pattern: `^(feat|fix|hotfix|release|test|experimental|refactor)/.+$`
-
-Example: `feat/example`
-
-## 📄 License
-
-ISC License - see individual package.json files for details.
 
 ## 👨‍💻 Author
 

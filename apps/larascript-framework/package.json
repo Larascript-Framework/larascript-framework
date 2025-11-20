@@ -5,12 +5,11 @@
   "description": "A powerful Node.js framework with built-in ORM, type safety, and developer-friendly APIs",
   "main": "index.js",
   "scripts": {
-    "install:no-scripts": "pnpm install --ignore-scripts",
     "build": "tsc --skipLibCheck && npx tsc-alias",
     "build:watch": "concurrently --kill-others \"tsc -w\" \"tsc-alias -w\"",
-    "fix-imports": "node fix-imports.js",
     "fix-eslint": "npx eslint --fix src",
-    "fix": "pnpm run fix-imports && pnpm run fix-eslint",
+    "fix": "pnpm run fix-eslint",
+    "lint": "tslint --project tsconfig.json",
     "start": "node ./dist/app.js",
     "dev": "nodemon --watch src --ext ts --exec tsx ./src/app.ts",
     "tinker": "nodemon --watch src --ext ts --exec tsx ./src/tinker.ts",
@@ -21,8 +20,8 @@
     "test:all": "run-s --continue-on-error test:jest",
     "setup": "npx tsx ./src/setup.ts",
     "network:up": "cd ./docker && docker-compose -f docker-compose.network.yml up -d network-setup",
-    "db:up": "pnpm db:postgres:up && pnpm db:mongodb:up",
-    "db:down": "pnpm db:postgres:down && pnpm db:mongodb:down",
+    "db:up": "npm db:postgres:up && npm db:mongodb:up",
+    "db:down": "npm db:postgres:down && npm db:mongodb:down",
     "db:restart": "pnpm db:down && pnpm db:up",
     "db:postgres:up": "pnpm network:up && cd ./docker && docker-compose -f docker-compose.postgres.yml up --build -d postgres",
     "db:postgres:down": "cd ./docker && docker-compose -f docker-compose.postgres.yml down",
@@ -30,8 +29,7 @@
     "db:mongodb:down": "cd ./docker && docker-compose -f docker-compose.mongodb.yml down",
     "api:up": "pnpm network:up && cd ./docker && docker-compose -f docker-compose.api.yml up --build -d api",
     "api:down": "cd ./docker && docker-compose -f docker-compose.api.yml down && docker-compose -f docker-compose.network.yml down",
-    "api:sh": "docker exec -it larascript-api /bin/bash",
-    "tslint": "tslint --project tsconfig.json"
+    "api:sh": "docker exec -it larascript-api /bin/bash"
   },
   "dependencies": {
     "@larascript-framework/async-session": "workspace:*",
