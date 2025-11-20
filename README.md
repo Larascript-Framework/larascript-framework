@@ -4,7 +4,9 @@ Larascript is a modern, type-safe Node.js framework designed for building scalab
 
 This project is currently in beta stage and under active development. It is not recommended for use in production environments at this time. We suggest using it only for small-scale applications and experimental projects while we work on stabilizing the features and APIs.
 
-> 📖 **Read the full documentation on [https://www.larascriptnode.com](https://www.larascriptnode.com)**
+## 📖 Full Documentation
+
+**[https://www.larascriptnode.com](https://www.larascriptnode.com)**
 
 
 ## 🛠️ Technology Stack
