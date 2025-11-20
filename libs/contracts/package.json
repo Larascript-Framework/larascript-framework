@@ -39,6 +39,7 @@
     "@larascript-framework/eslint-config": "workspace:*",
     "@larascript-framework/jest-config": "workspace:*",
     "@larascript-framework/tsconfig": "workspace:*",
+    "@larascript-framework/larascript-collection": "workspace:*",
     "tsc-alias": "^1.8.16"
   },
   "exports": {
@@ -117,6 +118,10 @@
     "./larascript-core": {
       "types": "./dist/core/index.d.ts",
       "default": "./dist/core/index.js"
+    },
+    "./observer": {
+      "types": "./dist/observer/index.d.ts",
+      "default": "./dist/observer/index.js"
     }
   },
   "dependencies": {

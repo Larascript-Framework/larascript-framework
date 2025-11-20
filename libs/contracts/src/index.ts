@@ -7,13 +7,12 @@ import * as DatabaseContracts from "./database/index.js";
 import * as HttpContracts from "./http/index.js";
 import * as LoggerContracts from "./logger/index.js";
 import * as MigrationsContracts from "./migrations/index.js";
+import * as ObserverContracts from "./observer/index.js";
 import * as StorageContracts from "./storage/index.js";
 import * as ValidatorContracts from "./validator/index.js";
 
 export {
     AclContracts, AsyncSessionContracts, AuthContracts, ConsoleContracts, CryptoJsContracts, DatabaseContracts,
-    HttpContracts, LoggerContracts, MigrationsContracts,
-    StorageContracts,
-    ValidatorContracts
+    HttpContracts, LoggerContracts, MigrationsContracts, ObserverContracts, StorageContracts, ValidatorContracts
 };
 
