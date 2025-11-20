@@ -1,5 +1,6 @@
 import HttpFileSystemUploader from "@/http/services/HttpFileSystemUploader.js";
-import { AsyncSessionService, IAsyncSessionService } from "@larascript-framework/async-session";
+import { AsyncSessionService } from "@larascript-framework/async-session";
+import { IAsyncSessionService } from "@larascript-framework/contracts/async-session";
 import { IAuthService } from "@larascript-framework/contracts/auth";
 import { IHttpEnvironmentConfig, IHttpService, IHttpUploadService, IRequestContext } from "@larascript-framework/contracts/http";
 import { EnvironmentType } from "@larascript-framework/contracts/larascript-core";
