@@ -1,4 +1,4 @@
-import { IAsyncSessionService } from "@larascript-framework/async-session";
+import { IAsyncSessionService } from "@larascript-framework/contracts/async-session";
 import { CryptoService, ICryptoService } from "@larascript-framework/crypto-js";
 import jwt from "jsonwebtoken";
 import BaseAuthAdapter from "../base/BaseAuthAdapter.js";

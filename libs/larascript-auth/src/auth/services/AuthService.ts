@@ -1,4 +1,5 @@
-import { IAsyncSessionService } from "@larascript-framework/async-session";
+import { IAclConfig, IBasicACLService } from "@larascript-framework/contracts/acl";
+import { IAsyncSessionService } from "@larascript-framework/contracts/async-session";
 import {
   BaseAuthAdapterTypes,
   IApiTokenFactory,
@@ -12,8 +13,6 @@ import {
 } from "@larascript-framework/contracts/auth";
 import {
   BasicACLService,
-  IAclConfig,
-  IBasicACLService,
 } from "@larascript-framework/larascript-acl";
 import { BaseAdapter } from "@larascript-framework/larascript-core";
 import JwtAuthService from "./JwtAuthService.js";

@@ -2,7 +2,7 @@ import { IApiTokenFactory, IUserFactory } from "@/auth/interfaces/index.js";
 import { AuthEnvironment } from "@/environment/AuthEnvironment.js";
 import { beforeEach, describe, expect, jest, test } from "@jest/globals";
 import { AsyncSessionService } from "@larascript-framework/async-session";
-import { IAclConfig } from "@larascript-framework/larascript-acl";
+import { IAclConfig } from "@larascript-framework/contracts/acl";
 import {
   IApiTokenRepository,
   IAuthConfig,

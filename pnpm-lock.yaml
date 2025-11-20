@@ -449,6 +449,9 @@ importers:
       '@larascript-framework/jest-config':
         specifier: workspace:*
         version: link:../jest-config
+      '@larascript-framework/larascript-collection':
+        specifier: workspace:*
+        version: link:../larascript-collection
       '@larascript-framework/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig

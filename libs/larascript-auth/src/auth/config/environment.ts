@@ -1,4 +1,4 @@
-import { IAsyncSessionService } from "@larascript-framework/async-session";
+import { IAsyncSessionService } from "@larascript-framework/contracts/async-session";
 import { IAuthEnvironmentConfig, IAuthEnvironmentDependencies } from "@larascript-framework/contracts/auth";
 import { EnvironmentTesting } from "@larascript-framework/larascript-core";
 import { aclConfig } from "./acl.config.js";

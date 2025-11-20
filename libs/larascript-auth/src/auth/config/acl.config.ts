@@ -1,4 +1,4 @@
-import { IAclConfig } from "@larascript-framework/larascript-acl"
+import { IAclConfig } from "@larascript-framework/contracts/acl"
 
 // Define available groups
 export const GROUPS = {

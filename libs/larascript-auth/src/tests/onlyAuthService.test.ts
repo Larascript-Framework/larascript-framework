@@ -1,9 +1,9 @@
 
 import { AuthEnvironment } from "@/environment/AuthEnvironment.js";
 import { beforeEach, describe, expect, jest, test } from "@jest/globals";
+import { IAclConfig } from "@larascript-framework/contracts/acl";
 import {
   BasicACLService,
-  IAclConfig,
 } from "@larascript-framework/larascript-acl";
 import { IAuthAdapter, IAuthConfig } from "../auth/index.js";
 import AuthService from "../auth/services/AuthService.js";

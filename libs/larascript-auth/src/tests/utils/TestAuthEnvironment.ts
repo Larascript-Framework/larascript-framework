@@ -2,7 +2,7 @@ import { IAuthConfig, IAuthEnvironmentConfig } from "@/auth/index.js";
 import { AuthEnvironment } from "@/environment/AuthEnvironment.js";
 import { testEnvironmentConfig } from "@/tests/utils/testEnvironmentConfig.js";
 import { AsyncSessionService } from "@larascript-framework/async-session";
-import { IAclConfig } from "@larascript-framework/larascript-acl";
+import { IAclConfig } from "@larascript-framework/contracts/acl";
 import { BaseSingleton } from "@larascript-framework/larascript-core";
 import { DatabaseEnvironment } from "@larascript-framework/larascript-database";
 
