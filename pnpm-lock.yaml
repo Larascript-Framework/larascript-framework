@@ -187,7 +187,7 @@ importers:
         specifier: ^5.1.4
         version: 5.1.4(webpack@5.101.3)
 
-  apps/larascript-framework:
+  apps/api:
     dependencies:
       '@larascript-framework/async-session':
         specifier: workspace:*
@@ -437,6 +437,9 @@ importers:
         specifier: ^3.17.0
         version: 3.17.0
     devDependencies:
+      '@larascript-framework/async-session':
+        specifier: workspace:*
+        version: link:../async-session
       '@larascript-framework/check-exports':
         specifier: workspace:*
         version: link:../check-exports
@@ -446,6 +449,12 @@ importers:
       '@larascript-framework/jest-config':
         specifier: workspace:*
         version: link:../jest-config
+      '@larascript-framework/larascript-acl':
+        specifier: workspace:*
+        version: link:../larascript-acl
+      '@larascript-framework/larascript-utils':
+        specifier: workspace:*
+        version: link:../larascript-utils
       '@larascript-framework/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig

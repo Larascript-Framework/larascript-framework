@@ -8,7 +8,11 @@
 		"libs:watch": "turbo build:watch --filter=\"./libs/*\" --concurrency=25",
 		"libs:build": "turbo build --filter=\"./libs/*\" --concurrency=25",
 		"watch": "turbo build:watch --concurrency=25",
-		"build": "turbo build --concurrency=25"
+		"build": "turbo build --concurrency=25",
+		"network:up": "cd ./docker && docker-compose -f docker-compose.network.yml up -d network-setup",
+		"api:up": "pnpm network:up && cd ./docker && docker-compose -f docker-compose.api.yml up --build -d api",
+		"api:down": "cd ./docker && docker-compose -f docker-compose.api.yml down && docker-compose -f docker-compose.network.yml down",
+		"api:sh": "docker exec -it larascript-api /bin/bash"
 	},
 	"dependencies": {
 		"@larascript-framework/async-session": "workspace:*",
