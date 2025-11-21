@@ -10,6 +10,8 @@ storage/upload/*
 storage/cache/*
 !storage/cache/.gitkeep
 
+.turbo/
+
 # Created by https://www.toptal.com/developers/gitignore/api/node,turbo,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,turbo,visualstudiocode
 
