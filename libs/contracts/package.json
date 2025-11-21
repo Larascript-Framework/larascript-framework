@@ -1,0 +1,132 @@
+{
+  "name": "@larascript-framework/contracts",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Contracts for Larascript Framework",
+  "license": "ISC",
+  "author": "ben.shepherd@gmx.com",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch --passWithNoTests",
+    "test:coverage": "jest --coverage --passWithNoTests",
+    "build": "tsc --skipLibCheck && npx tsc-alias",
+    "build:watch": "concurrently --kill-others \"tsc -w\" \"tsc-alias -w\"",
+    "lint": "eslint --ignore-pattern .gitignore \"{src,tests}/**/*.+(ts|js|tsx)\"",
+    "lint:fix": "eslint --fix --ignore-pattern .gitignore \"{src,tests}/**/*.+(ts|js|tsx)\"",
+    "tslint": "tslint --project tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --ignore-path .prettierignore --write \"**/*.+(js|ts|json|tsx|mdx)\" --log-level silent",
+    "check-exports": "node ./scripts/check-exports.js",
+    "check": "npm run format && npm run lint:fix && npm run typecheck && npm run check-exports",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major",
+    "upstream:setup": "git remote add upstream git@github.com:ben-shepherd/larascript-forkable-bundle.git && git remote set-url --push upstream no-pushing",
+    "upstream:fetch": "git fetch upstream",
+    "upstream:merge": "git fetch upstream && git merge upstream/main",
+    "upstream:rebase": "git fetch upstream && git rebase upstream/main",
+    "depcheck": "depcheck"
+  },
+  "devDependencies": {
+    "@larascript-framework/check-exports": "workspace:*",
+    "@larascript-framework/eslint-config": "workspace:*",
+    "@larascript-framework/jest-config": "workspace:*",
+    "@larascript-framework/tsconfig": "workspace:*",
+    "@larascript-framework/larascript-collection": "workspace:*",
+    "tsc-alias": "^1.8.16"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./validator": {
+      "types": "./dist/validator/index.d.ts",
+      "default": "./dist/validator/index.js"
+    },
+    "./http": {
+      "types": "./dist/http/index.d.ts",
+      "default": "./dist/http/index.js"
+    },
+    "./migrations": {
+      "types": "./dist/migrations/index.d.ts",
+      "default": "./dist/migrations/index.js"
+    },
+    "./database/database": {
+      "types": "./dist/database/database/index.d.ts",
+      "default": "./dist/database/database/index.js"
+    },
+    "./database/eloquent": {
+      "types": "./dist/database/eloquent/index.d.ts",
+      "default": "./dist/database/eloquent/index.js"
+    },
+    "./database/model": {
+      "types": "./dist/database/model/index.d.ts",
+      "default": "./dist/database/model/index.js"
+    },
+    "./database/mongodb-adapter": {
+      "types": "./dist/database/mongodb-adapter/index.d.ts",
+      "default": "./dist/database/mongodb-adapter/index.js"
+    },
+    "./database/postgres-adapter": {
+      "types": "./dist/database/postgres-adapter/index.d.ts",
+      "default": "./dist/database/postgres-adapter/index.js"
+    },
+    "./database/repository": {
+      "types": "./dist/database/repository/index.d.ts",
+      "default": "./dist/database/repository/index.js"
+    },
+    "./database/environment": {
+      "types": "./dist/database/environment/index.d.ts",
+      "default": "./dist/database/environment/index.js"
+    },
+    "./auth": {
+      "types": "./dist/auth/index.d.ts",
+      "default": "./dist/auth/index.js"
+    },
+    "./acl": {
+      "types": "./dist/acl/index.d.ts",
+      "default": "./dist/acl/index.js"
+    },
+    "./async-session": {
+      "types": "./dist/async-session/index.d.ts",
+      "default": "./dist/async-session/index.js"
+    },
+    "./storage": {
+      "types": "./dist/storage/index.d.ts",
+      "default": "./dist/storage/index.js"
+    },
+    "./console": {
+      "types": "./dist/console/index.d.ts",
+      "default": "./dist/console/index.js"
+    },
+    "./crypto-js": {
+      "types": "./dist/crypto-js/index.d.ts",
+      "default": "./dist/crypto-js/index.js"
+    },
+    "./logger": {
+      "types": "./dist/logger/index.d.ts",
+      "default": "./dist/logger/index.js"
+    },
+    "./larascript-core": {
+      "types": "./dist/core/index.d.ts",
+      "default": "./dist/core/index.js"
+    },
+    "./observer": {
+      "types": "./dist/observer/index.d.ts",
+      "default": "./dist/observer/index.js"
+    }
+  },
+  "dependencies": {
+    "@types/node": "^24.5.2",
+    "express": "^4.21.0",
+    "winston": "^3.17.0"
+  }
+}

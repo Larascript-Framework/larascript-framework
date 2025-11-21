@@ -1,0 +1,72 @@
+{
+    "$schema": "https://turborepo.com/schema.json",
+    "tasks": {
+        "lint": {
+            "dependsOn": ["^lint"]
+        },
+        "lint:fix": {
+            "dependsOn": ["^lint:fix"]
+        },
+        "tslint": {
+            "dependsOn": ["^tslint"]
+        },
+        "check": {
+            "dependsOn": ["^check"]
+        },
+        "depcheck": {
+            "outputs": ["depcheck.json"]
+        },
+        "test": {
+            "outputs": ["dist/**"]
+        },
+        "test:watch": {
+            "persistent": true,
+            "cache": false
+        },
+        "test:coverage": {
+            "outputs": ["dist/**", "coverage/**"]
+        },
+        "build": {
+            "dependsOn": [
+                "^build"
+            ],
+            "outputs": [
+                "dist/**"
+            ]
+        },
+        "build:watch": {
+            "persistent": true,
+            "cache": false
+        },
+        "check-types": {
+            "dependsOn": ["^check-types"]
+        },
+        "typecheck": {
+            "dependsOn": ["^typecheck"]
+        },
+        "format": {
+            "dependsOn": ["^format"]
+        },
+        "check-exports": {
+            "dependsOn": ["^check-exports"]
+        },
+        "dev": {
+            "dependsOn": ["^build"],
+            "persistent": true,
+            "cache": false
+        },
+        "tinker": {
+            "persistent": true,
+            "cache": false
+        },
+        "version:patch": {
+            "cache": false
+        },
+        "version:minor": {
+            "cache": false
+        },
+        "version:major": {
+            "cache": false
+        }
+    }
+}

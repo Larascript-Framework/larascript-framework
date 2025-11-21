@@ -1,0 +1,1 @@
+export type TMockableEventCallback<TPayload = unknown> = (payload: TPayload) => boolean;

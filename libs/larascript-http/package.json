@@ -1,0 +1,71 @@
+{
+  "name": "@larascript-framework/larascript-http",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "HTTP module for the Larascript Framework.",
+  "license": "ISC",
+  "author": "ben.shepherd@gmx.com",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "test": "npm run db:postgres:restart && jest --runInBand --detectOpenHandles --passWithNoTests && npm run db:postgres:down",
+    "test:nodb": "jest --runInBand --detectOpenHandles --passWithNoTests",
+    "test:watch": "jest --runInBand --watch --detectOpenHandles --passWithNoTests",
+    "test:coverage": "jest --runInBand --coverage --detectOpenHandles --passWithNoTests",
+    "build": "tsc --skipLibCheck && npx tsc-alias",
+    "build:watch": "concurrently --kill-others \"tsc -w\" \"tsc-alias -w\"",
+    "lint": "eslint --ignore-pattern .gitignore \"{src,tests}/**/*.+(ts|js|tsx)\"",
+    "lint:fix": "eslint --fix --ignore-pattern .gitignore \"{src,tests}/**/*.+(ts|js|tsx)\"",
+    "tslint": "tslint --project tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --ignore-path .prettierignore --write \"**/*.+(js|ts|json|tsx|mdx)\" --log-level silent",
+    "check-exports": "node ./scripts/check-exports.js",
+    "check": "npm run format && npm run lint:fix && npm run typecheck && npm run check-exports",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major",
+    "upstream:setup": "git remote add upstream git@github.com:ben-shepherd/larascript-forkable-bundle.git && git remote set-url --push upstream no-pushing",
+    "upstream:fetch": "git fetch upstream",
+    "upstream:merge": "git fetch upstream && git merge upstream/main",
+    "upstream:rebase": "git fetch upstream && git rebase upstream/main",
+    "depcheck": "depcheck",
+    "db:postgres:restart": "npm run db:postgres:down && npm run db:postgres:up",
+    "db:postgres:down": "docker-compose -f docker/docker-compose.postgres.yml down -v",
+    "db:postgres:up": "docker-compose -f docker/docker-compose.postgres.yml up -d"
+  },
+  "devDependencies": {
+    "@larascript-framework/check-exports": "workspace:*",
+    "@larascript-framework/eslint-config": "workspace:*",
+    "@larascript-framework/jest-config": "workspace:*",
+    "@larascript-framework/tsconfig": "workspace:*",
+    "@types/body-parser": "^1.19.6",
+    "tsc-alias": "^1.8.16",
+    "tslint-no-circular-imports": "^0.7.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "@larascript-framework/async-session": "workspace:*",
+    "@larascript-framework/contracts": "workspace:*",
+    "@larascript-framework/larascript-auth": "workspace:*",
+    "@larascript-framework/larascript-core": "workspace:*",
+    "@larascript-framework/larascript-database": "workspace:*",
+    "@larascript-framework/larascript-logger": "workspace:*",
+    "@larascript-framework/larascript-storage": "workspace:*",
+    "@larascript-framework/larascript-utils": "workspace:*",
+    "@larascript-framework/larascript-validator": "workspace:*",
+    "@larascript-framework/test-helpers": "workspace:*",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "express-busboy": "^10.1.0",
+    "aws-sdk": "^2.1692.0"
+  }
+}

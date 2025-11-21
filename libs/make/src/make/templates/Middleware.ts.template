@@ -1,0 +1,26 @@
+import { HttpContext, Middleware } from "@larascript-framework/http";
+
+export type TMiddlewareConfig = {
+    // ...
+}
+
+class Middleware extends Middleware<TMiddlewareConfig> {
+
+    /**
+     * Executes the validator middleware
+     * @param context - The HTTP context
+     */
+    public async execute(context: HttpContext): Promise<void> {
+
+        const request = context.getRequest()
+        const response = context.getResponse()
+        const config = this.getConfig()
+
+        // Logic
+
+        this.next();
+    }
+
+}
+
+export default Middleware;

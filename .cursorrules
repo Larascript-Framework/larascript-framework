@@ -1,0 +1,17 @@
+// .cursorrules prompts for this monorepo:
+
+// 1. When adding a new package, ensure its tsconfig.json extends "@larascript-framework/tsconfig" and its eslint.config.js imports and exports "@larascript-framework/eslint-config".
+
+// 2. All TypeScript source files should be placed in a "src" directory within each package.
+
+// 3. When creating a new entry point, export from "src/index.ts".
+
+// 4. When adding dependencies, prefer workspace:* for internal packages and use the latest stable version for external packages.
+
+// 5. All packages should have "type": "module" in their package.json.
+
+// 6. When updating TypeScript or ESLint configuration, update the base config in /packages/tsconfig/tsconfig.json or /packages/eslint-config respectively, and extend from there in each package.
+
+// 7. When writing code, follow the formatting and linting rules enforced by the monorepo's Prettier and ESLint configuration.
+
+// 8. When creating a new package, add it to the root turbo.json pipeline if it has build/test/lint scripts.

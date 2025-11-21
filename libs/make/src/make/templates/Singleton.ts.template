@@ -1,0 +1,13 @@
+import { BaseSingleton } from "@larascript-framework/larascript-core";
+
+export interface I#name#SingletonData {
+
+}
+
+export class #name#Singleton extends BaseSingleton<I#name#SingletonData> {
+
+    constructor(config: I#name#SingletonData) {
+        super(config)
+    }
+    
+}

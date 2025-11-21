@@ -1,0 +1,13 @@
+{
+  "extends": "@larascript-framework/tsconfig",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*", "*.config.*"],
+  "exclude": ["node_modules", "dist/**/*"]
+}

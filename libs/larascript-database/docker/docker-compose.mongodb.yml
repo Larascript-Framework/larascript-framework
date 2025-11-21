@@ -1,0 +1,27 @@
+version: '3'
+
+name: package-larascript-database-mongodb
+
+services:
+  mongodb:
+    container_name: package-larascript-database-mongodb
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      LARASCRIPT_DEFAULT_CREDENTIALS: mongodb://root:example@localhost:27018/app?authSource=admin
+    volumes:
+      - mongodb_data:/data/db
+      - mongodb_keyfile:/data
+    healthcheck:
+      test: ["CMD", "mongosh", "admin", "-u", "root", "-p", "example", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+
+volumes:
+  mongodb_data:
+  mongodb_keyfile:

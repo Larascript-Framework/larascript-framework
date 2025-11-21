@@ -1,0 +1,61 @@
+{
+  "name": "@larascript-framework/larascript-mail",
+  "type": "module",
+  "version": "1.0.1",
+  "description": "Larascript bundle providing mail utilities and components.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ben-shepherd/larascript-mail"
+  },
+  "license": "ISC",
+  "author": "ben.shepherd@gmx.com",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "build": "tsc --skipLibCheck && npx tsc-alias",
+    "build:watch": "concurrently --kill-others \"tsc -w\" \"tsc-alias -w\"",
+    "lint": "eslint --ignore-pattern .gitignore \"{src,tests}/**/*.+(ts|js|tsx)\"",
+    "lint:fix": "eslint --fix --ignore-pattern .gitignore \"{src,tests}/**/*.+(ts|js|tsx)\"",
+    "tslint": "tslint --project tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --ignore-path .prettierignore --write \"**/*.+(js|ts|json|tsx|mdx)\" --log-level silent",
+    "check-exports": "node ./scripts/check-exports.js",
+    "check": "npm run format && npm run lint:fix && npm run typecheck && npm run check-exports",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major",
+    "upstream:setup": "git remote add upstream git@github.com:ben-shepherd/larascript-forkable-bundle.git && git remote set-url --push upstream no-pushing",
+    "upstream:fetch": "git fetch upstream",
+    "upstream:merge": "git fetch upstream && git merge upstream/main",
+    "upstream:rebase": "git fetch upstream && git rebase upstream/main",
+    "depcheck": "depcheck"
+  },
+  "dependencies": {
+    "@larascript-framework/larascript-core": "workspace:*",
+    "@larascript-framework/larascript-logger": "workspace:*",
+    "@larascript-framework/larascript-views": "workspace:*",
+    "@larascript-framework/contracts": "workspace:*",
+    "nodemailer": "^7.0.5",
+    "resend": "^6.0.1"
+  },
+  "devDependencies": {
+    "@larascript-framework/jest-config": "workspace:*",
+    "@larascript-framework/tsconfig": "workspace:*",
+    "@larascript-framework/eslint-config": "workspace:*",
+    "tsc-alias": "^1.8.16"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  }
+}

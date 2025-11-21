@@ -1,0 +1,28 @@
+import User from "@/app/models/auth/User.js";
+import { GROUPS, ROLES } from "@/config/acl.config.js";
+import { app } from "@/core/services/App.js";
+import { faker } from "@faker-js/faker";
+import { BaseSeeder } from "@larascript-framework/database";
+
+export class Seeder extends BaseSeeder {
+
+    async up(): Promise < void> {
+
+        // Change the example to suit your needs
+        await User.query().insert([
+            {
+                email: faker.internet.email(),
+                password: faker.internet.password(),
+                hashedPassword: app('auth').getJwt().hashPassword(faker.internet.password()),
+                groups: [GROUPS.USER],
+                roles: [ROLES.USER],
+                firstName: faker.person.firstName(),
+                lastName: faker.person.lastName(),
+            }
+        ])
+
+    }
+
+}
+
+export default Seeder

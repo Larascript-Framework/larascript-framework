@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+      "target": "ES2022",
+      "module": "nodenext",
+      "moduleResolution": "nodenext",
+      "baseUrl": "./",
+      "paths": {
+        "@/*": ["src/*"]
+      },
+      "outDir": "./dist",
+      "strict": true,
+      "noImplicitAny": false,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "forceConsistentCasingInFileNames": true,
+      "declaration": true,
+      "declarationMap": true,
+      "sourceMap": true,
+      "lib": ["es2022"],
+      "isolatedModules": true,
+      "skipLibCheck": true,
+      "types": ["node", "jest"]
+    },
+    "exclude": ["node_modules", "dist", "src/**/*.test.ts"],
+  
+  }
+  
