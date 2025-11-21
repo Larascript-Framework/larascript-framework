@@ -10,12 +10,12 @@ import dotenv from 'dotenv';
 import DatabaseSetupProvider from "./core/providers/DatabaseSetupProvider.js";
 import EnvServiceProvider from "./core/providers/EnvServiceProvider.js";
 import PackageJsonProvider from "./core/providers/PackageJsonProvider.js";
+import { logger } from './core/services/Logger.js';
 
-
-(async () => {
+(() => {
     dotenv.config();
 
-    await Kernel.boot({
+    Kernel.boot({
         ...appConfig,
         environment: 'testing',
         providers: [
@@ -27,7 +27,11 @@ import PackageJsonProvider from "./core/providers/PackageJsonProvider.js";
             new CryptoProvider(),
             new SetupProvider()
         ]
-    }, {})
+    }, {}).then(() => {
+        app('console').readerService(['app:setup']).handle();
+    }).catch(err => {
+        logger().error('[Setup]: Failed to start', err);
+        throw err;
+    });
 
-    app('console').readerService(['app:setup']).handle();
 })();
