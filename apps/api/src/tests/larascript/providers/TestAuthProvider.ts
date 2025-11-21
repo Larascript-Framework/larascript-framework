@@ -1,8 +1,8 @@
 import UserRepository from "@/app/repositories/UserRepository.js";
 import { GROUPS, ROLES } from "@/config/acl.config.js";
 import AuthProvider from "@/core/providers/AuthProvider.js";
+import { IAclConfig } from "@larascript-framework/contracts/acl";
 import { IAuthRoutesConfigExtended } from "@larascript-framework/contracts/auth";
-import { IAclConfig } from "@larascript-framework/larascript-acl";
 import { ApiTokenFactory, ApiTokenRepository, AuthenticableUserFactory } from "@larascript-framework/larascript-auth";
 
 
