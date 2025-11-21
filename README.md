@@ -74,7 +74,7 @@ pnpm install --ignore-scripts
 turbo run build --filter="./libs/*"
 
 # Navigate to the framework application
-cd apps/larascript-framework
+cd apps/api
 
 # Add write permissions to logs directory
 chmod -R 755 storage
