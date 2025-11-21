@@ -66,6 +66,7 @@ class RegisterUseCase extends BaseUseCase {
 
         // Reduce attributes to only allowed fields
         const userAttributesReduced = this.reduceAttributesOnlyAllowed(userAttributes, allowedFields)
+        userAttributesReduced.password = context.getBody().password
 
         // Create and save the user
         const user = this.environment
