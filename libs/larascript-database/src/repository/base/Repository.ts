@@ -1,7 +1,7 @@
 import { IRepository } from "@larascript-framework/contracts/database/repository";
 import { Collection, ICollection, collect } from "@larascript-framework/larascript-collection";
 import DB from "../../database/services/DB.js";
-import { IEloquent, ModelNotFound } from "../../eloquent/index.js";
+import { IEloquent, ModelNotFoundException } from "../../eloquent/index.js";
 import { IModel, ModelConstructor } from "../../model/index.js";
 
 /**
@@ -71,7 +71,7 @@ export class Repository<Model extends IModel> implements IRepository<Model> {
         const model = await this.findOne(filter)
 
         if(!model) {
-            throw new ModelNotFound()
+            throw new ModelNotFoundException()
         }
 
         return model
