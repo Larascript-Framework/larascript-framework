@@ -49,6 +49,10 @@
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
+    },
+    "./usecases": {
+      "types": "./dist/usecases/index.d.ts",
+      "default": "./dist/usecases/index.js"
     }
   },
   "dependencies": {

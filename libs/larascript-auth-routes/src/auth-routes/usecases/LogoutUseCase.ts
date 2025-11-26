@@ -10,7 +10,7 @@ import { BaseUseCase } from "../base/BaseUseCase.js";
  * - Revoking/invalidating the JWT token via JwtAuthService
  * - Returning a successful empty response
  */
-class LogoutUseCase extends BaseUseCase {
+export class LogoutUseCase extends BaseUseCase {
 
     /**
      * Handle the user use case
