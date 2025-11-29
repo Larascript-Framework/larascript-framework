@@ -1,11 +1,19 @@
 import DatabaseProvider from "@/core/providers/DatabaseProvider.js";
 import { DatabaseConfig, IDatabaseConfig, IMongoConfig, IPostgresConfig, MongoDbAdapter, ParseMongoDBConnectionString, ParsePostgresConnectionUrl, PostgresAdapter } from "@larascript-framework/larascript-database";
+import path from "path";
 
 
 export const testDbName = 'test_db';
 
-const defaultMongoDbCredentials = new MongoDbAdapter('', {} as IMongoConfig).getDefaultCredentials()
-const defaultPostgresCredentials = new PostgresAdapter('', {} as IPostgresConfig).getDefaultCredentials()
+const mongoDbDockerComposeFilePath = path.resolve(process.cwd(), "../../libs/larascript-database/docker/docker-compose.mongodb.yml");
+const postgresDockerComposeFilePath = path.resolve(process.cwd(), "../../libs/larascript-database/docker/docker-compose.postgres.yml");
+
+const defaultMongoDbCredentials = new MongoDbAdapter('', {
+    dockerComposeFilePath: mongoDbDockerComposeFilePath,
+} as IMongoConfig).getDefaultCredentials()
+const defaultPostgresCredentials = new PostgresAdapter('', {
+    dockerComposeFilePath: postgresDockerComposeFilePath,
+} as IPostgresConfig).getDefaultCredentials()
 
 if (!defaultMongoDbCredentials || !defaultPostgresCredentials) {
     throw new Error('Invalid default credentials');
@@ -32,11 +40,13 @@ export default class TestDatabaseProvider extends DatabaseProvider {
         connections: [
             DatabaseConfig.postgres('postgres', {
                 uri: postgresConnectionStringWithTestDb,
-                options: {}
+                options: {},
+                dockerComposeFilePath: postgresDockerComposeFilePath,
             }),
             DatabaseConfig.mongodb('mongodb', {
                 uri: mongoDbConnectionStringWithTestDb,
-                options: {}
+                options: {},
+                dockerComposeFilePath: mongoDbDockerComposeFilePath,
             })
         ]
     };
