@@ -22,12 +22,12 @@ export default class DatabaseSetupProvider extends BaseProvider {
             DatabaseConfig.postgres('postgres', {
                 uri: '',
                 options: {},
-                dockerComposeFilePath: path.resolve(process.cwd(), "../../libs/docker-compose.postgres.yml"),
+                dockerComposeFilePath: path.resolve(process.cwd(), "../../docker/docker-compose.postgres.yml"),
             }),
             DatabaseConfig.mongodb('mongodb', {
                 uri: '',
                 options: {},
-                dockerComposeFilePath: path.resolve(process.cwd(), "../../libs/docker-compose.mongodb.yml"),
+                dockerComposeFilePath: path.resolve(process.cwd(), "../../docker/docker-compose.mongodb.yml"),
             })
         ]
     };

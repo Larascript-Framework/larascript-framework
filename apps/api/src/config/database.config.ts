@@ -37,7 +37,7 @@ const config: IDatabaseConfig = {
             {
                 uri: process.env.DATABASE_POSTGRES_URI as string,
                 options: {}, // Additional connection options can be specified here
-                dockerComposeFilePath: path.resolve(process.cwd(), "../../libs/docker-compose.postgres.yml"),
+                dockerComposeFilePath: path.resolve(process.cwd(), "../../docker/docker-compose.postgres.yml"),
             }
         ),
 
@@ -49,7 +49,7 @@ const config: IDatabaseConfig = {
             {
                 uri: process.env.DATABASE_MONGODB_URI as string,
                 options: {}, // Additional connection options can be specified here
-                dockerComposeFilePath: path.resolve(process.cwd(), "../../libs/docker-compose.mongodb.yml"),
+                dockerComposeFilePath: path.resolve(process.cwd(), "../../docker/docker-compose.mongodb.yml"),
             }
         ),
     ]
