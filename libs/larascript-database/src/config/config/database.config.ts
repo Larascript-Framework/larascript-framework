@@ -13,7 +13,7 @@ export const databaseConfig: IDatabaseConfig = {
       options: {},
       dockerComposeFilePath: path.resolve(
         process.cwd(),
-        "../../docker/docker-compose.postgres.yml",
+        "../../libs/larascript-database/docker/docker-compose.postgres.yml",
       ),
     }),
     // TODO: Add MongoDB connection
