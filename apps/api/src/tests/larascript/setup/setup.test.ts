@@ -295,7 +295,7 @@ ENABLE_AUTH_ROUTES=`);
 
             expect(envContents).toContain('DATABASE_DEFAULT_CONNECTION=mongodb');
             expect(envContents).toContain('DATABASE_MONGODB_CONNECTION=mongodb');
-            expect(envContents).toContain('DATABASE_MONGODB_URI=mongodb://root:example@localhost:27017/app?authSource=admin');
+            expect(envContents).toContain('DATABASE_MONGODB_URI=mongodb://root:example@localhost:27018/app?authSource=admin');
         });
 
         test("should select postgres as a database", async () => {
@@ -322,7 +322,7 @@ ENABLE_AUTH_ROUTES=`);
 
             expect(envContents).toContain('DATABASE_DEFAULT_CONNECTION=postgres');
             expect(envContents).toContain('DATABASE_POSTGRES_CONNECTION=postgres');
-            expect(envContents).toContain('DATABASE_POSTGRES_URI=postgres://root:example@localhost:5432/app');
+            expect(envContents).toContain('DATABASE_POSTGRES_URI=postgres://root:example@localhost:5433/app');
         });
 
         test("should select all databases", async () => {
@@ -351,9 +351,9 @@ ENABLE_AUTH_ROUTES=`);
 
             expect(envContents).toContain('DATABASE_DEFAULT_CONNECTION=postgres');
             expect(envContents).toContain('DATABASE_POSTGRES_CONNECTION=postgres');
-            expect(envContents).toContain('DATABASE_POSTGRES_URI=postgres://root:example@localhost:5432/app');
+            expect(envContents).toContain('DATABASE_POSTGRES_URI=postgres://root:example@localhost:5433/app');
             expect(envContents).toContain('DATABASE_MONGODB_CONNECTION=mongodb');
-            expect(envContents).toContain('DATABASE_MONGODB_URI=mongodb://root:example@localhost:27017/app?authSource=admin');
+            expect(envContents).toContain('DATABASE_MONGODB_URI=mongodb://root:example@localhost:27018/app?authSource=admin');
         });
     });
 
