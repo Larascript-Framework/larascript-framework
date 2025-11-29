@@ -1,5 +1,5 @@
-import { TClassConstructor } from "@/core/constructor.js";
-import { IHasObserver } from "@/observer/observer.js";
+import { TClassConstructor } from "../../core/constructor.js";
+import { IHasObserver } from "../../observer/observer.js";
 import { IdGeneratorFn } from "../eloquent/eloquent.t.js";
 import { IModelFactory } from "./factory.t.js";
 

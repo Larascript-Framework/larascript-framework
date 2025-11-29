@@ -1,4 +1,4 @@
-import { TClassConstructor } from "@/core/constructor.js";
+import { TClassConstructor } from "../core/constructor.js";
 import { IValidator } from "../validator/IValidator.js";
 import { IAuthAdapter } from "./adapter.t.js";
 import { IJwtConfig } from "./jwt.t.js";

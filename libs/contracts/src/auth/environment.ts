@@ -1,5 +1,5 @@
-import { IAclConfig } from "@/acl/acl.js";
-import { IAsyncSessionService } from "@/async-session/async-session.js";
+import { IAclConfig } from "../acl/acl.js";
+import { IAsyncSessionService } from "../async-session/async-session.js";
 import { EnvironmentType } from "../core/environment.js";
 import { IAuthConfig, IAuthRoutesConfig } from "./config.t.js";
 
