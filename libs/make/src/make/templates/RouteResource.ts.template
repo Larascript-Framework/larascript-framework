@@ -1,24 +1,18 @@
-import { Route } from "@larascript-framework/http";
+import { Route } from "@larascript-framework/larascript-http";
 
-export default Route.group({
-    prefix: '/<CHANGEME>',
-    middlewares: [],
-}, router => {
+/**
+* Note: Add the routes to `config/routes.config.ts`
 
-    router.resource({
-        prefix: '/',
-        resource: PlaceholderModel,
-        middlewares: [],
-        paginate: {
-            pageSize: 10,
-            allowPageSizeOverride: true,
-        },
-        sorting: {
-            fieldKey: 'sort',
-            directionKey: 'direction',
-            defaultField: 'createdAt',
-            defaultDirection: 'asc'
-        }
-    })
-
+* ```
+* export const routesConfig = (): IRouter[] => ([
+*    exampleRoutes(),
+*    // ...
+* ])
+*```
+*/
+export default () => Route.resource({
+    prefix: '/health',
+    datasource: {
+        modelConstructor: Model,
+    },
 })

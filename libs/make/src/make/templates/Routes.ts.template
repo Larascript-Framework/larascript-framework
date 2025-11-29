@@ -1,23 +1,22 @@
-import { Route, RouteGroup } from "@larascript-framework/http";
+import { Route } from "@larascript-framework/larascript-http";
 import { Request, Response } from 'express';
 
 /**
- * Note:Remember to bind your routes to express in the AppProvider (@/app/providers/AppProvider)
- * 
- * Example:
- *     App.container('express').bindRoutes(#name#Routes);
- */
-const #name#Routes = RouteGroup([
-    Route({
-        name: 'index',
-        method: 'get',
-        path: '/',
-        action: (req: Request, res: Response) => {
-            res.send({
-                success: true
-            })
-        } 
-    }),
-])
+* Note: Add the routes to `config/routes.config.ts`
 
-export default #name#Routes;
+* ```
+* export const routesConfig = (): IRouter[] => ([
+*    exampleRoutes(),
+*    // ...
+* ])
+*```
+*/
+export default () => Route.group(router => {
+
+    router.get('index', (req: Request, res: Response) => {
+        res.send({
+            success: true
+        })
+    });
+
+});
