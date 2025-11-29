@@ -17,7 +17,6 @@ export interface IDatabaseConfig {
 }
 
 export type IBaseAdapterConfig = Record<string, unknown> & {
-  options: Record<string, unknown> & {
-    dockerComposeFilePath: string;
-  };
+  options: Record<string, unknown>;
+  dockerComposeFilePath: string;
 };

@@ -10,12 +10,11 @@ export const databaseConfig: IDatabaseConfig = {
   connections: [
     DatabaseConfig.postgres("postgres", {
       uri: "postgres://root:example@localhost:5433/test_db",
-      options: {
-        dockerComposeFilePath: path.resolve(
-          process.cwd(),
-          "../../docker/docker-compose.postgres.yml",
-        ),
-      },
+      options: {},
+      dockerComposeFilePath: path.resolve(
+        process.cwd(),
+        "../../docker/docker-compose.postgres.yml",
+      ),
     }),
     // TODO: Add MongoDB connection
   ],

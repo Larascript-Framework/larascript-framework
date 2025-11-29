@@ -2,8 +2,7 @@ import { DB, DatabaseConfig, DatabaseService } from "@/database/index.js";
 import { EloquentQueryBuilderService } from "@/eloquent/index.js";
 import { IModel, ModelConstructor } from "@/model/index.js";
 import {
-  MongoDbAdapter,
-  extractDefaultMongoCredentials,
+  extractDefaultMongoCredentials
 } from "@/mongodb-adapter/index.js";
 import { extractDefaultPostgresCredentials } from "@/postgres-adapter/index.js";
 import { CryptoService } from "@larascript-framework/crypto-js";
@@ -27,22 +26,14 @@ class TestDatabaseProvider extends BaseProvider {
       keepAliveConnections: "mongodb",
       connections: [
         DatabaseConfig.postgres("postgres", {
-          uri: extractDefaultPostgresCredentials(
-            path.resolve(
-              process.cwd(),
-              "../../libs/larascript-database/docker/docker-compose.postgres.yml",
-            ),
-          ) as string,
-          options: {
-            dockerComposeFilePath: path.resolve(
-              process.cwd(),
-              "../../libs/larascript-database/docker/docker-compose.postgres.yml",
-            ),
-          },
-        }),
-        DatabaseConfig.connection(MongoDbAdapter, "mongodb", {
-          uri: extractDefaultMongoCredentials() as string,
+          uri: extractDefaultPostgresCredentials(path.resolve( process.cwd(), "../../libs/larascript-database/docker/docker-compose.postgres.yml")) as string,
           options: {},
+          dockerComposeFilePath: path.resolve(process.cwd(), "../../libs/larascript-database/docker/docker-compose.postgres.yml",),
+        }),
+        DatabaseConfig.mongodb("mongodb", {
+          uri: extractDefaultMongoCredentials(path.resolve(process.cwd(), "../../libs/larascript-database/docker/docker-compose.mongodb.yml")) as string,
+          options: {},
+          dockerComposeFilePath: path.resolve(process.cwd(), "../../libs/larascript-database/docker/docker-compose.mongodb.yml"),
         }),
       ],
     });
