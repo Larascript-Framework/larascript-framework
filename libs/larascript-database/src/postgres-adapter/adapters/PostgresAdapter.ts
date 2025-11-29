@@ -54,8 +54,7 @@ export class PostgresAdapter
    * @returns {string | null} The default Postgres credentials
    */
   getDefaultCredentials(): string | null {
-    const dockerComposeFilePath =
-      this.getConfig().options.dockerComposeFilePath;
+    const dockerComposeFilePath = this.getConfig().dockerComposeFilePath;
 
     if (!dockerComposeFilePath) {
       throw new Error("Docker compose file path is not set");

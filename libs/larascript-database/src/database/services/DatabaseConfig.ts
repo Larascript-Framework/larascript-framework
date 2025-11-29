@@ -1,4 +1,4 @@
-import { MongoDbAdapter } from "../../mongodb-adapter/index.js";
+import { IMongoConfig, MongoDbAdapter } from "../../mongodb-adapter/index.js";
 import {
   IPostgresConfig,
   PostgresAdapter,
@@ -18,8 +18,7 @@ export class DatabaseConfig {
    */
   public static mongodb(
     connectionName: string,
-    options: ReturnType<MongoDbAdapter["getConfig"]> &
-      IDatabaseGenericConnectionConfig["options"],
+    options: IMongoConfig,
   ): IDatabaseGenericConnectionConfig {
     return {
       connectionName,
