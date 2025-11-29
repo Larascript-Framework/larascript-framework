@@ -3,6 +3,7 @@
 	"packageManager": "pnpm@10.14.0",
 	"scripts": {
 		"depcheck": "depcheck",
+		"api:dev": "cd ./apps/api && pnpm run dev",
 		"apps:watch": "turbo build:watch --filter=\"./apps/*\" --concurrency=25",
 		"apps:build": "turbo build --filter=\"./apps/*\" --concurrency=25",
 		"libs:watch": "turbo build:watch --filter=\"./libs/*\" --concurrency=25",
