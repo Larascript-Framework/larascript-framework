@@ -1,5 +1,6 @@
 import { DatabaseConfig, IDatabaseConfig } from "@larascript-framework/larascript-database";
 import { parseBooleanFromString } from "@larascript-framework/larascript-utils";
+import path from "path";
 
 
 const DATABASE_DEFAULT_CONNECTION = (process.env.DATABASE_DEFAULT_CONNECTION as string) ?? 'default';
@@ -36,6 +37,7 @@ const config: IDatabaseConfig = {
             {
                 uri: process.env.DATABASE_POSTGRES_URI as string,
                 options: {}, // Additional connection options can be specified here
+                dockerComposeFilePath: path.resolve(process.cwd(), "../../libs/docker-compose.postgres.yml"),
             }
         ),
 
@@ -46,7 +48,8 @@ const config: IDatabaseConfig = {
             process.env.DATABASE_MONGODB_CONNECTION as string,
             {
                 uri: process.env.DATABASE_MONGODB_URI as string,
-                options: {} // Additional connection options can be specified here
+                options: {}, // Additional connection options can be specified here
+                dockerComposeFilePath: path.resolve(process.cwd(), "../../libs/docker-compose.mongodb.yml"),
             }
         ),
     ]

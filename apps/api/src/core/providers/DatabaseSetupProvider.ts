@@ -1,5 +1,6 @@
 import { BaseProvider } from "@larascript-framework/larascript-core";
 import { DatabaseConfig, DatabaseService, IDatabaseConfig } from "@larascript-framework/larascript-database";
+import path from "path";
 /**
  * DatabaseRegisterOnlyProvider class
  * 
@@ -20,11 +21,13 @@ export default class DatabaseSetupProvider extends BaseProvider {
         connections: [
             DatabaseConfig.postgres('postgres', {
                 uri: '',
-                options: {}
+                options: {},
+                dockerComposeFilePath: path.resolve(process.cwd(), "../../libs/docker-compose.postgres.yml"),
             }),
             DatabaseConfig.mongodb('mongodb', {
                 uri: '',
-                options: {}
+                options: {},
+                dockerComposeFilePath: path.resolve(process.cwd(), "../../libs/docker-compose.mongodb.yml"),
             })
         ]
     };
