@@ -1,17 +1,20 @@
-import { EnvironmentTesting, EnvironmentType } from "@larascript-framework/contracts/larascript-core";
+import {
+  EnvironmentTesting,
+  EnvironmentType,
+} from "@larascript-framework/contracts/larascript-core";
 
-require('dotenv').config();
+require("dotenv").config();
 
 export type TestAppConfig = {
-    appKey: string;
-    env: EnvironmentType;
-    appName: string;
-}
+  appKey: string;
+  env: EnvironmentType;
+  appName: string;
+};
 
 const testAppConfig: TestAppConfig = {
-    appName: 'test',
-    appKey: 'test',
-    env: EnvironmentTesting
+  appName: "test",
+  appKey: "test",
+  env: EnvironmentTesting,
 };
 
 export default testAppConfig;

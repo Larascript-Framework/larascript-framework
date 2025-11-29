@@ -1,67 +1,86 @@
-/* eslint-disable no-undef */
-import { queryBuilder } from '@/core/services/QueryBuilder.js';
-import TestEmailModel, { resetEmailTable } from '@/tests/larascript/eloquent/models/TestEmailModel.js';
-import testHelper from '@/tests/testHelper.js';
-import { describe } from '@jest/globals';
-import { EmailRule, ExistsRule, RequiredRule, Validator } from '@larascript-framework/larascript-validator';
+import { queryBuilder } from "@/core/services/QueryBuilder.js";
+import TestEmailModel, {
+  resetEmailTable,
+} from "@/tests/larascript/eloquent/models/TestEmailModel.js";
+import testHelper from "@/tests/testHelper.js";
+import { describe } from "@jest/globals";
+import {
+  EmailRule,
+  ExistsRule,
+  RequiredRule,
+  Validator,
+} from "@larascript-framework/larascript-validator";
 
+describe("test validation", () => {
+  const email = "test@test.com";
 
-describe('test validation', () => {
+  beforeAll(async () => {
+    await testHelper.testBootApp();
+  });
 
-    const email = 'test@test.com'
+  test("email is exists, passes", async () => {
+    await resetEmailTable();
 
-    beforeAll(async () => {
-        await testHelper.testBootApp()
-    })
+    await queryBuilder(TestEmailModel).insert({
+      email,
+    });
 
-    test('email is exists, passes', async () => {
-        await resetEmailTable()
+    const validator = Validator.make({
+      email: [
+        new RequiredRule(),
+        new EmailRule(),
+        new ExistsRule(TestEmailModel, "email"),
+      ],
+    });
+    const result = await validator.validate({
+      email,
+    });
 
-        await queryBuilder(TestEmailModel).insert({
-            email
-        })  
+    expect(result.passes()).toBe(true);
+  });
 
-        const validator = Validator.make({
-            email: [new RequiredRule(), new EmailRule(), new ExistsRule(TestEmailModel, 'email')]
-        })
-        const result = await validator.validate({
-            email
-        })
+  test("email does not exist, fails", async () => {
+    await resetEmailTable();
 
-        expect(result.passes()).toBe(true)
-    })
+    const validator = Validator.make({
+      email: [
+        new RequiredRule(),
+        new EmailRule(),
+        new ExistsRule(TestEmailModel, "email"),
+      ],
+    });
+    const result = await validator.validate({
+      email,
+    });
 
-    test('email does not exist, fails', async () => {
-        await resetEmailTable()
+    expect(result.fails()).toBe(true);
+    expect(result.errors()).toEqual({
+      email: ["The email field must exist."],
+    });
+  });
 
-        const validator = Validator.make({
-            email: [new RequiredRule(), new EmailRule(), new ExistsRule(TestEmailModel, 'email')]
-        })
-        const result = await validator.validate({
-            email,
-        })
+  test("email does not exist, with custom message", async () => {
+    await resetEmailTable();
 
-        expect(result.fails()).toBe(true)
-        expect(result.errors()).toEqual({
-            email: ['The email field must exist.']
-        })
-    })
+    const validator = Validator.make(
+      {
+        email: [
+          new RequiredRule(),
+          new EmailRule(),
+          new ExistsRule(TestEmailModel, "email"),
+        ],
+      },
+      {
+        "email.exists": "The email does not exist.",
+      },
+    );
+    const result = await validator.validate({
+      email,
+    });
 
-    test('email does not exist, with custom message', async () => {
-        await resetEmailTable()
-
-        const validator = Validator.make({
-            email: [new RequiredRule(), new EmailRule(), new ExistsRule(TestEmailModel, 'email')]
-        }, {
-            'email.exists': 'The email does not exist.'
-        })
-        const result = await validator.validate({
-            email
-        })
-
-        expect(result.passes()).toBe(false)
-        expect(result.errors()).toEqual({
-            'email': ['The email does not exist.']
-        })
-    })
+    expect(result.passes()).toBe(false);
+    expect(result.errors()).toEqual({
+      email: ["The email does not exist."],
+    });
+  });
 });

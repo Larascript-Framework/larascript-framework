@@ -1,45 +1,52 @@
 import { BaseProvider } from "@larascript-framework/larascript-core";
-import { DatabaseConfig, DatabaseService, IDatabaseConfig } from "@larascript-framework/larascript-database";
+import {
+  DatabaseConfig,
+  DatabaseService,
+  IDatabaseConfig,
+} from "@larascript-framework/larascript-database";
 import path from "path";
 /**
  * DatabaseRegisterOnlyProvider class
- * 
+ *
  * This provider is a subclass of DatabaseProvider that only registers the database service in the App container.
  */
 export default class DatabaseSetupProvider extends BaseProvider {
+  /**
+   * The database configuration object
+   *
+   * @type {IDatabaseConfig}
+   */
+  protected config: IDatabaseConfig = {
+    onBootConnect: false,
+    enableLogging: true,
+    defaultConnectionName: "postgres",
+    keepAliveConnections: "mongodb",
+    connections: [
+      DatabaseConfig.postgres("postgres", {
+        uri: "",
+        options: {},
+        dockerComposeFilePath: path.resolve(
+          process.cwd(),
+          "../../docker/docker-compose.postgres.yml",
+        ),
+      }),
+      DatabaseConfig.mongodb("mongodb", {
+        uri: "",
+        options: {},
+        dockerComposeFilePath: path.resolve(
+          process.cwd(),
+          "../../docker/docker-compose.mongodb.yml",
+        ),
+      }),
+    ],
+  };
 
-    /**
-     * The database configuration object
-     * 
-     * @type {IDatabaseConfig}
-     */
-    protected config: IDatabaseConfig = {
-        onBootConnect: false,
-        enableLogging: true,
-        defaultConnectionName: 'postgres',
-        keepAliveConnections: 'mongodb',
-        connections: [
-            DatabaseConfig.postgres('postgres', {
-                uri: '',
-                options: {},
-                dockerComposeFilePath: path.resolve(process.cwd(), "../../docker/docker-compose.postgres.yml"),
-            }),
-            DatabaseConfig.mongodb('mongodb', {
-                uri: '',
-                options: {},
-                dockerComposeFilePath: path.resolve(process.cwd(), "../../docker/docker-compose.mongodb.yml"),
-            })
-        ]
-    };
+  public async register(): Promise<void> {
+    this.log("Registering DatabaseProvider");
 
-    public async register(): Promise<void> {
-        this.log('Registering DatabaseProvider');
+    const databaseService = new DatabaseService(this.config);
+    databaseService.register();
 
-        const databaseService = new DatabaseService(this.config)
-        databaseService.register()
-
-        this.bind('db', databaseService)
-    }
-
+    this.bind("db", databaseService);
+  }
 }
-
