@@ -1,8 +1,10 @@
 import { DB, DatabaseConfig, DatabaseService } from "@/database/index.js";
 import { EloquentQueryBuilderService } from "@/eloquent/index.js";
 import { IModel, ModelConstructor } from "@/model/index.js";
-import { MongoDbAdapter, extractDefaultMongoCredentials } from "@/mongodb-adapter/index.js";
-import { PostgresAdapter, extractDefaultPostgresCredentials } from "@/postgres-adapter/index.js";
+import {
+  extractDefaultMongoCredentials
+} from "@/mongodb-adapter/index.js";
+import { extractDefaultPostgresCredentials } from "@/postgres-adapter/index.js";
 import { CryptoService } from "@larascript-framework/crypto-js";
 import { ConsoleService } from "@larascript-framework/larascript-console";
 import {
@@ -23,13 +25,15 @@ class TestDatabaseProvider extends BaseProvider {
       defaultConnectionName: "postgres",
       keepAliveConnections: "mongodb",
       connections: [
-        DatabaseConfig.connection(PostgresAdapter, "postgres", {
-          uri: extractDefaultPostgresCredentials() as string,
+        DatabaseConfig.postgres("postgres", {
+          uri: extractDefaultPostgresCredentials(path.resolve( process.cwd(), "../../libs/larascript-database/docker/docker-compose.postgres.yml")) as string,
           options: {},
+          dockerComposeFilePath: path.resolve(process.cwd(), "../../libs/larascript-database/docker/docker-compose.postgres.yml",),
         }),
-        DatabaseConfig.connection(MongoDbAdapter, "mongodb", {
-          uri: extractDefaultMongoCredentials() as string,
+        DatabaseConfig.mongodb("mongodb", {
+          uri: extractDefaultMongoCredentials(path.resolve(process.cwd(), "../../libs/larascript-database/docker/docker-compose.mongodb.yml")) as string,
           options: {},
+          dockerComposeFilePath: path.resolve(process.cwd(), "../../libs/larascript-database/docker/docker-compose.mongodb.yml"),
         }),
       ],
     });
@@ -40,7 +44,7 @@ class TestDatabaseProvider extends BaseProvider {
       secretKey: "test",
     });
     const dispatcher = (event: any) => {
-      console.log('dispatcher', event);
+      console.log("dispatcher", event);
       return Promise.resolve();
     };
 

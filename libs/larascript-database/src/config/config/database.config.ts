@@ -1,13 +1,21 @@
-import { DatabaseConfig, IDatabaseConfig } from "@larascript-framework/larascript-database";
+import {
+  DatabaseConfig,
+  IDatabaseConfig,
+} from "@larascript-framework/larascript-database";
+import path from "path";
 
 export const databaseConfig: IDatabaseConfig = {
-    defaultConnectionName: "postgres",
-    keepAliveConnections: "",
-    connections: [
-        DatabaseConfig.postgres("postgres", {
-            uri: "postgres://root:example@localhost:5433/test_db",
-            options: {},
-        }),
-        // TODO: Add MongoDB connection
-    ],
-}
+  defaultConnectionName: "postgres",
+  keepAliveConnections: "",
+  connections: [
+    DatabaseConfig.postgres("postgres", {
+      uri: "postgres://root:example@localhost:5433/test_db",
+      options: {},
+      dockerComposeFilePath: path.resolve(
+        process.cwd(),
+        "../../libs/larascript-database/docker/docker-compose.postgres.yml",
+      ),
+    }),
+    // TODO: Add MongoDB connection
+  ],
+};

@@ -1,4 +1,5 @@
 import { describe, expect, test } from "@jest/globals";
+import path from "path";
 import DatabaseConfig from "../../database/services/DatabaseConfig.js";
 import { MongoDbAdapter } from "../../mongodb-adapter/adapters/index.js";
 import { PostgresAdapter } from "../../postgres-adapter/adapters/PostgresAdapter.js";
@@ -31,17 +32,24 @@ describe("Database Config", () => {
         options: {
           uri: "postgres://user:pass@localhost:5432/db",
           options: {},
+          dockerComposeFilePath: path.resolve(
+            process.cwd(),
+            "../../libs/larascript-database/docker/docker-compose.postgres.yml",
+          ),
         },
       };
 
       expect(
         DatabaseConfig.postgres("test", {
           uri: "postgres://user:pass@localhost:5432/db",
-          options: {}
+          options: {},
+          dockerComposeFilePath: path.resolve(
+            process.cwd(),
+            "../../libs/larascript-database/docker/docker-compose.postgres.yml",
+          ),
         }),
       ).toEqual(expected);
     });
-    
   });
 
   describe("DatabaseConfig.mongodb", () => {
@@ -52,6 +60,10 @@ describe("Database Config", () => {
         options: {
           uri: "mongodb://user:pass@localhost:27017/db",
           options: {},
+          dockerComposeFilePath: path.resolve(
+            process.cwd(),
+            "../../libs/larascript-database/docker/docker-compose.mongodb.yml",
+          ),
         },
       };
 
@@ -59,6 +71,10 @@ describe("Database Config", () => {
         DatabaseConfig.mongodb("test", {
           uri: "mongodb://user:pass@localhost:27017/db",
           options: {},
+          dockerComposeFilePath: path.resolve(
+            process.cwd(),
+            "../../libs/larascript-database/docker/docker-compose.mongodb.yml",
+          ),
         }),
       ).toEqual(expected);
     });

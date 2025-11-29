@@ -1,5 +1,8 @@
-import { MongoDbAdapter } from "../../mongodb-adapter/index.js";
-import { PostgresAdapter } from "../../postgres-adapter/index.js";
+import { IMongoConfig, MongoDbAdapter } from "../../mongodb-adapter/index.js";
+import {
+  IPostgresConfig,
+  PostgresAdapter,
+} from "../../postgres-adapter/index.js";
 import {
   IDatabaseAdapter,
   IDatabaseAdapterConstructor,
@@ -7,7 +10,6 @@ import {
 } from "../interfaces/index.js";
 
 export class DatabaseConfig {
-
   /**
    * Create a database connection configuration for a MongoDB database.
    * @param connectionName - The name of the connection.
@@ -16,13 +18,13 @@ export class DatabaseConfig {
    */
   public static mongodb(
     connectionName: string,
-    options: ReturnType<MongoDbAdapter["getConfig"]>,
+    options: IMongoConfig,
   ): IDatabaseGenericConnectionConfig {
     return {
       connectionName,
       adapter: MongoDbAdapter,
       options,
-    }
+    };
   }
 
   /**
@@ -33,13 +35,13 @@ export class DatabaseConfig {
    */
   public static postgres(
     connectionName: string,
-    options: ReturnType<PostgresAdapter["getConfig"]>,
-  ): IDatabaseGenericConnectionConfig {
+    options: IPostgresConfig,
+  ): IDatabaseGenericConnectionConfig<PostgresAdapter> {
     return {
       connectionName,
       adapter: PostgresAdapter,
       options,
-    }
+    };
   }
 
   /**
@@ -52,7 +54,8 @@ export class DatabaseConfig {
   public static connection<Adapter extends IDatabaseAdapter = IDatabaseAdapter>(
     adapter: IDatabaseAdapterConstructor<Adapter>,
     connectionName: string,
-    options: ReturnType<Adapter["getConfig"]>,
+    options: ReturnType<Adapter["getConfig"]> &
+      IDatabaseGenericConnectionConfig["options"],
   ): IDatabaseGenericConnectionConfig {
     return {
       connectionName,

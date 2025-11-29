@@ -1,4 +1,4 @@
-import { TClassConstructor } from "@/core/constructor.js";
+import { TClassConstructor } from "../../core/constructor.js";
 import { IMongoDbAdapter } from "../mongodb-adapter/mongodb.t.js";
 import { IPostgresAdapter } from "../postgres-adapter/postgres.t.js";
 import { IDatabaseAdapter } from "./adapter.js";

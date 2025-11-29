@@ -16,7 +16,6 @@ export type MongoRaw = object | object[];
  * @extends {BaseExpression<unknown>}
  */
 export class AggregateExpression extends BaseExpression<unknown> {
-
   /** Raw MongoDB where conditions to be merged with builder conditions */
   rawWhere: MongoRaw | null = null;
 

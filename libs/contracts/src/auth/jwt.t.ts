@@ -1,4 +1,4 @@
-import { IAsyncSessionService } from "@/async-session/async-session.js";
+import { IAsyncSessionService } from "../async-session/async-session.js";
 import { IBaseDriverConfig } from "./config.t.js";
 import {
   IApiTokenFactory,
