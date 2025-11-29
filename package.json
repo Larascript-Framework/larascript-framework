@@ -4,6 +4,7 @@
 	"scripts": {
 		"depcheck": "depcheck",
 		"api:dev": "cd ./apps/api && pnpm run dev",
+		"api:setup": "cd ./apps/api && pnpm run setup",
 		"apps:watch": "turbo build:watch --filter=\"./apps/*\" --concurrency=25",
 		"apps:build": "turbo build --filter=\"./apps/*\" --concurrency=25",
 		"libs:watch": "turbo build:watch --filter=\"./libs/*\" --concurrency=25",
