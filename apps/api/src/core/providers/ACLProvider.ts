@@ -8,8 +8,8 @@ class ACLProvider extends BaseProvider {
     config: IAclConfig = aclConfig
 
     async register(): Promise<void> {
-        this.bind('acl.basic', new BasicACLService(this.config));
-        this.bind('acl.basic.config', this.config)
+        this.bind('acl', new BasicACLService(this.config));
+        this.bind('acl.config', this.config)
     }
 
 }
