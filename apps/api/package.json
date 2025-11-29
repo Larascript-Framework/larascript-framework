@@ -7,9 +7,10 @@
   "scripts": {
     "build": "tsc --skipLibCheck && npx tsc-alias",
     "build:watch": "concurrently --kill-others \"tsc -w\" \"tsc-alias -w\"",
-    "fix-eslint": "npx eslint --fix src",
-    "fix": "pnpm run fix-eslint",
+    "lint:fix": "npx eslint --fix src",
     "lint": "tslint --project tsconfig.json",
+    "format": "prettier --ignore-path .prettierignore --write \"**/*.+(js|ts|json|tsx|mdx)\" --log-level silent",
+    "check": "npm run format && npm run lint:fix && npm run typecheck && npm run check-exports",
     "start": "node ./dist/app.js",
     "dev": "nodemon --watch src --ext ts --exec tsx ./src/app.ts",
     "tinker": "nodemon --watch src --ext ts --exec tsx ./src/tinker.ts",

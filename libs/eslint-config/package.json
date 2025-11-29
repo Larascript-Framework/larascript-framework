@@ -3,13 +3,12 @@
     "type": "module",
     "version": "1.0.0",
     "exports": {
-        ".": "./eslint.config.js"
+        ".": "./eslint.config.cjs"
     },
     "devDependencies": {
         "eslint": "^9.22.0",
-        "typescript-eslint": "^8.25.0"
-    },
-    "dependencies": {
+        "typescript-eslint": "^8.25.0",
+        "@eslint/compat": "^2.0.0",
         "prettier": "^3.6.2"
     }
 }
