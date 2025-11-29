@@ -8,6 +8,8 @@
 		"apps:build": "turbo build --filter=\"./apps/*\" --concurrency=25",
 		"libs:watch": "turbo build:watch --filter=\"./libs/*\" --concurrency=25",
 		"libs:build": "turbo build --filter=\"./libs/*\" --concurrency=25",
+		"db:up": "cd apps/api && pnpm run db:up",
+		"db:down": "cd apps/api && pnpm run db:down",
 		"watch": "turbo build:watch --concurrency=25",
 		"build": "turbo build --concurrency=25",
 		"network:up": "cd ./docker && docker-compose -f docker-compose.network.yml up -d network-setup",
