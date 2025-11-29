@@ -298,9 +298,8 @@ export class DatabaseService implements IDatabaseService, RequiresDependency {
    * @returns The default credentials for the adapter, or null if they could not be retrieved.
    */
   getDefaultCredentials(adapterName: string): string | null {
-    const adapterCtor = this.getAdapterConstructor(adapterName);
-    const adapter = new adapterCtor("", {});
-    return adapter.getDefaultCredentials();
+    const adapters = Object.values(this.adapters).filter(adapter => adapter._adapter_type_ === adapterName)
+    return adapters[0].getDefaultCredentials()
   }
 
   /**
