@@ -4,22 +4,20 @@ import { DataTypes } from "sequelize";
 import { TestMigrationModel } from "../models/TestMigrationModel.js";
 
 class TestMigration extends BaseMigration {
+  group?: string = "testing";
 
-    group?: string = 'testing';
+  table = TestMigrationModel.getTable();
 
-    table = TestMigrationModel.getTable()
+  async up(): Promise<void> {
+    await DB.getInstance().databaseService().schema().createTable(this.table, {
+      name: DataTypes.STRING,
+      age: DataTypes.INTEGER,
+    });
+  }
 
-    async up(): Promise<void> {
-        await DB.getInstance().databaseService().schema().createTable(this.table, {
-            name: DataTypes.STRING,
-            age: DataTypes.INTEGER
-        })
-    }
-
-    async down(): Promise<void> {
-        await DB.getInstance().databaseService().schema().dropTable(this.table)
-    }
-
+  async down(): Promise<void> {
+    await DB.getInstance().databaseService().schema().dropTable(this.table);
+  }
 }
 
-export default TestMigration
+export default TestMigration;

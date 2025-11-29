@@ -4,9 +4,7 @@ import {
   Kernel,
 } from "@larascript-framework/larascript-core";
 
-import {
-  KernelConfig,
-} from "@larascript-framework/contracts/larascript-core";
+import { KernelConfig } from "@larascript-framework/contracts/larascript-core";
 
 class TestDatabaseProvider extends BaseProvider {
   async register(): Promise<void> {

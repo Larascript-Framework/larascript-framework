@@ -1,1 +1,1 @@
-export * from './MigrationTypeEnum.js';
+export * from "./MigrationTypeEnum.js";
