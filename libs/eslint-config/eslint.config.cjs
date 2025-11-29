@@ -1,5 +1,6 @@
 const globals = require("globals");
 const tseslint = require("typescript-eslint");
+const { globalIgnores } = require("eslint/config");
 
 module.exports = tseslint.config(
   {
@@ -26,4 +27,15 @@ module.exports = tseslint.config(
       ],
     },
   },
+  globalIgnores([
+    "node_modules",
+    "dist",
+    "build",
+    "coverage",
+    "logs",
+    "tmp",
+    "cache",
+    "storage",
+    "src/tests"
+  ]),
 );
