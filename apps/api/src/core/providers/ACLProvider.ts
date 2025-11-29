@@ -4,14 +4,12 @@ import { BasicACLService } from "@larascript-framework/larascript-acl";
 import { BaseProvider } from "@larascript-framework/larascript-core";
 
 class ACLProvider extends BaseProvider {
+  config: IAclConfig = aclConfig;
 
-    config: IAclConfig = aclConfig
-
-    async register(): Promise<void> {
-        this.bind('acl', new BasicACLService(this.config));
-        this.bind('acl.config', this.config)
-    }
-
+  async register(): Promise<void> {
+    this.bind("acl", new BasicACLService(this.config));
+    this.bind("acl.config", this.config);
+  }
 }
 
 export default ACLProvider;

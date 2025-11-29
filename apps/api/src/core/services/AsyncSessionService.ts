@@ -1,3 +1,3 @@
-import { app } from '@/core/services/App.js';
+import { app } from "@/core/services/App.js";
 
-export const asyncSession = () => app('asyncSession');
+export const asyncSession = () => app("asyncSession");
