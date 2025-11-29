@@ -7,4 +7,3 @@ export { default as MissingTableException } from "./MissingTableException.js";
 export { default as ModelNotFoundException } from "./ModelNotFoundException.js";
 export { default as QueryBuilderException } from "./QueryBuilderException.js";
 export { default as UpdateException } from "./UpdateException.js";
-

@@ -6,10 +6,7 @@ import {
   IObserverEvent,
   ObserveConstructor,
 } from "@larascript-framework/larascript-observer";
-import {
-  Str,
-  TClassConstructor,
-} from "@larascript-framework/larascript-utils";
+import { Str, TClassConstructor } from "@larascript-framework/larascript-utils";
 import { IDatabaseSchema } from "../../database/index.js";
 import DB from "../../database/services/DB.js";
 import BaseRelationshipResolver from "../../eloquent/base/BaseRelationshipResolver.js";
@@ -1210,8 +1207,7 @@ export default abstract class Model<Attributes extends IModelAttributes>
     ...args: any[]
   ): Promise<void> {
     if (typeof this.events?.[event] === "function") {
-      await DB.getInstance()
-        .dispatcher(new this.events[event](...args))
+      await DB.getInstance().dispatcher(new this.events[event](...args));
     }
   }
 

@@ -1,7 +1,11 @@
 import { Collection } from "@larascript-framework/larascript-collection";
 import { TClassConstructor } from "@larascript-framework/larascript-utils";
 import DB from "../../database/services/DB.js";
-import { IModel, IModelAttributes, ModelConstructor } from "../../model/index.js";
+import {
+  IModel,
+  IModelAttributes,
+  ModelConstructor,
+} from "../../model/index.js";
 import EloquentRelationshipException from "../exceptions/EloquentRelationshipException.js";
 import {
   IEloquent,

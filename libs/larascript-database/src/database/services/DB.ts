@@ -1,4 +1,7 @@
-import { DependencyLoader, RequiresDependency } from "@larascript-framework/contracts/larascript-core";
+import {
+  DependencyLoader,
+  RequiresDependency,
+} from "@larascript-framework/contracts/larascript-core";
 import { ICryptoService } from "@larascript-framework/crypto-js";
 import { IConsoleService } from "@larascript-framework/larascript-console";
 import {
@@ -6,7 +9,10 @@ import {
   CreateDependencyLoader,
 } from "@larascript-framework/larascript-core";
 import { ILoggerService } from "@larascript-framework/larascript-logger";
-import { IEloquent, IEloquentQueryBuilderService } from "../../eloquent/index.js";
+import {
+  IEloquent,
+  IEloquentQueryBuilderService,
+} from "../../eloquent/index.js";
 import { IModel, ModelConstructor } from "../../model/index.js";
 import { IDatabaseService } from "../interfaces/index.js";
 
@@ -86,7 +92,6 @@ export class DB extends BaseSingleton implements RequiresDependency {
   }
 
   databaseService(): IDatabaseService {
-
     if (!this._databaseService) {
       throw new Error("DatabaseService is not initialized");
     }

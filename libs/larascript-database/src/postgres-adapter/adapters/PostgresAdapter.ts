@@ -49,13 +49,19 @@ export class PostgresAdapter
     super(connectionName, config);
   }
 
-
   /**
    * Returns the default Postgres credentials extracted from the docker-compose file
    * @returns {string | null} The default Postgres credentials
    */
   getDefaultCredentials(): string | null {
-    return extractDefaultPostgresCredentials();
+    const dockerComposeFilePath =
+      this.getConfig().options.dockerComposeFilePath;
+
+    if (!dockerComposeFilePath) {
+      throw new Error("Docker compose file path is not set");
+    }
+
+    return extractDefaultPostgresCredentials(dockerComposeFilePath);
   }
 
   /**

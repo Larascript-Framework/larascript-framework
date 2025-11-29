@@ -15,3 +15,9 @@ export interface IDatabaseConfig {
   keepAliveConnections: string;
   connections: IDatabaseGenericConnectionConfig[];
 }
+
+export type IBaseAdapterConfig = Record<string, unknown> & {
+  options: Record<string, unknown> & {
+    dockerComposeFilePath: string;
+  };
+};

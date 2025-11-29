@@ -398,7 +398,9 @@ class PostgresEloquent<Model extends IModel> extends Eloquent<
     const results = await this.getPool().query(expression, bindings);
 
     if (DB.getInstance().databaseService().showLogs()) {
-      DB.getInstance().logger()?.info("[Postgres] count", results?.rows?.length );
+      DB.getInstance()
+        .logger()
+        ?.info("[Postgres] count", results?.rows?.length);
     }
 
     this.expression.bindingsUtility.reset();
