@@ -6,8 +6,8 @@ storage/logs/*
 storage/temp/*
 !storage/temp/.gitkeep
 
-storage/upload/*
-!storage/upload/.gitkeep
+storage/uploads/*
+!storage/uploads/.gitkeep
 
 storage/cache/*
 !storage/cache/.gitkeep
