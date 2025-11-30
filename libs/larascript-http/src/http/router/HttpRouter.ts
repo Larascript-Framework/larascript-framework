@@ -1,7 +1,6 @@
 import { IRouteGroupOptions, IRouter, TExpressMiddlewareFnOrClass, TPartialRouteItemOptions, TResourceType, TRouteGroupFn, TRouteItem, TRouteResourceOptions, TRouterMethodOptions } from "@larascript-framework/contracts/http";
 import SecurityRules from "../security/services/SecurityRules.js";
 import ResourceRouter from "./RouterResource.js";
-import { RouterResourceValidation } from "./RouterResourceValidation.js";
 
 /**
  * Router handles registration and organization of Express routes
@@ -114,8 +113,6 @@ export class HttpRouter implements IRouter {
      * Register a resource route.
      */
     public resource(options: TRouteResourceOptions): IRouter {
-        RouterResourceValidation.validate(options);
-        
         const router = ResourceRouter.resource(options, new HttpRouter());
 
         router.getRegisteredRoutes().map(route => {
