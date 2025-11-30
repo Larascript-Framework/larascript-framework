@@ -7,7 +7,7 @@ import {
 } from "@larascript-framework/larascript-database";
 import { app } from "../services/App.js";
 
-export default class TestDatabaseProvider extends BaseProvider {
+export default class DatabaseProvider extends BaseProvider {
   protected config: IDatabaseConfig = databaseConfig;
 
   protected appConfig: IAppConfig = appConfig;
