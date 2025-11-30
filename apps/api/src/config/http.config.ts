@@ -26,7 +26,9 @@ const config: IHttpServiceConfig = {
   /**
    * Extend the express app
    */
-  extendExpress: (app) => {},
+  // extendExpress: (app) => {
+  //   app.use(cors())
+  // },
 
   /**
    * CSRF protection
