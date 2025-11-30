@@ -18,7 +18,9 @@
 		"api:down": "cd ./docker && docker-compose -f docker-compose.api.yml down && docker-compose -f docker-compose.network.yml down",
 		"api:sh": "docker exec -it larascript-api /bin/bash",
 		"upstream:master:rebase": "git fetch upstream && git rebase upstream/master",
-		"upstream:develop:rebase": "git fetch upstream && git rebase upstream/develop"
+		"upstream:master:merge": "git fetch upstream && git merge upstream/master",
+		"upstream:develop:rebase": "git fetch upstream && git rebase upstream/develop",
+		"upstream:develop:merge": "git fetch upstream && git merge upstream/develop"
 	},
 	"dependencies": {
 		"@larascript-framework/async-session": "workspace:*",
