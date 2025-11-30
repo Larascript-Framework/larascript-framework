@@ -1,4 +1,4 @@
-export const USER_ATTRIBUTES = {
+export const BASE_USER_ATTRIBUTES: Record<string, string> = {
     ID: 'id',
     EMAIL: 'email',
     FIRST_NAME: 'firstName',
