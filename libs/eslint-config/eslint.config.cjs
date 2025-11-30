@@ -1,8 +1,8 @@
 const globals = require("globals");
 const tseslint = require("typescript-eslint");
-const { globalIgnores } = require("eslint/config");
+const { globalIgnores, defineConfig } = require("eslint/config");
 
-module.exports = tseslint.config(
+module.exports = (tsconfigRootDir = process.cwd()) => defineConfig([
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
     languageOptions: { 
@@ -10,7 +10,7 @@ module.exports = tseslint.config(
       parser: tseslint.parser,
       parserOptions: {
         project: true,
-        tsconfigRootDir: process.cwd(),
+        tsconfigRootDir,
       },
     },
   },
@@ -38,4 +38,4 @@ module.exports = tseslint.config(
     "storage",
     "src/tests"
   ]),
-);
+]);
