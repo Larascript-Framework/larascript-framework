@@ -81,8 +81,8 @@ importers:
         specifier: ^6.18.0
         version: 6.20.0
       nodemailer:
-        specifier: ^7.0.5
-        version: 7.0.6
+        specifier: ^7.0.11
+        version: 7.0.11
       pg:
         specifier: ^8.12.0
         version: 8.16.3
@@ -161,7 +161,7 @@ importers:
         version: 4.1.5
       terser-webpack-plugin:
         specifier: ^5.3.10
-        version: 5.3.14(webpack@5.101.3)
+        version: 5.3.14(webpack@5.101.3(webpack-cli@5.1.4(webpack@5.101.3)))
       ts-loader:
         specifier: ^9.5.1
         version: 9.5.4(typescript@5.9.3)(webpack@5.101.3)
@@ -182,7 +182,7 @@ importers:
         version: 5.9.3
       webpack:
         specifier: ^5.92.1
-        version: 5.101.3(webpack-cli@5.1.4)
+        version: 5.101.3(webpack-cli@5.1.4(webpack@5.101.3))
       webpack-cli:
         specifier: ^5.1.4
         version: 5.1.4(webpack@5.101.3)
@@ -301,8 +301,8 @@ importers:
         specifier: ^6.9.0
         version: 6.20.0
       nodemailer:
-        specifier: ^7.0.5
-        version: 7.0.6
+        specifier: ^7.0.11
+        version: 7.0.11
       pg:
         specifier: ^8.12.0
         version: 8.16.3
@@ -363,13 +363,13 @@ importers:
         version: 4.1.5
       terser-webpack-plugin:
         specifier: ^5.3.10
-        version: 5.3.14(webpack@5.101.3)
+        version: 5.3.14(webpack@5.101.3(webpack-cli@5.1.4(webpack@5.101.3)))
       tsc-alias:
         specifier: ^1.8.10
         version: 1.8.16
       webpack:
         specifier: ^5.92.1
-        version: 5.101.3(webpack-cli@5.1.4)
+        version: 5.101.3(webpack-cli@5.1.4(webpack@5.101.3))
 
   libs/async-session:
     dependencies:
@@ -886,8 +886,8 @@ importers:
         specifier: workspace:*
         version: link:../larascript-views
       nodemailer:
-        specifier: ^7.0.5
-        version: 7.0.6
+        specifier: ^7.0.11
+        version: 7.0.11
       resend:
         specifier: ^6.0.1
         version: 6.1.0(@react-email/render@1.1.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1))
@@ -3797,8 +3797,8 @@ packages:
   node-releases@2.0.21:
     resolution: {integrity: sha512-5b0pgg78U3hwXkCM8Z9b2FJdPZlr9Psr9V2gQPESdGHqbntyFJKFW4r5TeWGFzafGY3hzs1JC62VEQMbl1JFkw==}
 
-  nodemailer@7.0.6:
-    resolution: {integrity: sha512-F44uVzgwo49xboqbFgBGkRaiMgtoBrBEWCVincJPK9+S9Adkzt/wXCLKbf7dxucmxfTI5gHGB+bEmdyzN6QKjw==}
+  nodemailer@7.0.11:
+    resolution: {integrity: sha512-gnXhNRE0FNhD7wPSCGhdNh46Hs6nm+uTyg+Kq0cZukNQiYdnCsoQjodNP9BQVG9XrcK/v6/MgpAPBUFyzh9pvw==}
     engines: {node: '>=6.0.0'}
 
   nodemon@3.1.10:
@@ -4112,6 +4112,7 @@ packages:
   raw-body@1.1.7:
     resolution: {integrity: sha512-WmJJU2e9Y6M5UzTOkHaM7xJGAPQD8PNzx3bAd2+uhZAim6wDk6dAZxPVYLF67XhbR4hmKGh33Lpmh4XWrCH5Mg==}
     engines: {node: '>= 0.8.0'}
+    deprecated: No longer maintained. Please upgrade to a stable version.
 
   raw-body@2.5.2:
     resolution: {integrity: sha512-8zGqypfENjCIqGhgXToC8aB2r7YrBX+AQAfIPs/Mlk+BtPTztOvTS01NRW/3Eh60J+a48lt8qsCzirQ6loCVfA==}
@@ -6104,19 +6105,19 @@ snapshots:
       '@webassemblyjs/ast': 1.14.1
       '@xtuc/long': 4.2.2
 
-  '@webpack-cli/configtest@2.1.1(webpack-cli@5.1.4)(webpack@5.101.3)':
+  '@webpack-cli/configtest@2.1.1(webpack-cli@5.1.4(webpack@5.101.3))(webpack@5.101.3)':
     dependencies:
-      webpack: 5.101.3(webpack-cli@5.1.4)
+      webpack: 5.101.3(webpack-cli@5.1.4(webpack@5.101.3))
       webpack-cli: 5.1.4(webpack@5.101.3)
 
-  '@webpack-cli/info@2.0.2(webpack-cli@5.1.4)(webpack@5.101.3)':
+  '@webpack-cli/info@2.0.2(webpack-cli@5.1.4(webpack@5.101.3))(webpack@5.101.3)':
     dependencies:
-      webpack: 5.101.3(webpack-cli@5.1.4)
+      webpack: 5.101.3(webpack-cli@5.1.4(webpack@5.101.3))
       webpack-cli: 5.1.4(webpack@5.101.3)
 
-  '@webpack-cli/serve@2.0.5(webpack-cli@5.1.4)(webpack@5.101.3)':
+  '@webpack-cli/serve@2.0.5(webpack-cli@5.1.4(webpack@5.101.3))(webpack@5.101.3)':
     dependencies:
-      webpack: 5.101.3(webpack-cli@5.1.4)
+      webpack: 5.101.3(webpack-cli@5.1.4(webpack@5.101.3))
       webpack-cli: 5.1.4(webpack@5.101.3)
 
   '@xtuc/ieee754@1.2.0': {}
@@ -8178,7 +8179,7 @@ snapshots:
 
   node-releases@2.0.21: {}
 
-  nodemailer@7.0.6: {}
+  nodemailer@7.0.11: {}
 
   nodemon@3.1.10:
     dependencies:
@@ -8928,14 +8929,14 @@ snapshots:
 
   tapable@2.2.3: {}
 
-  terser-webpack-plugin@5.3.14(webpack@5.101.3):
+  terser-webpack-plugin@5.3.14(webpack@5.101.3(webpack-cli@5.1.4(webpack@5.101.3))):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       jest-worker: 27.5.1
       schema-utils: 4.3.2
       serialize-javascript: 6.0.2
       terser: 5.44.0
-      webpack: 5.101.3(webpack-cli@5.1.4)
+      webpack: 5.101.3(webpack-cli@5.1.4(webpack@5.101.3))
 
   terser@5.44.0:
     dependencies:
@@ -9004,7 +9005,7 @@ snapshots:
       semver: 7.7.2
       source-map: 0.7.6
       typescript: 5.9.3
-      webpack: 5.101.3(webpack-cli@5.1.4)
+      webpack: 5.101.3(webpack-cli@5.1.4(webpack@5.101.3))
 
   ts-node@10.9.2(@types/node@22.18.6)(typescript@5.9.3):
     dependencies:
@@ -9296,9 +9297,9 @@ snapshots:
   webpack-cli@5.1.4(webpack@5.101.3):
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
-      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.1.4)(webpack@5.101.3)
-      '@webpack-cli/info': 2.0.2(webpack-cli@5.1.4)(webpack@5.101.3)
-      '@webpack-cli/serve': 2.0.5(webpack-cli@5.1.4)(webpack@5.101.3)
+      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.1.4(webpack@5.101.3))(webpack@5.101.3)
+      '@webpack-cli/info': 2.0.2(webpack-cli@5.1.4(webpack@5.101.3))(webpack@5.101.3)
+      '@webpack-cli/serve': 2.0.5(webpack-cli@5.1.4(webpack@5.101.3))(webpack@5.101.3)
       colorette: 2.0.20
       commander: 10.0.1
       cross-spawn: 7.0.6
@@ -9307,7 +9308,7 @@ snapshots:
       import-local: 3.2.0
       interpret: 3.1.1
       rechoir: 0.8.0
-      webpack: 5.101.3(webpack-cli@5.1.4)
+      webpack: 5.101.3(webpack-cli@5.1.4(webpack@5.101.3))
       webpack-merge: 5.10.0
 
   webpack-merge@5.10.0:
@@ -9318,7 +9319,7 @@ snapshots:
 
   webpack-sources@3.3.3: {}
 
-  webpack@5.101.3(webpack-cli@5.1.4):
+  webpack@5.101.3(webpack-cli@5.1.4(webpack@5.101.3)):
     dependencies:
       '@types/eslint-scope': 3.7.7
       '@types/estree': 1.0.8
@@ -9342,7 +9343,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 4.3.2
       tapable: 2.2.3
-      terser-webpack-plugin: 5.3.14(webpack@5.101.3)
+      terser-webpack-plugin: 5.3.14(webpack@5.101.3(webpack-cli@5.1.4(webpack@5.101.3)))
       watchpack: 2.4.4
       webpack-sources: 3.3.3
     optionalDependencies:
