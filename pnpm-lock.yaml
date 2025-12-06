@@ -783,6 +783,9 @@ importers:
       tsc-alias:
         specifier: ^1.8.16
         version: 1.8.16
+      tslint-no-circular-imports:
+        specifier: ^0.7.0
+        version: 0.7.0(tslint@6.1.3(typescript@5.9.3))(typescript@5.9.3)
 
   libs/larascript-http:
     dependencies:
