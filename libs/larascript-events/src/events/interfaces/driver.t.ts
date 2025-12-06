@@ -1,6 +1,6 @@
 import { TClassConstructor } from "@larascript-framework/larascript-utils";
 import { EVENT_DRIVERS } from "../consts/drivers.js";
-import { IEventService } from "../index.js";
+import { IEventService } from "./services.t.js";
 import { IDispatchable, INameable } from "./types.t.js";
 
 /**
