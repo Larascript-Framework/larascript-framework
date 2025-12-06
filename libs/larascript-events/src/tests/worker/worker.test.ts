@@ -9,16 +9,12 @@ import { InMemoryWorkerRepository } from "./repository/InMemoryWorkerRepository.
 class TestEvent extends BaseEvent<{ foo: string }> {
     queueName: string = 'testing';
 
-    queable: boolean = true;
-
     constructor(payload: { foo: string }) {
         super(payload);
     }
 }
 
 class TestEventFailed extends BaseEvent<{ foo: string }> {
-
-    queable: boolean = true;
 
     queueName: string = 'testing';
 

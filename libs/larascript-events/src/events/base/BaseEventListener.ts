@@ -1,5 +1,6 @@
-import { IBaseListener, IEventListener } from "../interfaces/index.js";
-import BaseEvent from "./BaseEvent.js";
+import { IBaseListener } from "../interfaces/base.t.js";
+import { IEventListener } from "../interfaces/event.t.js";
+import { BaseEvent } from "./BaseEvent.js";
 
 /**
  * Base class for event listeners
