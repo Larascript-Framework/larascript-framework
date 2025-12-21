@@ -1,4 +1,4 @@
-import { AppContainer } from "@/container/AppContainer.js";
+import { AppContainer } from "@/app/AppContainer.js";
 import { beforeEach, describe, expect, test } from "@jest/globals";
 import { inject, injectable } from "tsyringe";
 

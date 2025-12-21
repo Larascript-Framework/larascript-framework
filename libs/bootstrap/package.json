@@ -1,8 +1,8 @@
 {
-  "name": "@larascript-framework/kernal",
+  "name": "@larascript-framework/bootstrap",
   "type": "module",
   "version": "0.1.0",
-  "description": "Kernal is the core service responsible for bootstrapping the application.",
+  "description": "Provides the core application bootstrapping, kernel lifecycle management, dependency injection container, environment support, and standardized interfaces for building services and providers.",
   "license": "ISC",
   "author": "ben.shepherd@gmx.com",
   "main": "dist/index.js",
@@ -32,10 +32,8 @@
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "@larascript-framework/check-exports": "workspace:*",
-    "@larascript-framework/contracts": "workspace:*",
     "@larascript-framework/eslint-config": "workspace:*",
     "@larascript-framework/jest-config": "workspace:*",
-    "@larascript-framework/larascript-core": "workspace:*",
     "@larascript-framework/test-helpers": "workspace:*",
     "@larascript-framework/tsconfig": "workspace:*",
     "eslint": "^9.36.0",

@@ -1,5 +1,5 @@
-import { KernelLockedException } from "@/exceptions/KernelLockedException.js";
 import { Kernel } from "@/kernel/Kernel.js";
+import { KernelLockedException } from "@/kernel/KernelLockedException.js";
 import { KernelState } from "@/kernel/KernelState.js";
 import { beforeEach, describe, expect, test } from "@jest/globals";
 

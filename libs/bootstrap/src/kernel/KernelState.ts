@@ -1,6 +1,6 @@
 import { InstanceTypePrivateConstructor } from "@/contracts/instanceType.js";
-import { KernelException } from "@/exceptions/KernelException.js";
-import { KernelLockedException } from "@/exceptions/KernelLockedException.js";
+import { KernelException } from "@/kernel/KernelException.js";
+import { KernelLockedException } from "@/kernel/KernelLockedException.js";
 
 export class KernelState {
 
