@@ -15,7 +15,7 @@ describe("AppEnvironment Test Suite", () => {
     })
 
     test("should not be able to get instance without creation", () => {
-      expect(() => AppEnvironment.getInstance()).toThrow('AppEnvironment has not been created')
+      expect(() => AppEnvironment.getInstance()).toThrow('AppContainer has not been created')
     })
 
     test("should not be able to create multiple instances", () => {
