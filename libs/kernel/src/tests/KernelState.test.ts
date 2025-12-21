@@ -7,7 +7,7 @@ describe("KernelState Test Suite", () => {
 
   beforeEach(() => {
     Kernel.reset()
-    Kernel.create({ providers: [], environment: 'dev' }, {})
+    Kernel.create({ providers: [], environment: 'dev' })
     KernelState.reset()
   });
 
@@ -26,7 +26,7 @@ describe("KernelState Test Suite", () => {
       const kernelState = KernelState.create()
       const kernelState2 = KernelState.create()
 
-      expect(kernelState === kernelState2).toBe(true)
+      expect(kernelState).toBe(kernelState2)
     })
   });
 
