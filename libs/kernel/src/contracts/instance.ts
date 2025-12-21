@@ -1,0 +1,1 @@
+export type InstanceTypePrivateConstructor<T> = InstanceType<{ new(): never }> & T
