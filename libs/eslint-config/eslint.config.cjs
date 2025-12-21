@@ -1,22 +1,39 @@
-const globals = require("globals");
 const tseslint = require("typescript-eslint");
-const { globalIgnores, defineConfig } = require("eslint/config");
+const importPlugin = require("eslint-plugin-import");
 
-module.exports = (tsconfigRootDir = process.cwd()) => defineConfig([
+module.exports = (tsconfigRootDir = process.cwd()) => [
+  // Global ignores should be first
+  {
+    ignores: [
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/build/**",
+      "**/coverage/**",
+      "**/logs/**",
+      "**/tmp/**",
+      "**/cache/**",
+      "**/storage/**",
+      "**/src/tests/**"
+    ]
+  },
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
     languageOptions: { 
-      globals: globals.browser,
       parser: tseslint.parser,
       parserOptions: {
         project: true,
         tsconfigRootDir,
       },
     },
+    plugins: {
+      import: importPlugin,
+    },
   },
   ...tseslint.configs.recommended,
   {
     rules: {
+      "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/no-floating-promises": "error",
       "@typescript-eslint/no-unused-expressions": [
         "error",
         {
@@ -25,17 +42,9 @@ module.exports = (tsconfigRootDir = process.cwd()) => defineConfig([
           allowTaggedTemplates: false,
         },
       ],
+      "import/no-cycle": "error",
+      "import/no-internal-modules": "error",
+      "import/no-relative-parent-imports": "error"
     },
   },
-  globalIgnores([
-    "node_modules",
-    "dist",
-    "build",
-    "coverage",
-    "logs",
-    "tmp",
-    "cache",
-    "storage",
-    "src/tests"
-  ]),
-]);
+];
