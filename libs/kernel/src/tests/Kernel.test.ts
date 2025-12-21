@@ -14,8 +14,6 @@ describe("Kernel Test Suite", () => {
   let providersBootLog: string[];
   let FirstMockProvider: ProviderInterface;
   let SecondMockProvider: ProviderInterface;
-  let ThirdMockProvider: ProviderInterface;
-  let FourthMockProvider: ProviderInterface;
 
   beforeEach(() => {
     Kernel.reset()
@@ -48,9 +46,8 @@ describe("Kernel Test Suite", () => {
     })
 
     test("should not be able to create multiple instances of the kernel", () => {
-      Kernel.create(DEFAULT_CONFIG)
-      const kernel = Kernel.getInstance();
-      const kernel2 = Kernel.getInstance();
+      const kernel = Kernel.create(DEFAULT_CONFIG)
+      const kernel2 = Kernel.create(DEFAULT_CONFIG)
 
       expect(kernel).toBe(kernel2)
     })
@@ -85,6 +82,20 @@ describe("Kernel Test Suite", () => {
       expect(KernelState.definedProvidersCount()).toBe(expectedDefinedProvidersCount)
       expect(KernelState.readyProviders().length).toBe(expectedPreparedProviders)
       expect(KernelState.preparedProviders().length).toBe(expectedReadyProviders)
+    })
+
+    test("should not be able to boot after already booted", async() => {
+      const config: KernelConfig = {
+        environment: 'dev',
+        providers: [
+          new FirstMockProvider()
+        ]
+      }
+
+      const kernel = Kernel.create(config)
+      await kernel.boot({})
+      
+      expect(async () => kernel.boot({})).rejects.toThrow('Kernel is locked and cannot be modified')
     })
 
     test("can boot the kernel and with shouldUseProvider defined", async () => {
