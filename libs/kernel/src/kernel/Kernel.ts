@@ -97,8 +97,8 @@ export class Kernel
 
     private orderedProviderInstanceArray(): ProviderInterfaceInstanceType[]
     {
-        // First, convert the config into an array of `KernelConfigProviderPriotised` objects.
-        let kernelProviderConfigPrioritised: KernelConfigProviderPriotised[] = this._config.providers.map((objectOrInstance) => {
+        // Convert the config into an array of `KernelConfigProviderPriotised` objects.
+        let kernelProviderConfigPrioritised = this._config.providers.map((objectOrInstance) => {
             if(typeof (objectOrInstance as KernelConfigProviderPriotised)?.provider !== 'undefined') {
                 return objectOrInstance
             }
@@ -119,6 +119,7 @@ export class Kernel
             return Math.sign(a.priority - b.priority)
         })
 
+        // Return only the instance types
         return kernelProviderConfigPrioritised.map(it => it.provider)
     }
 }
