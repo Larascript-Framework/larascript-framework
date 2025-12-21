@@ -1,10 +1,15 @@
-export type KernelConfigProvider = string
+import { ProviderInterfaceInstanceType } from "./provider.js";
+
+export type KernelConfigProviderPriotised = {
+    priority?: number;
+    provider: ProviderInterfaceInstanceType
+}
 
 export type KernelConfig = {
     environment: string;
-    providers: KernelConfigProvider[];
+    providers: (ProviderInterfaceInstanceType | KernelConfigProviderPriotised)[];
 }
 
 export type KernelOptions = {
-    shouldUseProvider?: (provider: KernelConfigProvider) => boolean;
+    shouldUseProvider?: (provider: ProviderInterfaceInstanceType) => boolean;
 }

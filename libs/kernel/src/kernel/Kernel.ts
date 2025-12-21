@@ -1,5 +1,7 @@
-import { InstanceTypePrivateConstructor } from "@/contracts/instance.js";
-import { KernelConfig, KernelOptions } from "@/contracts/kernel.js";
+import { InstanceTypePrivateConstructor } from "@/contracts/instanceType.js";
+import { KernelConfig, KernelConfigProviderPriotised, KernelOptions } from "@/contracts/kernel.js";
+import { ProviderInterfaceInstanceType } from "@/contracts/provider.js";
+import { AppEnvironmentException } from "@/exceptions/AppEnvironmentException.js";
 import { KernelException } from "@/exceptions/KernelException.js";
 import { AppEnvironment } from "./AppEnvironment.js";
 import { KernelState } from "./KernelState.js";
@@ -7,9 +9,7 @@ import { KernelState } from "./KernelState.js";
 export class Kernel
 {
     private constructor(
-        private config: KernelConfig,
-        private options: KernelOptions,
-        private locked: boolean = false
+        private _config: KernelConfig
     )
     {
     }
@@ -25,10 +25,10 @@ export class Kernel
         return Kernel.instance
     }
 
-    static create(config: KernelConfig, options: KernelOptions): Kernel
+    static create(config: KernelConfig): Kernel
     {
         if(false === Kernel.instance instanceof Kernel) {
-            this.instance = new Kernel(config, options)
+            this.instance = new Kernel(config)
         }
         
         return this.instance
@@ -41,20 +41,84 @@ export class Kernel
         AppEnvironment.reset()
     }
 
-    public getConfig(): KernelConfig {
-        return this.config
+    static config(): KernelConfig {
+        return this.instance._config
     }
 
-    public getOptions(): KernelOptions {
-        return this.options
+    static locked(): boolean {
+        return KernelState.locked()
     }
 
-    public isLocked() {
-        return this.locked
-    }
-
-    public async boot()
+    public async boot(options: KernelOptions): Promise<void>
     {
+        if(KernelState.locked()) {
+            throw KernelException.locked()
+        }
 
+        if(!this._config.environment || typeof this._config.environment !== 'string') {
+            throw AppEnvironmentException.envNotSet()
+        }
+
+        KernelState.create()
+        AppEnvironment.create(this._config.environment)
+
+        await this.bootProviders(options)
+    }
+
+    private async bootProviders(options: KernelOptions)
+    {
+        const providers = this._config.providers
+        const { shouldUseProvider } = options
+
+        const providerInstancesArray = this.orderedProviderInstanceArray()
+
+        KernelState.setDefinedProvidersCount(providers.length)
+
+        for(const providerInstance of providerInstancesArray) {
+            if(typeof shouldUseProvider === 'function' && shouldUseProvider(providerInstance)) {
+               continue; 
+            }
+
+            await providerInstance.register()
+            KernelState.addPreparedProvider(providerInstance.constructor.name)
+        }
+
+        for(const providerInstance of providerInstancesArray) {
+            if(typeof shouldUseProvider === 'function' && shouldUseProvider(providerInstance)) {
+               continue; 
+            }
+
+            await providerInstance.boot()
+            KernelState.addReadyProvider(providerInstance.constructor.name)
+        }
+
+        KernelState.setLocked()
+    }
+
+    private orderedProviderInstanceArray(): ProviderInterfaceInstanceType[]
+    {
+        // First, convert the config into an array of `KernelConfigProviderPriotised` objects.
+        let kernelProviderConfigPrioritised: KernelConfigProviderPriotised[] = this._config.providers.map((objectOrInstance) => {
+            if(typeof (objectOrInstance as KernelConfigProviderPriotised)?.provider !== 'undefined') {
+                return objectOrInstance
+            }
+            return {
+                provider: objectOrInstance,
+                priority: undefined
+            }
+        }) as KernelConfigProviderPriotised[]
+
+        // Sort them into an ordered priority list by ascending first
+        kernelProviderConfigPrioritised = kernelProviderConfigPrioritised.sort((a, b) => {
+            if(typeof a.priority !== 'number') {
+                a.priority = Number.POSITIVE_INFINITY
+            }
+            if(typeof b.priority !== 'number') {
+                b.priority = Number.POSITIVE_INFINITY
+            }
+            return Math.sign(a.priority - b.priority)
+        })
+
+        return kernelProviderConfigPrioritised.map(it => it.provider)
     }
 }
