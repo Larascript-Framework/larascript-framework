@@ -1,4 +1,4 @@
-import { InstanceTypePrivateConstructor } from "@/contracts/instance.js";
+import { InstanceTypePrivateConstructor } from "@/contracts/instanceType.js";
 import { KernelException } from "@/exceptions/KernelException.js";
 import { KernelLockedException } from "@/exceptions/KernelLockedException.js";
 
@@ -91,6 +91,6 @@ export class KernelState {
     }
 
     static locked(): boolean {
-        return this.instance.locked
+        return this.instance && this.instance.locked
     }
 }

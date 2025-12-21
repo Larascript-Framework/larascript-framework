@@ -1,4 +1,4 @@
-import { InstanceTypePrivateConstructor } from "@/contracts/instance.js";
+import { InstanceTypePrivateConstructor } from "@/contracts/instanceType.js";
 import { AppEnvironmentException } from "@/exceptions/AppEnvironmentException.js";
 
 export class AppEnvironment {

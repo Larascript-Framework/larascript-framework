@@ -3,6 +3,10 @@ export class KernelException extends Error {
         return new KernelException(message)
     }
 
+    public static locked(): KernelException {
+        return new KernelException('Kernel is locked and cannot be modified')
+    }
+    
     public static kernelNotCreated(): KernelException {
         return new KernelException('Kernel has not been created')
     }
