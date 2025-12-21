@@ -19,7 +19,9 @@
       "lib": ["es2022"],
       "isolatedModules": true,
       "skipLibCheck": true,
-      "types": ["node", "jest"]
+      "types": ["node", "jest"],
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true
     },
     "exclude": ["node_modules", "dist", "src/**/*.test.ts"],
   
