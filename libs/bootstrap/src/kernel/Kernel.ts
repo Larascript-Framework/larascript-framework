@@ -1,9 +1,9 @@
+import { AppEnvironmentException } from "@/app/AppEnvironmentException.js";
 import { InstanceTypePrivateConstructor } from "@/contracts/instanceType.js";
 import { KernelConfig, KernelConfigProviderPriotised, KernelOptions } from "@/contracts/kernel.js";
 import { ProviderInterfaceInstanceType } from "@/contracts/provider.js";
-import { AppEnvironmentException } from "@/exceptions/AppEnvironmentException.js";
-import { KernelException } from "@/exceptions/KernelException.js";
-import { AppEnvironment } from "./AppEnvironment.js";
+import { KernelException } from "@/kernel/KernelException.js";
+import { AppEnvironment } from "../app/AppEnvironment.js";
 import { KernelState } from "./KernelState.js";
 
 export class Kernel
