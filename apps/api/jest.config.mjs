@@ -7,6 +7,6 @@ export default {
     "^@/(.*)$": "<rootDir>/src/$1",
     "^(\\.{1,2}/.*)\\.js$": "$1",
   },
-  setupFilesAfterEnv: ["<rootDir>/src/tests/jest-setup.js"],
+  setupFilesAfterEnv: ["<rootDir>/src/tests/jest-setup.js", '<rootDir>/src/bootstrap.js'],
 };
 

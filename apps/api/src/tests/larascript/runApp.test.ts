@@ -1,9 +1,8 @@
-import "dotenv/config";
-
 import providers from "@/config/providers.config.js";
 import { app } from "@/core/services/App.js";
 import { describe, expect, test } from "@jest/globals";
 import { Kernel } from "@larascript-framework/bootstrap";
+import "../../bootstrap.js";
 
 describe("attempt to run app with normal appConfig", () => {
   beforeAll(async () => {

@@ -10,7 +10,7 @@ class ViewProvider extends AbstractProvider {
     resourcesDir: path.join(process.cwd(), "src/app/resources"),
   };
 
-  async boot(): Promise<void> {
+  async register(): Promise<void> {
     const viewService = new ViewService(this.config);
     this.bind("view", viewService);
     this.bind("view:ejs", viewService.ejs());
