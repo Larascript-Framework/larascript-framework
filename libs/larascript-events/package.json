@@ -35,6 +35,7 @@
     "depcheck": "depcheck"
   },
   "dependencies": {
+    "@larascript-framework/bootstrap": "workspace:*",
     "@larascript-framework/cast-js": "workspace:*",
     "@larascript-framework/larascript-core": "workspace:*",
     "@larascript-framework/larascript-database": "workspace:*",
