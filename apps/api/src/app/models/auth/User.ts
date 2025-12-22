@@ -3,7 +3,7 @@ import UserObserver from "@/app/observers/UserObserver.js";
 import { TCastableType } from "@larascript-framework/cast-js";
 import {
   AuthenticableUserModelAttributes,
-  USER_ATTRIBUTES as BASE_USER_ATTRIBUTES,
+  BASE_USER_ATTRIBUTES,
   User as BaseUserModel,
   IAuthenticableUserModel,
 } from "@larascript-framework/larascript-auth";
