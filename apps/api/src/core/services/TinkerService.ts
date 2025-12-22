@@ -2,11 +2,10 @@ import appConfig from "@/config/app.config.js";
 import providers from "@/config/providers.config.js";
 import { app } from "@/core/services/App.js";
 import testHelper from "@/tests/testHelper.js";
+import { AppEnvironment, Kernel } from "@larascript-framework/bootstrap";
 import {
-  AppSingleton,
   BaseSingleton,
   EnvironmentProduction,
-  Kernel,
 } from "@larascript-framework/larascript-core";
 
 export type TinkerServiceConfig = {
@@ -28,7 +27,7 @@ class TinkerService extends BaseSingleton<TinkerServiceConfig> {
    * @returns A promise that resolves when the service is booted
    */
   public static async boot(config: TinkerServiceConfig) {
-    if (AppSingleton.env() === EnvironmentProduction) {
+    if (AppEnvironment.env() === EnvironmentProduction) {
       throw new Error("TinkerService is not allowed in production environment");
     }
 
@@ -56,13 +55,11 @@ class TinkerService extends BaseSingleton<TinkerServiceConfig> {
    * Uses the application's environment and provider settings
    */
   protected async bootDb(): Promise<void> {
-    await Kernel.boot(
-      {
-        environment: appConfig.env,
-        providers: providers,
-      },
-      {},
-    );
+    await Kernel.create({
+      environment: appConfig.env,
+      providers: providers,
+    })
+    .boot({});
   }
 
   /**

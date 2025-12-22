@@ -32,6 +32,7 @@
     "db:mongodb:down": "cd ../../docker && docker-compose -f docker-compose.mongodb.yml down"
   },
   "dependencies": {
+    "@larascript-framework/bootstrap": "workspace:*",
     "@larascript-framework/async-session": "workspace:*",
     "@larascript-framework/crypto-js": "workspace:*",
     "@larascript-framework/cast-js": "workspace:*",

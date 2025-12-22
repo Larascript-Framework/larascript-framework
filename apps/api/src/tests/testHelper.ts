@@ -16,10 +16,9 @@ import TestDatabaseProvider, {
 import TestEnvServiceProvider from "@/tests/larascript/providers/TestEnvServiceProvider.js";
 import TestMigrationProvider from "@/tests/larascript/providers/TestMigrationProvider.js";
 import TestViewProvider from "@/tests/larascript/providers/TestViewProvider.js";
-import { KernelConfig } from "@larascript-framework/contracts/larascript-core";
+import { Kernel, KernelConfig } from "@larascript-framework/bootstrap";
 import {
   EnvironmentTesting,
-  Kernel,
 } from "@larascript-framework/larascript-core";
 import { DataTypes } from "sequelize";
 import TestPackageJsonProvider from "./larascript/providers/TestPackageJsonProvider.js";
@@ -56,7 +55,7 @@ const testBootApp = async () => {
   };
 
   Kernel.reset();
-  await Kernel.boot(config, {});
+  await Kernel.create(config).boot({})
 };
 
 /**

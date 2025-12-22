@@ -1,12 +1,12 @@
 import { app } from "@/core/services/App.js";
-import { BaseProvider } from "@larascript-framework/larascript-core";
+import { AbstractProvider } from "@larascript-framework/bootstrap";
 import { DatabaseAdapter } from "@larascript-framework/larascript-database";
 import {
   AvailableSetupCommands,
   SetupService,
 } from "@larascript-framework/setup";
 
-class SetupProvider extends BaseProvider {
+class SetupProvider extends AbstractProvider {
   async register(): Promise<void> {
     /**
      * Initialize the setup service with the env service and package json service

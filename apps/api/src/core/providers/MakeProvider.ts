@@ -1,5 +1,5 @@
 import { app } from "@/core/services/App.js";
-import { BaseProvider } from "@larascript-framework/larascript-core";
+import { AbstractProvider } from "@larascript-framework/bootstrap";
 import { MigrationCreateFileNameService } from "@larascript-framework/larascript-database";
 import {
   AvailableMakeCommands,
@@ -7,7 +7,7 @@ import {
 } from "@larascript-framework/make";
 import path from "path";
 
-export default class MakeProvider extends BaseProvider {
+export default class MakeProvider extends AbstractProvider {
   async register(): Promise<void> {
     const pathToTemplates = path.join(
       process.cwd(),

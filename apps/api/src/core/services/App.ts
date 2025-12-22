@@ -1,16 +1,15 @@
 import { Providers } from "@/config/providers.config.js";
-import { AppSingleton } from "@larascript-framework/larascript-core";
+import { AppContainer, AppEnvironment } from "@larascript-framework/bootstrap";
 
 /**
- * The App service allows you to access kernel containers and configure the app environment
+ * A short hand for `AppContainer.container().resolve<TokenType>('nameOfToken')`
+ * Provides automatic type-hinting
  */
-export const app = <K extends keyof Providers = keyof Providers>(
-  name: K,
-): Providers[K] => {
-  return AppSingleton.container(name);
+export const app = <K extends keyof Providers = keyof Providers>(name: K): Providers[K] => {
+  return AppContainer.container().resolve<Providers[K]>(name as string)
 };
 
 /**
- * Short hand for App.env()
+ * Short hand for `AppEnvironment.env()`
  */
-export const appEnv = (): string | undefined => AppSingleton.env();
+export const appEnv = (): string | undefined => AppEnvironment.env()

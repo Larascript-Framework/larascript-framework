@@ -1,8 +1,8 @@
 import { config } from "@/config/storage.config.js";
-import { BaseProvider } from "@larascript-framework/larascript-core";
+import { AbstractProvider } from "@larascript-framework/bootstrap";
 import { StorageService } from "@larascript-framework/larascript-storage";
 
-class StorageProvider extends BaseProvider {
+class StorageProvider extends AbstractProvider {
   async register(): Promise<void> {
     const storage = new StorageService(config);
     this.bind("storage", storage);
