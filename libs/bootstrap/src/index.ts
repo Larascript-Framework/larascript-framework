@@ -8,4 +8,7 @@ export * from './app/AppContainerException.js'
 export * from './app/AppEnvironment.js'
 export * from './app/AppEnvironmentException.js'
 
+export * from './provider/AbstractProvider.js'
+
 export * from './contracts/index.js'
+
