@@ -1,4 +1,4 @@
-import { BaseAdapterTypes, RequiresDependency } from "@larascript-framework/contracts/larascript-core";
+import { BaseAdapterTypes } from "@larascript-framework/contracts/larascript-core";
 import LocalMailDriver from "../adapters/LocalMailDriver.js";
 import NodeMailDriver from "../adapters/NodeMailerDriver.js";
 import ResendMailDriver from "../adapters/ResendMailDriver.js";
@@ -17,7 +17,8 @@ export interface MailAdapters extends BaseMailAdapters {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type MailAdapterConstructor = new (options: any) => MailAdapter;
 
-export interface MailAdapter extends RequiresDependency {
+export interface MailAdapter {
+  setDependencies(deps: Record<string, unknown>): void;
   send(mail: IMail): Promise<void>;
   getOptions<T>(): T;
 }
