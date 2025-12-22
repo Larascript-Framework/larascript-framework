@@ -1,11 +1,11 @@
+import { AbstractProvider } from "@larascript-framework/bootstrap";
 import {
-  BaseProvider,
   EnvService,
-  IEnvServiceConfig,
+  IEnvServiceConfig
 } from "@larascript-framework/larascript-core";
 import path from "path";
 
-class EnvServiceProvider extends BaseProvider {
+class EnvServiceProvider extends AbstractProvider {
   protected config: IEnvServiceConfig = {
     envPath: path.resolve("@/../", ".env"),
     envExamplePath: path.resolve("@/../", ".env.example"),

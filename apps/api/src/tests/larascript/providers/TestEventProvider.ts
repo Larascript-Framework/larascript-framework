@@ -1,4 +1,4 @@
-import { BaseProvider } from "@larascript-framework/larascript-core";
+import { AbstractProvider } from "@larascript-framework/bootstrap";
 import {
   EVENT_DRIVERS,
   EventConfig,
@@ -8,7 +8,8 @@ import {
   SyncDriver,
   WorkerModelFactory,
 } from "@larascript-framework/larascript-events";
-class TestEventProvider extends BaseProvider {
+
+class TestEventProvider extends AbstractProvider {
   protected config: IEventConfig = {
     /**
      * Default Event Driver

@@ -1,8 +1,8 @@
-import { BaseProvider } from "@larascript-framework/larascript-core";
+import { AbstractProvider } from "@larascript-framework/bootstrap";
 import { LoggerService } from "@larascript-framework/larascript-logger";
 import path from "path";
 
-class LoggerProvider extends BaseProvider {
+class LoggerProvider extends AbstractProvider {
   async register(): Promise<void> {
     const loggerService = new LoggerService({
       logPath: path.resolve("@/../", "storage/logs/larascript.log"),

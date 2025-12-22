@@ -1,13 +1,13 @@
 import commandsConfig from "@/config/commands.config.js";
+import { AbstractProvider } from "@larascript-framework/bootstrap";
 import {
   ConsoleService,
   HelpCommand,
 } from "@larascript-framework/larascript-console";
-import { BaseProvider } from "@larascript-framework/larascript-core";
 import GenerateAppKey from "../commands/GenerateAppKey.js";
 import RouteListCommand from "../commands/RouteListCommand.js";
 
-export default class ConsoleProvider extends BaseProvider {
+export default class ConsoleProvider extends AbstractProvider {
   /**
    * Register method
    * Called when the provider is being registered

@@ -1,4 +1,4 @@
-import { KernelOptions } from "@larascript-framework/contracts/larascript-core";
+import { KernelOptions } from "@larascript-framework/bootstrap";
 
 /**
  * Interface for a service that can boot the console interface
@@ -10,7 +10,7 @@ interface ICommandBootService {
    * @param options The options passed to the kernel
    * @returns The kernel options
    */
-  getKernelOptions(args: string[], options: KernelOptions): KernelOptions;
+  getKernelOptions(args: string[]): KernelOptions;
 
   /**
    * Boot the kernel

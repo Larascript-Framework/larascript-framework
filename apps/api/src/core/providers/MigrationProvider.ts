@@ -1,12 +1,12 @@
 import { app } from "@/core/services/App.js";
+import { AbstractProvider } from "@larascript-framework/bootstrap";
 import { IMigrationConfig } from "@larascript-framework/contracts/migrations";
-import { BaseProvider } from "@larascript-framework/larascript-core";
 import { AvailableMigrationCommands } from "@larascript-framework/larascript-database";
 
 /**
  * MigrationProvider class handles all migration related tasks
  */
-class MigrationProvider extends BaseProvider {
+class MigrationProvider extends AbstractProvider {
   protected config: IMigrationConfig = {
     schemaMigrationDir: "src/app/migrations",
     seederMigrationDir: "src/app/seeders",

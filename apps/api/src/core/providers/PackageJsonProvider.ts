@@ -1,11 +1,11 @@
+import { AbstractProvider } from "@larascript-framework/bootstrap";
 import {
-  BaseProvider,
   PackageJsonService,
-  PackageJsonServiceConfig,
+  PackageJsonServiceConfig
 } from "@larascript-framework/larascript-core";
 import path from "path";
 
-class PackageJsonProvider extends BaseProvider {
+class PackageJsonProvider extends AbstractProvider {
   protected config: PackageJsonServiceConfig = {
     packageJsonPath: path.resolve("@/../", "package.json"),
   };

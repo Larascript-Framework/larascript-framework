@@ -1,9 +1,9 @@
 import { aclConfig } from "@/config/acl.config.js";
+import { AbstractProvider } from "@larascript-framework/bootstrap";
 import { IAclConfig } from "@larascript-framework/contracts/acl";
 import { BasicACLService } from "@larascript-framework/larascript-acl";
-import { BaseProvider } from "@larascript-framework/larascript-core";
 
-class ACLProvider extends BaseProvider {
+class ACLProvider extends AbstractProvider {
   config: IAclConfig = aclConfig;
 
   async register(): Promise<void> {
