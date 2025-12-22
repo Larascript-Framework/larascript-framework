@@ -42,6 +42,7 @@ export class DatabaseEnvironment
   logger!: ILoggerService;
   console!: IConsoleService;
   cryptoService!: ICryptoService;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatcher!: (...args: any[]) => Promise<void>;
   eloquentQueryBuilder!: IEloquentQueryBuilderService;
 
