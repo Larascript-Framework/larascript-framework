@@ -1,47 +1,44 @@
 import { KernelConfig } from "@/contracts/kernel.js";
-import { ProviderInterface } from "@/contracts/provider.js";
+import { ProviderInterfaceConstructor } from "@/contracts/provider.js";
 import { Kernel } from "@/kernel/Kernel.js";
+import { AbstractProvider } from "@/provider/AbstractProvider.js";
 import { beforeEach, describe, expect, test } from "@jest/globals";
 
 describe("Kernel Test Suite", () => {
 
   let providersBootLog: string[];
-  let FirstMockProvider: ProviderInterface;
-  let SecondMockProvider: ProviderInterface;
-  let ThirdMockProvider: ProviderInterface;
-  let FourthMockProvider: ProviderInterface;
+  let FirstMockProvider: ProviderInterfaceConstructor;
+  let SecondMockProvider: ProviderInterfaceConstructor;
+  let ThirdMockProvider: ProviderInterfaceConstructor;
+  let FourthMockProvider: ProviderInterfaceConstructor;
 
   beforeEach(() => {
     Kernel.reset()
     providersBootLog = []
 
-    FirstMockProvider = class {
+    FirstMockProvider = class extends AbstractProvider {
       async boot(): Promise<void> {
         providersBootLog.push(FirstMockProvider.constructor.name)
       }
-      async register(): Promise<void> {}
-    } as ProviderInterface
+    }
     
-    SecondMockProvider = class {
+    SecondMockProvider = class extends AbstractProvider {
       async boot(): Promise<void> {
         providersBootLog.push(SecondMockProvider.constructor.name)
       }
-      async register(): Promise<void> {}
-    } as ProviderInterface
+    }
 
-    ThirdMockProvider = class {
+    ThirdMockProvider = class extends AbstractProvider {
       async boot(): Promise<void> {
         providersBootLog.push(ThirdMockProvider.constructor.name)
       }
-      async register(): Promise<void> {}
-    } as ProviderInterface
+    }
 
-    FourthMockProvider = class {
+    FourthMockProvider = class extends AbstractProvider {
       async boot(): Promise<void> {
         providersBootLog.push(FourthMockProvider.constructor.name)
       }
-      async register(): Promise<void> {}
-    } as ProviderInterface
+    }
   });
 
   describe("boot priority", () => {

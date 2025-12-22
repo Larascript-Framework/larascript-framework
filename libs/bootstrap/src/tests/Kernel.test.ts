@@ -1,7 +1,8 @@
 import { KernelConfig } from "@/contracts/kernel.js";
-import { ProviderInterface } from "@/contracts/provider.js";
+import { ProviderInterfaceConstructor } from "@/contracts/provider.js";
 import { Kernel } from "@/kernel/Kernel.js";
 import { KernelState } from "@/kernel/KernelState.js";
+import { AbstractProvider } from "@/provider/AbstractProvider.js";
 import { beforeEach, describe, expect, test } from "@jest/globals";
 
 const DEFAULT_CONFIG: KernelConfig = {
@@ -12,26 +13,26 @@ const DEFAULT_CONFIG: KernelConfig = {
 describe("Kernel Test Suite", () => {
 
   let providersBootLog: string[];
-  let FirstMockProvider: ProviderInterface;
-  let SecondMockProvider: ProviderInterface;
+  let FirstMockProvider: ProviderInterfaceConstructor;
+  let SecondMockProvider: ProviderInterfaceConstructor;
 
   beforeEach(() => {
     Kernel.reset()
     providersBootLog = []
 
-    FirstMockProvider = class {
+    FirstMockProvider = class extends AbstractProvider {
       async boot(): Promise<void> {
         providersBootLog.push(FirstMockProvider.constructor.name)
       }
       async register(): Promise<void> {}
-    } as ProviderInterface
+    }
     
-    SecondMockProvider = class {
+    SecondMockProvider = class extends AbstractProvider {
       async boot(): Promise<void> {
         providersBootLog.push(SecondMockProvider.constructor.name)
       }
       async register(): Promise<void> {}
-    } as ProviderInterface
+    }
   });
 
   describe("Instance", () => {

@@ -1,6 +1,7 @@
 import { AppContainer } from "@/app/AppContainer.js";
+import { ProviderInterface } from "@/contracts/provider.js";
 
-export abstract class AbstractProvider {
+export abstract class AbstractProvider implements ProviderInterface {
 
     /** Allow either method to be optional  */
     async register(): Promise<void> { return Promise.resolve(); }
