@@ -1,6 +1,5 @@
 import BaseCommand from "@/console/base/BaseCommand.js";
 import { ICommand, ICommandConstructor } from "@/console/interfaces/ICommand.js";
-import ICommandBootService from "@/console/interfaces/ICommandBootService.js";
 import { ICommandReader } from "@/console/interfaces/ICommandReader.js";
 import {
   ICommandRegister,
@@ -9,7 +8,6 @@ import {
 import { IConsoleInputService } from "@/console/interfaces/IConsoleInputService.js";
 import IConsoleService from "@/console/interfaces/IConsoleService.js";
 import { describe, expect, test } from "@jest/globals";
-import { KernelOptions } from "@larascript-framework/contracts/larascript-core";
 
 // Mock implementations for testing interfaces
 class MockCommand extends BaseCommand implements ICommand {
@@ -81,19 +79,6 @@ class MockCommandService implements IConsoleService {
 
   register(cmdCtor: ICommandConstructor, config?: object): void {
     this.registerService().register(cmdCtor, config);
-  }
-}
-
-class MockCommandBootService implements ICommandBootService {
-  getKernelOptions(args: string[], options: KernelOptions): KernelOptions {
-    throw new Error("Method not implemented.");
-  }
-  async boot(): Promise<void> {
-    // Mock implementation
-  }
-
-  async registerCommands(): Promise<void> {
-    // Mock implementation
   }
 }
 
@@ -318,27 +303,6 @@ describe("Console Interfaces Test Suite", () => {
     test("should have handle method that returns a promise", async () => {
       const reader = new MockCommandReader();
       await expect(reader.handle()).resolves.toBeUndefined();
-    });
-  });
-
-  describe("ICommandBootService Interface", () => {
-    test("should implement ICommandBootService interface correctly", () => {
-      const bootService = new MockCommandBootService();
-
-      expect(bootService).toHaveProperty("boot");
-      expect(bootService).toHaveProperty("registerCommands");
-      expect(typeof bootService.boot).toBe("function");
-      expect(typeof bootService.registerCommands).toBe("function");
-    });
-
-    test("should have boot method that returns a promise", async () => {
-      const bootService = new MockCommandBootService();
-      await expect(bootService.boot()).resolves.toBeUndefined();
-    });
-
-    test("should have registerCommands method that returns a promise", async () => {
-      const bootService = new MockCommandBootService();
-      await expect(bootService.registerCommands()).resolves.toBeUndefined();
     });
   });
 
