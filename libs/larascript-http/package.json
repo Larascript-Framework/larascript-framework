@@ -53,6 +53,7 @@
     }
   },
   "dependencies": {
+    "@larascript-framework/bootstrap": "workspace:*",
     "@larascript-framework/async-session": "workspace:*",
     "@larascript-framework/contracts": "workspace:*",
     "@larascript-framework/larascript-auth": "workspace:*",
