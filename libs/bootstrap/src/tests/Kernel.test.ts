@@ -99,7 +99,7 @@ describe("Kernel Test Suite", () => {
       expect(async () => kernel.boot({})).rejects.toThrow('Kernel is locked and cannot be modified')
     })
 
-    test("can boot the kernel and with shouldUseProvider defined", async () => {
+    test("it should be affected by shouldUseProvider method by ignoring one provider", async () => {
       const config: KernelConfig = {
         environment: 'dev',
         providers: [
@@ -118,12 +118,44 @@ describe("Kernel Test Suite", () => {
       })
 
       const expectedDefinedProvidersCount = 2;
+      const expectSkippedProvidersCount = 1;
       const expectedPreparedProviders = 1;
       const expectedReadyProviders = 1;
       
       expect(Kernel.locked()).toBe(true)
       expect(KernelState.locked()).toBe(true)
       expect(KernelState.definedProvidersCount()).toBe(expectedDefinedProvidersCount)
+      expect(KernelState.skippedProviders().length).toBe(expectSkippedProvidersCount)
+      expect(KernelState.readyProviders().length).toBe(expectedPreparedProviders)
+      expect(KernelState.preparedProviders().length).toBe(expectedReadyProviders)
+    })
+
+    test("it should not boot any providers when shouldUseProvider returns false always", async () => {
+      const config: KernelConfig = {
+        environment: 'dev',
+        providers: [
+          new FirstMockProvider(),
+          new SecondMockProvider()
+        ]
+      }
+  
+      const kernel = Kernel.create(config)
+
+      await kernel.boot({
+        shouldUseProvider: (provider) => {
+          return false
+        }
+      })
+
+      const expectedDefinedProvidersCount = 2;
+      const expectSkippedProvidersCount = 2;
+      const expectedPreparedProviders = 0;
+      const expectedReadyProviders = 0;
+      
+      expect(Kernel.locked()).toBe(true)
+      expect(KernelState.locked()).toBe(true)
+      expect(KernelState.definedProvidersCount()).toBe(expectedDefinedProvidersCount)
+      expect(KernelState.skippedProviders().length).toBe(expectSkippedProvidersCount)
       expect(KernelState.readyProviders().length).toBe(expectedPreparedProviders)
       expect(KernelState.preparedProviders().length).toBe(expectedReadyProviders)
     })

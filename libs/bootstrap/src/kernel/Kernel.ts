@@ -68,26 +68,26 @@ export class Kernel
     private async bootProviders(options: KernelOptions)
     {
         const providers = this._config.providers
-        const { shouldUseProvider } = options
+        const { shouldUseProvider = () => true } = options
 
-        const providerInstancesArray = this.orderedProviderInstanceArray()
+        let providerInstancesArray = this.orderedProviderInstanceArray()
 
         KernelState.setDefinedProvidersCount(providers.length)
 
-        for(const providerInstance of providerInstancesArray) {
-            if(typeof shouldUseProvider === 'function' && shouldUseProvider(providerInstance)) {
-               continue; 
+        providerInstancesArray = providerInstancesArray.filter(providerInstance => {
+            if(false === shouldUseProvider(providerInstance)) {
+                KernelState.addSkippedProvider(providerInstance.constructor.name)
+                return false
             }
+            return true
+        })
 
+        for(const providerInstance of providerInstancesArray) {
             await providerInstance.register()
             KernelState.addPreparedProvider(providerInstance.constructor.name)
         }
 
         for(const providerInstance of providerInstancesArray) {
-            if(typeof shouldUseProvider === 'function' && shouldUseProvider(providerInstance)) {
-               continue; 
-            }
-
             await providerInstance.boot()
             KernelState.addReadyProvider(providerInstance.constructor.name)
         }
