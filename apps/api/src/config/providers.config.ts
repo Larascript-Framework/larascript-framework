@@ -19,12 +19,12 @@ import SetupProvider from "@/core/providers/SetupProvider.js";
 import StorageProvider from "@/core/providers/StorageProvider.js";
 import ValidatorProvider from "@/core/providers/ValidatorProvider.js";
 import ViewProvider from "@/core/providers/ViewProvider.js";
+import { ProviderInterface } from "@larascript-framework/bootstrap";
 import {
   IAclConfig,
   IBasicACLService,
 } from "@larascript-framework/contracts/acl";
 import { IAsyncSessionService } from "@larascript-framework/contracts/async-session";
-import { IProvider } from "@larascript-framework/contracts/larascript-core";
 import { ICryptoService } from "@larascript-framework/crypto-js";
 import { IAuthService } from "@larascript-framework/larascript-auth";
 import { IConsoleService } from "@larascript-framework/larascript-console";
@@ -90,7 +90,7 @@ export interface Providers {
 /**
  * Providers
  */
-const providers: IProvider[] = [
+const providers: ProviderInterface[] = [
   /**
    * Include the core providers
    * Important: Do not change the order of the core providers otherwise bad things will happen

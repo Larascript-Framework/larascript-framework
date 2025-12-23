@@ -1,19 +1,16 @@
-import "dotenv/config";
-
 import providers from "@/config/providers.config.js";
 import { app } from "@/core/services/App.js";
 import { describe, expect, test } from "@jest/globals";
-import { Kernel } from "@larascript-framework/larascript-core";
+import { Kernel } from "@larascript-framework/bootstrap";
+import "../../bootstrap.js";
 
 describe("attempt to run app with normal appConfig", () => {
   beforeAll(async () => {
-    await Kernel.boot(
-      {
-        environment: "testing",
-        providers: providers,
-      },
-      {},
-    );
+    Kernel.reset()
+    await Kernel.create({
+      environment: "testing",
+      providers: providers,
+    }).boot({});
   });
 
   /**
@@ -46,9 +43,8 @@ describe("attempt to run app with normal appConfig", () => {
     // App specific providers
     expect(app("app")).toBeDefined();
     expect(app("app.config")).toBeDefined();
-    /**
-     * TODO: List all expected services here
-     */
-    expect(Kernel.getInstance().booted()).toBe(true);
+    // ...
+
+    expect(Kernel.locked()).toBe(true);
   }, 10000);
 });

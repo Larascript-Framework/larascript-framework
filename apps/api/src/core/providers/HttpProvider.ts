@@ -1,11 +1,11 @@
 import httpConfig from "@/config/http.config.js";
 import { routesConfig } from "@/config/routes.config.js";
+import { AbstractProvider } from "@larascript-framework/bootstrap";
 import {
   IHttpServiceConfig,
   IHttpUploadService,
   IRouter,
 } from "@larascript-framework/contracts/http";
-import { BaseProvider } from "@larascript-framework/larascript-core";
 import {
   HttpEnvironment,
   HttpFileSystemUploader,
@@ -16,7 +16,7 @@ import expressLayouts from "express-ejs-layouts";
 import path from "path";
 import { app } from "../services/App.js";
 
-export default class HttpProvider extends BaseProvider {
+export default class HttpProvider extends AbstractProvider {
   private httpService!: HttpService;
 
   private routesConfig: () => IRouter[] = routesConfig;
@@ -36,7 +36,6 @@ export default class HttpProvider extends BaseProvider {
    * @returns Promise<void>
    */
   public async register(): Promise<void> {
-    this.log("Registering HttpProvider");
 
     const httpService = new HttpService(this.config);
 
@@ -116,7 +115,7 @@ export default class HttpProvider extends BaseProvider {
     await HttpEnvironment.getInstance().boot();
 
     // Log that Express is successfully listening
-    this.log(
+    app("logger").info(
       "Express successfully listening on port " +
         HttpEnvironment.getInstance().httpService.getConfig()?.port,
     );

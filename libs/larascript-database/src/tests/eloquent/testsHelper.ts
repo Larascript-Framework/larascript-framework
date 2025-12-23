@@ -1,12 +1,9 @@
+import { AbstractProvider, Kernel, KernelConfig } from "@larascript-framework/bootstrap";
 import {
-  BaseProvider,
   EnvironmentTesting,
-  Kernel,
 } from "@larascript-framework/larascript-core";
 
-import { KernelConfig } from "@larascript-framework/contracts/larascript-core";
-
-class TestDatabaseProvider extends BaseProvider {
+class TestDatabaseProvider extends AbstractProvider {
   async register(): Promise<void> {
     // const databaseService = new DatabaseService({
     //     enableLogging: true,
@@ -25,5 +22,5 @@ export const testBootApp = async () => {
     providers: [new TestDatabaseProvider()],
   };
 
-  await Kernel.boot(config, {});
+  await Kernel.create(config).boot({});
 };

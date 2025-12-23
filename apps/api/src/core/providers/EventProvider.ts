@@ -1,6 +1,6 @@
 import { eventConfig } from "@/config/events.config.js";
 import { app } from "@/core/services/App.js";
-import { BaseProvider } from "@larascript-framework/larascript-core";
+import { AbstractProvider } from "@larascript-framework/bootstrap";
 import {
   EventService,
   IEventConfig,
@@ -11,7 +11,7 @@ import {
 } from "@larascript-framework/larascript-events";
 import { WorkerCommand } from "../commands/WorkerCommand.js";
 
-class EventProvider extends BaseProvider {
+class EventProvider extends AbstractProvider {
   protected config: IEventConfig = eventConfig;
 
   async register(): Promise<void> {

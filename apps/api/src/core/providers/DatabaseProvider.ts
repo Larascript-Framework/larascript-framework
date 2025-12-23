@@ -1,13 +1,13 @@
 import appConfig, { IAppConfig } from "@/config/app.config.js";
 import databaseConfig from "@/config/database.config.js";
-import { BaseProvider } from "@larascript-framework/larascript-core";
+import { AbstractProvider } from "@larascript-framework/bootstrap";
 import {
   DatabaseEnvironment,
   IDatabaseConfig,
 } from "@larascript-framework/larascript-database";
 import { app } from "../services/App.js";
 
-export default class DatabaseProvider extends BaseProvider {
+export default class DatabaseProvider extends AbstractProvider {
   protected config: IDatabaseConfig = databaseConfig;
 
   protected appConfig: IAppConfig = appConfig;
@@ -19,6 +19,7 @@ export default class DatabaseProvider extends BaseProvider {
         logger: app("logger"),
         console: app("console"),
         cryptoService: app("crypto"),
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         dispatcher: (...args: any[]) =>
           app("events").dispatch(...args) as Promise<void>,
       },

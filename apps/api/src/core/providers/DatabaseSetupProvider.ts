@@ -1,16 +1,18 @@
-import { BaseProvider } from "@larascript-framework/larascript-core";
+import { AbstractProvider } from "@larascript-framework/bootstrap";
 import {
   DatabaseConfig,
   DatabaseService,
   IDatabaseConfig,
 } from "@larascript-framework/larascript-database";
 import path from "path";
+import { app } from "../services/App.js";
+
 /**
  * DatabaseRegisterOnlyProvider class
  *
  * This provider is a subclass of DatabaseProvider that only registers the database service in the App container.
  */
-export default class DatabaseSetupProvider extends BaseProvider {
+export default class DatabaseSetupProvider extends AbstractProvider {
   /**
    * The database configuration object
    *
@@ -42,7 +44,7 @@ export default class DatabaseSetupProvider extends BaseProvider {
   };
 
   public async register(): Promise<void> {
-    this.log("Registering DatabaseProvider");
+    app('logger').info("Registering DatabaseProvider");
 
     const databaseService = new DatabaseService(this.config);
     databaseService.register();

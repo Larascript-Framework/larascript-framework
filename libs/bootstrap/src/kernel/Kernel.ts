@@ -110,6 +110,9 @@ export class Kernel
 
         // Sort them into an ordered priority list by ascending first
         kernelProviderConfigPrioritised = kernelProviderConfigPrioritised.sort((a, b) => {
+            if(typeof a.priority !== 'number' && typeof b.priority !== 'number') {
+                return 0
+            }
             if(typeof a.priority !== 'number') {
                 a.priority = Number.POSITIVE_INFINITY
             }

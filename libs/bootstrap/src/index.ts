@@ -4,7 +4,6 @@ export * from './kernel/KernelLockedException.js'
 export * from './kernel/KernelState.js'
 
 export * from './app/AppContainer.js'
-export * from './app/AppContainerException.js'
 export * from './app/AppEnvironment.js'
 export * from './app/AppEnvironmentException.js'
 
