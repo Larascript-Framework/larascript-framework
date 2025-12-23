@@ -25,6 +25,7 @@ export class KernelState {
         private definedProvidersCount: number = undefined as unknown as number,
         private preparedProviders: string[] = [],
         private readyProviders: string[] = [],
+        private skippedProviders: string[] = [],
         private locked: boolean = false,
     ) {}
 
@@ -46,6 +47,14 @@ export class KernelState {
         }
 
         this.instance.definedProvidersCount = count
+    }
+
+    static addSkippedProvider(providerName: string): void {
+        if(KernelState.locked()) {
+            throw KernelLockedException.create()
+        }
+
+        this.instance.skippedProviders.push(providerName)
     }
 
     static addPreparedProvider(providerName: string): void {
@@ -81,6 +90,10 @@ export class KernelState {
 
     static preparedProviders(): string[] {
         return this.instance.preparedProviders
+    }
+
+    static skippedProviders(): string[] {
+        return this.instance.skippedProviders
     }
 
     static definedProvidersCount(): number {

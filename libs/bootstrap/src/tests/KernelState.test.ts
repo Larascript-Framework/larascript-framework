@@ -31,7 +31,7 @@ describe("KernelState Test Suite", () => {
   });
 
   describe("setters and getters", () => {
-    test("should be able to set ready providers", () => {
+    test("should be able to set prepared providers", () => {
       KernelState.create()
       KernelState.addPreparedProvider('provider')
 
@@ -43,6 +43,13 @@ describe("KernelState Test Suite", () => {
       KernelState.addReadyProvider('provider')
 
       expect(KernelState.readyProviders().includes('provider')).toBe(true)
+    })
+
+    test("should be able to set skipped providers", () => {
+      KernelState.create()
+      KernelState.addSkippedProvider('provider')
+
+      expect(KernelState.skippedProviders().includes('provider')).toBe(true)
     })
 
     test("should be able to set definedProvidersCount", () => {
