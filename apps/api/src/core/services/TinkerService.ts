@@ -27,11 +27,13 @@ class TinkerService extends BaseSingleton<TinkerServiceConfig> {
    * @returns A promise that resolves when the service is booted
    */
   public static async boot(config: TinkerServiceConfig) {
+    const tinkerService = await new TinkerService(config).init();
+
     if (AppEnvironment.env() === EnvironmentProduction) {
       throw new Error("TinkerService is not allowed in production environment");
     }
 
-    return await new TinkerService(config).init();
+    return tinkerService;
   }
 
   /**
