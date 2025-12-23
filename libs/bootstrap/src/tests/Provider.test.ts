@@ -9,7 +9,7 @@ describe("Provider Test Suite", () => {
   });
 
   describe('bind test', () => {
-    test.only('should be able to use the bind method to register then resolve using AppContainer', async () => {
+    test('should be able to use the bind method to register then resolve using AppContainer', async () => {
 
       const foo = { foo: 'bar '}
 
@@ -24,6 +24,27 @@ describe("Provider Test Suite", () => {
 
       expect(AppContainer.container().resolve('test')).toBe(foo)
     })
+
+    test('should be able to use the container method to resolve a service', async () => {
+
+      const foo = { foo: 'bar '}
+
+      class MockProvider extends AbstractProvider {
+        async register(): Promise<void> {
+            this.bind('test', foo)
+        }
+        
+        async boot(): Promise<void> {
+          this.container().resolve<{ foo: string }>('test').foo = 'baz'
+        }
+      }
+
+      const mockProvider = new MockProvider()
+      await mockProvider.register()
+      await mockProvider.boot()
+
+      expect(AppContainer.container().resolve<{ foo: string }>('test').foo).toBe('baz')
+    })  
   })
 
 });

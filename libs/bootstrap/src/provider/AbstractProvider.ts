@@ -9,6 +9,10 @@ export abstract class AbstractProvider implements ProviderInterface {
 
     /** Helper for registering services */
     protected bind(key: string, value: unknown): void {
-        AppContainer.container().register(key, { useValue: value })   
+        this.container().register(key, { useValue: value })   
+    }
+
+    protected container() {
+        return AppContainer.container()
     }
 }
