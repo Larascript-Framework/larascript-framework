@@ -1,12 +1,10 @@
-/* eslint-disable no-unused-vars */
  
-import 'dotenv/config';
-import 'tsconfig-paths/register';
+import "./bootstrap.js";
 
-import TinkerService from '@/core/domains/tinker/services/TinkerService';
-import { app } from '@/core/services/App';
+import TinkerService from '@/core/services/TinkerService.js';
+import { app } from './core/services/App.js';
 
-(async () => {
+void (async () => {
 
     // Boot the application
     await TinkerService.boot({
@@ -14,12 +12,13 @@ import { app } from '@/core/services/App';
     });
 
     // Useful services for debugging
-    const db        = app('db');
-    const events    = app('events');
     const logger    = app('logger');
-    const query     = app('query');
-    const validator = app('validatorFn');
+    // const db        = app('db');
+    // const events    = app('events');
+    // const query     = app('query');
+    // const validator = app('validatorFn');
     
     // Add your code here
+    logger.info("Ready to tinker!");
     
 })(); 
