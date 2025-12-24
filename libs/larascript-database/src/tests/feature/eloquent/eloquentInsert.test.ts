@@ -1,19 +1,18 @@
 import { testHelper } from "@/tests/tests-helper/testHelper.js";
 import { describe } from "@jest/globals";
-import { EloquentConnectionTest, IEloquentConnectionTestCallback } from "./abstractions/EloquentConnectionTest.js";
+import { EloquentContext } from "./abstractions/EloquestContext.js";
 import TestPeopleModel, { resetPeopleTable } from "./legacy-tests/models/TestPeopleModel.js";
 
 describe("eloquent", () => {
-  let execTest: IEloquentConnectionTestCallback;
-  
+
   beforeAll(async () => {
     await testHelper.testBootApp();
     await resetPeopleTable();
   });
 
   describe("test insert records", () => {
-    execTest = async (eloquentTest: EloquentConnectionTest) => {{
-      const results = await eloquentTest.queryBuilder(TestPeopleModel).insert([
+    const execTestInsertRecords = async (eloquentContext: EloquentContext) => {{
+      const results = await eloquentContext.queryBuilder(TestPeopleModel).insert([
         {
           name: "John",
           age: 25,
@@ -40,11 +39,11 @@ describe("eloquent", () => {
     }}
     
     test("test insert records for postgres", async () => {
-      await execTest(EloquentConnectionTest.create("postgres"));
+      await execTestInsertRecords(EloquentContext.create("postgres"));
     });
 
     test("test insert records for mongodb", async () => {
-      await execTest(EloquentConnectionTest.create("mongodb"));
+      await execTestInsertRecords(EloquentContext.create("mongodb"));
     });
 
   });
