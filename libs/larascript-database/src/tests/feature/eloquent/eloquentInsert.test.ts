@@ -3,15 +3,18 @@ import { describe } from "@jest/globals";
 import { EloquentContext } from "./EloquestContext.js";
 import TestPeopleModel, { resetPeopleTable } from "./legacy-tests/models/TestPeopleModel.js";
 
-describe("eloquent", () => {
+describe("insert", () => {
 
   beforeAll(async () => {
     await testHelper.testBootApp();
+  });
+  
+  beforeEach(async () => {
     await resetPeopleTable();
   });
 
   describe("test insert records", () => {
-    const execTestInsertRecords = async (eloquentContext: EloquentContext) => {{
+    const execTest = async (eloquentContext: EloquentContext) => {{
       const results = await eloquentContext.queryBuilder(TestPeopleModel).insert([
         {
           name: "John",
@@ -38,12 +41,12 @@ describe("eloquent", () => {
       expect(results.get(1)?.age).toBe(30);
     }}
     
-    test("test insert records for postgres", async () => {
-      await execTestInsertRecords(EloquentContext.create("postgres"));
+    test("test insert records (postgres)", async () => {
+      await execTest(EloquentContext.create("postgres"));
     });
 
-    test("test insert records for mongodb", async () => {
-      await execTestInsertRecords(EloquentContext.create("mongodb"));
+    test("test insert records (mongodb)", async () => {
+      await execTest(EloquentContext.create("mongodb"));
     });
 
   });
