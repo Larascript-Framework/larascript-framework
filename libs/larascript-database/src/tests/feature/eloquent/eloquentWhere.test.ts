@@ -1,7 +1,7 @@
 import { forEveryConnection } from "@/tests/tests-helper/forEveryConnection.js";
 import { queryBuilder, testHelper } from "@/tests/tests-helper/testHelper.js";
 import { describe } from "@jest/globals";
-import { EloquentContext } from "./abstractions/EloquestContext.js";
+import { EloquentContext } from "./EloquestContext.js";
 import TestPeopleModel, { resetPeopleTable } from "./legacy-tests/models/TestPeopleModel.js";
 
 const getYearsDate = (year: number): Date => {
