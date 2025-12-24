@@ -1,7 +1,7 @@
 const tseslint = require("typescript-eslint");
 const importPlugin = require("eslint-plugin-import");
 
-module.exports = (tsconfigRootDir = process.cwd()) => [
+module.exports = (tsconfigRootDir = process.cwd(), additionalRules = {}) => [
   // Global ignores should be first
   {
     ignores: [
@@ -18,7 +18,7 @@ module.exports = (tsconfigRootDir = process.cwd()) => [
   },
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
-    languageOptions: { 
+    languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
         project: true,
@@ -44,7 +44,27 @@ module.exports = (tsconfigRootDir = process.cwd()) => [
       ],
       "import/no-cycle": "error",
       "import/no-internal-modules": "error",
-      "import/no-relative-parent-imports": "error"
+      "import/no-relative-parent-imports": "error",
+      "no-restricted-imports": [
+        "error",
+        {
+          "patterns": [
+            {
+              "group": ["@/*", "../*", "./*"],
+              "message": "Import concrete files, not barrel index files."
+            }
+          ]
+        }
+      ]
     },
-  },
+    overrides: [
+      {
+        // Allow index files to act as composition roots
+        files: ["**/index.ts"],
+        rules: {
+          "no-restricted-imports": "off"
+        }
+      }
+    ]
+  }
 ];
