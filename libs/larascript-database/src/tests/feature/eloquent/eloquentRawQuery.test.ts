@@ -4,7 +4,7 @@ import { queryBuilder, testHelper } from "@/tests/tests-helper/testHelper.js";
 import { describe } from "@jest/globals";
 import pg from "pg";
 import { EloquentContext } from "./EloquestContext.js";
-import TestPeopleModel, { resetPeopleTable } from "./legacy-tests/models/TestPeopleModel.js";
+import TestPeopleModel, { resetPeopleTable } from "./models/TestPeopleModel.js";
 
 const resetAndRepopulateTable = async () => {
   await resetPeopleTable();

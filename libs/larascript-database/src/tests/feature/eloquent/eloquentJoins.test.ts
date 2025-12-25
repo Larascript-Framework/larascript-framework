@@ -4,10 +4,10 @@ import { describe } from "@jest/globals";
 import { EloquentContext } from "./EloquestContext.js";
 import TestDepartmentModel, {
   resetTableDepartmentModel,
-} from "./legacy-tests/models/TestDepartmentModel.js";
+} from "./models/TestDepartmentModel.js";
 import TestEmployeeModel, {
   resetTableEmployeeModel,
-} from "./legacy-tests/models/TestEmployeeModel.js";
+} from "./models/TestEmployeeModel.js";
 
 const getEmployeeQuery = (eloquentContext: EloquentContext) => {
   return eloquentContext.queryBuilder(TestEmployeeModel).orderBy("name", "asc");
