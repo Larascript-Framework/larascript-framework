@@ -6,11 +6,7 @@ import path from "path";
 import { IDatabaseService } from "../database/index.js";
 import DB from "../database/services/DB.js";
 import { IEloquent, IEloquentQueryBuilderService } from "../eloquent/index.js";
-import {
-  IModel,
-  IModelAttributes,
-  ModelConstructor,
-} from "../model/index.js";
+import { IModel, IModelAttributes, ModelConstructor } from "../model/index.js";
 
 describe("Example Test Suite", () => {
   let mockModel: ModelConstructor<IModel<IModelAttributes>>;

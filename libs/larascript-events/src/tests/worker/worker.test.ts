@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
-import { AppSingleton, BaseProvider, EnvironmentTesting, Kernel } from '@larascript-framework/larascript-core';
+import { AbstractProvider, AppContainer, Kernel } from "@larascript-framework/bootstrap";
+import { EnvironmentTesting } from '@larascript-framework/larascript-core';
 import { BaseEvent, EventRegistry, EventService, TSerializableValues } from "../../events/index.js";
 import { IWorkerAttributes, IWorkerModel, WorkerService } from "../../worker/index.js";
 import InMemoryEventDriver from "./drivers/InMemoryEventDriver.js";
@@ -9,16 +10,12 @@ import { InMemoryWorkerRepository } from "./repository/InMemoryWorkerRepository.
 class TestEvent extends BaseEvent<{ foo: string }> {
     queueName: string = 'testing';
 
-    queable: boolean = true;
-
     constructor(payload: { foo: string }) {
         super(payload);
     }
 }
 
 class TestEventFailed extends BaseEvent<{ foo: string }> {
-
-    queable: boolean = true;
 
     queueName: string = 'testing';
 
@@ -37,7 +34,7 @@ describe('Worker', () => {
         Kernel.reset();
         
         const providers = [
-            new class extends BaseProvider {
+            new class extends AbstractProvider {
                 async register(): Promise<void> {
                     const eventService = new EventService({
                         defaultDriver: InMemoryEventDriver,
@@ -64,15 +61,15 @@ describe('Worker', () => {
             }
         ]
 
-        await Kernel.boot({
+        await Kernel.create({
             environment: EnvironmentTesting,
             providers: providers,
-        }, {});
+        }).boot({});
     })
 
     test('bound services', async () => {
-        const eventService = AppSingleton.container('events') as EventService;
-        const workerService = AppSingleton.container('workerService') as WorkerService;
+        const eventService = AppContainer.container().resolve<EventService>('events');
+        const workerService = AppContainer.container().resolve<WorkerService>('workerService');
         expect(eventService).toBeInstanceOf(EventService);
         expect(workerService).toBeInstanceOf(WorkerService);
     })
@@ -96,7 +93,7 @@ describe('Worker', () => {
         }
 
         // Create failed worker model
-        const failedWorkerModel = (AppSingleton.container('workerService') as WorkerService).getFactory().createFailedWorkerModel(failedWorkerData);
+        const failedWorkerModel = AppContainer.container().resolve<WorkerService>('workerService').getFactory().createFailedWorkerModel(failedWorkerData);
         expect(failedWorkerModel.getWorkerData()?.id).toBe('worker-2');
         expect(failedWorkerModel.getWorkerData()?.error).toBe('Test error');
 
@@ -123,7 +120,7 @@ describe('Worker', () => {
             updatedAt: date,
         };
 
-        const workerModel = (AppSingleton.container('workerService') as WorkerService).getFactory().createWorkerModel(workerData);
+        const workerModel = AppContainer.container().resolve<WorkerService>('workerService').getFactory().createWorkerModel(workerData);
         expect(workerModel.getWorkerData()?.id).toBe('worker-1');
         expect(workerModel.getWorkerData()?.payload).toEqual({ foo: 'bar' });
         expect(workerModel.getWorkerData()?.attempts).toBe(0);
@@ -159,8 +156,8 @@ describe('Worker', () => {
     });
 
     test('WorkerService basic run', async () => {
-        const workerService = AppSingleton.container('workerService') as WorkerService;
-        const eventService = AppSingleton.container('events') as EventService;
+        const workerService = AppContainer.container().resolve('workerService') as WorkerService;
+        const eventService = AppContainer.container().resolve('events') as EventService;
         const repo = workerService.getRepository();
 
         await eventService.dispatch(
@@ -191,8 +188,8 @@ describe('Worker', () => {
     })
 
     test('WorkerService basic run with failed worker', async () => {
-        const workerService = AppSingleton.container('workerService') as WorkerService;
-        const eventService = AppSingleton.container('events') as EventService;
+        const workerService = AppContainer.container().resolve('workerService') as WorkerService;
+        const eventService = AppContainer.container().resolve('events') as EventService;
         const repo = workerService.getRepository();
 
         await eventService.dispatch(
@@ -221,8 +218,8 @@ describe('Worker', () => {
     })
 
     test('WorkerService basic run with failed worker and retries', async () => {
-        const workerService = AppSingleton.container('workerService') as WorkerService;
-        const eventService = AppSingleton.container('events') as EventService;
+        const workerService = AppContainer.container().resolve('workerService') as WorkerService;
+        const eventService = AppContainer.container().resolve('events') as EventService;
         const repo = workerService.getRepository();
 
         await eventService.dispatch(
@@ -285,8 +282,8 @@ describe('Worker', () => {
     })
 
     test('WorkerService basic run with runAfterSeconds', async () => {
-        const workerService = AppSingleton.container('workerService') as WorkerService;
-        const eventService = AppSingleton.container('events') as EventService;
+        const workerService = AppContainer.container().resolve('workerService') as WorkerService;
+        const eventService = AppContainer.container().resolve('events') as EventService;
 
         await eventService.dispatch(
             new TestEvent({ foo: 'bar' })

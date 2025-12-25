@@ -34,8 +34,8 @@
     "upstream:rebase": "git fetch upstream && git rebase upstream/main",
     "depcheck": "depcheck",
     "db:postgres:restart": "npm run db:postgres:down && npm run db:postgres:up",
-    "db:postgres:down": "docker-compose -f docker/docker-compose.postgres.yml down -v",
-    "db:postgres:up": "docker-compose -f docker/docker-compose.postgres.yml up -d"
+    "db:postgres:down": "docker-compose -f ../larascript-database/docker/docker-compose.postgres.yml down -v",
+    "db:postgres:up": "docker-compose -f ../larascript-database/docker/docker-compose.postgres.yml up -d"
   },
   "devDependencies": {
     "@larascript-framework/check-exports": "workspace:*",
@@ -53,6 +53,7 @@
     }
   },
   "dependencies": {
+    "@larascript-framework/bootstrap": "workspace:*",
     "@larascript-framework/async-session": "workspace:*",
     "@larascript-framework/contracts": "workspace:*",
     "@larascript-framework/larascript-auth": "workspace:*",

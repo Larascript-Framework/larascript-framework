@@ -1,4 +1,4 @@
-import { AppSingleton } from "@larascript-framework/larascript-core";
+import { AppContainer } from "@larascript-framework/bootstrap";
 import { generateUuidV4 } from "@larascript-framework/larascript-utils";
 import { EVENT_DRIVERS, IBaseEvent, IEventDriver, IEventService, TSerializableValues, WorkerService } from "../../../events/index.js";
 
@@ -18,7 +18,7 @@ class InMemoryEventDriver implements IEventDriver {
 
     async dispatch(event: IBaseEvent): Promise<void> {
         
-        const worker = (AppSingleton.container('workerService') as WorkerService).getFactory().createWorkerModel({
+        const worker = AppContainer.container().resolve<WorkerService>('workerService').getFactory().createWorkerModel({
             id: generateUuidV4(),
             payload: event.getPayload() as TSerializableValues,
             queueName: event.getQueueName(),

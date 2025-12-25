@@ -70,6 +70,7 @@
     }
   },
   "dependencies": {
+    "@larascript-framework/bootstrap": "workspace:*",
     "@larascript-framework/cast-js": "workspace:*",
     "@larascript-framework/crypto-js": "workspace:*",
     "@larascript-framework/larascript-collection": "workspace:*",

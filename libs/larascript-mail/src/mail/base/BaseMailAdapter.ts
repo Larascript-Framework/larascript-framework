@@ -1,16 +1,23 @@
-import { DependencyLoader, RequiresDependency } from "@larascript-framework/contracts/larascript-core";
 import { ILoggerService } from "@larascript-framework/larascript-logger";
 import { IViewRenderService } from "@larascript-framework/larascript-views";
 import { IMail } from "../interfaces/index.js";
 
-abstract class BaseMailAdapter implements RequiresDependency {
+abstract class BaseMailAdapter {
+
   protected view!: IViewRenderService;
 
   protected logger!: ILoggerService;
 
-  setDependencyLoader(loader: DependencyLoader): void {
-    this.view = loader("view");
-    this.logger = loader("logger");
+  setDependencies(deps: Record<string, unknown>): void {
+    if(!deps["logger"]) {
+      throw new Error("Dependency 'logger' not set")
+    }
+    this.logger = deps["logger"] as ILoggerService;
+
+    if(!deps["view"]) {
+      throw new Error("Dependency 'view' not set")
+    }
+    this.view = deps["view"] as IViewRenderService;
   }
 
   async generateBodyString(mail: IMail): Promise<string> {

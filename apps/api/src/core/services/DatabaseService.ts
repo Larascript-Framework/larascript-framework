@@ -1,3 +1,3 @@
 import { app } from "./App.js";
 
-export const db = () => app('db')
+export const db = () => app("db");

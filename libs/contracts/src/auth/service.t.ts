@@ -1,5 +1,5 @@
-import { IBasicACLService } from "@/acl/acl.js";
-import { IAsyncSessionService } from "@/async-session/async-session.js";
+import { IBasicACLService } from "../acl/acl.js";
+import { IAsyncSessionService } from "../async-session/async-session.js";
 import { IApiTokenFactory, IUserFactory } from "./factory.js";
 import { IApiTokenRepository, IAuthConfig, IJwtAuthService, IUserRepository } from "./index.js";
 import { ApiTokenModelOptions, IApiTokenModel, IAuthenticableUserModel, IUserCreationAttributes, IUserModel } from "./models.t.js";

@@ -1,37 +1,51 @@
 {
-    "workbench.colorTheme": "GitHub Dark Dimmed",
-    "workbench.preferredHighContrastColorTheme": "Visual Studio Dark",
-    "workbench.preferredDarkColorTheme": "Visual Studio Dark",
-    "folder-path-color.folders": [
-        {
-            "path": "src/app",
-            "color": "custom1",
-            "tooltip": "Application",
-            "symbol": "📦"
-        },
-        {
-            "path": "src/core",
-            "color": "custom2",
-            "tooltip": "System Core",
-            "symbol": "🛠️"
-        },
-        {
-            "path": "src/test",
-            "color": "custom3",
-            "tooltip": "Test",
-            "symbol": "🧪"
-        },
-        {
-            "path": "src/config",
-            "color": "custom4",
-            "tooltip": "Configuraiton",
-            "symbol": "📝"
-        },
-    ],
-    "workbench.colorCustomizations": {
-        "folderPathColor.custom1": "#8d9249",
-        "folderPathColor.custom2": "#4cb3c3",
-        "folderPathColor.custom3": "#ffda446b",
-        "folderPathColor.custom4": "#ff44b7fc",
+  "workbench.colorTheme": "GitHub Dark Dimmed",
+  "workbench.preferredHighContrastColorTheme": "Visual Studio Dark",
+  "workbench.preferredDarkColorTheme": "Visual Studio Dark",
+  "folder-path-color.folders": [
+    {
+      "path": "src/app",
+      "color": "custom1",
+      "tooltip": "Application",
+      "symbol": "📦"
     },
+    {
+      "path": "src/core",
+      "color": "custom2",
+      "tooltip": "System Core",
+      "symbol": "🛠️"
+    },
+    {
+      "path": "src/test",
+      "color": "custom3",
+      "tooltip": "Test",
+      "symbol": "🧪"
+    },
+    {
+      "path": "src/config",
+      "color": "custom4",
+      "tooltip": "Configuraiton",
+      "symbol": "📝"
+    }
+  ],
+  "workbench.colorCustomizations": {
+    "folderPathColor.custom1": "#8d9249",
+    "folderPathColor.custom2": "#4cb3c3",
+    "folderPathColor.custom3": "#ffda446b",
+    "folderPathColor.custom4": "#ff44b7fc"
+  },
+  "eslint.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.workingDirectories": [
+    { "mode": "auto" }
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.format.enable": true
 }

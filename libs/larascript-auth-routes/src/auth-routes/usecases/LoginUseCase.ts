@@ -27,7 +27,7 @@ export type LoginUseCaseResponse = ApiResponse<{
  * 4. Generating a JWT token via JwtAuthService
  * 5. Returning the token and user data in the response
  */
-class LoginUseCase extends BaseUseCase {
+export class LoginUseCase extends BaseUseCase {
 
     /**
      * Handle the login use case

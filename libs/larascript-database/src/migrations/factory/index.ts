@@ -1,1 +1,1 @@
-export * from './MigrationFactory.js';
+export * from "./MigrationFactory.js";

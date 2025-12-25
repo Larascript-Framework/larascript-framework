@@ -4,6 +4,6 @@ export { default as ExpressionException } from "./ExpressionException.js";
 export { default as InsertException } from "./InsertException.js";
 export { default as InvalidMethodException } from "./InvalidMethodException.js";
 export { default as MissingTableException } from "./MissingTableException.js";
-export { default as ModelNotFound } from "./ModelNotFoundException.js";
+export { default as ModelNotFoundException } from "./ModelNotFoundException.js";
 export { default as QueryBuilderException } from "./QueryBuilderException.js";
 export { default as UpdateException } from "./UpdateException.js";

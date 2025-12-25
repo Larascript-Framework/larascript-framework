@@ -1,6 +1,7 @@
 import { MongoClientOptions } from "mongodb";
+import { IBaseAdapterConfig } from "../database/config.js";
 
-export interface IMongoConfig extends MongoClientOptions {
+export type IMongoConfig = IBaseAdapterConfig & {
   uri: string;
-  options: MongoClientOptions;
+  options: MongoClientOptions & IBaseAdapterConfig['options'];
 }

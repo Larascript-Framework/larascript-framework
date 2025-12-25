@@ -1,4 +1,4 @@
-import { AppSingleton } from "@larascript-framework/larascript-core";
+import { AppContainer } from "@larascript-framework/bootstrap";
 import { IWorkerAttributes, IWorkerModel, WorkerService } from "../../../worker/index.js";
 import { InMemoryWorkerRepository } from "../repository/InMemoryWorkerRepository.js";
 
@@ -7,7 +7,7 @@ class TestWorkerModel implements IWorkerModel {
     constructor(private attributes: IWorkerAttributes) {}
 
     private repository() {
-        return (AppSingleton.container('workerService') as WorkerService).getRepository() as InMemoryWorkerRepository;
+        return AppContainer.container().resolve<WorkerService>('workerService').getRepository() as InMemoryWorkerRepository;
     }
 
     async saveWorkerData(): Promise<void> {

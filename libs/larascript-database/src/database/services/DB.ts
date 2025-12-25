@@ -1,12 +1,13 @@
-import { DependencyLoader, RequiresDependency } from "@larascript-framework/contracts/larascript-core";
 import { ICryptoService } from "@larascript-framework/crypto-js";
 import { IConsoleService } from "@larascript-framework/larascript-console";
 import {
   BaseSingleton,
-  CreateDependencyLoader,
 } from "@larascript-framework/larascript-core";
 import { ILoggerService } from "@larascript-framework/larascript-logger";
-import { IEloquent, IEloquentQueryBuilderService } from "../../eloquent/index.js";
+import {
+  IEloquent,
+  IEloquentQueryBuilderService,
+} from "../../eloquent/index.js";
 import { IModel, ModelConstructor } from "../../model/index.js";
 import { IDatabaseService } from "../interfaces/index.js";
 
@@ -15,18 +16,21 @@ export type InitTypes = {
   databaseService: IDatabaseService;
   eloquentQueryBuilder: IEloquentQueryBuilderService;
   cryptoService: ICryptoService;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatcher: (...args: any[]) => Promise<void>;
   logger?: ILoggerService;
   console: IConsoleService;
 };
 
-export class DB extends BaseSingleton implements RequiresDependency {
+export class DB extends BaseSingleton {
+
   protected _databaseService!: IDatabaseService;
 
   protected _eloquentQueryBuilderService!: IEloquentQueryBuilderService;
 
   protected _cryptoService!: ICryptoService;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   protected _dispatcher!: (...args: any[]) => Promise<void>;
 
   protected _logger?: ILoggerService;
@@ -43,50 +47,48 @@ export class DB extends BaseSingleton implements RequiresDependency {
     logger,
     console,
   }: InitTypes) {
-    DB.getInstance().setDependencyLoader(
-      CreateDependencyLoader.create({
-        databaseService,
-        eloquentQueryBuilder,
-        cryptoService,
-        dispatcher,
-        logger,
-        console,
-      }),
-    );
+    DB.getInstance().setDependencies({
+      databaseService,
+      eloquentQueryBuilder,
+      cryptoService,
+      dispatcher,
+      logger,
+      console,
+    })
   }
 
-  setDependencyLoader(loader: DependencyLoader): void {
-    if (typeof loader("eloquentQueryBuilder") === "undefined") {
+  setDependencies(deps: Record<string, unknown>): void {
+    if (typeof deps["eloquentQueryBuilder"] === "undefined") {
       throw new Error("EloquentQueryBuilderService is not a valid dependency");
     }
 
-    if (typeof loader("databaseService") === "undefined") {
+    if (typeof deps["databaseService"] === "undefined") {
       throw new Error("DatabaseService is not a valid dependency");
     }
 
-    if (typeof loader("cryptoService") === "undefined") {
+    if (typeof deps["cryptoService"] === "undefined") {
       throw new Error("CryptoService is not a valid dependency");
     }
 
-    if (typeof loader("dispatcher") === "undefined") {
+    if (typeof deps["dispatcher"] === "undefined") {
       throw new Error("Dispatcher is not a valid dependency");
     }
 
-    if (typeof loader("console") === "undefined") {
+    if (typeof deps["console"] === "undefined") {
       throw new Error("ConsoleService is not a valid dependency");
     }
 
-    this._databaseService = loader("databaseService");
-    this._eloquentQueryBuilderService = loader("eloquentQueryBuilder");
-    this._cryptoService = loader("cryptoService");
-    this._dispatcher = loader("dispatcher");
-    this._logger = loader("logger");
-    this._console = loader("console");
+    this._databaseService = deps["databaseService"] as IDatabaseService;
+    this._eloquentQueryBuilderService = deps["eloquentQueryBuilder"] as IEloquentQueryBuilderService;
+    this._cryptoService = deps["cryptoService"] as ICryptoService;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    this._dispatcher = deps["dispatcher"] as (...args: any[]) => Promise<void>;
+    this._logger = deps["logger"] as ILoggerService;
+    this._console = deps["console"] as IConsoleService;
     this._initialized = true;
   }
 
   databaseService(): IDatabaseService {
-
     if (!this._databaseService) {
       throw new Error("DatabaseService is not initialized");
     }
@@ -121,6 +123,7 @@ export class DB extends BaseSingleton implements RequiresDependency {
     return this._cryptoService;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatcher(...args: any[]): Promise<void> {
     if (!this._dispatcher) {
       throw new Error("Dispatcher is not initialized");

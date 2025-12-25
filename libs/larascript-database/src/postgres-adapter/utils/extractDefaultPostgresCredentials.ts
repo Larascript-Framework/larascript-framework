@@ -1,11 +1,13 @@
 import fs from "fs";
 import path from "path";
 
-export const extractDefaultPostgresCredentials = () => {
+export const extractDefaultPostgresCredentials = (
+  dockerComposeFilePath: string,
+) => {
   try {
     const dockerComposePath = path.resolve(
       process.cwd(),
-      "docker/docker-compose.postgres.yml",
+      dockerComposeFilePath,
     );
     const contents = fs.readFileSync(dockerComposePath, "utf8");
 

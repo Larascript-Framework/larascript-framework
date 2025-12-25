@@ -42,7 +42,7 @@
             "dependsOn": ["^check-types"]
         },
         "typecheck": {
-            "dependsOn": ["^typecheck"]
+            "dependsOn": ["^build", "^typecheck"]
         },
         "format": {
             "dependsOn": ["^format"]

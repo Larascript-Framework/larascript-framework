@@ -1,18 +1,26 @@
 {
 	"type": "module",
-	"packageManager": "pnpm@10.14.0",
+	"packageManager": "pnpm@10.26.1",
 	"scripts": {
 		"depcheck": "depcheck",
+		"api:dev": "cd ./apps/api && pnpm run dev",
+		"api:setup": "cd ./apps/api && pnpm run setup",
 		"apps:watch": "turbo build:watch --filter=\"./apps/*\" --concurrency=25",
 		"apps:build": "turbo build --filter=\"./apps/*\" --concurrency=25",
 		"libs:watch": "turbo build:watch --filter=\"./libs/*\" --concurrency=25",
 		"libs:build": "turbo build --filter=\"./libs/*\" --concurrency=25",
+		"db:up": "cd apps/api && pnpm run db:up",
+		"db:down": "cd apps/api && pnpm run db:down",
 		"watch": "turbo build:watch --concurrency=25",
 		"build": "turbo build --concurrency=25",
 		"network:up": "cd ./docker && docker-compose -f docker-compose.network.yml up -d network-setup",
 		"api:up": "pnpm network:up && cd ./docker && docker-compose -f docker-compose.api.yml up --build -d api",
 		"api:down": "cd ./docker && docker-compose -f docker-compose.api.yml down && docker-compose -f docker-compose.network.yml down",
-		"api:sh": "docker exec -it larascript-api /bin/bash"
+		"api:sh": "docker exec -it larascript-api /bin/bash",
+		"upstream:master:rebase": "git fetch upstream && git rebase upstream/master",
+		"upstream:master:merge": "git fetch upstream && git merge upstream/master",
+		"upstream:develop:rebase": "git fetch upstream && git rebase upstream/develop",
+		"upstream:develop:merge": "git fetch upstream && git merge upstream/develop"
 	},
 	"dependencies": {
 		"@larascript-framework/async-session": "workspace:*",

@@ -16,7 +16,7 @@ export type RegisterUseCaseResponse = ApiResponse<IUserAttributes | { errors?: s
  * - Saving user data to the configured user repository
  * 
  */
-class RegisterUseCase extends BaseUseCase {
+export class RegisterUseCase extends BaseUseCase {
 
     /**
      * Handle the register use case

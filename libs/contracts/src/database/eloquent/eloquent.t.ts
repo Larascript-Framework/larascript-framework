@@ -1,6 +1,6 @@
 import { Collection } from "@larascript-framework/larascript-collection";
 
-import { TClassConstructor } from "@/core/constructor.js";
+import { TClassConstructor } from "../../core/constructor.js";
 import {
   IModel,
   IModelAttributes,

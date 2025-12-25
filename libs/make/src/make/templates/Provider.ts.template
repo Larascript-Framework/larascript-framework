@@ -1,36 +1,14 @@
-import { BaseProvider } from "@larascript-framework/larascript-core";
+import { AbstractProvider } from "@larascript-framework/bootstrap";
 
-export interface #name#ProviderConfig {}
+class #name#Provider extends AbstractProvider {
+  
+  async register(): Promise<void> {
+    
+  }
 
-/**
- * #name#Provider class
- * Use this class to set up any initial configurations or services
- * 
- * Note:
- * Remember to update your @/config/app.ts 'providers' array.
- * 
- */
-export default class #name#Provider extends BaseProvider {
-
-    // Important: Recommended storing config in @/config (If no config required, leave as an empty object) 
-    protected config: #name#ProviderConfig = {}; 
-
-    /**
-     * Register method
-     * Called when the provider is being registered
-     * Use this method to set up any initial configurations or services
-     */
-    public async register(): Promise<void> {
-        this.log('Registering #name#Provider');
-    }
-
-    /**
-     * Boot method
-     * Called after all providers have been registered
-     * Use this method to perform any actions that require other services to be available
-     */
-    public async boot(): Promise<void> {
-        this.log('Booting #name#Provider');
-    }
-
+  async boot(): Promise<void> {
+    
+  }
 }
+
+export default #name#Provider;

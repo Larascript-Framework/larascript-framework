@@ -1,6 +1,6 @@
 import { AuthenticableUserModelAttributes, IAuthenticableUserModel, IUserFactory } from "@larascript-framework/contracts/auth";
 import { BaseModelFactory, ModelConstructor } from "@larascript-framework/larascript-database";
-import { USER_ATTRIBUTES } from "../consts/UserAttributes.js";
+import { BASE_USER_ATTRIBUTES } from "../consts/BaseUserAttributes.js";
 
 export class AuthenticableUserFactory<T extends IAuthenticableUserModel = IAuthenticableUserModel> extends BaseModelFactory<T> implements IUserFactory {
 
@@ -10,11 +10,11 @@ export class AuthenticableUserFactory<T extends IAuthenticableUserModel = IAuthe
 
     getDefinition(): AuthenticableUserModelAttributes {
         return {
-            [USER_ATTRIBUTES.ID]: '',
-            [USER_ATTRIBUTES.EMAIL]: '',
-            [USER_ATTRIBUTES.HASHED_PASSWORD]: '',
-            [USER_ATTRIBUTES.ACL_ROLES]: [],
-            [USER_ATTRIBUTES.ACL_GROUPS]: []
+            [BASE_USER_ATTRIBUTES.ID]: '',
+            [BASE_USER_ATTRIBUTES.EMAIL]: '',
+            [BASE_USER_ATTRIBUTES.HASHED_PASSWORD]: '',
+            [BASE_USER_ATTRIBUTES.ACL_ROLES]: [],
+            [BASE_USER_ATTRIBUTES.ACL_GROUPS]: []
         } as AuthenticableUserModelAttributes;
     }
 }

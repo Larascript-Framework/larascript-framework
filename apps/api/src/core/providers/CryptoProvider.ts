@@ -1,22 +1,18 @@
 import appConfig, { IAppConfig } from "@/config/app.config.js";
+import { AbstractProvider } from "@larascript-framework/bootstrap";
 import { CryptoService } from "@larascript-framework/crypto-js";
-import { BaseProvider } from "@larascript-framework/larascript-core";
 
-class CryptoProvider extends BaseProvider {
+class CryptoProvider extends AbstractProvider {
+  config: IAppConfig = appConfig;
 
-    config: IAppConfig = appConfig;
+  async register(): Promise<void> {
+    const cryptoService = new CryptoService({
+      secretKey: this.config.appKey,
+    });
 
-    async register(): Promise<void> {
-
-        const cryptoService = new CryptoService({
-            secretKey: this.config.appKey
-        })
-
-        // Bind the crypto service
-        this.bind('crypto', cryptoService)
-
-    }
-       
+    // Bind the crypto service
+    this.bind("crypto", cryptoService);
+  }
 }
 
-export default CryptoProvider
+export default CryptoProvider;

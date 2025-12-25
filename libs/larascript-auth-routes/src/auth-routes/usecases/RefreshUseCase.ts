@@ -12,7 +12,7 @@ import { BaseUseCase } from "../base/BaseUseCase.js";
  * 
  */
 
-class RefreshUseCase extends BaseUseCase {
+export class RefreshUseCase extends BaseUseCase {
 
     /**
      * Handle the user use case

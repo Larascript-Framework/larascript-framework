@@ -15,7 +15,7 @@ import { BaseUseCase } from "../base/BaseUseCase.js";
  * - Returning the updated user data
  * 
  */
-class UpdateUseCase extends BaseUseCase {
+export class UpdateUseCase extends BaseUseCase {
 
     /**
      * Handle the user update use case

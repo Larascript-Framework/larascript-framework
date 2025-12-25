@@ -1,3 +1,3 @@
 import eslintConfig from "@larascript-framework/eslint-config";
 
-export default eslintConfig;
+export default eslintConfig(process.cwd());

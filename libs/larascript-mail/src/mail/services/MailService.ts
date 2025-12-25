@@ -1,4 +1,3 @@
-import { DependencyLoader, RequiresDependency } from "@larascript-framework/contracts/larascript-core";
 import {
   BaseAdapter
 } from "@larascript-framework/larascript-core";
@@ -11,14 +10,11 @@ import {
   MailAdapter,
   MailAdapters,
 } from "../interfaces/index.js";
-
 export class MailService
   extends BaseAdapter<MailAdapters>
-  implements IMailService, RequiresDependency
+  implements IMailService
 {
-  protected loader!: DependencyLoader;
-
-  protected logger!: ILoggerService;
+  protected deps!: Record<string, unknown>
 
   /**
    * Creates an instance of MailService.
@@ -31,13 +27,20 @@ export class MailService
     super();
   }
 
-  setDependencyLoader(loader: DependencyLoader): void {
-    this.loader = loader;
-    this.logger = loader("logger");
+  setDependencies(deps: Record<string, unknown>): void {
+    if(!deps["logger"]) {
+      throw new Error("Dependency 'logger' not set")
+    }
+
+    if(!deps["view"]) {
+      throw new Error("Dependency 'view' not set")
+    }
+    
+    this.deps = deps;
   }
 
   addAdapterOnce(name: string, adapter: MailAdapter): void {
-    adapter.setDependencyLoader(this.loader);
+    adapter.setDependencies(this.deps)
     super.addAdapterOnce(name, adapter);
   }
 
@@ -67,7 +70,7 @@ export class MailService
       mail = this.addLocalesData(mail);
       return await this.getAdapter(driver as keyof BaseMailAdapters).send(mail);
     } catch (err) {
-      this.logger.error(err);
+      (this.deps["logger"] as ILoggerService).error(err);
       throw err;
     }
   }

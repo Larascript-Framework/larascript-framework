@@ -1,0 +1,54 @@
+{
+  "name": "@larascript-framework/bootstrap",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Provides the core application bootstrapping, kernel lifecycle management, dependency injection container, environment support, and standardized interfaces for building services and providers.",
+  "license": "ISC",
+  "author": "ben.shepherd@gmx.com",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "test": "jest --runInBand --passWithNoTests",
+    "test:watch": "jest --runInBand --watch --passWithNoTests",
+    "test:coverage": "jest --runInBand --coverage --passWithNoTests",
+    "build": "tsc --skipLibCheck && npx tsc-alias",
+    "build:watch": "concurrently --kill-others \"tsc -w\" \"tsc-alias -w\"",
+    "lint": "eslint --ignore-pattern .gitignore \"{src,tests}/**/*.+(ts|js|tsx)\"",
+    "lint:fix": "eslint --fix --ignore-pattern .gitignore \"{src,tests}/**/*.+(ts|js|tsx)\"",
+    "tslint": "tslint --project tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --ignore-path .prettierignore --write \"**/*.+(js|ts|json|tsx|mdx)\" --log-level silent",
+    "check-exports": "node ./scripts/check-exports.js",
+    "check": "npm run format && npm run lint:fix && npm run typecheck && npm run check-exports",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major",
+    "depcheck": "depcheck"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@larascript-framework/check-exports": "workspace:*",
+    "@larascript-framework/eslint-config": "workspace:*",
+    "@larascript-framework/jest-config": "workspace:*",
+    "@larascript-framework/test-helpers": "workspace:*",
+    "@larascript-framework/tsconfig": "workspace:*",
+    "eslint": "^9.36.0",
+    "globals": "^16.5.0",
+    "tsc-alias": "^1.8.16",
+    "typescript-eslint": "^8.44.1"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.2.2",
+    "tsyringe": "^4.10.0"
+  }
+}

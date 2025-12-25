@@ -8,17 +8,15 @@ import SeedUpCommand from "../commands/SeedUpCommand.js";
 type Constructor<T> = new (...args: any[]) => T;
 
 export class AvailableMigrationCommands {
-
-    public static getCommands(): Constructor<ICommand>[] {
-        return [
-            MigrateUpCommand,
-            MigrateDownCommand,
-            MigrateFreshCommand,
-            SeedUpCommand,
-            SeedDownCommand,
-        ]
-    }
-
+  public static getCommands(): Constructor<ICommand>[] {
+    return [
+      MigrateUpCommand,
+      MigrateDownCommand,
+      MigrateFreshCommand,
+      SeedUpCommand,
+      SeedDownCommand,
+    ];
+  }
 }
 
 export default AvailableMigrationCommands;

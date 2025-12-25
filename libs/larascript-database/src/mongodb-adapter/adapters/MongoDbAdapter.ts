@@ -62,7 +62,13 @@ class MongoDbAdapter
    * @returns {string | null} The default MongoDB credentials, or null if they could not be extracted.
    */
   getDefaultCredentials(): string | null {
-    return extractDefaultMongoCredentials();
+    const dockerComposeFilePath = this.getConfig().dockerComposeFilePath;
+
+    if (!dockerComposeFilePath) {
+      throw new Error("Docker compose file path is not set");
+    }
+
+    return extractDefaultMongoCredentials(dockerComposeFilePath);
   }
 
   /**

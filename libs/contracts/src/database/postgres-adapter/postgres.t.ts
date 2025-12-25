@@ -1,6 +1,6 @@
-import { TClassConstructor } from "@/core/constructor.js";
 import pg from "pg";
 import { QueryInterface, Sequelize } from "sequelize";
+import { TClassConstructor } from "../../core/constructor.js";
 import { IDatabaseAdapter } from "../database/adapter.js";
 import { IDatabaseSchema } from "../database/schema.js";
 import { IEloquent } from "../eloquent/eloquent.t.js";

@@ -1,6 +1,6 @@
 const MigrationTypeEnum = {
-    seeder: 'seeder',
-    schema: 'schema'
+  seeder: "seeder",
+  schema: "schema",
 } as const;
 
-export default MigrationTypeEnum
+export default MigrationTypeEnum;

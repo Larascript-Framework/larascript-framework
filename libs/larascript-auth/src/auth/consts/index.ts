@@ -1,1 +1,1 @@
-export * from './UserAttributes.js';
+export * from './BaseUserAttributes.js';

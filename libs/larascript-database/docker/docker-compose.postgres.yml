@@ -5,7 +5,7 @@ name: package-larascript-database-postgres
 services:
   postgres:
     container_name: package-larascript-database-postgres
-    image: postgres:latest
+    image: postgres:18-alpine3.21
     ports:
       - "5433:5432"
     environment:
@@ -14,7 +14,7 @@ services:
       POSTGRES_PASSWORD: example
       LARASCRIPT_DEFAULT_CREDENTIALS: postgres://root:example@localhost:5433/app
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/18/docker
 
 volumes:
   postgres_data:
