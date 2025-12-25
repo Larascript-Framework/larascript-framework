@@ -2,7 +2,7 @@ import { forEveryConnection } from "@/tests/tests-helper/forEveryConnection.js";
 import { queryBuilder, testHelper } from "@/tests/tests-helper/testHelper.js";
 import { describe } from "@jest/globals";
 import { EloquentContext } from "./EloquestContext.js";
-import TestPeopleModel, { resetPeopleTable } from "./legacy-tests/models/TestPeopleModel.js";
+import TestPeopleModel, { resetPeopleTable } from "./models/TestPeopleModel.js";
 
 const date2024 = new Date("2024-01-01");
 const date2025 = new Date("2025-01-01");

@@ -4,8 +4,8 @@ import { queryBuilder, testHelper } from "@/tests/tests-helper/testHelper.js";
 import { describe } from "@jest/globals";
 import { generateUuidV4 } from "@larascript-framework/larascript-utils";
 import { EloquentContext } from "./EloquestContext.js";
-import { ITestEmployeeModelData } from "./legacy-tests/models/TestEmployeeModel.js";
-import TestPeopleModel, { resetPeopleTable } from "./legacy-tests/models/TestPeopleModel.js";
+import { ITestEmployeeModelData } from "./models/TestEmployeeModel.js";
+import TestPeopleModel, { resetPeopleTable } from "./models/TestPeopleModel.js";
 
 const resetAndRepopulateTable = async () => {
   await resetPeopleTable();

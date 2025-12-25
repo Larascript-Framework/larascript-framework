@@ -3,11 +3,11 @@ import { queryBuilder, testHelper } from "@/tests/tests-helper/testHelper.js";
 import { describe } from "@jest/globals";
 import { EloquentContext } from "./EloquestContext.js";
 import TestDepartmentModel, {
-  resetTableDepartmentModel,
-} from "./legacy-tests/models/TestDepartmentModel.js";
+    resetTableDepartmentModel,
+} from "./models/TestDepartmentModel.js";
 import TestEmployeeModel, {
-  resetTableEmployeeModel,
-} from "./legacy-tests/models/TestEmployeeModel.js";
+    resetTableEmployeeModel,
+} from "./models/TestEmployeeModel.js";
 
 const dateOneYearInPast = new Date();
 dateOneYearInPast.setFullYear(dateOneYearInPast.getFullYear() - 1);
