@@ -161,7 +161,7 @@ importers:
         version: 4.1.5
       terser-webpack-plugin:
         specifier: ^5.3.10
-        version: 5.3.14(webpack@5.101.3(webpack-cli@5.1.4(webpack@5.101.3)))
+        version: 5.3.14(webpack@5.101.3)
       ts-loader:
         specifier: ^9.5.1
         version: 9.5.4(typescript@5.9.3)(webpack@5.101.3)
@@ -182,7 +182,7 @@ importers:
         version: 5.9.3
       webpack:
         specifier: ^5.92.1
-        version: 5.101.3(webpack-cli@5.1.4(webpack@5.101.3))
+        version: 5.101.3(webpack-cli@5.1.4)
       webpack-cli:
         specifier: ^5.1.4
         version: 5.1.4(webpack@5.101.3)
@@ -369,13 +369,13 @@ importers:
         version: 4.1.5
       terser-webpack-plugin:
         specifier: ^5.3.10
-        version: 5.3.14(webpack@5.101.3(webpack-cli@5.1.4(webpack@5.101.3)))
+        version: 5.3.14(webpack@5.101.3)
       tsc-alias:
         specifier: ^1.8.10
         version: 1.8.16
       webpack:
         specifier: ^5.92.1
-        version: 5.101.3(webpack-cli@5.1.4(webpack@5.101.3))
+        version: 5.101.3(webpack-cli@5.1.4)
 
   libs/async-session:
     dependencies:
@@ -776,6 +776,9 @@ importers:
       '@larascript-framework/larascript-utils':
         specifier: workspace:*
         version: link:../larascript-utils
+      knex:
+        specifier: ^3.1.0
+        version: 3.1.0(pg@8.16.3)
     devDependencies:
       '@larascript-framework/check-exports':
         specifier: workspace:*
@@ -2499,6 +2502,9 @@ packages:
   color@3.2.1:
     resolution: {integrity: sha512-aBl7dZI9ENN6fUGC7mWpMTPNHmWUSNan9tuWN6ahh5ZLNk9baLJOnSMlrQkHcrfFgz2/RigjUVAjdx36VcemKA==}
 
+  colorette@2.0.19:
+    resolution: {integrity: sha512-3tlv/dIP7FWvj3BsbHrGLJ6l/oKh1O3TcgBqMn+yyCagOxc23fyzDS6HypQbgxWbkpDnf52p1LuR4eWDQ/K9WQ==}
+
   colorette@2.0.20:
     resolution: {integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==}
 
@@ -2598,6 +2604,15 @@ packages:
 
   debug@3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
+  debug@4.3.4:
+    resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
+    engines: {node: '>=6.0'}
     peerDependencies:
       supports-color: '*'
     peerDependenciesMeta:
@@ -2868,6 +2883,10 @@ packages:
       jiti:
         optional: true
 
+  esm@3.2.25:
+    resolution: {integrity: sha512-U1suiZ2oDVWv4zPO56S0NcR5QriEahGtdN2OR6FiOG4WJvcjBVFB0qI4+eKoWFH483PKGuLuu6V8Z4T5g63UVA==}
+    engines: {node: '>=6'}
+
   espree@10.4.0:
     resolution: {integrity: sha512-j6PAQ2uUr79PZhBjP5C5fhl8e39FmRnOjsD5lGnWrFU8i2G776tBK7+nP8KuQUTTyAZUwfQqXAgrVH5MbH9CYQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -3076,6 +3095,9 @@ packages:
   get-tsconfig@4.10.1:
     resolution: {integrity: sha512-auHyJ4AgMz7vgS8Hp3N6HXSmlMdUyhSUrfBF16w153rxtLIEOE+HGqaBppczZvnHLqQJfiHotCYpNhl0lUROFQ==}
 
+  getopts@2.3.0:
+    resolution: {integrity: sha512-5eDf9fuSXwxBL6q5HX+dhDj+dslFGWzU5thZ9kNKUkcPtaPdatmUFKwHFrLb/uf/WpA4BHET+AX3Scl56cAjpA==}
+
   glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
     engines: {node: '>= 6'}
@@ -3243,6 +3265,10 @@ packages:
   internal-slot@1.1.0:
     resolution: {integrity: sha512-4gd7VpWNQNB4UKKCFFVcp1AVv+FMOgs9NKzjHKusc8jTMhd5eL1NqQqOpE0KzMds804/yHlglp3uxgluOqAPLw==}
     engines: {node: '>= 0.4'}
+
+  interpret@2.2.0:
+    resolution: {integrity: sha512-Ju0Bz/cEia55xDwUWEa8+olFpCiQoypjnQySseKtmjNrnps3P+xfpUmGr90T7yjlVJmOtybRvPXhKMbHr+fWnw==}
+    engines: {node: '>= 0.10'}
 
   interpret@3.1.1:
     resolution: {integrity: sha512-6xwYfHbajpoF0xLW+iwLkhwgvLoZDfjYfoFNu8ftMoXINzwuymNLd9u/KmwtdT2GbR+/Cz66otEGEVVUHX9QLQ==}
@@ -3627,6 +3653,34 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
 
+  knex@3.1.0:
+    resolution: {integrity: sha512-GLoII6hR0c4ti243gMs5/1Rb3B+AjwMOfjYm97pu0FOQa7JH56hgBxYf5WK2525ceSbBY1cjeZ9yk99GPMB6Kw==}
+    engines: {node: '>=16'}
+    hasBin: true
+    peerDependencies:
+      better-sqlite3: '*'
+      mysql: '*'
+      mysql2: '*'
+      pg: '*'
+      pg-native: '*'
+      sqlite3: '*'
+      tedious: '*'
+    peerDependenciesMeta:
+      better-sqlite3:
+        optional: true
+      mysql:
+        optional: true
+      mysql2:
+        optional: true
+      pg:
+        optional: true
+      pg-native:
+        optional: true
+      sqlite3:
+        optional: true
+      tedious:
+        optional: true
+
   kuler@2.0.0:
     resolution: {integrity: sha512-Xq9nH7KlWZmXAtodXDDRE7vs6DU1gTU8zYDHDiWLSip45Egwq3plLHzPn27NgvzL2r1LMPC1vdqh98sQxtqj4A==}
 
@@ -3841,6 +3895,9 @@ packages:
   ms@2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
 
+  ms@2.1.2:
+    resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
+
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
@@ -4045,6 +4102,9 @@ packages:
 
   pg-cloudflare@1.2.7:
     resolution: {integrity: sha512-YgCtzMH0ptvZJslLM1ffsY4EuGaU0cx4XSdXLRFae8bPP4dS5xL1tNB3k2o/N64cHJpwU7dxKli/nZ2lUa5fLg==}
+
+  pg-connection-string@2.6.2:
+    resolution: {integrity: sha512-ch6OwaeaPYcova4kKZ15sbJ2hKb/VP48ZD2gE7i1J+L4MspCtBMAx8nMgz7bksc7IojCIIWuEhHibSMFH8m8oA==}
 
   pg-connection-string@2.9.1:
     resolution: {integrity: sha512-nkc6NpDcvPVpZXxrreI/FOtX3XemeLl8E0qFr6F2Lrm/I8WOnaWNhIPK2Z7OHpw7gh5XJThi6j6ppgNoaT1w4w==}
@@ -4623,6 +4683,10 @@ packages:
     resolution: {integrity: sha512-ZL6DDuAlRlLGghwcfmSn9sK3Hr6ArtyudlSAiCqQ6IfE+b+HHbydbYDIG15IfS5do+7XQQBdBiubF/cV2dnDzg==}
     engines: {node: '>=6'}
 
+  tarn@3.0.2:
+    resolution: {integrity: sha512-51LAVKUSZSVfI05vjPESNc5vwqqZpbXCsU+/+wxlOrUjk2SnFTt97v9ZgQrD4YmxYW1Px6w2KjaDitCfkvgxMQ==}
+    engines: {node: '>=8.0.0'}
+
   terser-webpack-plugin@5.3.14:
     resolution: {integrity: sha512-vkZjpUjb6OMS7dhV+tILUW6BhpDR7P2L/aQSAv+Uwk+m8KATX9EccViHTJR2qDtACKPIYndLGCyl3FMo+r2LMw==}
     engines: {node: '>= 10.13.0'}
@@ -4650,6 +4714,10 @@ packages:
 
   text-hex@1.0.0:
     resolution: {integrity: sha512-uuVGNWzgJ4yhRaNSiubPY7OjISw4sw4E5Uv0wbjp+OzcbmVU/rsT8ujgcXJhn9ypzsgr5vlzpPqP+MBBKcGvbg==}
+
+  tildify@2.0.0:
+    resolution: {integrity: sha512-Cc+OraorugtXNfs50hU9KS369rFXCfgGLpfCfvlc+Ud5u6VWmUQsOAa9HbTvheQdYnrdJqqv1e5oIqXppMYnSw==}
+    engines: {node: '>=8'}
 
   tmpl@1.0.5:
     resolution: {integrity: sha512-3f0uOEAQwIqGuWW2MVzYg8fV/QNnc/IpuJNG837rLuczAaLVHslWHZQj4IGiEl5Hs3kkbhwL9Ab7Hrsmuj+Smw==}
@@ -6207,19 +6275,19 @@ snapshots:
       '@webassemblyjs/ast': 1.14.1
       '@xtuc/long': 4.2.2
 
-  '@webpack-cli/configtest@2.1.1(webpack-cli@5.1.4(webpack@5.101.3))(webpack@5.101.3)':
+  '@webpack-cli/configtest@2.1.1(webpack-cli@5.1.4)(webpack@5.101.3)':
     dependencies:
-      webpack: 5.101.3(webpack-cli@5.1.4(webpack@5.101.3))
+      webpack: 5.101.3(webpack-cli@5.1.4)
       webpack-cli: 5.1.4(webpack@5.101.3)
 
-  '@webpack-cli/info@2.0.2(webpack-cli@5.1.4(webpack@5.101.3))(webpack@5.101.3)':
+  '@webpack-cli/info@2.0.2(webpack-cli@5.1.4)(webpack@5.101.3)':
     dependencies:
-      webpack: 5.101.3(webpack-cli@5.1.4(webpack@5.101.3))
+      webpack: 5.101.3(webpack-cli@5.1.4)
       webpack-cli: 5.1.4(webpack@5.101.3)
 
-  '@webpack-cli/serve@2.0.5(webpack-cli@5.1.4(webpack@5.101.3))(webpack@5.101.3)':
+  '@webpack-cli/serve@2.0.5(webpack-cli@5.1.4)(webpack@5.101.3)':
     dependencies:
-      webpack: 5.101.3(webpack-cli@5.1.4(webpack@5.101.3))
+      webpack: 5.101.3(webpack-cli@5.1.4)
       webpack-cli: 5.1.4(webpack@5.101.3)
 
   '@xtuc/ieee754@1.2.0': {}
@@ -6623,6 +6691,8 @@ snapshots:
       color-convert: 1.9.3
       color-string: 1.9.1
 
+  colorette@2.0.19: {}
+
   colorette@2.0.20: {}
 
   colorspace@1.1.4:
@@ -6723,6 +6793,10 @@ snapshots:
   debug@3.2.7:
     dependencies:
       ms: 2.1.3
+
+  debug@4.3.4:
+    dependencies:
+      ms: 2.1.2
 
   debug@4.4.3(supports-color@5.5.0):
     dependencies:
@@ -7091,6 +7165,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  esm@3.2.25: {}
+
   espree@10.4.0:
     dependencies:
       acorn: 8.15.0
@@ -7343,6 +7419,8 @@ snapshots:
     dependencies:
       resolve-pkg-maps: 1.0.0
 
+  getopts@2.3.0: {}
+
   glob-parent@5.1.2:
     dependencies:
       is-glob: 4.0.3
@@ -7524,6 +7602,8 @@ snapshots:
       es-errors: 1.3.0
       hasown: 2.0.2
       side-channel: 1.1.0
+
+  interpret@2.2.0: {}
 
   interpret@3.1.1: {}
 
@@ -8097,6 +8177,27 @@ snapshots:
 
   kind-of@6.0.3: {}
 
+  knex@3.1.0(pg@8.16.3):
+    dependencies:
+      colorette: 2.0.19
+      commander: 10.0.1
+      debug: 4.3.4
+      escalade: 3.2.0
+      esm: 3.2.25
+      get-package-type: 0.1.0
+      getopts: 2.3.0
+      interpret: 2.2.0
+      lodash: 4.17.21
+      pg-connection-string: 2.6.2
+      rechoir: 0.8.0
+      resolve-from: 5.0.0
+      tarn: 3.0.2
+      tildify: 2.0.0
+    optionalDependencies:
+      pg: 8.16.3
+    transitivePeerDependencies:
+      - supports-color
+
   kuler@2.0.0: {}
 
   leac@0.6.0: {}
@@ -8257,6 +8358,8 @@ snapshots:
       mongodb-connection-string-url: 3.0.2
 
   ms@2.0.0: {}
+
+  ms@2.1.2: {}
 
   ms@2.1.3: {}
 
@@ -8469,6 +8572,8 @@ snapshots:
 
   pg-cloudflare@1.2.7:
     optional: true
+
+  pg-connection-string@2.6.2: {}
 
   pg-connection-string@2.9.1: {}
 
@@ -9038,14 +9143,16 @@ snapshots:
 
   tapable@2.2.3: {}
 
-  terser-webpack-plugin@5.3.14(webpack@5.101.3(webpack-cli@5.1.4(webpack@5.101.3))):
+  tarn@3.0.2: {}
+
+  terser-webpack-plugin@5.3.14(webpack@5.101.3):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       jest-worker: 27.5.1
       schema-utils: 4.3.2
       serialize-javascript: 6.0.2
       terser: 5.44.0
-      webpack: 5.101.3(webpack-cli@5.1.4(webpack@5.101.3))
+      webpack: 5.101.3(webpack-cli@5.1.4)
 
   terser@5.44.0:
     dependencies:
@@ -9061,6 +9168,8 @@ snapshots:
       minimatch: 3.1.2
 
   text-hex@1.0.0: {}
+
+  tildify@2.0.0: {}
 
   tmpl@1.0.5: {}
 
@@ -9114,7 +9223,7 @@ snapshots:
       semver: 7.7.2
       source-map: 0.7.6
       typescript: 5.9.3
-      webpack: 5.101.3(webpack-cli@5.1.4(webpack@5.101.3))
+      webpack: 5.101.3(webpack-cli@5.1.4)
 
   ts-node@10.9.2(@types/node@22.18.6)(typescript@5.9.3):
     dependencies:
@@ -9410,9 +9519,9 @@ snapshots:
   webpack-cli@5.1.4(webpack@5.101.3):
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
-      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.1.4(webpack@5.101.3))(webpack@5.101.3)
-      '@webpack-cli/info': 2.0.2(webpack-cli@5.1.4(webpack@5.101.3))(webpack@5.101.3)
-      '@webpack-cli/serve': 2.0.5(webpack-cli@5.1.4(webpack@5.101.3))(webpack@5.101.3)
+      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.1.4)(webpack@5.101.3)
+      '@webpack-cli/info': 2.0.2(webpack-cli@5.1.4)(webpack@5.101.3)
+      '@webpack-cli/serve': 2.0.5(webpack-cli@5.1.4)(webpack@5.101.3)
       colorette: 2.0.20
       commander: 10.0.1
       cross-spawn: 7.0.6
@@ -9421,7 +9530,7 @@ snapshots:
       import-local: 3.2.0
       interpret: 3.1.1
       rechoir: 0.8.0
-      webpack: 5.101.3(webpack-cli@5.1.4(webpack@5.101.3))
+      webpack: 5.101.3(webpack-cli@5.1.4)
       webpack-merge: 5.10.0
 
   webpack-merge@5.10.0:
@@ -9432,7 +9541,7 @@ snapshots:
 
   webpack-sources@3.3.3: {}
 
-  webpack@5.101.3(webpack-cli@5.1.4(webpack@5.101.3)):
+  webpack@5.101.3(webpack-cli@5.1.4):
     dependencies:
       '@types/eslint-scope': 3.7.7
       '@types/estree': 1.0.8
@@ -9456,7 +9565,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 4.3.2
       tapable: 2.2.3
-      terser-webpack-plugin: 5.3.14(webpack@5.101.3(webpack-cli@5.1.4(webpack@5.101.3)))
+      terser-webpack-plugin: 5.3.14(webpack@5.101.3)
       watchpack: 2.4.4
       webpack-sources: 3.3.3
     optionalDependencies:

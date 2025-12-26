@@ -1,3 +1,5 @@
+import { PostgresConnectionConfig } from "@/knex-adapter/contracts/connectionConfigs.js";
+
 export class ParsePostgresConnectionUrl {
   static readonly pattern = new RegExp(
     /postgres:\/\/([^:]+):([^@]+)@([^:]+):([^\/]+)\/(.+)/,
@@ -75,6 +77,16 @@ export class ParsePostgresConnectionUrl {
 
   getDatabase(): string {
     return this.database;
+  }
+
+  toObject(): PostgresConnectionConfig {
+    return {
+      host: this.host,
+      port: this.port,
+      username: this.username,
+      password: this.password,
+      database: this.database,
+    }
   }
 }
 
