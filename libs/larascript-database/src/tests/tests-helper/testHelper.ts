@@ -1,10 +1,10 @@
-import { DB, DatabaseConfig, DatabaseService, IDatabaseService } from "@/database/index.js";
+import { DatabaseConfig, DatabaseService, DB, IDatabaseService } from "@/database/index.js";
 import { EloquentQueryBuilderService } from "@/eloquent/index.js";
 import { IModel, ModelConstructor } from "@/model/index.js";
 import {
   extractDefaultMongoCredentials
 } from "@/mongodb-adapter/index.js";
-import { extractDefaultPostgresCredentials } from "@/postgres-adapter/index.js";
+import { extractDefaultPostgresCredentials, ParsePostgresConnectionUrl } from "@/postgres-adapter/index.js";
 import { AbstractProvider, AppContainer, Kernel } from "@larascript-framework/bootstrap";
 import { CryptoService } from "@larascript-framework/crypto-js";
 import { ConsoleService } from "@larascript-framework/larascript-console";
@@ -17,6 +17,10 @@ import path from "path";
 
 class TestDatabaseProvider extends AbstractProvider {
   async register() {
+
+    const postgresDockerComposeFilePath = path.resolve(process.cwd(), "../../libs/larascript-database/docker/docker-compose.postgres.yml");
+    const postgresConnection = ParsePostgresConnectionUrl.parse(extractDefaultPostgresCredentials(postgresDockerComposeFilePath) ?? '').toObject();
+
     const databaseService = new DatabaseService({
       enableLogging: true,
       onBootConnect: true,
@@ -32,6 +36,17 @@ class TestDatabaseProvider extends AbstractProvider {
           uri: extractDefaultMongoCredentials(path.resolve(process.cwd(), "../../libs/larascript-database/docker/docker-compose.mongodb.yml")) as string,
           options: {},
           dockerComposeFilePath: path.resolve(process.cwd(), "../../libs/larascript-database/docker/docker-compose.mongodb.yml"),
+        }),
+        DatabaseConfig.knexPostgres("knex_postgres", {
+          connection: postgresConnection,
+          knexConfig: {
+            pool: {
+              min: 0,
+              max: 10,
+            },
+          },
+          options: {},
+          dockerComposeFilePath: path.resolve(process.cwd(), "../../libs/larascript-database/docker/docker-compose.postgres.yml",),
         }),
       ],
     });
