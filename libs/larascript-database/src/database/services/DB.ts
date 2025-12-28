@@ -22,6 +22,18 @@ export type InitTypes = {
   console: IConsoleService;
 };
 
+/**
+ * TODO: We should refactor this class to use tsyringe for storing the dependencies
+ *  and use the tsyringe container to resolve the dependencies.
+ *  This class could be renamed to "DatabaseServiceResolver" or similar and be used as a singleton to resolve the dependencies.
+ * 
+ *  Example usage:
+ *  const databaseService = DatabaseServiceResolver.databaseService();
+ *  const eloquentQueryBuilder = DatabaseServiceResolver.queryBuilderService();
+ *  const cryptoService = DatabaseServiceResolver.cryptoService();
+ *  etc.
+ * 
+ */
 export class DB extends BaseSingleton {
 
   protected _databaseService!: IDatabaseService;
