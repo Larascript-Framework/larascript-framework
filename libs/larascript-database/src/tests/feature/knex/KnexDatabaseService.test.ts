@@ -71,7 +71,7 @@ describe("Knex Database Service", () => {
         table.string("name");
       });
 
-      tableExists = await knex.schema.hasTable("test_table");
+      tableExists = await knex.schema.hasTable(tableName);
       expect(tableExists).toBe(true);
 
       await knex.schema.dropTable(tableName);

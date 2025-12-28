@@ -42,9 +42,10 @@ describe("Knex Client", () => {
 
     describe('Basic CRUD Operations', () => {
         let _knex: Knex;
-        let tableName = 'users'
+        let tableName: string;
 
         beforeAll(async () => {
+            tableName = "test_table_" + Math.random().toString(36).substring(2, 15);
             _knex = KnexConnectionClientBuilder.createPostgresClient(postgresConnectionConfig)
 
             const tableExists = await _knex.schema.hasTable(tableName)
@@ -58,6 +59,10 @@ describe("Knex Client", () => {
                 table.string('name')
                 table.integer('age')
             })
+        })
+        
+        afterAll(async () => {
+            await _knex.schema.dropTable(tableName)
         })
 
         test("should be able to able to run some schema/query commands", async () => {
