@@ -1,8 +1,9 @@
 import { PostgresConnectionConfig } from "@/knex-adapter/contracts/connectionConfigs.js";
-import { KnexClient } from "@/knex-adapter/KnexClient.js";
+import { KnexConnectionClientBuilder } from "@/knex-adapter/KnexConnectionClientBuilder.js";
 import { extractDefaultPostgresCredentials, ParsePostgresConnectionUrl } from "@/postgres-adapter/index.js";
 import { postgresDockerComposeFilePath } from "@/tests/common/dockerComposeFilePaths.js";
 import { describe, expect, test } from "@jest/globals";
+import { Knex } from "knex";
 
 describe("Knex Client", () => {
     let postgresConnectionConfig: PostgresConnectionConfig;
@@ -28,32 +29,31 @@ describe("Knex Client", () => {
     });
 
     describe("KnexClient", () => {
-        let knexClient: KnexClient;
+        let _knex: Knex;
 
         beforeEach(() => {
-            knexClient = KnexClient.createPostgresClient(postgresConnectionConfig)
+            _knex = KnexConnectionClientBuilder.createPostgresClient(postgresConnectionConfig)
         })
 
         test("should be able to create a postgres KnexClient", async () => {
-            expect(knexClient).toBeInstanceOf(KnexClient)
-            expect(knexClient.knex()).toBeDefined()
+            expect(_knex).toBeDefined()
         })
     })
 
     describe('Basic CRUD Operations', () => {
-        let knexClient: KnexClient;
+        let _knex: Knex;
         let tableName = 'users'
 
         beforeAll(async () => {
-            knexClient = KnexClient.createPostgresClient(postgresConnectionConfig)
+            _knex = KnexConnectionClientBuilder.createPostgresClient(postgresConnectionConfig)
 
-            const tableExists = await knexClient.knex().schema.hasTable(tableName)
+            const tableExists = await _knex.schema.hasTable(tableName)
 
             if(tableExists) {
-                await knexClient.knex().schema.dropTable(tableName)
+                await _knex.schema.dropTable(tableName)
             }
 
-            await knexClient.knex().schema.createTable(tableName, (table) => {
+            await _knex.schema.createTable(tableName, (table) => {
                 table.increments('id')
                 table.string('name')
                 table.integer('age')
@@ -62,10 +62,10 @@ describe("Knex Client", () => {
 
         test("should be able to able to run some schema/query commands", async () => {
 
-            const tableExists = await knexClient.knex().schema.hasTable(tableName)
+            const tableExists = await _knex.schema.hasTable(tableName)
             expect(tableExists).toBe(true)
 
-            await knexClient.knex()(tableName).insert([
+            await _knex(tableName).insert([
                 {
                     name: 'Bob',
                     age: '30'
@@ -76,16 +76,16 @@ describe("Knex Client", () => {
                 }
             ])
 
-            const users = await knexClient.knex()(tableName).select('*').orderBy('id', 'asc')
+            const users = await _knex(tableName).select('*').orderBy('id', 'asc')
             expect(users.length).toBe(2)
             expect(users[0].name).toBe('Bob')
             expect(users[0].age).toBe(30)
             expect(users[1]?.name).toBe('Jane')
             expect(users[1]?.age).toBe(25)
 
-            await knexClient.knex().delete().from(tableName).where('name', 'Bob')
+            await _knex.delete().from(tableName).where('name', 'Bob')
 
-            const updatedUsers = await knexClient.knex()(tableName).select('*').orderBy('id', 'asc')
+            const updatedUsers = await _knex(tableName).select('*').orderBy('id', 'asc')
             expect(updatedUsers.length).toBe(1)
             expect(updatedUsers[0]?.name).toBe('Jane')
             expect(updatedUsers[0]?.age).toBe(25)
