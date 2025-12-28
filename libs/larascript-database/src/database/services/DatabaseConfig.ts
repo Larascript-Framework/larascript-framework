@@ -1,3 +1,5 @@
+import KnexPostgresAdapter from "@/knex-adapter/adapters/KnexPostgresAdapter.js";
+import { IKnexPostgresAdapterConfig } from "@/knex-adapter/contracts/config.js";
 import { IMongoConfig, MongoDbAdapter } from "../../mongodb-adapter/index.js";
 import {
   IPostgresConfig,
@@ -40,6 +42,17 @@ export class DatabaseConfig {
     return {
       connectionName,
       adapter: PostgresAdapter,
+      options,
+    };
+  }
+
+  public static knexPostgres(
+    connectionName: string,
+    options: IKnexPostgresAdapterConfig,
+  ): IDatabaseGenericConnectionConfig<KnexPostgresAdapter> {
+    return {
+      connectionName,
+      adapter: KnexPostgresAdapter,
       options,
     };
   }
