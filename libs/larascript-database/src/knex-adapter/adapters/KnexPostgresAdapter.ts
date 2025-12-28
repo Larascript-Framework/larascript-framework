@@ -3,13 +3,13 @@ import { TClassConstructor } from "@larascript-framework/larascript-utils";
 import pg from "pg";
 import BaseDatabaseAdapter from "../../database/base/BaseDatabaseAdapter.js";
 import { IDatabaseSchema } from "../../database/index.js";
-import DB from "../../database/services/DB.js";
 import { IEloquent } from "../../eloquent/index.js";
 import { IModel } from "../../model/index.js";
 import { IKnexPostgresAdapter } from "../contracts/adapter.js";
-import { IKnexPostgresConfig } from "../contracts/config.js";
+import { IKnexPostgresAdapterConfig } from "../contracts/config.js";
 import KnexEloquent from "../eloquent/KnexEloquent.js";
 import { KnexClient } from "../KnexClient.js";
+import { createMigrationTable } from "../migrations/createMigrationTable.js";
 
 /**
  * PostgresAdapter is responsible for managing the connection and operations with a PostgreSQL database.
@@ -17,7 +17,7 @@ import { KnexClient } from "../KnexClient.js";
  * @class
  * @extends BaseDatabaseAdapter<IPostgresConfig>
  */
-export class KnexPostgresAdapter extends BaseDatabaseAdapter<IKnexPostgresConfig> implements IKnexPostgresAdapter
+export class KnexPostgresAdapter extends BaseDatabaseAdapter<IKnexPostgresAdapterConfig> implements IKnexPostgresAdapter
 {
   _adapter_type_ = "knex_postgres";
 
@@ -35,7 +35,7 @@ export class KnexPostgresAdapter extends BaseDatabaseAdapter<IKnexPostgresConfig
    * Constructor for PostgresAdapter
    * @param config The configuration object containing the uri and options for the PostgreSQL connection
    */
-  constructor(connectionName: string, config: IKnexPostgresConfig) {
+  constructor(connectionName: string, config: IKnexPostgresAdapterConfig) {
     super(connectionName, config);
   }
 
@@ -71,25 +71,13 @@ export class KnexPostgresAdapter extends BaseDatabaseAdapter<IKnexPostgresConfig
    */
 
   async connectDefault(): Promise<void> {
-    await this.createDefaultDatabase();
-
-    // TODO: Create KnexClient
-  }
-
-  /**
-   * Creates the default database if it does not exist
-   * @returns {Promise<void>} A promise that resolves when the default database has been created
-   * @throws {Error} If an error occurs while creating the default database
-   * @private
-   */
-  async createDefaultDatabase(): Promise<void> {
-    try {
-      // TODO: Create default database
-    } catch (err) {
-      DB.getInstance().logger()?.error(err);
-    } finally {
-      
-    }
+    this.knexClient = this.createKnexClient({
+      host: this.getConfig().connection.host,
+      port: this.getConfig().connection.port,
+      username: this.getConfig().connection.username,
+      password: this.getConfig().connection.password,
+      database: this.getConfig().connection.database,
+    });
   }
 
   /**
@@ -125,11 +113,10 @@ export class KnexPostgresAdapter extends BaseDatabaseAdapter<IKnexPostgresConfig
    * @param tableName The name of the table to create
    * @returns A promise that resolves when the schema has been created
    */
-  createMigrationSchema(tableName: string): Promise<unknown> {
-    throw new Error("Method not implemented.");
-    //return createMigrationSchemaPostgres(this, tableName);
+  async createMigrationSchema(tableName: string): Promise<unknown> {
+    await createMigrationTable(this.getKnexClient().knex(), tableName);
+    return Promise.resolve();
   }
-
 
 
   /**
@@ -139,19 +126,6 @@ export class KnexPostgresAdapter extends BaseDatabaseAdapter<IKnexPostgresConfig
    */
   createKnexClient(config: Parameters<typeof KnexClient.createPostgresClient>[0]): KnexClient {
     return KnexClient.createPostgresClient(config);
-  }
-
-  /**
-   * Get a new PostgreSQL client instance connected to a specific database.
-   *
-   * @param database - The name of the database to connect to. Defaults to 'postgres'
-   * @returns {pg.Client} A new instance of PostgreSQL client.
-   */
-  createKnexClientWithDatabase(database: string = "postgres"): KnexClient {
-    return KnexClient.createPostgresClient({
-      ...this.getConfig(),
-      database,
-    });
   }
 
   /**
