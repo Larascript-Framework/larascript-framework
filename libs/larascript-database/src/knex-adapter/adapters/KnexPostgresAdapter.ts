@@ -1,6 +1,6 @@
 import { extractDefaultPostgresCredentials, IPostgresConfig } from "@/postgres-adapter/index.js";
 import { TClassConstructor } from "@larascript-framework/larascript-utils";
-import pg from "pg";
+import { Knex } from "knex";
 import BaseDatabaseAdapter from "../../database/base/BaseDatabaseAdapter.js";
 import { IDatabaseSchema } from "../../database/index.js";
 import { IEloquent } from "../../eloquent/index.js";
@@ -8,7 +8,7 @@ import { IModel } from "../../model/index.js";
 import { IKnexPostgresAdapter } from "../contracts/adapter.js";
 import { IKnexPostgresAdapterConfig } from "../contracts/config.js";
 import KnexEloquent from "../eloquent/KnexEloquent.js";
-import { KnexClient } from "../KnexClient.js";
+import { KnexConnectionClientBuilder } from "../KnexConnectionClientBuilder.js";
 import { createMigrationTable } from "../migrations/createMigrationTable.js";
 
 /**
@@ -29,7 +29,7 @@ export class KnexPostgresAdapter extends BaseDatabaseAdapter<IKnexPostgresAdapte
   /**
    * The pg Pool instance
    */
-  protected knexClient!: KnexClient;
+  protected knex!: Knex;
 
   /**
    * Constructor for PostgresAdapter
@@ -55,10 +55,10 @@ export class KnexPostgresAdapter extends BaseDatabaseAdapter<IKnexPostgresAdapte
 
   /**
    * Gets the KnexClient instance
-   * @returns {KnexClient} The KnexClient instance
+   * @returns {Knex} The Knex instance
    */
-  getKnexClient(): KnexClient {
-    return this.knexClient;
+  getKnex(): Knex {
+    return this.knex;
   }
 
   /**
@@ -71,7 +71,7 @@ export class KnexPostgresAdapter extends BaseDatabaseAdapter<IKnexPostgresAdapte
    */
 
   async connectDefault(): Promise<void> {
-    this.knexClient = this.createKnexClient({
+    this.knex = KnexConnectionClientBuilder.createPostgresClient({
       host: this.getConfig().connection.host,
       port: this.getConfig().connection.port,
       username: this.getConfig().connection.username,
@@ -85,7 +85,7 @@ export class KnexPostgresAdapter extends BaseDatabaseAdapter<IKnexPostgresAdapte
    * @returns {boolean} True if connected, false otherwise
    */
   async isConnected(): Promise<boolean> {
-    return this.knexClient instanceof KnexClient;
+    return typeof this.knex !== "undefined";
   }
 
   /**
@@ -114,18 +114,8 @@ export class KnexPostgresAdapter extends BaseDatabaseAdapter<IKnexPostgresAdapte
    * @returns A promise that resolves when the schema has been created
    */
   async createMigrationSchema(tableName: string): Promise<unknown> {
-    await createMigrationTable(this.getKnexClient().knex(), tableName);
+    await createMigrationTable(this.getKnex(), tableName);
     return Promise.resolve();
-  }
-
-
-  /**
-   * Get a new PostgreSQL client instance.
-   *
-   * @returns {pg.Client} A new instance of PostgreSQL client.
-   */
-  createKnexClient(config: Parameters<typeof KnexClient.createPostgresClient>[0]): KnexClient {
-    return KnexClient.createPostgresClient(config);
   }
 
   /**
@@ -139,9 +129,9 @@ export class KnexPostgresAdapter extends BaseDatabaseAdapter<IKnexPostgresAdapte
    * @returns {Promise<void>} A promise that resolves when the connection is closed.
    */
   async close(): Promise<void> {
-    if (this.knexClient) {
-      await this.knexClient.knex().destroy();
-      this.knexClient = undefined as unknown as KnexClient;
+    if (this.knex) {
+      await this.knex.destroy();
+      this.knex = undefined as unknown as Knex;
     }
   }
 }

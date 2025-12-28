@@ -1,6 +1,5 @@
 import DB from "@/database/services/DB.js";
 import KnexEloquent from "@/knex-adapter/eloquent/KnexEloquent.js";
-import { KnexClient } from "@/knex-adapter/KnexClient.js";
 import { extractDefaultPostgresCredentials } from "@/postgres-adapter/index.js";
 import { beforeEach, describe, expect, test } from "@jest/globals";
 import path from "path";
@@ -38,18 +37,6 @@ describe("Knex Database Service", () => {
       expect(defaultUri).toBe(uri);
     })
 
-    test("should be able to create a knex client", () => {
-      const knexClient = adapter.createKnexClient({
-        host: adapter.getConfig().connection.host,
-        port: adapter.getConfig().connection.port,
-        username: adapter.getConfig().connection.username,
-        password: adapter.getConfig().connection.password,
-        database: adapter.getConfig().connection.database,
-      });
-      
-      expect(knexClient).toBeDefined();
-      expect(knexClient).toBeInstanceOf(KnexClient);
-    })
   });
 
   describe("Connect Default", () => {
@@ -64,14 +51,13 @@ describe("Knex Database Service", () => {
       await adapter.close();
     });
 
-    test("should be able to get the knexClient after running connectDefault", async () => {
-      expect(adapter.getKnexClient()).toBeDefined();
-      expect(adapter.getKnexClient()).toBeInstanceOf(KnexClient);
+    test("should be able to get the knex after running connectDefault", async () => {
+      expect(adapter.getKnex()).toBeDefined();
     })
 
     test("should be able to create a table after running connectDefault", async () => {
 
-      const knex = adapter.getKnexClient().knex();
+      const knex = adapter.getKnex();
       const tableName = "test_table" + Math.random().toString(36).substring(2, 15);
 
       let tableExists = await knex.schema.hasTable(tableName);
@@ -100,7 +86,7 @@ describe("Knex Database Service", () => {
       const isConnected = await adapter.isConnected();
 
       expect(isConnected).toBe(false);
-      expect(adapter.getKnexClient()).toBeUndefined();
+      expect(adapter.getKnex()).toBeUndefined();
     })
   })
 
@@ -138,10 +124,10 @@ describe("Knex Database Service", () => {
 
       await adapter.createMigrationSchema(tableName);
 
-      const tableExists = await adapter.getKnexClient().knex().schema.hasTable(tableName);
+      const tableExists = await adapter.getKnex().schema.hasTable(tableName);
       expect(tableExists).toBe(true);
 
-      await adapter.getKnexClient().knex().schema.dropTable(tableName);
+      await adapter.getKnex().schema.dropTable(tableName);
     });
   })
 
