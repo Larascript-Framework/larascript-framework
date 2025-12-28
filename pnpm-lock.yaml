@@ -776,6 +776,9 @@ importers:
       '@larascript-framework/larascript-utils':
         specifier: workspace:*
         version: link:../larascript-utils
+      '@types/knex':
+        specifier: ^0.16.1
+        version: 0.16.1(pg@8.16.3)
       knex:
         specifier: ^3.1.0
         version: 3.1.0(pg@8.16.3)
@@ -1862,6 +1865,10 @@ packages:
 
   '@types/jsonwebtoken@9.0.10':
     resolution: {integrity: sha512-asx5hIG9Qmf/1oStypjanR7iKTv0gXQ1Ov/jfrX6kS/EO0OFni8orbmGCn0672NHR3kXHwpAwR+B368ZGN/2rA==}
+
+  '@types/knex@0.16.1':
+    resolution: {integrity: sha512-54gWD1HWwdVx5iLHaJ1qxH3I6KyBsj5fFqzRpXFn7REWiEB2jwspeVCombNsocSrqPd7IRPqKrsIME7/cD+TFQ==}
+    deprecated: This is a stub types definition. knex provides its own type definitions, so you do not need this installed.
 
   '@types/mime@1.3.5':
     resolution: {integrity: sha512-/pyBZWSLD2n0dcHE3hq8s8ZvcETHtEuF+3E7XVt0Ig2nvsVQXdghHVcEkIWjy9A0wKfTn97a/PSDYohKIlnP/w==}
@@ -5953,6 +5960,19 @@ snapshots:
     dependencies:
       '@types/ms': 2.1.0
       '@types/node': 22.18.6
+
+  '@types/knex@0.16.1(pg@8.16.3)':
+    dependencies:
+      knex: 3.1.0(pg@8.16.3)
+    transitivePeerDependencies:
+      - better-sqlite3
+      - mysql
+      - mysql2
+      - pg
+      - pg-native
+      - sqlite3
+      - supports-color
+      - tedious
 
   '@types/mime@1.3.5': {}
 
