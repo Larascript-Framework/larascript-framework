@@ -2,14 +2,15 @@ import { extractDefaultPostgresCredentials, IPostgresConfig } from "@/postgres-a
 import { TClassConstructor } from "@larascript-framework/larascript-utils";
 import { Knex } from "knex";
 import BaseDatabaseAdapter from "../../database/base/BaseDatabaseAdapter.js";
-import { IDatabaseSchema } from "../../database/index.js";
 import { IEloquent } from "../../eloquent/index.js";
 import { IModel } from "../../model/index.js";
 import { IKnexPostgresAdapter } from "../contracts/adapter.js";
 import { IKnexPostgresAdapterConfig } from "../contracts/config.js";
+import { IKnexSchema } from "../contracts/schema.js";
 import KnexEloquent from "../eloquent/KnexEloquent.js";
 import { KnexConnectionClientBuilder } from "../KnexConnectionClientBuilder.js";
 import { createMigrationTable } from "../migrations/createMigrationTable.js";
+import { KnexSchema } from "../schema/KnexSchema.js";
 
 /**
  * PostgresAdapter is responsible for managing the connection and operations with a PostgreSQL database.
@@ -90,10 +91,10 @@ export class KnexPostgresAdapter extends BaseDatabaseAdapter<IKnexPostgresAdapte
 
   /**
    * Gets the schema interface for the database
-   * @returns {IDatabaseSchema} The schema interface
+   * @returns {IKnexSchema} The schema interface
    */
-  getSchema(): IDatabaseSchema {
-    throw new Error("Method not implemented.");
+  getSchema(): IKnexSchema {
+    return KnexSchema.create(this.getKnex());
   }
 
   /**
@@ -134,6 +135,7 @@ export class KnexPostgresAdapter extends BaseDatabaseAdapter<IKnexPostgresAdapte
       this.knex = undefined as unknown as Knex;
     }
   }
+
 }
 
 export default KnexPostgresAdapter;
