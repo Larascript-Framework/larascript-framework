@@ -1,4 +1,3 @@
-import { TClassConstructor } from "@larascript-framework/larascript-utils";
 import { Db, MongoClient, MongoClientOptions, MongoServerError } from "mongodb";
 import BaseDatabaseAdapter from "../../database/base/BaseDatabaseAdapter.js";
 import CreateDatabaseException from "../../database/exceptions/CreateDatabaseException.js";
@@ -206,10 +205,8 @@ class MongoDbAdapter
     return new MongoDbSchema(this.connectionName);
   }
 
-  getEloquentConstructor<Model extends IModel>(): TClassConstructor<
-    IEloquent<Model>
-  > {
-    return MongoDbEloquent as unknown as TClassConstructor<IEloquent<Model>>;
+  createEloquentInstance<Model extends IModel = IModel>(): IEloquent<Model> {
+    return new MongoDbEloquent<Model>() as unknown as IEloquent<Model>;
   }
 
   createMigrationSchema(tableName: string): Promise<unknown> {

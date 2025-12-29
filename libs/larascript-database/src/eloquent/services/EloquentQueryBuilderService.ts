@@ -11,20 +11,17 @@ class EloquentQueryBuilderService implements IEloquentQueryBuilderService {
    * @param modelCtor The constructor of the model to query.
    * @returns A query builder instance associated with the model.
    */
-  builder<Model extends IModel>(
-    modelCtor: ModelConstructor<Model>,
-    connectionName?: string,
-  ): IEloquent<Model> {
+  builder<Model extends IModel>(modelCtor: ModelConstructor<Model>, connectionName?: string): IEloquent<Model> {
     const model = new modelCtor(null);
     const tableName = modelCtor.getTable();
     const connection = connectionName ?? modelCtor.getConnectionName();
 
-    const eloquentConstructor = DB.getInstance()
+    const eloquentInstance = DB.getInstance()
       .databaseService()
       .getAdapter(connection)
-      .getEloquentConstructor<Model>();
+      .createEloquentInstance<Model>();
 
-    return new eloquentConstructor()
+    return eloquentInstance
       .setConnectionName(connection)
       .setModelCtor(modelCtor)
       .setModelColumns(modelCtor)

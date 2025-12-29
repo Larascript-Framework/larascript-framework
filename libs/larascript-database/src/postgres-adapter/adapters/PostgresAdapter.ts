@@ -1,4 +1,3 @@
-import { TClassConstructor } from "@larascript-framework/larascript-utils";
 import pg from "pg";
 import { QueryInterface, Sequelize } from "sequelize";
 import BaseDatabaseAdapter from "../../database/base/BaseDatabaseAdapter.js";
@@ -169,16 +168,8 @@ export class PostgresAdapter
     return new PostgresSchema(this.connectionName);
   }
 
-  /**
-   * Retrieves the constructor for a Postgres query builder.
-   *
-   * @template Data The type of data to be queried, defaults to object.
-   * @returns {TClassConstructor<IEloquent<Data>>} The constructor of the query builder.
-   */
-  getEloquentConstructor<Model extends IModel>(): TClassConstructor<
-    IEloquent<Model>
-  > {
-    return PostgresEloquent as unknown as TClassConstructor<IEloquent<Model>>;
+  createEloquentInstance<Model extends IModel = IModel>(): IEloquent<Model> {
+    return new PostgresEloquent<Model>() as unknown as IEloquent<Model>;
   }
 
   /**
