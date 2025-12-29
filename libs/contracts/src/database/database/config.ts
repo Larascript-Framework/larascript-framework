@@ -16,7 +16,10 @@ export interface IDatabaseConfig {
   connections: IDatabaseGenericConnectionConfig[];
 }
 
-export type IBaseAdapterConfig = Record<string, unknown> & {
-  options: Record<string, unknown>;
+export type IBaseAdapterRequiredOptions = {
   dockerComposeFilePath: string;
+}
+
+export type IBaseAdapterConfig = Record<string, unknown> & IBaseAdapterRequiredOptions & {
+  options: Record<string, unknown>;
 };
