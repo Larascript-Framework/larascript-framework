@@ -81,8 +81,8 @@ importers:
         specifier: ^6.18.0
         version: 6.20.0
       nodemailer:
-        specifier: ^7.0.5
-        version: 7.0.6
+        specifier: ^7.0.11
+        version: 7.0.11
       pg:
         specifier: ^8.12.0
         version: 8.16.3
@@ -301,8 +301,8 @@ importers:
         specifier: ^6.9.0
         version: 6.20.0
       nodemailer:
-        specifier: ^7.0.5
-        version: 7.0.6
+        specifier: ^7.0.11
+        version: 7.0.11
       pg:
         specifier: ^8.12.0
         version: 8.16.3
@@ -886,8 +886,8 @@ importers:
         specifier: workspace:*
         version: link:../larascript-views
       nodemailer:
-        specifier: ^7.0.5
-        version: 7.0.6
+        specifier: ^7.0.11
+        version: 7.0.11
       resend:
         specifier: ^6.0.1
         version: 6.1.0(@react-email/render@1.1.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1))
@@ -3797,8 +3797,8 @@ packages:
   node-releases@2.0.21:
     resolution: {integrity: sha512-5b0pgg78U3hwXkCM8Z9b2FJdPZlr9Psr9V2gQPESdGHqbntyFJKFW4r5TeWGFzafGY3hzs1JC62VEQMbl1JFkw==}
 
-  nodemailer@7.0.6:
-    resolution: {integrity: sha512-F44uVzgwo49xboqbFgBGkRaiMgtoBrBEWCVincJPK9+S9Adkzt/wXCLKbf7dxucmxfTI5gHGB+bEmdyzN6QKjw==}
+  nodemailer@7.0.11:
+    resolution: {integrity: sha512-gnXhNRE0FNhD7wPSCGhdNh46Hs6nm+uTyg+Kq0cZukNQiYdnCsoQjodNP9BQVG9XrcK/v6/MgpAPBUFyzh9pvw==}
     engines: {node: '>=6.0.0'}
 
   nodemon@3.1.10:
@@ -4112,6 +4112,7 @@ packages:
   raw-body@1.1.7:
     resolution: {integrity: sha512-WmJJU2e9Y6M5UzTOkHaM7xJGAPQD8PNzx3bAd2+uhZAim6wDk6dAZxPVYLF67XhbR4hmKGh33Lpmh4XWrCH5Mg==}
     engines: {node: '>= 0.8.0'}
+    deprecated: No longer maintained. Please upgrade to a stable version.
 
   raw-body@2.5.2:
     resolution: {integrity: sha512-8zGqypfENjCIqGhgXToC8aB2r7YrBX+AQAfIPs/Mlk+BtPTztOvTS01NRW/3Eh60J+a48lt8qsCzirQ6loCVfA==}
@@ -8178,7 +8179,7 @@ snapshots:
 
   node-releases@2.0.21: {}
 
-  nodemailer@7.0.6: {}
+  nodemailer@7.0.11: {}
 
   nodemon@3.1.10:
     dependencies:

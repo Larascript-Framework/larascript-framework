@@ -43,7 +43,7 @@
     "@larascript-framework/larascript-logger": "workspace:*",
     "@larascript-framework/larascript-views": "workspace:*",
     "@larascript-framework/contracts": "workspace:*",
-    "nodemailer": "^7.0.5",
+    "nodemailer": "^7.0.11",
     "resend": "^6.0.1"
   },
   "devDependencies": {
