@@ -37,9 +37,7 @@ export interface IDatabaseAdapter<Config = unknown> {
 
   getSchema(): IDatabaseSchema;
 
-  getEloquentConstructor<Model extends IModel = IModel>(): TClassConstructor<
-    IEloquent<Model>
-  >;
+  createEloquentInstance<Model extends IModel = IModel>(): IEloquent<Model>;
 
   getRelationshipResolver(connection?: string): IRelationshipResolver;
 

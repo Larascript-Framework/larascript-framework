@@ -1,7 +1,6 @@
 import { BaseDatabaseAdapter, IDatabaseSchema, IPrepareOptions } from "@/database/index.js";
 import { IEloquent, IRelationshipResolver } from "@larascript-framework/contracts/database/eloquent";
 import { IModel } from "@larascript-framework/contracts/database/model";
-import { TClassConstructor } from "@larascript-framework/larascript-utils";
 
 // Mock schema implementation
 const MockSchema: IDatabaseSchema = {
@@ -60,11 +59,8 @@ export class MockSQLAdapter extends BaseDatabaseAdapter<{
     return undefined;
   }
 
-  // Eloquent and relationships
-  getEloquentConstructor<Model extends IModel = IModel>(): TClassConstructor<
-    IEloquent<Model>
-  > {
-    return class MockEloquent {} as any;
+  createEloquentInstance<Model extends IModel = IModel>(): IEloquent<Model> {
+    return {} as any;
   }
 
   getRelationshipResolver(): IRelationshipResolver {
@@ -124,10 +120,8 @@ export class MockMongoDBAdapter extends BaseDatabaseAdapter<{ uri: string }> {
   }
 
   // Eloquent and relationships
-  getEloquentConstructor<Model extends IModel = IModel>(): TClassConstructor<
-    IEloquent<Model>
-  > {
-    return class MockEloquent {} as any;
+  createEloquentInstance<Model extends IModel = IModel>(): IEloquent<Model> {
+    return {} as any;
   }
 
   getRelationshipResolver(): IRelationshipResolver {
@@ -187,10 +181,8 @@ export class MockPostgresAdapter extends BaseDatabaseAdapter<{ uri: string }> {
   }
 
   // Eloquent and relationships
-  getEloquentConstructor<Model extends IModel = IModel>(): TClassConstructor<
-    IEloquent<Model>
-  > {
-    return class MockEloquent {} as any;
+  createEloquentInstance<Model extends IModel = IModel>(): IEloquent<Model> {
+    return {} as any;
   }
 
   getRelationshipResolver(): IRelationshipResolver {

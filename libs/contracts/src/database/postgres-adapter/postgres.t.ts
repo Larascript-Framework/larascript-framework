@@ -3,8 +3,6 @@ import { QueryInterface, Sequelize } from "sequelize";
 import { TClassConstructor } from "../../core/constructor.js";
 import { IDatabaseAdapter } from "../database/adapter.js";
 import { IDatabaseSchema } from "../database/schema.js";
-import { IEloquent } from "../eloquent/eloquent.t.js";
-import { IModel } from "../model/model.t.js";
 import { IPostgresConfig } from "./IPostgresConfig.js";
 
 /**
@@ -58,16 +56,6 @@ export interface IPostgresAdapter extends IDatabaseAdapter {
    * @returns {IDatabaseSchema} The schema interface
    */
   getSchema(): IDatabaseSchema;
-
-  /**
-   * Retrieves the constructor for a Postgres query builder.
-   *
-   * @template Model The type of model to be queried, extends IModel.
-   * @returns {TClassConstructor<IEloquent<Model>>} The constructor of the query builder.
-   */
-  getEloquentConstructor<Model extends IModel>(): TClassConstructor<
-    IEloquent<Model>
-  >;
 
   /**
    * Creates the migrations schema for the database
