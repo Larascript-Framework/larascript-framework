@@ -3,7 +3,7 @@ import { IEloquent, IEloquentQueryBuilderService } from "@/eloquent/index.js";
 import KnexPostgresAdapter from "@/knex-adapter/adapters/KnexPostgresAdapter.js";
 import { testHelper } from "@/tests/tests-helper/testHelper.js";
 import { describe, expect, test } from "@jest/globals";
-import { resetTestPersonTable, TestPerson } from "./models/TestPerson.js";
+import { resetTestPersonTable, TestPerson } from "../models/TestPerson.js";
 
 describe("Knex Eloquent", () => {
   let adapter: KnexPostgresAdapter;
@@ -21,7 +21,7 @@ describe("Knex Eloquent", () => {
   beforeEach(async () => {
     await resetTestPersonTable(adapter.getKnex());
   });
-  
+
   afterAll(async () => {
     await adapter.close();
   });
@@ -29,7 +29,7 @@ describe("Knex Eloquent", () => {
   describe("Insert", () => {
     test("should be able to insert a record", async () => {
       const query = createQuery();
-      
+
       const result = await query.insert([
         {
           name: 'John',
@@ -38,7 +38,7 @@ describe("Knex Eloquent", () => {
           updatedAt: new Date(),
         }
       ]);
-      
+
       expect(result.count()).toBe(1);
       expect(result.get(0)?.id).toBeDefined();
       expect(result.get(0)?.name).toBe("John");
@@ -49,7 +49,7 @@ describe("Knex Eloquent", () => {
 
     test("should be able to insert multiple records", async () => {
       const query = createQuery();
-      
+
       const result = await query.insert([
         {
           name: 'John',
@@ -77,5 +77,46 @@ describe("Knex Eloquent", () => {
       expect(result.get(1)?.createdAt).toBeDefined();
       expect(result.get(1)?.updatedAt).toBeDefined();
     })
+
+    test("should be able to insert a record with a complex data type", async () => {
+      const query = createQuery();
+
+      const result = await query.insert([
+        {
+          name: 'John',
+          age: 30,
+          address: {
+            street: '123 Main St',
+            city: 'Anytown',
+            state: 'CA',
+            zip: '12345',
+          },
+          skills: ['JavaScript', 'TypeScript', 'React'],
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        }
+      ]);
+
+      expect(result.get(0)?.id).toBeDefined();
+      expect(result.get(0)?.name).toBe("John");
+      expect(result.get(0)?.age).toBe(30);
+      expect(result.get(0)?.address).toBeDefined();
+      expect(result.get(0)?.address?.street).toBe("123 Main St");
+      expect(result.get(0)?.address?.city).toBe("Anytown");
+      expect(result.get(0)?.address?.state).toBe("CA");
+      expect(result.get(0)?.address?.zip).toBe("12345");
+    });
   });
+
+  /**
+   * TODO: We need to add more tests for complex data types like arrays, objects, etc.
+   * - Arrays
+   * - Objects
+   * - Dates
+   * - Booleans
+   * - Numbers
+   * - Strings
+   * - Null
+   * etc
+   */
 });

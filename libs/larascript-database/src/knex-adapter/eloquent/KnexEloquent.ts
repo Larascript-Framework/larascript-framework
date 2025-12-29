@@ -61,6 +61,29 @@ class KnexEloquent<Model extends IModel> extends Eloquent<Model, KnexExpression>
     DB.getInstance().logger()?.error(...args);
   }
 
+  private prepareDocumentsForInsert(documents: object | object[]): object[] {
+    const casts = this.modeltor().getCasts();
+    const jsonProperties = Object.keys(casts).filter((key) => casts[key] === "object" || casts[key] === "array");
+    const documentsArray = Array.isArray(documents) ? documents : [documents];
+
+    return documentsArray.map((document) => {
+      let typedDocument = document as { id?: unknown } & Record<string, unknown>;
+
+      // Add ID if not present
+      if (!typedDocument.id) {
+        typedDocument = this.documentWithGeneratedId(typedDocument);
+      }
+
+      for(const [key, value] of Object.entries(typedDocument)) {
+        if (jsonProperties.includes(key) && typeof value === "object" && value !== null) {
+          typedDocument[key] = JSON.stringify(value);
+        }
+      }
+
+      return this.normalizeDocuments(typedDocument)[0] as object;
+    }) as object[];
+  }
+
   setIdGenerator(idGeneratorFn: IdGeneratorFn = this.defaultIdGeneratorFn as IdGeneratorFn): IEloquent<Model> {
     this.idGeneratorFn = idGeneratorFn;
     return this as unknown as IEloquent<Model>;
@@ -78,10 +101,9 @@ class KnexEloquent<Model extends IModel> extends Eloquent<Model, KnexExpression>
       
       const previousExpression = this.expression.clone();
 
-      const documentsArray = Array.isArray(documents) ? documents : [documents];
-      const normalizedDocuments = documentsArray.map((document) => this.documentWithGeneratedId(document));
+      const preparedDocuments: object[] = this.prepareDocumentsForInsert(documents);
 
-      const results = await this.knex.insert(normalizedDocuments).into(this.modeltor().getTable()).returning("*");
+      const results = await this.knex.insert(preparedDocuments).into(this.modeltor().getTable()).returning("*");
 
       this.setExpression(previousExpression);
 
