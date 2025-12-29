@@ -6,3 +6,8 @@ export type KnexConfig = {
         debug: (message: string) => void;
     }
 }
+
+export type KnexRawSql = {
+    sql: string;
+    bindings: unknown[];
+}
