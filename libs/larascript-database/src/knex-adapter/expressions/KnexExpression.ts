@@ -1,6 +1,13 @@
 import BaseExpression from "@/eloquent/base/BaseExpression.js";
+import BindingsHelper from "./BindingsHelper.js";
 
-export class KnexExpressionBuilder extends BaseExpression<unknown> {
+export class KnexExpression extends BaseExpression<BindingsHelper> {
+
+    bindingsUtility: BindingsHelper = new BindingsHelper();
+
+    static create(): KnexExpression {
+        return new KnexExpression();
+    }
 
     build<T = unknown>(): T {
         return {
@@ -25,5 +32,9 @@ export class KnexExpressionBuilder extends BaseExpression<unknown> {
     
     buildDelete(): string {
         throw new Error("Method not implemented.");
+    }
+
+    getBindingValues(): unknown[] {
+        return this.bindingsUtility.getBindings().map(({ value }) => value);
     }
 }

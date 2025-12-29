@@ -1,45 +1,95 @@
+import DB from "@/database/services/DB.js";
+import { collect, Collection } from "@larascript-framework/larascript-collection";
 import {
-  PrefixedPropertyGrouper,
-  generateUuidV4
+  captureError,
+  generateUuidV4,
+  PrefixedPropertyGrouper
 } from "@larascript-framework/larascript-utils";
-import pg from "pg";
+import { Knex } from "knex";
 import Eloquent from "../../eloquent/Eloquent.js";
 import {
-  IdGeneratorFn
+  IdGeneratorFn,
+  IEloquent
 } from "../../eloquent/index.js";
-import { IModel } from "../../model/index.js";
-import { KnexExpressionBuilder } from "../expressions/KnexExpressionBuilder.js";
+import { IModel, ModelConstructor } from "../../model/index.js";
+import BindingsHelper from "../expressions/BindingsHelper.js";
+import { KnexExpression } from "../expressions/KnexExpression.js";
 
-class KnexEloquent<Model extends IModel> extends Eloquent<Model, KnexExpressionBuilder> {
+class KnexEloquent<Model extends IModel> extends Eloquent<Model, KnexExpression> {
+  bindingsUtility: BindingsHelper = new BindingsHelper();
+  
   /**
    * The default ID generator function for the query builder.
    */
   protected defaultIdGeneratorFn: IdGeneratorFn | null = generateUuidV4 as IdGeneratorFn;
 
+  protected idGeneratorFn?: IdGeneratorFn = generateUuidV4 as IdGeneratorFn;
+
   /**
    * The query builder expression object
    */
-  protected expression: KnexExpressionBuilder = new KnexExpressionBuilder();
+  protected expressio!: KnexExpression;
 
   /**
    * The query builder client
    */
-  protected pool!: pg.PoolClient | pg.Pool;
+  protected knex!: Knex;
 
   /**
    * The formatter to use when formatting the result rows to objects
    */
   protected formatter: PrefixedPropertyGrouper = new PrefixedPropertyGrouper();
 
-  constructor() {
+  constructor(knex: Knex) {
     super();
+    this.knex = knex;
+    this.expression = KnexExpression.create();
   }
 
-  raw<T>(...args: unknown[]): Promise<T> {
-    throw new Error("Method not implemented.");
+  static create<Model extends IModel>(knex: Knex): KnexEloquent<Model> {
+    return new KnexEloquent<Model>(knex);
   }
 
-  fetchRows<T = unknown>(expression: KnexExpressionBuilder, ...args: any[]): Promise<T> {
+  private modeltor(): ModelConstructor<Model> {
+    if(typeof this.modelCtor === "undefined") { 
+      throw new Error("Model constructor has not been set");
+    }
+    return this.modelCtor as ModelConstructor<Model>;
+  }
+
+  private onError(...args: any[]): void {
+    DB.getInstance().logger()?.error(...args);
+  }
+
+  setIdGenerator(idGeneratorFn: IdGeneratorFn = this.defaultIdGeneratorFn as IdGeneratorFn): IEloquent<Model> {
+    this.idGeneratorFn = idGeneratorFn;
+    return this as unknown as IEloquent<Model>;
+  }
+
+
+  async raw<T>(...args: unknown[]): Promise<T> {
+    return await captureError(async () => {
+      return [] as T;
+    }, this.onError)
+  }
+
+  async insert(documents: object | object[]): Promise<Collection<Model>> {
+    return await captureError(async () => {
+      
+      const previousExpression = this.expression.clone();
+
+      const documentsArray = Array.isArray(documents) ? documents : [documents];
+      const normalizedDocuments = documentsArray.map((document) => this.documentWithGeneratedId(document));
+
+      const results = await this.knex.insert(normalizedDocuments).into(this.modeltor().getTable()).returning("*");
+
+      this.setExpression(previousExpression);
+
+      return collect(this.formatResultsAsModels(results)) as unknown as Collection<Model>;
+    }, this.onError)
+  }
+
+  fetchRows<T = unknown>(expression: KnexExpression, ...args: any[]): Promise<T> {
     throw new Error("Method not implemented.");
   }
 

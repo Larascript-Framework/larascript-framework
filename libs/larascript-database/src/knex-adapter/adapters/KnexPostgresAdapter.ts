@@ -1,5 +1,4 @@
 import { extractDefaultPostgresCredentials, IPostgresConfig } from "@/postgres-adapter/index.js";
-import { TClassConstructor } from "@larascript-framework/larascript-utils";
 import { Knex } from "knex";
 import BaseDatabaseAdapter from "../../database/base/BaseDatabaseAdapter.js";
 import { IEloquent } from "../../eloquent/index.js";
@@ -97,17 +96,16 @@ export class KnexPostgresAdapter extends BaseDatabaseAdapter<IKnexPostgresAdapte
     return KnexSchema.create(this.getKnex());
   }
 
-  /**
-   * Retrieves the constructor for a Postgres query builder.
-   *
-   * @template Data The type of data to be queried, defaults to object.
-   * @returns {TClassConstructor<IEloquent<Data>>} The constructor of the query builder.
-   */
-  getEloquentConstructor<Model extends IModel>(): TClassConstructor<
-    IEloquent<Model>
-  > {
-    return KnexEloquent as unknown as TClassConstructor<IEloquent<Model>>;
+  createEloquentInstance<Model extends IModel = IModel>(): IEloquent<Model> {
+    const knex = this.getKnex();
+
+    if(typeof knex === "undefined") {
+      throw new Error("Knex is not connected");
+    }
+
+    return KnexEloquent.create<Model>(knex) as unknown as IEloquent<Model>;
   }
+
 
   /**
    * Creates the migrations schema for the database
