@@ -238,6 +238,14 @@ export default abstract class Model<Attributes extends IModelAttributes>
   }
 
   /**
+   * Retrieves the casts for the model.
+   * @returns The casts for the model.
+   */
+  static getCasts(): Record<string, TCastableType> {
+    return this.createWithoutProxy({} as Partial<IModel["attributes"]>).casts as Record<string, TCastableType>;
+  }
+
+  /**
    * Creates a new instance of the model without wrapping it in a Proxy.
    *
    * This method instantiates the model directly, bypassing the Proxy pattern.
