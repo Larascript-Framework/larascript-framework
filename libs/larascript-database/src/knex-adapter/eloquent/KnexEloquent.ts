@@ -28,7 +28,7 @@ class KnexEloquent<Model extends IModel> extends Eloquent<Model, KnexExpression>
   /**
    * The query builder expression object
    */
-  protected expressio!: KnexExpression;
+  declare expression: KnexExpression;
 
   /**
    * The query builder client
@@ -43,11 +43,15 @@ class KnexEloquent<Model extends IModel> extends Eloquent<Model, KnexExpression>
   constructor(knex: Knex) {
     super();
     this.knex = knex;
-    this.expression = KnexExpression.create();
+    this.expression = this.createKnexExpression();
   }
 
   static create<Model extends IModel>(knex: Knex): KnexEloquent<Model> {
     return new KnexEloquent<Model>(knex);
+  }
+
+  private createKnexExpression(): KnexExpression {
+    return KnexExpression.create(this.knex);
   }
 
   private modeltor(): ModelConstructor<Model> {
@@ -59,6 +63,10 @@ class KnexEloquent<Model extends IModel> extends Eloquent<Model, KnexExpression>
 
   private onError(...args: any[]): void {
     DB.getInstance().logger()?.error(...args);
+  }
+
+  private logQuery(knexQuery: Knex.QueryBuilder): void {
+    console.log('[KnexEloquent] Query:', knexQuery.toSQL().sql, 'bindings:', knexQuery.toSQL().bindings);
   }
 
   private prepareDocumentsForInsert(documents: object | object[]): object[] {
@@ -104,6 +112,21 @@ class KnexEloquent<Model extends IModel> extends Eloquent<Model, KnexExpression>
       const preparedDocuments: object[] = this.prepareDocumentsForInsert(documents);
 
       const results = await this.knex.insert(preparedDocuments).into(this.modeltor().getTable()).returning("*");
+
+      this.setExpression(previousExpression);
+
+      return collect(this.formatResultsAsModels(results)) as unknown as Collection<Model>;
+    }, this.onError)
+  }
+  
+  async get(): Promise<Collection<Model>> {
+    return await captureError(async () => {
+      const previousExpression = this.expression.clone();
+      
+      const knexQuery = this.expression.buildSelect();
+      
+      this.logQuery(knexQuery);
+      const results = await this.expression.buildSelect() as unknown as object[];
 
       this.setExpression(previousExpression);
 
