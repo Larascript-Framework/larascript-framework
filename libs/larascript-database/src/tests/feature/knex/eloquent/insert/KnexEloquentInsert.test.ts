@@ -3,23 +3,23 @@ import { IEloquent, IEloquentQueryBuilderService } from "@/eloquent/index.js";
 import KnexPostgresAdapter from "@/knex-adapter/adapters/KnexPostgresAdapter.js";
 import { testHelper } from "@/tests/tests-helper/testHelper.js";
 import { describe, expect, test } from "@jest/globals";
-import { resetTestPersonTable, TestPerson } from "../models/TestPerson.js";
+import { resetTestInsertModel, TestinsertModel } from "./TestInsertModel.js";
 
 describe("Knex Eloquent", () => {
   let adapter: KnexPostgresAdapter;
   let eloquentService: IEloquentQueryBuilderService;
-  let createQuery: () => IEloquent<TestPerson>;
+  let createQuery: () => IEloquent<TestinsertModel>;
 
   beforeAll(async () => {
     await testHelper.testBootApp();
     adapter = DB.getInstance().databaseService().getAdapter("knex_postgres") as KnexPostgresAdapter;
     eloquentService = DB.getInstance().queryBuilderService();
     await adapter.connectDefault();
-    createQuery = () => eloquentService.builder(TestPerson, "knex_postgres");
+    createQuery = () => eloquentService.builder(TestinsertModel, "knex_postgres");
   });
 
   beforeEach(async () => {
-    await resetTestPersonTable(adapter.getKnex());
+    await resetTestInsertModel(adapter.getKnex());
   });
 
   afterAll(async () => {
@@ -106,17 +106,28 @@ describe("Knex Eloquent", () => {
       expect(result.get(0)?.address?.state).toBe("CA");
       expect(result.get(0)?.address?.zip).toBe("12345");
     });
+
+    test("should be able to insert a record with a date type", async () => {
+
+      const query = createQuery();
+
+      const createdAt = new Date();
+
+      const result = await query.insert([
+        {
+          name: 'John',
+          age: 30,
+          createdAt: createdAt,
+          updatedAt: new Date(),
+        }
+      ]);
+
+      expect(result.get(0)?.id).toBeDefined();
+      expect(result.get(0)?.name).toBe("John");
+      expect(result.get(0)?.age).toBe(30);
+      expect(result.get(0)?.createdAt).toBeInstanceOf(Date);
+      expect(result.get(0)?.createdAt.toISOString()).toBe(createdAt.toISOString());
+    });
   });
 
-  /**
-   * TODO: We need to add more tests for complex data types like arrays, objects, etc.
-   * - Arrays
-   * - Objects
-   * - Dates
-   * - Booleans
-   * - Numbers
-   * - Strings
-   * - Null
-   * etc
-   */
 });
