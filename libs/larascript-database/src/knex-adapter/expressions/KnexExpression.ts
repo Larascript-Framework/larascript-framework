@@ -42,6 +42,11 @@ export class KnexExpression extends BaseExpression<BindingsHelper> {
             }
         }
 
+        // Add where clauses
+        if ((this.whereClauses ?? []).length > 0) {
+            this.addWhereClauses(query);
+        }
+
         // Set the limit
         if (this.offsetLimit?.limit) {
             query.limit(this.offsetLimit.limit);
@@ -54,6 +59,23 @@ export class KnexExpression extends BaseExpression<BindingsHelper> {
 
         // Set the table
         return query.select().from(this.table) as unknown as Knex.QueryBuilder;
+    }
+
+    addWhereClauses(query: Knex.QueryBuilder): Knex.QueryBuilder {
+        for(const where of this.whereClauses ?? []) {
+            if (where.operator === "=") {
+                query.where(where.column, where.operator, where.value);
+            } else if (where.operator === "!=") {
+                query.orWhere(where.column, where.operator, where.value);
+            } else if(where.operator === "in") {
+                query.whereIn(where.column, where.value as string[]);
+            } else if(where.operator === "not in") {
+                query.whereNotIn(where.column, where.value as string[]);
+            } else {
+                throw new Error(`Invalid operator: ${where.operator}`);
+            }
+        }
+        return query;
     }
 
     buildInsert(): string {
