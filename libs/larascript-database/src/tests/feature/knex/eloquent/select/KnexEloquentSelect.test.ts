@@ -121,4 +121,44 @@ describe("Knex Eloquent", () => {
 
   });
 
+  describe("Offset/Limit", () => {
+    test("should be able to limit the results", async () => {
+
+      const query = createQuery();
+
+      const results = await query.limit(2).get();
+
+      expect(results.count()).toBe(2);
+      expect(results.get(0)?.name).toBe(firstName);
+      expect(results.get(0)?.age).toBe(firstAge);
+      expect(results.get(1)?.name).toBe(secondName);
+      expect(results.get(1)?.age).toBe(secondAge);
+    })
+
+    test("should be able to offset the results", async () => {
+      
+      const query = createQuery();
+
+      const results = await query.offset(2).get();
+
+      expect(results.count()).toBe(2);
+
+      expect(results.get(0)?.name).toBe(thirdName);
+      expect(results.get(0)?.age).toBe(thirdAge);
+      expect(results.get(1)?.name).toBe(fourthName);
+      expect(results.get(1)?.age).toBe(fourthAge);
+    })
+
+    test("should be able to limit and offset the results", async () => {
+
+      const query = createQuery();
+
+      const results = await query.limit(1).offset(2).get();
+
+      expect(results.count()).toBe(1);
+      expect(results.get(0)?.name).toBe(thirdName);
+      expect(results.get(0)?.age).toBe(thirdAge);
+    })
+  });
+
 });

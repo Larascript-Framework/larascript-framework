@@ -42,6 +42,16 @@ export class KnexExpression extends BaseExpression<BindingsHelper> {
             }
         }
 
+        // Set the limit
+        if (this.offsetLimit?.limit) {
+            query.limit(this.offsetLimit.limit);
+        }
+
+        // Set the offset
+        if (this.offsetLimit?.offset) {
+            query.offset(this.offsetLimit.offset);
+        }
+
         // Set the table
         return query.select().from(this.table) as unknown as Knex.QueryBuilder;
     }
