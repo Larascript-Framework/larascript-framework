@@ -18,12 +18,7 @@ export class KnexExpression extends BaseExpression<BindingsHelper> {
     }
 
     build<T = unknown>(): T {
-        return {
-            select: () => this.buildSelect(),
-            insert: () => this.buildInsert(),
-            update: () => this.buildUpdate(),
-            delete: () => this.buildDelete(),
-          }[this.buildType]() as T;
+        throw new Error("Use the specific build methods instead.");
     }
 
     buildSelect(): Knex.QueryBuilder {
@@ -36,39 +31,95 @@ export class KnexExpression extends BaseExpression<BindingsHelper> {
         }
 
         // Set the order by
-        if ((this.orderByClauses ?? []).length > 0) {
-            for(const orderBy of this.orderByClauses ?? []) {
-                query.orderBy(orderBy.column, orderBy.direction);
-            }
-        }
+        this.addOrderByClauses(query);
 
         // Add where clauses
-        if ((this.whereClauses ?? []).length > 0) {
-            this.addWhereClauses(query);
-        }
+        this.addWhereClauses(query);
 
         // Set the limit
-        if (this.offsetLimit?.limit) {
-            query.limit(this.offsetLimit.limit);
-        }
-
-        // Set the offset
-        if (this.offsetLimit?.offset) {
-            query.offset(this.offsetLimit.offset);
-        }
+        this.addLimitAndOffsetClauses(query);
 
         // Set the table
         return query.select().from(this.table) as unknown as Knex.QueryBuilder;
     }
 
-    addWhereClauses(query: Knex.QueryBuilder): Knex.QueryBuilder {
+    private addOrderByClauses(query: Knex.QueryBuilder): void {
+        for(const orderBy of this.orderByClauses ?? []) {
+            query.orderBy(orderBy.column, orderBy.direction);
+        }
+    }
+
+    private addLimitAndOffsetClauses(query: Knex.QueryBuilder): void {
+        if (this.offsetLimit?.limit) {
+            query.limit(this.offsetLimit.limit);
+        }
+        if (this.offsetLimit?.offset) {
+            query.offset(this.offsetLimit.offset);
+        }
+    }
+
+    private addWhereClauses(query: Knex.QueryBuilder): void {
+        if ((this.whereClauses ?? []).length === 0) {
+            return;
+        }
+
         for(const where of this.whereClauses ?? []) {
+
+            let method: string;
+
+            if(where.logicalOperator === "and") {
+                method = "where";
+            } else {
+                method = "orWhere";
+            }
+
+            if(where.operator === "like") {
+                if(where.logicalOperator === "and") {
+                    method = "whereLike";
+                } else {
+                    method = "orWhereLike";
+                }
+            }
+
+            if(where.operator === "not like") {
+                if(where.logicalOperator === "and") {
+                    method = "whereNotLike";
+                } else {
+                    method = "orWhereNotLike";
+                }
+            }
+
+            if(where.operator === "in") {
+                if(where.logicalOperator === "and") {
+                    method = "whereIn";
+                } else {
+                    method = "orWhereIn";
+                }
+            }
+
+            if(where.operator === "not in") {
+                if(where.logicalOperator === "and") {
+                    method = "whereNotIn";
+                } else {
+                    method = "orWhereNotIn";
+                }
+            }
+
+
             if (where.operator === "=") {
-                query.where(where.column, where.operator, where.value);
+                query[method](where.column, where.operator, where.value);
+            } else if (where.operator === ">") {
+                query[method](where.column, ">", where.value);
+            } else if (where.operator === ">=") {
+                query[method](where.column, ">=", where.value);
+            } else if (where.operator === "<") {
+                query[method](where.column, "<", where.value);
+            } else if (where.operator === "<=") {
+                query[method](where.column, "<=", where.value);
             } else if (where.operator === "!=") {
-                query.orWhere(where.column, where.operator, where.value);
+                query[method](where.column, where.operator, where.value);
             } else if(where.operator === "in") {
-                query.whereIn(where.column, where.value as string[]);
+                query[method](where.column, where.value as string[]);
             } else if(where.operator === "not in") {
                 query.whereNotIn(where.column, where.value as string[]);
             } else if(where.operator === "is null") {
@@ -79,16 +130,18 @@ export class KnexExpression extends BaseExpression<BindingsHelper> {
                 query.whereBetween(where.column, where.value as [number, number]);
             } else if(where.operator === "not between") {
                 query.whereNotBetween(where.column, where.value as [number, number]);
-            }
-            else {
+            } else if(where.operator === "like") {
+                query[method](where.column, where.value);
+            } else if(where.operator === "not like") {
+                query.whereRaw(`${where.column} NOT LIKE ?`, [where.value]);
+            } else {
                 throw new Error(`Invalid operator: ${where.operator}`);
             }
         }
-        return query;
     }
 
-    buildInsert(): string {
-        throw new Error("Method not implemented.");
+    buildInsert(documents: object | object[]): Knex.QueryBuilder {
+        return this.knex.insert(documents).into(this.table).returning("*");
     }
 
     buildUpdate(): string {
