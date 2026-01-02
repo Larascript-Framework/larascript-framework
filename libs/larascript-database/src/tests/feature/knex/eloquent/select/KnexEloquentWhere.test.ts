@@ -332,11 +332,11 @@ describe("Knex Eloquent", () => {
         result => result.age >= firstAge && result.age <= thirdAge
       ).count() > 0;
 
-      expect(results.count()).toBe(1);
+      expect(results.count()).toBe(3);
       expect(expectedSomeAgesAreBetweenSecondAgeAndThirdAge).toBe(true);
     })
 
-    test.only("should be able to use where not between", async () => {
+    test("should be able to use where not between", async () => {
       const query = createQuery();
 
       const results = await query.whereNotBetween("age", [firstAge, thirdAge]).get();
