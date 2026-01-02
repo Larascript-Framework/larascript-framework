@@ -75,7 +75,12 @@ export class KnexExpression extends BaseExpression<BindingsHelper> {
                 query.whereNull(where.column);
             } else if(where.operator === "is not null") {
                 query.whereNotNull(where.column);
-            } else {
+            } else if(where.operator === "between") {
+                query.whereBetween(where.column, where.value as [number, number]);
+            } else if(where.operator === "not between") {
+                query.whereNotBetween(where.column, where.value as [number, number]);
+            }
+            else {
                 throw new Error(`Invalid operator: ${where.operator}`);
             }
         }

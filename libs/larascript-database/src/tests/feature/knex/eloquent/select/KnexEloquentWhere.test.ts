@@ -307,7 +307,7 @@ describe("Knex Eloquent", () => {
       expect(results.get(0)?.id).toBe(nullNameId);
     })
 
-    test.only("should be able to use where not null", async () => {
+    test("should be able to use where not null", async () => {
 
       const query = createQuery();
 
@@ -317,6 +317,36 @@ describe("Knex Eloquent", () => {
 
       expect(results.count()).toBe(4);
       expect(expectedAllNamesAreNotNull).toBe(true);
+    })
+  })
+
+  describe("Where Between and Where Not Between", () => {
+
+    test("should be able to use where between", async () => {
+
+      const query = createQuery();
+
+      const results = await query.whereBetween("age", [firstAge, thirdAge]).get();
+
+      const expectedSomeAgesAreBetweenSecondAgeAndThirdAge = results.filter(
+        result => result.age >= firstAge && result.age <= thirdAge
+      ).count() > 0;
+
+      expect(results.count()).toBe(1);
+      expect(expectedSomeAgesAreBetweenSecondAgeAndThirdAge).toBe(true);
+    })
+
+    test.only("should be able to use where not between", async () => {
+      const query = createQuery();
+
+      const results = await query.whereNotBetween("age", [firstAge, thirdAge]).get();
+
+      const expectedSomeAgesAreNotBetweenSecondAgeAndThirdAge = results. filter(
+        result => false === (result.age >= firstAge && result.age <= thirdAge)
+      ).count() > 0;
+
+      expect(results.count()).toBe(1);
+      expect(expectedSomeAgesAreNotBetweenSecondAgeAndThirdAge).toBe(true);
     })
   })
 });
