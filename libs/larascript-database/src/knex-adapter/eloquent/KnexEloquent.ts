@@ -12,6 +12,7 @@ import {
   IEloquent
 } from "../../eloquent/index.js";
 import { IModel, ModelConstructor } from "../../model/index.js";
+import { IKnexPostgresAdapterConfig } from "../contracts/config.js";
 import BindingsHelper from "../expressions/BindingsHelper.js";
 import { KnexExpression } from "../expressions/KnexExpression.js";
 
@@ -36,18 +37,24 @@ class KnexEloquent<Model extends IModel> extends Eloquent<Model, KnexExpression>
   protected knex!: Knex;
 
   /**
+   * The configuration for the query builder
+   */
+  protected config!: IKnexPostgresAdapterConfig;
+
+  /**
    * The formatter to use when formatting the result rows to objects
    */
   protected formatter: PrefixedPropertyGrouper = new PrefixedPropertyGrouper();
 
-  constructor(knex: Knex) {
+  constructor(knex: Knex, config: IKnexPostgresAdapterConfig) {
     super();
     this.knex = knex;
+    this.config = config;
     this.expression = this.createKnexExpression();
   }
 
-  static create<Model extends IModel>(knex: Knex): KnexEloquent<Model> {
-    return new KnexEloquent<Model>(knex);
+  static create<Model extends IModel>(knex: Knex, config: IKnexPostgresAdapterConfig): KnexEloquent<Model> {
+    return new KnexEloquent<Model>(knex, config);
   }
 
   private createKnexExpression(): KnexExpression {
@@ -111,7 +118,11 @@ class KnexEloquent<Model extends IModel> extends Eloquent<Model, KnexExpression>
 
       const preparedDocuments: object[] = this.prepareDocumentsForInsert(documents);
 
-      const results = await this.knex.insert(preparedDocuments).into(this.modeltor().getTable()).returning("*");
+      if(DB.getInstance().databaseService().getConfig().enableLogging) {
+        this.logQuery(this.expression.buildInsert(preparedDocuments));
+      }
+
+      const results = await this.expression.buildInsert(preparedDocuments) as unknown as object[];
 
       this.setExpression(previousExpression);
 
@@ -122,10 +133,11 @@ class KnexEloquent<Model extends IModel> extends Eloquent<Model, KnexExpression>
   async get(): Promise<Collection<Model>> {
     return await captureError(async () => {
       const previousExpression = this.expression.clone();
+
+      if(DB.getInstance().databaseService().getConfig().enableLogging) {
+        this.logQuery(this.expression.buildSelect());
+      }
       
-      const knexQuery = this.expression.buildSelect();
-      
-      this.logQuery(knexQuery);
       const results = await this.expression.buildSelect() as unknown as object[];
 
       this.setExpression(previousExpression);
