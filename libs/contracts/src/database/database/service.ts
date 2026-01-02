@@ -1,4 +1,5 @@
 import { TClassConstructor } from "../../core/constructor.js";
+import { IDatabaseConfig } from "../index.js";
 import { IMongoDbAdapter } from "../mongodb-adapter/mongodb.t.js";
 import { IPostgresAdapter } from "../postgres-adapter/postgres.t.js";
 import { IDatabaseAdapter } from "./adapter.js";
@@ -7,6 +8,8 @@ import { IDatabaseSchema } from "./schema.js";
 export interface IConnectionTypes extends Record<string, IDatabaseAdapter> {}
 
 export interface IDatabaseService {
+
+  getConfig(): IDatabaseConfig;
 
   boot(): Promise<void>;
 
