@@ -278,4 +278,45 @@ describe("Knex Eloquent", () => {
     })
 
   });
+
+  describe("Where Null and Where Not Null", () => {
+    let nullNameId: string;
+
+    beforeEach(async () => {
+      nullNameId = generateUuidV4();
+      
+      await adapter.getKnex().insert([
+        {
+          id: nullNameId,
+          name: null,
+          age: 1000,
+          skills: JSON.stringify(firstSkills),
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ]).into(TestSelectModel.getTable());
+    });
+
+    test("should be able to use where null", async () => {
+
+      const query = createQuery();
+
+      const results = await query.whereNull("name").get();
+
+      expect(results.count()).toBe(1);
+      expect(results.get(0)?.id).toBe(nullNameId);
+    })
+
+    test.only("should be able to use where not null", async () => {
+
+      const query = createQuery();
+
+      const results = await query.whereNotNull("name").get();
+
+      const expectedAllNamesAreNotNull = results.filter(result => result.name !== null).count() > 0;
+
+      expect(results.count()).toBe(4);
+      expect(expectedAllNamesAreNotNull).toBe(true);
+    })
+  })
 });

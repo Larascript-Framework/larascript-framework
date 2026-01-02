@@ -71,6 +71,10 @@ export class KnexExpression extends BaseExpression<BindingsHelper> {
                 query.whereIn(where.column, where.value as string[]);
             } else if(where.operator === "not in") {
                 query.whereNotIn(where.column, where.value as string[]);
+            } else if(where.operator === "is null") {
+                query.whereNull(where.column);
+            } else if(where.operator === "is not null") {
+                query.whereNotNull(where.column);
             } else {
                 throw new Error(`Invalid operator: ${where.operator}`);
             }
