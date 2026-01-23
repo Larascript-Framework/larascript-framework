@@ -41,7 +41,7 @@
   "dependencies": {
     "@larascript-framework/cast-js": "workspace:*",
     "@larascript-framework/dot-notation-extractor": "workspace:*",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
