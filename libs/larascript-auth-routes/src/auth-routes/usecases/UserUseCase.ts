@@ -12,7 +12,7 @@ import { BaseUseCase } from "../base/BaseUseCase.js";
  * - Returning the user's profile data, excluding guarded attributes
  * 
  */
-class UserUseCase extends BaseUseCase {
+export class UserUseCase extends BaseUseCase {
 
     /**
      * Handle the user use case

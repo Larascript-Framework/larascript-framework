@@ -8,6 +8,7 @@ import RouteException from '../exceptions/RouteException.js';
 import { baseErrorHandler } from '../handlers/baseErrorHandler.js';
 import SecurityMiddleware from '../middleware/SecurityMiddleware.js';
 import MiddlewareUtil from '../utils/middlewareUtil.js';
+import { RouterResourceValidation } from './RouterResourceValidation.js';
 
 // eslint-disable-next-line no-unused-vars
 type ExecuteFn = (context: HttpContext) => Promise<void>;
@@ -135,6 +136,10 @@ export class RouterBindService {
      * @param routeItem The route item to bind
      */
     private bindRoute(routeItem: TRouteItem): void {
+
+        if(typeof routeItem.resource === 'object') {
+            RouterResourceValidation.validate(routeItem.resource)
+        }
 
         // Middlewares from route item
         const routeItemMiddlewares = (routeItem.middlewares ?? []) as TExpressMiddlewareFnOrClass[]

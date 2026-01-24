@@ -25,9 +25,6 @@ export abstract class BaseEvent<TPayload = unknown> extends BaseCastable impleme
     /** The name of the queue that should process this event */
     protected queueName: string = 'default';
 
-    /** Whether the event should be processed by the queable driver */
-    protected queable?: boolean = false;
-
     /** Casting configuration for the event */
     casts: TCasts = {};
     /**

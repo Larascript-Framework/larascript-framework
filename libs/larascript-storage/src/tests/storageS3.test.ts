@@ -8,7 +8,8 @@ import AmazonS3StorageService from "../storage/services/AmazonS3StorageService.j
 import StorageService from "../storage/services/StorageService.js";
 
 // Check if AWS tests should run
-const shouldRunAWSTests = process.env.AWS_SKIP_TESTS !== "true";
+// If .env not set, skip all tests
+const shouldRunAWSTests = typeof process.env.AWS_SKIP_TESTS === 'string' && process.env.AWS_SKIP_TESTS !== "true";
 
 // Skip all tests if AWS_SKIP_TESTS is set to 'true'
 (shouldRunAWSTests ? describe : describe.skip)("AmazonS3StorageService", () => {

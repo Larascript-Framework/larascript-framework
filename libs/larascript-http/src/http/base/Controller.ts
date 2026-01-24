@@ -1,5 +1,5 @@
+import { AppEnvironment } from "@larascript-framework/bootstrap";
 import { IController, IHttpContext, TRouteItem } from "@larascript-framework/contracts/http";
-import { appEnv } from "@larascript-framework/larascript-core";
 import HttpContext from "../context/HttpContext.js";
 import responseError from "../handlers/responseError.js";
 
@@ -142,7 +142,7 @@ export class Controller implements IController {
     protected serverError(message: string | Error | undefined = 'Internal Server Error') {
         const errorMessage = message instanceof Error ? message.message : message
 
-        if (appEnv() === 'development') {
+        if (AppEnvironment.env() === 'development') {
             return this.jsonResponse({
                 error: errorMessage,
                 stack: message instanceof Error ? message.stack?.split('\n').map(line => line.trim()) : undefined

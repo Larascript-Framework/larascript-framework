@@ -1,18 +1,20 @@
-import { BaseProvider, EnvService, IEnvServiceConfig } from "@larascript-framework/larascript-core";
+import { AbstractProvider } from "@larascript-framework/bootstrap";
+import {
+  EnvService,
+  IEnvServiceConfig
+} from "@larascript-framework/larascript-core";
 import path from "path";
 
-class EnvServiceProvider extends BaseProvider {
+class EnvServiceProvider extends AbstractProvider {
+  protected config: IEnvServiceConfig = {
+    envPath: path.resolve("@/../", ".env"),
+    envExamplePath: path.resolve("@/../", ".env.example"),
+  };
 
-    protected config: IEnvServiceConfig = {
-        envPath: path.resolve('@/../', '.env'),
-        envExamplePath: path.resolve('@/../', '.env.example')
-    }
-
-    async register(): Promise<void> {
-        const envService = new EnvService(this.config) 
-        this.bind('envService', envService)
-    }
-
+  async register(): Promise<void> {
+    const envService = new EnvService(this.config);
+    this.bind("envService", envService);
+  }
 }
 
-export default EnvServiceProvider
+export default EnvServiceProvider;

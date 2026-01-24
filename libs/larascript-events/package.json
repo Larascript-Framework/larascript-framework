@@ -35,18 +35,20 @@
     "depcheck": "depcheck"
   },
   "dependencies": {
+    "@larascript-framework/bootstrap": "workspace:*",
     "@larascript-framework/cast-js": "workspace:*",
     "@larascript-framework/larascript-core": "workspace:*",
-    "@larascript-framework/larascript-utils": "workspace:*",
+    "@larascript-framework/larascript-database": "workspace:*",
     "@larascript-framework/larascript-logger": "workspace:*",
-    "@larascript-framework/larascript-database": "workspace:*"
+    "@larascript-framework/larascript-utils": "workspace:*"
   },
   "devDependencies": {
     "@larascript-framework/check-exports": "workspace:*",
-    "@larascript-framework/tsconfig": "workspace:*",
     "@larascript-framework/eslint-config": "workspace:*",
     "@larascript-framework/jest-config": "workspace:*",
-    "tsc-alias": "^1.8.16"
+    "@larascript-framework/tsconfig": "workspace:*",
+    "tsc-alias": "^1.8.16",
+    "tslint-no-circular-imports": "^0.7.0"
   },
   "exports": {
     ".": {

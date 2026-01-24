@@ -1,8 +1,11 @@
-import { TClassConstructor } from "@larascript-framework/larascript-utils";
 import BaseRelationshipResolver from "../../eloquent/base/BaseRelationshipResolver.js";
 import { IEloquent, IRelationshipResolver } from "../../eloquent/index.js";
 import { IModel } from "../../model/index.js";
-import { IDatabaseAdapter, IDatabaseSchema, IPrepareOptions } from "../interfaces/index.js";
+import {
+  IDatabaseAdapter,
+  IDatabaseSchema,
+  IPrepareOptions,
+} from "../interfaces/index.js";
 
 export abstract class BaseDatabaseAdapter<Config> implements IDatabaseAdapter {
   abstract _adapter_type_: string;
@@ -79,11 +82,9 @@ export abstract class BaseDatabaseAdapter<Config> implements IDatabaseAdapter {
   abstract getSchema(): IDatabaseSchema;
 
   /**
-   * Get the Eloquent constructor
+   * Create a new Eloquent instance
    */
-  abstract getEloquentConstructor<
-    Model extends IModel = IModel,
-  >(): TClassConstructor<IEloquent<Model>>;
+  abstract createEloquentInstance<Model extends IModel = IModel>(): IEloquent<Model>;
 
   /**
    * Get the default credentials

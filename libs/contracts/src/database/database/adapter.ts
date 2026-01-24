@@ -1,4 +1,4 @@
-import { TClassConstructor } from "@/core/constructor.js";
+import { TClassConstructor } from "../../core/constructor.js";
 import { IEloquent } from "../eloquent/eloquent.t.js";
 import { IRelationshipResolver } from "../eloquent/relationships.t.js";
 import { IModel } from "../model/model.t.js";
@@ -37,9 +37,7 @@ export interface IDatabaseAdapter<Config = unknown> {
 
   getSchema(): IDatabaseSchema;
 
-  getEloquentConstructor<Model extends IModel = IModel>(): TClassConstructor<
-    IEloquent<Model>
-  >;
+  createEloquentInstance<Model extends IModel = IModel>(): IEloquent<Model>;
 
   getRelationshipResolver(connection?: string): IRelationshipResolver;
 

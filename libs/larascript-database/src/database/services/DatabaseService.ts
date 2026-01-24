@@ -76,6 +76,7 @@ export class DatabaseService implements IDatabaseService, RequiresDependency {
    * @param args - Additional arguments to log.
    * @private
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private log(message: string, ...args: any[]): void {
     this.logger?.info(`[DatabaseService] ${message}`, ...args);
   }
@@ -196,7 +197,6 @@ export class DatabaseService implements IDatabaseService, RequiresDependency {
    */
   isRegisteredAdapter(
     adapter: IDatabaseAdapterConstructor<IDatabaseAdapter>,
-    connectionName: string = this.getDefaultConnectionName(),
   ): boolean {
     const adapterName = DatabaseAdapter.getName(adapter);
 
@@ -298,9 +298,11 @@ export class DatabaseService implements IDatabaseService, RequiresDependency {
    * @returns The default credentials for the adapter, or null if they could not be retrieved.
    */
   getDefaultCredentials(adapterName: string): string | null {
-    const adapterCtor = this.getAdapterConstructor(adapterName);
-    const adapter = new adapterCtor("", {});
-    return adapter.getDefaultCredentials();
+    const adapters = Object.values(this.adapters).filter(adapter => adapter._adapter_type_ === adapterName)
+    if(!adapters[0]) {
+      throw new Error(`Connection not found: ${adapterName}`)
+    }
+    return adapters[0].getDefaultCredentials()
   }
 
   /**
@@ -359,9 +361,9 @@ export class DatabaseService implements IDatabaseService, RequiresDependency {
    * @returns
    */
   getAvailableAdaptersNames(): string[] {
-    // TODO: This should come from the adapter classes themselves. 
+    // TODO: This should come from the adapter classes themselves.
     // Ideally, it should be using the _adapter_type_ property.
-    return ['postgres', 'mongodb'];
+    return ["postgres", "mongodb"];
   }
 }
 

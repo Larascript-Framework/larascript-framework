@@ -1,6 +1,8 @@
 import { isUuid } from "@larascript-framework/larascript-utils";
 import { z } from "zod";
-import BaseExpression, { buildTypes } from "../../../eloquent/base/BaseExpression.js";
+import BaseExpression, {
+  buildTypes,
+} from "../../../eloquent/base/BaseExpression.js";
 import ExpressionException from "../../../eloquent/exceptions/ExpressionException.js";
 import {
   TColumnOption,

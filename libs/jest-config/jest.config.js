@@ -1,6 +1,7 @@
 export const jestConfig = {
   preset: "ts-jest",
   testEnvironment: "node",
+  setupFilesAfterEnv: ['reflect-metadata'], // Add this line
   extensionsToTreatAsEsm: ['.ts'],
   transform: {
     "^.+\\.ts$": ["ts-jest", {
@@ -31,7 +32,7 @@ export const jestConfig = {
     "src/**/*.{ts,js}",
     "!src/**/*.test.{ts,js}",
     "!src/**/*.d.ts",
-    "!src/tests/**", // Exclude test utilities
+    "!src/tests/**",
   ],
   coverageDirectory: "coverage",
   coverageReporters: ["text", "lcov", "html"],
