@@ -75,8 +75,8 @@ importers:
         specifier: ^9.0.2
         version: 9.0.2
       lodash:
-        specifier: ^4.17.21
-        version: 4.17.21
+        specifier: ^4.17.23
+        version: 4.17.23
       mongodb:
         specifier: ^6.18.0
         version: 6.20.0
@@ -295,8 +295,8 @@ importers:
         specifier: ^9.0.2
         version: 9.0.2
       lodash:
-        specifier: ^4.17.21
-        version: 4.17.21
+        specifier: ^4.17.23
+        version: 4.17.23
       mongodb:
         specifier: ^6.9.0
         version: 6.20.0
@@ -950,8 +950,8 @@ importers:
         specifier: workspace:*
         version: link:../dot-notation-extractor
       lodash:
-        specifier: ^4.17.21
-        version: 4.17.21
+        specifier: ^4.17.23
+        version: 4.17.23
       uuid:
         specifier: ^11.1.0
         version: 11.1.0
@@ -3603,8 +3603,8 @@ packages:
   lodash.once@4.1.1:
     resolution: {integrity: sha512-Sb487aTOCr9drQVL8pIxOzVhafOjZN9UU54hiN8PU3uAiSV7lx1yYNpbNmex2PK6dSJoNTSJUUswT651yww3Mg==}
 
-  lodash@4.17.21:
-    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+  lodash@4.17.23:
+    resolution: {integrity: sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w==}
 
   logform@2.7.0:
     resolution: {integrity: sha512-TFYA4jnP7PVbmlBIfhlSe+WKxs9dklXMTEGcBCIvLhE/Tn3H6Gk1norupVW7m5Cnd4bLcr08AytbyV/xj7f/kQ==}
@@ -4112,6 +4112,7 @@ packages:
   raw-body@1.1.7:
     resolution: {integrity: sha512-WmJJU2e9Y6M5UzTOkHaM7xJGAPQD8PNzx3bAd2+uhZAim6wDk6dAZxPVYLF67XhbR4hmKGh33Lpmh4XWrCH5Mg==}
     engines: {node: '>= 0.8.0'}
+    deprecated: No longer maintained. Please upgrade to a stable version.
 
   raw-body@2.5.2:
     resolution: {integrity: sha512-8zGqypfENjCIqGhgXToC8aB2r7YrBX+AQAfIPs/Mlk+BtPTztOvTS01NRW/3Eh60J+a48lt8qsCzirQ6loCVfA==}
@@ -6660,7 +6661,7 @@ snapshots:
       is-core-module: 2.16.1
       js-yaml: 3.14.1
       json5: 2.2.3
-      lodash: 4.17.21
+      lodash: 4.17.23
       minimatch: 7.4.6
       multimatch: 5.0.0
       please-upgrade-node: 3.2.0
@@ -8037,7 +8038,7 @@ snapshots:
 
   lodash.once@4.1.1: {}
 
-  lodash@4.17.21: {}
+  lodash@4.17.23: {}
 
   logform@2.7.0:
     dependencies:
@@ -8671,7 +8672,7 @@ snapshots:
       debug: 4.4.3(supports-color@5.5.0)
       dottie: 2.0.6
       inflection: 1.13.4
-      lodash: 4.17.21
+      lodash: 4.17.23
       moment: 2.30.1
       moment-timezone: 0.5.48
       pg-connection-string: 2.9.1
