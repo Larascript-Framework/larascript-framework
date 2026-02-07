@@ -74,7 +74,7 @@
 		"tsconfig-paths": "^4.2.0",
 		"turbo": "^2.5.6",
 		"typescript": "latest",
-		"webpack": "^5.92.1",
+		"webpack": "^5.104.1",
 		"webpack-cli": "^5.1.4"
 	}
 }
