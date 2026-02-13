@@ -51,12 +51,12 @@
   },
   "devDependencies": {
     "@larascript-framework/check-exports": "workspace:*",
+    "@larascript-framework/contracts": "workspace:*",
     "@larascript-framework/eslint-config": "workspace:*",
     "@larascript-framework/jest-config": "workspace:*",
+    "@larascript-framework/larascript-console": "workspace:*",
     "@larascript-framework/test-helpers": "workspace:*",
     "@larascript-framework/tsconfig": "workspace:*",
-    "@larascript-framework/larascript-console": "workspace:*",
-    "@larascript-framework/contracts": "workspace:*",
     "tsc-alias": "^1.8.16"
   },
   "exports": {
@@ -76,6 +76,8 @@
     "@larascript-framework/larascript-collection": "workspace:*",
     "@larascript-framework/larascript-core": "workspace:*",
     "@larascript-framework/larascript-observer": "workspace:*",
-    "@larascript-framework/larascript-utils": "workspace:*"
+    "@larascript-framework/larascript-utils": "workspace:*",
+    "@types/knex": "^0.16.1",
+    "knex": "^3.1.0"
   }
 }

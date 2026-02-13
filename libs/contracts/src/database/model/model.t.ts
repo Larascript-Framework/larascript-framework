@@ -19,6 +19,7 @@ export type ModelConstructor<M extends IModel = IModel> = {
   factory(): IModelFactory<IModel>;
   getRelationships(): string[];
   isAttributeEncrypted(attribute: string): boolean;
+  getCasts(): Record<string, string>;
 };
 
 export type ModelInstance<MCtor extends ModelConstructor<any>> =
